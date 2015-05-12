@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" typeof="bibo:Document " prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
+<html lang="en" dir="ltr" typeof="bibo:Document w3p:CR" prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
 <head><meta lang="" property="dc:language" content="en">
   <meta charset="utf-8">
 
@@ -146,7 +146,7 @@ div.example-title {
     color: #b9ab2d;
 }
 div.example-title span {
-    text-transform: uppercase;   
+    text-transform: uppercase;
 }
 aside.example, div.example, div.illegal-example {
     padding: 0.5em;
@@ -161,7 +161,7 @@ aside.example, div.example {
     border-left-width: .5em;
     border-left-style: solid;
     border-color: #e0cb52;
-    background: #fcfaee;    
+    background: #fcfaee;
 }
 
 aside.example div.example {
@@ -173,40 +173,40 @@ aside.example div.example div.example-title {
     color: #999;
 }
 </style><style>/* --- ISSUES/NOTES --- */
-div.issue-title, div.note-title , div.warning-title {
+div.issue-title, div.note-title , div.ednote-title, div.warning-title {
     padding-right:  1em;
     min-width: 7.5em;
     color: #b9ab2d;
 }
 div.issue-title { color: #e05252; }
-div.note-title { color: #2b2; }
+div.note-title, div.ednote-title { color: #2b2; }
 div.warning-title { color: #f22; }
-div.issue-title span, div.note-title span, div.warning-title span {
+div.issue-title span, div.note-title span, div.ednote-title span, div.warning-title span {
     text-transform: uppercase;
 }
-div.note, div.issue, div.warning {
+div.note, div.issue, div.ednote, div.warning {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-.note > p:first-child, .issue > p:first-child, .warning > p:first-child { margin-top: 0 }
-.issue, .note, .warning {
+.note > p:first-child, .ednote > p:first-child, .issue > p:first-child, .warning > p:first-child { margin-top: 0 }
+.issue, .note, .ednote, .warning {
     padding: .5em;
     border-left-width: .5em;
     border-left-style: solid;
 }
-div.issue, div.note , div.warning {
+div.issue, div.note , div.ednote,  div.warning {
     padding: 1em 1.2em 0.5em;
     margin: 1em 0;
     position: relative;
     clear: both;
 }
-span.note, span.issue, span.warning { padding: .1em .5em .15em; }
+span.note, span.ednote, span.issue, span.warning { padding: .1em .5em .15em; }
 
 .issue {
     border-color: #e05252;
     background: #fbe9e9;
 }
-.note {
+.note, .ednote {
     border-color: #52e052;
     background: #e9fbe9;
 }
@@ -229,7 +229,7 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
     vertical-align: top;
     margin-top: -0.5em;
 }
-</style><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-ED"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head>
+</style><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-CR"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head>
 
 <body class="h-entry" role="document" id="respecDocument"><div class="head" role="contentinfo" id="respecHeader">
   <p>
@@ -241,11 +241,11 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
   </p>
   <h1 class="title p-name" id="title" property="dcterms:title">TTML Text and Image Profiles for Internet Media Subtitles and Captions 1.0</h1>
   
-  <h2 id="w3c-editor-s-draft-02-may-2015"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2015-05-02">02 May 2015</time></h2>
+  <h2 id="w3c-candidate-recommendation-01-june-2015"><abbr title="World Wide Web Consortium">W3C</abbr> Candidate Recommendation <time property="dcterms:issued" class="dt-published" datetime="2015-06-01">01 June 2015</time></h2>
   <dl>
     
       <dt>This version:</dt>
-      <dd><a class="u-url" href="https://dvcs.w3.org/hg/ttml/raw-file/tip/ttml-ww-profiles/ttml-ww-profiles.html">https://dvcs.w3.org/hg/ttml/raw-file/tip/ttml-ww-profiles/ttml-ww-profiles.html</a></dd>
+      <dd><a class="u-url" href="http://www.w3.org/TR/2015/CR-ttml-imsc1-20150601/">http://www.w3.org/TR/2015/CR-ttml-imsc1-20150601/</a></dd>
       <dt>Latest published version:</dt>
       <dd><a href="http://www.w3.org/TR/ttml-imsc1/">http://www.w3.org/TR/ttml-imsc1/</a></dd>
     
@@ -260,8 +260,9 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
     
     
     
-      
     
+      <dt>Previous version:</dt>
+      <dd><a rel="dcterms:replaces" href="http://www.w3.org/TR/2014/CR-ttml-imsc1-20141209/">http://www.w3.org/TR/2014/CR-ttml-imsc1-20141209/</a></dd>
     
     
     <dt>Editor:</dt>
@@ -319,7 +320,9 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
         </p>
         
         <p>
-          This document was published by the <a href="http://www.w3.org/AudioVideo/TT/">Timed Text Working Group</a> as an Editor's Draft.
+          This document was published by the <a href="http://www.w3.org/AudioVideo/TT/">Timed Text Working Group</a> as a Candidate Recommendation.
+          
+            This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
           
           
             If you wish to make comments regarding this document, please send them to 
@@ -329,6 +332,11 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
               with <code>[imsc]</code> at the start of your email's subject.
           
           
+          
+            <abbr title="World Wide Web Consortium">W3C</abbr> publishes a Candidate Recommendation to indicate that the document is believed to be
+            stable and to encourage implementation by the developer community. This Candidate
+            Recommendation is expected to advance to Proposed Recommendation no earlier than
+            29 June 2015.
           
           
           
@@ -359,7 +367,7 @@ span.note, span.issue, span.warning { padding: .1em .5em .15em; }
         
         
           <p>
-            Publication as an Editor's Draft does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr>
+            Publication as a Candidate Recommendation does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr>
             Membership. This is a draft document and may be updated, replaced or obsoleted by other
             documents at any time. It is inappropriate to cite this document as other than work in
             progress.
