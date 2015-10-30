@@ -1717,8 +1717,20 @@ be present on the <code>tt</code> element.</td>
 
 						<td>permitted</td>
 
-            <td><p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>, <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
-						<p>The <a>processor</a> SHALL NOT apply <code>ebutts:linePadding</code> to elements other than <code>region</code>, <code>body</code>, <code>div</code> and <code>p</code>.</p></td>
+            <td>
+						
+						<p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>, <code>body</code>, 
+						<code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
+												
+						<p>The <a>processor</a>:
+						<ul class="short-list">
+							<li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
+							<li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
+						</ul>
+						</p>
+						
+						
+						</td>
           </tr>
 
           <tr>
@@ -1731,8 +1743,9 @@ be present on the <code>tt</code> element.</td>
 						<code>div</code> and <code>p</code> in addition to <code>style</code></p>
 						
 						<p>The <a>processor</a>:
-						<ul class="short-list"><li>SHALL NOT apply <code>ebutts:multiRowAlign</code> to elements other than <code>p</code>; and</li>
-						<li>SHALL treat <code>ebutts:multiRowAlign</code> as inherited.</li>
+						<ul class="short-list">
+							<li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
+							<li>SHALL treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
 						</ul>
 						</p>
 						</td>

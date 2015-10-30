@@ -2074,8 +2074,20 @@ be present on the <code>tt</code> element.</td>
 
 						<td>permitted</td>
 
-            <td><p>If used, the attribute <code>ebutts:linePadding</code> <em class="rfc2119" title="MAY">MAY</em> be specified on elements <code>region</code>, <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
-						<p>The <a href="#dfn-processor" class="internalDFN" data-link-type="dfn">processor</a> <em class="rfc2119" title="SHALL NOT">SHALL NOT</em> apply <code>ebutts:linePadding</code> to elements other than <code>region</code>, <code>body</code>, <code>div</code> and <code>p</code>.</p></td>
+            <td>
+						
+						<p>If used, the attribute <code>ebutts:linePadding</code> <em class="rfc2119" title="MAY">MAY</em> be specified on elements <code>region</code>, <code>body</code>, 
+						<code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
+												
+						<p>The <a href="#dfn-processor" class="internalDFN" data-link-type="dfn">processor</a>:
+						</p><ul class="short-list">
+							<li><em class="rfc2119" title="SHALL">SHALL</em> apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
+							<li><em class="rfc2119" title="SHALL">SHALL</em> treat <code>ebutts:linePadding</code> as inheritable.</li>
+						</ul>
+						<p></p>
+						
+						
+						</td>
           </tr>
 
           <tr>
@@ -2088,8 +2100,9 @@ be present on the <code>tt</code> element.</td>
 						<code>div</code> and <code>p</code> in addition to <code>style</code></p>
 						
 						<p>The <a href="#dfn-processor" class="internalDFN" data-link-type="dfn">processor</a>:
-						</p><ul class="short-list"><li><em class="rfc2119" title="SHALL NOT">SHALL NOT</em> apply <code>ebutts:multiRowAlign</code> to elements other than <code>p</code>; and</li>
-						<li><em class="rfc2119" title="SHALL">SHALL</em> treat <code>ebutts:multiRowAlign</code> as inherited.</li>
+						</p><ul class="short-list">
+							<li><em class="rfc2119" title="SHALL">SHALL</em> apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
+							<li><em class="rfc2119" title="SHALL">SHALL</em> treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
 						</ul>
 						<p></p>
 						</td>
