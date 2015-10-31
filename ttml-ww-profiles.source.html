@@ -2070,7 +2070,7 @@ be present on the <code>tt</code> element.</td>
 
     <section>
 
-        <h3>Overview</h3>
+        <h3>Overview (non-normative)</h3>
 
         <p>This Section specifies the Hypothetical Render Model illustrated in <a href="#fig-hypothetical-render-model"></a>.</p>
 
@@ -2273,7 +2273,7 @@ be present on the <code>tt</code> element.</td>
           D<sub>n</sub> to the Presentation Buffer P<sub>n</sub> using the Image Copier; or</li>
 
           <li>if an identical image is present in Decoded Image Buffer D<sub>n-1</sub>, i.e. an identical image was present in <a>
-            intermediate synchronic document</a> E<sub>n-1</sub>, copy using the Image Copier the glyph from Decoded Image Buffer
+            intermediate synchronic document</a> E<sub>n-1</sub>, copy using the Image Copier the image from Decoded Image Buffer
             D<sub>n-1</sub> to both the Decoded Image Buffer D<sub>n</sub> and the Presentation Buffer P<sub>n</sub>; or
           </li>
 
@@ -2354,25 +2354,11 @@ be present on the <code>tt</code> element.</td>
 
       <section id='paint-text'>
         <h3>Paint Text</h3>
-
-        <p>For each glyph displayed in <a>intermediate synchronic document</a> E<sub>n</sub>, the Presentation Compositor
-        SHALL:</p>
-
-        <ul>
-          <li>if an identical glyph is present in Glyph Buffer G<sub>n</sub>, copy the glyph from Glyph Buffer G<sub>n</sub> to the
-          Presentation Buffer P<sub>n</sub> using the Glyph Copier; or</li>
-
-          <li>if an identical glyph is present in Glyph Buffer G<sub>n-1</sub>, i.e. an identical glyph was present in intermediate
-          synchronic document E<sub>n-1</sub>, copy using the Glyph Copier the glyph from Glyph Buffer G<sub>n-1</sub> to both the
-          Glyph Buffer G<sub>n</sub> and the Presentation Buffer P<sub>n</sub>; or</li>
-
-          <li>otherwise render using the Glyph Renderer the glyph into the Presentation Buffer P<sub>n</sub> and Glyph Buffer
-          G<sub>n</sub> using the corresponding style information.</li>
-        </ul>
-
-        <p>Two glyphs are identical if and only if the following [[!TTML1]] styles are identical:</p>
-
-        <ul>
+				
+				<p>In the context of this section, a <dfn>glyph</dfn> is a tuple consisting of (i) one character and (ii) the computed values of the following
+				style properties:
+				
+				<ul>				
           <li><code>tts:color</code></li>
 
           <li><code>tts:fontFamily</code></li>
@@ -2387,6 +2373,27 @@ be present on the <code>tt</code> element.</td>
 
           <li><code>tts:textOutline</code></li>
         </ul>
+				
+				</p>
+				
+				<p class='note'>In complex scripts, the mapping from character to typographical glyph is not one-to-one. For instance, a given arabic character can 
+				yield multiple glyphs depending on its position in a word. The Hypothetical Render Model however assumes a one-to-one mapping 
+				and accounts for complex scripts by reducing the performance of the glyph buffer.</p>
+				
+        <p>For each <a>glyph</a> associated with a character in a <a>presented region</a> of <a>intermediate synchronic document</a> E<sub>n</sub>,
+				the Presentation Compositor SHALL:</p>
+
+        <ul>				
+          <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n</sub>, copy the <a>glyph</a> from Glyph Buffer G<sub>n</sub> to the
+          Presentation Buffer P<sub>n</sub> using the Glyph Copier; or</li>
+
+          <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n-1</sub>, i.e. an identical <a>glyph</a> was present in <a>intermediate
+          synchronic document</a> E<sub>n-1</sub>, copy using the Glyph Copier the <a>glyph</a> from Glyph Buffer G<sub>n-1</sub> to both the
+          Glyph Buffer G<sub>n</sub> and the Presentation Buffer P<sub>n</sub>; or</li>
+
+          <li>otherwise render using the Glyph Renderer the <a>glyph</a> into the Presentation Buffer P<sub>n</sub> and Glyph Buffer
+          G<sub>n</sub>.</li>
+        </ul>
 
         <figure>
           <img src="text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering" height=
@@ -2397,108 +2404,110 @@ be present on the <code>tt</code> element.</td>
           </figcaption>
         </figure>
 
-        <p>The duration DUR<sub>T</sub>(E<sub>n</sub>) for painting the text of an <a>intermediate synchronic document</a>
+        <p>The duration DUR<sub>T</sub>(E<sub>n</sub>) for rendering the text of an <a>intermediate synchronic document</a>
         E<sub>n</sub> in the Presentation Buffer is as follows:</p>
 
-        <p class="equation">DUR<sub>T</sub>(E<sub>n</sub>) = ∑<sub>G<sub>i</sub> ∈ G<sub>r</sub></sub> NRGA(G<sub>i</sub>) / Ren(G<sub>i</sub>)
-        + ∑<sub>G<sub>j</sub> ∈ G<sub>c</sub></sub> NRGA(G<sub>j</sub>) / GCpy</p>
+        <p class="equation">DUR<sub>T</sub>(E<sub>n</sub>) = ∑<sub>g<sub>i</sub> ∈ &#x393;<sub>r</sub></sub> NRGA(g<sub>i</sub>) / Ren(g<sub>i</sub>)
+        + ∑<sub>g<sub>j</sub> ∈ &#x393;<sub>c</sub></sub> NRGA(g<sub>j</sub>) / GCpy</p>
 
         <p>where</p>
 
         <ul>
-          <li>G<sub>r</sub> is the set of glyphs rendered into the Presentation Buffer P<sub>n</sub> using the Glyph Renderer in
+          <li>&#x393;<sub>r</sub> is the set of <a data-lt="glyph">glyphs</a> rendered into the Presentation Buffer P<sub>n</sub> using the Glyph Renderer in
           <a>intermediate synchronic document</a> E<sub>n</sub>;
           </li>
 
-          <li>G<sub>c</sub> is the set of glyphs copied to the Presentation Buffer P<sub>n</sub> using the Glyph Copier in
+          <li>&#x393;<sub>c</sub> is the set of <a data-lt="glyph">glyphs</a> copied to the Presentation Buffer P<sub>n</sub> using the Glyph Copier in
           <a>intermediate synchronic document</a> E<sub>n</sub>;
           </li>
 
-          <li>Ren(G<sub>i</sub>) is the text rendering performance factor glyph G<sub>i</sub>; and</li>
+          <li>Ren(g<sub>i</sub>) is the text rendering performance factor for <a>glyph</a> g<sub>i</sub>; and</li>
 
           <li>GCpy is the normalized glyph copy performance factor.</li>
         </ul>
 
-        <p>G<sub>r</sub> and G<sub>c</sub> SHALL include only glyphs in <a data-lt="presented region">presented regions</a> and SHALL
-        NOT include a [[!UNICODE]] Code Point if it does not result in a change to presentation, e.g. the Code Point is
-        ignored.</p>
+        <p>The Normalized Rendered Glyph Area NRGA(g<sub>i</sub>) of a <a>glyph</a> g<sub>i</sub> SHALL be equal to:</p>
 
-        <p>The Normalized Rendered Glyph Area NRGA(G<sub>i</sub>) of a glyph G<sub>i</sub> SHALL be equal to:</p>
-
-        <p class="equation">NRGA(G<sub>i</sub>)= (fontSize of G<sub>i</sub> as percentage of root container height)<sup>2</sup></p>
+        <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of root container height)<sup>2</sup></p>
 
         <p>The contents of the Glyph Buffer G<sub>n</sub> SHALL be copied instantaneously to Glyph Buffer G<sub>n-1</sub> at the
         presentation time of <a>intermediate synchronic document</a> E<sub>n</sub>.</p>
 
-        <p>The total size occupied by the glyphs stored in Glyph Buffers G<sub>n</sub> or G<sub>n-1</sub> SHALL be the sum of their
-        Normalized Rendered Glyph Area.</p>
+        <p>It SHALL be an error for the sum of NRGA(g<sub>i</sub>) over all <a data-lt="glyph">glyphs</a> Glyph Buffer G<sub>n</sub> to be larger
+				than the Normalized Glyph Buffer Size (NGBS).</p>
 
-        <p>The size of Glyph Buffers G<sub>n</sub> and G<sub>n-1</sub> SHALL be the Normalized Glyph Buffer Size (NGBS).</p>
-
-        <p>Unless specified otherwise, the following table SHALL specify GCpy, Ren and NGBS, and SHALL apply to all supported font
-        styles (including provision of outline border).</p>
+        <p>Unless specified otherwise, the following table specifies values of GCpy, Ren and NGBS.</p>
 
         <table class='simple'>
           <thead>
             <tr>
-              <th>Parameter</th>
+              <th style="text-align: center;">Parameter</th>
+							
+							<th style="text-align: center;">Condition</th>
 
-              <th>Initial value</th>
+              <th style="text-align: center;">Initial value</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>Normalized glyph copy performance factor (GCpy)</td>
+              <td rowspan="2">Normalized glyph copy performance factor (GCpy)</td>
+							
+							<td>The character of g<sub>i</sub> belongs to a simple script as specified in <a href="#simple-scripts"></a></td>
 
               <td>12</td>
             </tr>
-
+						
             <tr>
-              <td>Text rendering performance factor Ren(G<sub>i</sub> if G<sub>i</sub> is not a CJK Unified Ideograph as specified
-              in [[!UNICODE]].</td>
+							
+							<td>otherwise</td>
 
-              <td>1.2</td>
+              <td>3</td>
             </tr>
 
             <tr>
-              <td>Text rendering performance factor Ren(G<sub>i</sub>) if G<sub>i</sub> is a CJK Unified Ideograph as specified in
-              [[!UNICODE]].</td>
+              <td rowspan="2">Text rendering performance factor Ren(G<sub>i</sub>)</td>
+							<td>The character of g<sub>i</sub> belongs to the CJK Unified Ideograph block as specified in [[!UNICODE]]</td>
 
               <td>0.6</td>
             </tr>
 
             <tr>
-              <td>Normalized Glyph Buffer Size (NGBS)</td>
+              <td>otherwise</td>
+
+              <td>1.2</td>
+            </tr>
+
+            <tr>
+              <td colspan="2">Normalized Glyph Buffer Size (NGBS)</td>
 
               <td>1</td>
             </tr>
           </tbody>
         </table>
 
-        <p class='note'>NRGA(G<sub>i</sub>) does not take into account glyph decorations (e.g. underline), glyph effects (e.g.
-        outline) or actual glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case
+        <p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g.
+        outline) or actual typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case
         glyph size complexity.</p>
 
         <aside class='example'>
-          Setting a Normalized Glyph Buffer Size effectively sets a limit on the total number of distinct glyphs present in any
+          Setting a Normalized Glyph Buffer Size effectively sets a limit on the total number of distinct <a data-lt="glyph">glyphs</a> present in any
           given <a>intermediate synchronic document</a> E<sub>n</sub>. For example, assuming a maximum Normalized Glyph Buffer Size
-          of 1 and the default tts:fontSize of 1c are used, the glyph's height as percentage of root container height is 1/15 , and
-          the maximum number of distinct glyphs that can be buffered is 1÷(1÷15)^2=225 glyphs. In this example, an implementation
-          rendering at 1920x1080 would need to allocate a glyph buffer no smaller than (1920÷32)×(1080÷15)×225=~1 Mpixels.
+          of 1 and the default tts:fontSize of 1c are used, the font size relative to the root container height is 1/15 , and
+          the maximum number of distinct glyphs that can be buffered is 1÷(1÷15)^2=225 glyphs.
         </aside>
 
         <aside class='example'>
-          GCpy effectively sets a limit on animating glyphs. For example, assuming that the root container is ultimately rendered
+          GCpy effectively sets a limit on animating text. For example, assuming that the root container is ultimately rendered
           at 1920×1080 resolution and no regions need to have background color painted (so only a CLEAR(E<sub>n</sub>) operation
           is required for the normalized drawing area for the <a>intermediate synchronic document</a>), a GCpy and BDraw of 12 s-1
-          would mean that a group of 160 glyphs with a tts:fontSize equal to 5% of the root container height could be moved at most
+          would mean that a group of 160 <a data-lt="glyph">glyphs</a> with a tts:fontSize equal to 5% of the root container height could be moved at most
           approximately 12 s<sup>-1</sup> ÷ (1 + ( 160 × 0.05<sup>2</sup> )) = 8.6 times per second.
         </aside>
 
         <aside class='example'>
-          Ren(G<sub>i</sub>) effectively sets a limit on the glyph rendering rate. For example, assuming that the root container is
-          ultimately rendered at a 1920×1080 resolution, a Ren(G<sub>i</sub>) of 1.2 s-1 would mean that at most 120 glyphs with a
+          Ren(G<sub>i</sub>) effectively sets a limit on the text rendering rate. For example, assuming that the root container is
+          ultimately rendered at a 1920×1080 resolution, a Ren(G<sub>i</sub>) of 1.2 s-1 would mean that at most 120 <a data-lt="glyph">glyphs</a> with a
           fontSize of 108 px (10% of 1080 px and NRGA(G<sub>i</sub>) = 0.01) could be rendered every second.
         </aside>
       </section>
@@ -3111,6 +3120,56 @@ be present on the <code>tt</code> element.</td>
 				
 		<p>In any case where a definition specified by this appendix diverge from the prose of the specification, 
 		then the latter takes precedence.</p>
+		
+
+	</section>
+	
+		
+	<section class='appendix' id='simple-scripts'>
+    <h2>Simple Scripts</h2>
+		
+		<p>The following table refers to the value of the script property associated with Unicode characters.</p>
+		
+      <table class='simple'>
+        <thead>
+          <tr>
+            <th>Simple scripts</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+
+          <tr>
+
+            <td>
+							Latin
+            </td>
+          </tr>
+					
+					          <tr>
+
+            <td>
+							Hebrew
+            </td>
+          </tr>
+					
+										          <tr>
+
+            <td>
+							Cyrillic
+            </td>
+          </tr>
+					
+															          <tr>
+
+            <td>
+							Greek
+            </td>
+          </tr>
+        </tbody>
+      </table>
 		
 
 	</section>
