@@ -1,5 +1,11 @@
+# TTML Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)
 
-# Specification 'imsc1'
+## Specification
 
-This is the repository for imsc1. You're welcome to contribute! Let's make the Web rock our socks
-off!
+The specification can be found [here](spec/ttml-ww-profiles.html)
+
+## Directories 
+
+* spec: specification artifacts, i.e. what is published on TR
+* testsuite: test suite artifacts
+* cldr-supplemental-data: proposed supplemental CLDR data submitted to Unicode
