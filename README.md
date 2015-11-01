@@ -2,7 +2,7 @@
 
 ## Specification
 
-The specification can be found [here](spec/ttml-ww-profiles.html)
+The specification can be viewed [here](https://rawgit.com/w3c/imsc1/master/spec/ttml-ww-profiles.html)
 
 ## Directories 
 
