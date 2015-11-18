@@ -838,6 +838,27 @@ ittp:progressivelyDecodable
             <td>prohibited</td>
 <td></td>
           </tr>
+					
+          <tr>
+            <td><code>#clockMode-gps</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+					
+          <tr>
+            <td><code>#clockMode-local</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+					
+	          <tr>
+            <td><code>#clockMode-utc</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
 
           <tr>
             <td><code>#content</code></td>
@@ -883,6 +904,27 @@ ittp:progressivelyDecodable
 
           <tr>
             <td><code>#dropMode</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#dropMode-dropNTSC</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#dropMode-dropPAL</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#dropMode-nonDrop</code></td>
 
             <td>prohibited</td>
 <td></td>
@@ -996,6 +1038,20 @@ be present on the <code>tt</code> element.</td>
             <td>prohibited</td>
 <td></td>
           </tr>
+					
+          <tr>
+            <td><code>#markerMode-continuous</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
+					
+          <tr>
+            <td><code>#markerMode-discontinuous</code></td>
+
+            <td>prohibited</td>
+<td></td>
+          </tr>
 
           <tr>
             <td><code>#metadata</code></td>
@@ -1026,6 +1082,13 @@ be present on the <code>tt</code> element.</td>
           </tr>
 
           <tr>
+            <td><code>#overflow-visible</code></td>
+
+            <td>permitted</td>
+<td></td>
+          </tr>
+
+          <tr>
             <td><code>#pixelAspectRatio</code></td>
 
             <td>prohibited</td>
@@ -1036,7 +1099,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#presentation</code></td>
 
             <td>permitted</td>
-<td></td>
+<td>See constraints applied to <code>#profile.</code></td>
           </tr>
 
           <tr>
@@ -1226,7 +1289,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#transformation</code></td>
 
             <td>permitted</td>
-<td></td>
+<td>See constraints applied to <code>#profile.</code></td>
           </tr>
 
           <tr>
@@ -1853,7 +1916,7 @@ be present on the <code>tt</code> element.</td>
 
 						<td></td>
 
-            <td>See implied features: some are prohibited, others are permitted.</td>
+            <td>See individual disposition of each of the implied features listed at Section D.1.6 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
           </tr>
 
           <tr>
@@ -1896,12 +1959,38 @@ be present on the <code>tt</code> element.</td>
 						<td></td>
           </tr>
 
+					          <tr>
+            <td><code>#fontFamily-generic</code></td>
+
+            <td>prohibited</td>
+						<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#fontFamily-non-generic</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+					
           <tr>
             <td><code>#fontSize</code></td>
 
             <td>prohibited</td>
 						
 						<td></td>
+          </tr>
+					
+					          <tr>
+            <td><code>#fontSize-anamorphic</code></td>
+
+            <td>prohibited</td>			
+						<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#fontSize-isomorphic</code></td>
+
+            <td>prohibited</td><td></td>
           </tr>
 
           <tr>
@@ -1911,6 +2000,21 @@ be present on the <code>tt</code> element.</td>
 						
 						<td></td>
           </tr>
+					
+					
+          <tr>
+            <td><code>#fontStyle-italic</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#fontStyle-oblique</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+
 
           <tr>
             <td><code>#fontWeight</code></td>
@@ -1918,6 +2022,12 @@ be present on the <code>tt</code> element.</td>
             <td>prohibited</td>
 						
 						<td></td>
+          </tr>
+					
+					          <tr>
+            <td><code>#fontWeight-bold</code></td>
+
+            <td>prohibited</td><td></td>
           </tr>
 
           <tr>
@@ -1967,6 +2077,32 @@ be present on the <code>tt</code> element.</td>
 						
 						<td></td>
           </tr>
+					
+					
+          <tr>
+            <td><code>#padding-1</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#padding-2</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#padding-3</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#padding-4</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
 
           <tr>
             <td><code>#textAlign</code></td>
@@ -1974,6 +2110,18 @@ be present on the <code>tt</code> element.</td>
             <td>prohibited</td>
 						
 						<td></td>
+          </tr>
+					
+					 <tr>
+            <td><code>#textAlign-absolute</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#textAlign-relative</code></td>
+
+            <td>prohibited</td><td></td>
           </tr>
 
           <tr>
@@ -1983,6 +2131,25 @@ be present on the <code>tt</code> element.</td>
 						
 						<td></td>
           </tr>
+					
+					          <tr>
+            <td><code>#textDecoration-over</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#textDecoration-through</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
+          <tr>
+            <td><code>#textDecoration-under</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
 
           <tr>
             <td><code>#textOutline</code></td>
@@ -1991,6 +2158,21 @@ be present on the <code>tt</code> element.</td>
 						
 						<td></td>
           </tr>
+					
+					          <tr>
+            <td><code>#textOutline-blurred</code></td>
+
+            <td>prohibited</td>
+						
+<td></td>
+          </tr>
+
+          <tr>
+            <td><code>#textOutline-unblurred</code></td>
+
+            <td>prohibited</td><td></td>
+          </tr>
+
 
 					<tr>
             <td><code>#unicodeBidi</code></td>
@@ -2003,7 +2185,7 @@ be present on the <code>tt</code> element.</td>
 					          <tr>
             <td><code>#visibility</code></td>
 <td></td>
-            <td>See implied features: some are prohibited, others are permitted.</td>
+            <td>See individual disposition of each of the implied features listed at Section D.1.104 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
 
           </tr>
 
@@ -2028,7 +2210,7 @@ be present on the <code>tt</code> element.</td>
 
 						<td></td>
 
-            <td>See implied features: some are prohibited, others are permitted.</td>
+            <td>See individual disposition of each of the implied features listed at Section D.1.109 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
 						
           </tr>
 
