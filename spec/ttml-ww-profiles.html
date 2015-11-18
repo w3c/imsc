@@ -2376,9 +2376,11 @@ be present on the <code>tt</code> element.</td>
 				
 				</p>
 				
-				<p class='note'>In complex scripts, the mapping from character to typographical glyph is not one-to-one. For instance, a given arabic character can 
-				yield multiple glyphs depending on its position in a word. The Hypothetical Render Model however assumes a one-to-one mapping 
-				and accounts for complex scripts by reducing the performance of the glyph buffer.</p>
+				<p class='note'>While one-to-one mapping between characters and typographical glyphs is generally the rule in some scripts,
+				e.g. latin script, it is the exception in others. For instance, in arabic script, a character can 
+				yield multiple glyphs depending on its position in a word. The Hypothetical Render Model
+				always assumes a one-to-one mapping, but reduces the performance of the glyph buffer for scripts where one-to-one mapping 
+				is not the general rule (see GCpy below).</p>
 				
         <p>For each <a>glyph</a> associated with a character in a <a>presented region</a> of <a>intermediate synchronic document</a> E<sub>n</sub>,
 				the Presentation Compositor SHALL:</p>
@@ -2429,6 +2431,10 @@ be present on the <code>tt</code> element.</td>
         <p>The Normalized Rendered Glyph Area NRGA(g<sub>i</sub>) of a <a>glyph</a> g<sub>i</sub> SHALL be equal to:</p>
 
         <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of root container height)<sup>2</sup></p>
+				
+				<p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g.
+        outline) or actual typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case
+        glyph size complexity.</p>
 
         <p>The contents of the Glyph Buffer G<sub>n</sub> SHALL be copied instantaneously to Glyph Buffer G<sub>n-1</sub> at the
         presentation time of <a>intermediate synchronic document</a> E<sub>n</sub>.</p>
@@ -2439,56 +2445,86 @@ be present on the <code>tt</code> element.</td>
         <p>Unless specified otherwise, the following table specifies values of GCpy, Ren and NGBS.</p>
 
         <table class='simple'>
-          <thead>
-            <tr>
-              <th style="text-align: center;">Parameter</th>
-							
-							<th style="text-align: center;">Condition</th>
-
-              <th style="text-align: center;">Initial value</th>
-            </tr>
-          </thead>
 
           <tbody>
+					
             <tr>
-              <td rowspan="2">Normalized glyph copy performance factor (GCpy)</td>
-							
-							<td>The character of g<sub>i</sub> belongs to a simple script as specified in <a href="#simple-scripts"></a></td>
-
-              <td>12</td>
-            </tr>
 						
+						<th colspan="2">Normalized glyph copy performance factor (GCpy)</th>
+												
+						</tr>
+						
+				<tr>
+						
+														
+							<td style="text-align: center;"><em>Script property (see Appendix 24 at [[!UNICODE]]) for the
+							character of g<sub>i</sub></em></td>
+							
+							<td style="text-align: center;"><em>GCpy</em></td>
+
+							
+						</tr>
+						
+						<tr>
+						
+						
+								<td>latin, greek, cyrillic or hebrew</td>	
+													
+								<td style="text-align: center;">12</td>
+
+						</tr>
+						
+						<tr>
+							
+							<td><i>any other value</i></td>
+							
+							<td style="text-align: center;">3</td>
+
+            </tr>
+
+						<tr>
+						
+							<th colspan="2">Text rendering performance factor Ren(G<sub>i</sub>)</th>
+						
+						</tr>
+						
+						<tr>
+						
+						<td style="text-align: center;"><em>Block property (see [[!UNICODE]]) for the character of g<sub>i</sub></em></td>
+						
+						<td style="text-align: center;"><em>Ren(G<sub>i</sub>)</em></td>
+						
+						</tr>
+						
+
             <tr>
 							
-							<td>otherwise</td>
+							<td>CJK Unified Ideograph</td>
 
-              <td>3</td>
+							<td style="text-align: center;">0.6</td>
             </tr>
 
             <tr>
-              <td rowspan="2">Text rendering performance factor Ren(G<sub>i</sub>)</td>
-							<td>The character of g<sub>i</sub> belongs to the CJK Unified Ideograph block as specified in [[!UNICODE]]</td>
 
-              <td>0.6</td>
+						
+							<td><i>any other value</i></td>
+							
+							<td style="text-align: center;">1.2</td>
+              
             </tr>
 
             <tr>
-              <td>otherwise</td>
+              <th colspan="2">Normalized Glyph Buffer Size (NGBS)</th>
+							
+						</tr>
+							
+						<tr>
 
-              <td>1.2</td>
-            </tr>
-
-            <tr>
-              <td colspan="2">Normalized Glyph Buffer Size (NGBS)</td>
-
-              <td>1</td>
+            <td colspan="2" style="text-align: center;">1</td>
+							
             </tr>
           </tbody>
         </table>
-
-        <p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g.
-        outline) or actual typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case
-        glyph size complexity.</p>
 
         <aside class='example'>
           Setting a Normalized Glyph Buffer Size effectively sets a limit on the total number of distinct <a data-lt="glyph">glyphs</a> present in any
@@ -3124,54 +3160,5 @@ be present on the <code>tt</code> element.</td>
 
 	</section>
 	
-		
-	<section class='appendix' id='simple-scripts'>
-    <h2>Simple Scripts</h2>
-		
-		<p>The following table refers to the value of the script property associated with Unicode characters.</p>
-		
-      <table class='simple'>
-        <thead>
-          <tr>
-            <th>Simple scripts</th>
-
-          </tr>
-        </thead>
-
-        <tbody>
-
-
-          <tr>
-
-            <td>
-							Latin
-            </td>
-          </tr>
-					
-					          <tr>
-
-            <td>
-							Hebrew
-            </td>
-          </tr>
-					
-										          <tr>
-
-            <td>
-							Cyrillic
-            </td>
-          </tr>
-					
-															          <tr>
-
-            <td>
-							Greek
-            </td>
-          </tr>
-        </tbody>
-      </table>
-		
-
-	</section>
 </body>
 </html>
