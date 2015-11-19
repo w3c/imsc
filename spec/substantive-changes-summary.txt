@@ -44,3 +44,16 @@ From CR (20141209) to CR (20150601)
   on content elements
 
 * ISSUE-388: the presence of @ttp:timeBase is no longer required
+
+
+From CR (20141209) to 7ea5ce460b31028be8d1190af6510a07f5c1e531
+==============================================================
+
+* ISSUE-452 (#79): ttp:profile element now forbidden (Section 6.10)
+
+* ISSUE-423 (#63): Liberation open source font added to reference fonts (Appendix A) 
+
+* ISSUE-429 (#69): performance of the HRM reduced for scripts where mapping 
+  of characters to glyphs is generally not one-to-one and clarified that overflowing
+  the Glyph Buffer is an error (Section 9.5)
+  
