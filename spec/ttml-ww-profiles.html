@@ -861,13 +861,6 @@ ittp:progressivelyDecodable
           </tr>
 
           <tr>
-            <td><code>#content</code></td>
-
-            <td>permitted</td>
-<td></td>
-          </tr>
-
-          <tr>
             <td><code>#core</code></td>
 
             <td>permitted</td>
@@ -1484,6 +1477,13 @@ be present on the <code>tt</code> element.</td>
 
             <td>permitted</td><td></td>
           </tr>
+					
+					<tr>
+            <td><code>#content</code></td>
+
+            <td>permitted</td>
+						<td></td>
+          </tr>
 
           <tr>
             <td><code>#color</code></td>
@@ -1866,7 +1866,7 @@ be present on the <code>tt</code> element.</td>
       </section>
 
       <section>
-        <h4>Number per Region</h4>
+        <h4 id='presented-image-constraints'>Number per Region</h4>
 
         <p>In a given synchronic document, there shall be at most one <a>presented image</a> per <a>presented region</a>.</p>
 
@@ -1932,7 +1932,7 @@ be present on the <code>tt</code> element.</td>
 
 						<td>permitted</td>
 
-            <td>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present.</td>
+            <td>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present. See Section <a href="#presented-image-constraints"></a> for constraints on <code>div</code> elements.</td>
           </tr>
 
           <tr>
