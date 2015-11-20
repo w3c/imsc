@@ -524,11 +524,12 @@ The <code>ittp:aspectRatio</code> parameter effectively defines the intended dis
 			</li>
 			<li>
 			A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The system elects to scale
-			the root container vertically to fit within the display, at the cost of losing relative positioning between
-			caption/subtitles with video elements.
+			the root container to fit vertically within the display (maintaining its aspect ratio as authored), at the cost of losing relative 
+			positioning between caption/subtitles and video elements.
 			</li>
 			<li>
-			The system described in (b) instead elects to maintain the aspect ratio of subtitles/captions at the risk of clipping them. 
+			The system described in (b) instead elects to map the root container to the video frame, maintaining relative positioning
+			between caption/subtitles and video elements but at the risk of clipping subtitles/captions. 
 			</li>
 			</ul>
 			</div>
