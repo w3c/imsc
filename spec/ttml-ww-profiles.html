@@ -1798,8 +1798,7 @@ be present on the <code>tt</code> element.</td>
       <section>
         <h4>Definition</h4>
 
-        <p>A <dfn>presented image</dfn> is a <code>div</code> element with a <code>smpte:backgroundImage</code> attribute that does
-        not extend beyond a <a>presented region</a>.</p>
+        <p>A <dfn>presented image</dfn> is a <code>div</code> element with a <code>smpte:backgroundImage</code> attribute that flows into a <a>presented region</a>.</p>
       </section>
 
       <section>
@@ -1818,7 +1817,7 @@ be present on the <code>tt</code> element.</td>
     </section>
 
     <section>
-      <h3><code>div</code> element</h3>
+      <h3 id="smpte-bg-constraints"><code>smpte:backgroundImage</code> Constraints</h3>
 
       <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:
 
@@ -2063,7 +2062,7 @@ be present on the <code>tt</code> element.</td>
 						<td>permitted</td>
 
             <td><ul class="short-list">
-						<li><code>smpte:backgroundImage</code> MAY be used.</li>
+						<li><code>smpte:backgroundImage</code> MAY be used according to <a href="#smpte-bg-constraints"></a>.</li>
             <li><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be used.</li>
             <li><code>smpte:image</code> SHALL NOT be used.</li></td>
           </tr>
