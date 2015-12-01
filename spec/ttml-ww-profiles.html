@@ -1822,7 +1822,9 @@ be present on the <code>tt</code> element.</td>
       <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:
 
       <ul>
-        <li>the width and height of the image source referenced by  <code>smpte:backgroundImage</code> SHALL be equal to width and height of the extent of the region in which the <code>div</code> element is presented;</li>
+        <li>the width and height (in pixels) of the image source referenced by <code>smpte:backgroundImage</code> SHALL be equal
+				to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of the region in which the
+				<code>div</code> element is presented;</li>
 
         <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>text alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
 
