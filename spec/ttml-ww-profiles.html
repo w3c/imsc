@@ -431,7 +431,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <section id='ttp-aspectRatio'>
         <h4>ittp:aspectRatio</h4>
 
-        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the root container of a <a>Document Instance</a> to the <a>Related Video Object</a> frame.</p>
+        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the root container of a <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
 
         <p>If present, the <code>ittp:aspectRatio</code> attribute SHALL conform to the following syntax:</p>
 
@@ -454,28 +454,29 @@ numerator | denominator
           </tbody>
         </table>
 
-        <p>The root container of a <a>Document Instance</a> SHALL be mapped to the <a>Related Video Object</a> frame according to the
+        <p>The root container of a <a>Document Instance</a> SHALL be mapped to each image frame of the <a>Related Video Object</a>
+				according to the
         following:</p>
 
         <ol>
           <li>
             <p>If <code>ittp:aspectRatio</code> is present, the root container SHALL be mapped to a rectangular area within the
-            <a>Related Video Object</a> such that:</p>
+            image frame such that:</p>
 
             <ol style="list-style-type: lower-roman;">
               <li>the ratio of the width to the height of the rectangular area is equal to <code>ittp:aspectRatio</code>,</li>
 
-              <li>the center of the rectangular area is collocated with the center of the <a>Related Video Object</a> frame,</li>
+              <li>the center of the rectangular area is collocated with the center of the image frame,</li>
 
-              <li>the rectangular area (including its boundary) is entirely within the <a>Related Video Object</a> frame (including its
+              <li>the rectangular area (including its boundary) is entirely within the image frame (including its
               boundary), and</li>
 
-              <li>the rectangular area has a height or width equal to that of the <a>Related Video Object</a> frame.</li>
+              <li>the rectangular area has a height or width equal to that of the image frame.</li>
             </ol>
           </li>
 
           <li>
-            <p>Otherwise, the root container of a <a>Document Instance</a> SHALL be mapped to the <a>Related Video Object</a> frame in its
+            <p>Otherwise, the root container of a <a>Document Instance</a> SHALL be mapped to the image frame in its
             entirety.</p>
           </li>
         </ol>
@@ -484,8 +485,8 @@ numerator | denominator
         element.</p>
 
 <aside class='example'>
-<p>Region <code>"A"</code> in the following document would be positioned 20% from the left edge of a <a>Related Video Object</a> with an aspect ratio of 16:9,
- or 10% from the left edge of a <a>Related Video Object</a> with an aspect ratio of 4:3.</p>
+<p>Region <code>"A"</code> in the following document would be positioned 20% from the left edge of an image frame with an aspect ratio of 16:9,
+ or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
 <pre>
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
@@ -501,13 +502,38 @@ numerator | denominator
  ...
 &lt;/tt&gt;
 </pre>
-<p>In other words, <code>tts:extent</code>, when present on the <code>tt</code> element, determines the size of <code>"px"</code> units relative to the root container. <code>ttp:aspectRatio</code> is independently used to map the root container to the <a>Related Video Object</a>.
+<p>In other words, <code>tts:extent</code>, when present on the <code>tt</code> element, determines the size of <code>"px"</code> units relative to the root container. <code>ttp:aspectRatio</code> is independently used to map the root container to each image frame of the <a>Related Video Object</a>.
 </aside>
 
 <p class='note'>
 The <code>ittp:aspectRatio</code> parameter effectively defines the intended display aspect ratio (DAR) of the root container, while
  the <code>tts:extent</code> style property on the root element effectively defines the intended storage aspect ratio (SAR) of the root container.
 </p>
+
+      <div class="note">The mapping algorithm above allows the author to
+			precisely control caption/subtitle position relative to elements within each frame of the video program, e.g. 
+			to match the position of actors. This mapping algorithm does not however specify the presentation of
+			either the video frame or root container on the ultimate display device. This presentation depends on many factors, including
+			user input, and can involve displaying only parts of the content. Authors are therefore encouraged to follow best practices
+			for the intended target applications. Below are selected examples:
+			<ul style="list-style-type:lower-alpha">
+			<li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut. 
+			Accordingly subtitle/captions are authored using <code>ttp:aspectRatio="4 3"</code>, allowing the combination
+			to be displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative position 
+			of caption/subtitles with video elements.
+			</li>
+			<li>
+			A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The system elects to scale
+			the root container to fit vertically within the display (maintaining its aspect ratio as authored), at the cost of losing relative 
+			positioning between caption/subtitles and video elements.
+			</li>
+			<li>
+			The system described in (b) instead elects to map the root container to the video frame, maintaining relative positioning
+			between caption/subtitles and video elements but at the risk of clipping subtitles/captions. 
+			</li>
+			</ul>
+			</div>
+			
     </section>
       <section id='ttp-progressivelyDecodable'>
         <h4>ittp:progressivelyDecodable</h4>
