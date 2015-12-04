@@ -1627,7 +1627,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#lineHeight</code></td>
 
             <td>permitted</td>
-						<td>The computed value of the <code>tts:lineHeight</code> attribute for a <code>p</code> element SHOULD NOT be <code>"normal"</code> as there is no uniform implementation of the <code>"normal"</code> value at the time of this writing.</td>
+						<td>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing, <code>tts:lineHeight</code> SHOULD NOT be set to "normal" and SHOULD be explicitly specified such that the specified style set of each <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not assigned by initial value fallback.</td>
           </tr>
 
           <tr>
