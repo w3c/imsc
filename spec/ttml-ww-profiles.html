@@ -852,14 +852,14 @@ ittp:progressivelyDecodable
           </tr>
 		  
 		   <tr>
-            <td><code>#backgroundColor-block</code></td>
+            <td id="backgroundColor-block-feat"><code>#backgroundColor-block</code></td>
 
             <td>permitted</td>
 						<td></td>
           </tr>
 
           <tr>
-            <td><code>#backgroundColor-region</code></td>
+            <td id="backgroundColor-region-feat"><code>#backgroundColor-region</code></td>
 
             <td>permitted</td><td></td>
           </tr>
@@ -1326,14 +1326,14 @@ be present on the <code>tt</code> element.</td>
           </tr>
 
           <tr>
-            <td><code>#visibility-block</code></td>
+            <td id="visibility-block-feat"><code>#visibility-block</code></td>
 
             <td>permitted</td>
 <td></td>
           </tr>
 
           <tr>
-            <td><code>#visibility-region</code></td>
+            <td id="visibility-region-feat"><code>#visibility-region</code></td>
 
             <td>permitted</td>
 <td></td>
@@ -1354,7 +1354,7 @@ be present on the <code>tt</code> element.</td>
           </tr>
 
           <tr>
-            <td><code>#writingMode-horizontal</code></td>
+            <td id="writingMode-horizontal-feat"><code>#writingMode-horizontal</code></td>
 
             <td>permitted</td>
 <td></td>
@@ -1561,14 +1561,14 @@ be present on the <code>tt</code> element.</td>
           </tr>
 
           <tr>
-            <td><code>#fontSize-anamorphic</code></td>
+            <td id="fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></td>
 
             <td>prohibited</td>			
 						<td></td>
           </tr>
 
           <tr>
-            <td><code>#fontSize-isomorphic</code></td>
+            <td id="fontSize-isomorphic-feat"><code>#fontSize-isomorphic</code></td>
 
             <td>permitted</td><td></td>
           </tr>
@@ -1576,7 +1576,9 @@ be present on the <code>tt</code> element.</td>
           <tr>
             <td><code>#fontSize</code></td>
 
-            <td></td><td>See <code>#fontSize-anamorphic</code> and <code>#fontSize-isomorphic</code>.</td>
+            <td></td>
+			
+			<td>See individual disposition of <a href="#fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></a> and <a href="#fontSize-isomorphic-feat"><code>#fontSize-isomorphic</code></a>.</td>
           </tr>
 
           <tr>
@@ -1947,7 +1949,7 @@ be present on the <code>tt</code> element.</td>
 		  
 
           <tr>
-            <td><code>#backgroundColor-inline</code></td>
+            <td id="backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></td>
 
             <td>prohibited</td><td></td>
           </tr>
@@ -1958,16 +1960,17 @@ be present on the <code>tt</code> element.</td>
 			
 			<td></td>
 
-            <td>See individual disposition of each of the implied features listed at Section D.1.2 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
+            <td>See individual disposition of <a href="#backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></a>, <a href="#backgroundColor-region-feat"><code>#backgroundColor-region</code></a> and <a href="#backgroundColor-block-feat"><code>#backgroundColor-block</code></a>.</td>
 			
           </tr>
 
           <tr>
             <td><code>#bidi</code></td>
 
-						<td></td>
+			<td></td>
 
-            <td>See individual disposition of each of the implied features listed at Section D.1.6 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
+            <td>See individual disposition of <a href="#direction-i-feat"><code>#direction</code></a>, <a href="#unicodeBidi-i-feat"><code>#unicodeBidi</code></a> and <a href="#writingMode-horizontal-feat"><code>#writingMode-horizontal</code></a>.</td>
+
           </tr>
 
           <tr>
@@ -1987,7 +1990,7 @@ be present on the <code>tt</code> element.</td>
           </tr>
 
           <tr>
-            <td><code>#direction</code></td>
+            <td id="direction-i-feat"><code>#direction</code></td>
 
             <td>prohibited</td>
 						
@@ -2226,7 +2229,7 @@ be present on the <code>tt</code> element.</td>
 
 
 					<tr>
-            <td><code>#unicodeBidi</code></td>
+            <td id="unicodeBidi-i-feat"><code>#unicodeBidi</code></td>
 
             <td>prohibited</td>
 						
@@ -2236,12 +2239,13 @@ be present on the <code>tt</code> element.</td>
 					          <tr>
             <td><code>#visibility</code></td>
 <td></td>
-            <td>See individual disposition of each of the implied features listed at Section D.1.104 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
+            <td>See individual disposition of <a href="#visibility-inline-i-feat"><code>#visibility-inline</code></a>, 
+			<a href="#visibility-region-feat"><code>#visibility-region</code></a> and <a href="#visibility-block-feat"><code>#visibility-block</code></a>.</td>
 
           </tr>
 
 
-          <tr>
+          <tr id="visibility-inline-i-feat">
             <td><code>#visibility-inline</code></td>
 
             <td>prohibited</td>
@@ -2261,12 +2265,13 @@ be present on the <code>tt</code> element.</td>
 
 						<td></td>
 
-            <td>See individual disposition of each of the implied features listed at Section D.1.109 of [[!TTML1]]: some implied features are prohibited, others are permitted.</td>
+            <td>See individual disposition of <a href="#writingMode-vertical-i-feat"><code>#writingMode-vertical</code></a> and 
+			<a href="#writingMode-horizontal-feat"><code>#writingMode-horizontal</code></a>.</td>
 						
           </tr>
 
           <tr>
-            <td><code>#writingMode-vertical</code></td>
+            <td id='writingMode-vertical-i-feat'><code>#writingMode-vertical</code></td>
 
             <td>prohibited</td>
 						
