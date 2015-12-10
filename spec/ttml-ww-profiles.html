@@ -1888,8 +1888,7 @@ be present on the <code>tt</code> element.</td>
       <section>
         <h4>Definition</h4>
 
-        <p>A <dfn>presented image</dfn> is a <code>div</code> element with a <code>smpte:backgroundImage</code> attribute that does
-        not extend beyond a <a>presented region</a>.</p>
+        <p>A <dfn>presented image</dfn> is a <code>div</code> element with a <code>smpte:backgroundImage</code> attribute that flows into a <a>presented region</a>.</p>
       </section>
 
       <section>
@@ -1908,12 +1907,14 @@ be present on the <code>tt</code> element.</td>
     </section>
 
     <section>
-      <h3><code>div</code> element</h3>
+      <h3 id="smpte-bg-constraints"><code>smpte:backgroundImage</code> Constraints</h3>
 
       <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:
 
       <ul>
-        <li>the width and height of the image source referenced by  <code>smpte:backgroundImage</code> SHALL be equal to width and height of the extent of the region in which the <code>div</code> element is presented;</li>
+        <li>the width and height (in pixels) of the image source referenced by <code>smpte:backgroundImage</code> SHALL be equal
+				to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of the region in which the
+				<code>div</code> element is presented;</li>
 
         <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>text alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
 
@@ -2272,7 +2273,7 @@ be present on the <code>tt</code> element.</td>
 						<td>permitted</td>
 
             <td><ul class="short-list">
-						<li><code>smpte:backgroundImage</code> MAY be used.</li>
+						<li><code>smpte:backgroundImage</code> MAY be used according to <a href="#smpte-bg-constraints"></a>.</li>
             <li><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be used.</li>
             <li><code>smpte:image</code> SHALL NOT be used.</li></td>
           </tr>
