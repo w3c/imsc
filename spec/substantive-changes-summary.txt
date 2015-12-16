@@ -46,14 +46,33 @@ From CR (20141209) to CR (20150601)
 * ISSUE-388: the presence of @ttp:timeBase is no longer required
 
 
-From CR (20141209) to 7ea5ce460b31028be8d1190af6510a07f5c1e531
+From CR (20141209) to 62d3eb09d711859cc90d96714b5cb6e26d45971f
 ==============================================================
 
-* ISSUE-452 (#79): ttp:profile element now forbidden (Section 6.10)
+* ISSUE #79: ttp:profile element now forbidden (Section 6.10), while ttp:profile
+  attribute remains optional
 
-* ISSUE-423 (#63): Liberation open source font added to reference fonts (Appendix A) 
+* ISSUE #63: Liberation open source font added to reference fonts (Appendix A) 
 
-* ISSUE-429 (#69): performance of the HRM reduced for scripts where mapping 
-  of characters to glyphs is generally not one-to-one and clarified that overflowing
+* ISSUES #68 and #69: performance of the HRM altered for scripts where mapping 
+  of characters to glyphs is generally not one-to-one, and clarified that overflowing
   the Glyph Buffer is an error (Section 9.5)
   
+* ISSUE #49: requires content processor to implement #lineBreak-uax14
+  
+* ISSUE #41: clarified constraints on ittp:aspectRatio parameters
+
+* ISSUES #85, #50, #53, #54, #57, #77 and #78 and #85: clarified conformance requirements 
+  for content processors and documents conforming to each profile, and made dependencies
+  between related features explicit
+
+* ISSUE #94: clarified that empty div elements with smpte:backgroundImage attribute generate ISDs
+
+* ISSUE #96: definition of "Presented Image" modified
+
+* ISSUE #97: clarified smpte:backgroundImage processing requirements
+
+* ISSUE #61: replaced "earlier" with "lexically preceeding" in Section 6.7.2
+
+* ISSUE #84: clarified that the mapping algorithm of Section 6.7.1 applies to each 
+  image frame of the Related Video Object
