@@ -46,7 +46,7 @@ From CR (20141209) to CR (20150601)
 * ISSUE-388: the presence of @ttp:timeBase is no longer required
 
 
-From CR (20141209) to abcb956b2bc46ee88a3baf2275d7dce99eb81996
+From CR (20141209) to 04242349075b0c642d5bf59d24a5261a70a0bbde
 ==============================================================
 
 * ISSUE #79: ttp:profile element now forbidden (Section 6.10), while ttp:profile
@@ -62,9 +62,9 @@ From CR (20141209) to abcb956b2bc46ee88a3baf2275d7dce99eb81996
   
 * ISSUE #41: clarified constraints on ittp:aspectRatio parameters
 
-* ISSUES #85, #50, #53, #54, #57, #77 and #78 and #85: clarified conformance requirements 
-  for content processors and documents conforming to each profile, and made dependencies
-  between related features explicit
+* ISSUES #85, #50, #53, #54, #57, #77, #78, #85 and #112: clarified conformance
+  requirements for content processors and documents conforming to each profile,
+  and made dependencies between related features explicit
 
 * ISSUE #94: clarified that empty div elements with smpte:backgroundImage attribute generate ISDs
 
@@ -79,3 +79,5 @@ From CR (20141209) to abcb956b2bc46ee88a3baf2275d7dce99eb81996
   
 * ISSUE #101: clarified that only "px" could be used when specifying tts:extent in Image profile
 
+* ISSUE #118: clarified that, in Image profile, only one div element can be present
+  in a presented region in a given ISD
