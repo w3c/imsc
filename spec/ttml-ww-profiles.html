@@ -950,14 +950,6 @@ ittp:progressivelyDecodable
 <td></td>
           </tr>
 
-          <tr>
-            <td><code>#extent-region</code></td>
-
-            <td>permitted</td>
-						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements.</td>
-          </tr>
-
-          <tr>
             <td><code>#extent-root</code></td>
 
             <td>permitted</td>
@@ -1536,8 +1528,8 @@ be present on the <code>tt</code> element.</td>
             <td><code>#extent-region</code></td>
 
             <td>permitted</td>
-						<td>When applied to a region element, the <code>tts:extent</code> attribute SHALL use <code>px</code> units or
-            "percentage" representation, and SHALL NOT use <code>em</code> units.</td>
+						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it 
+						SHALL use either <code>px</code> units or "percentage" syntax.<br>
           </tr>
 
           <tr>
@@ -1985,6 +1977,15 @@ be present on the <code>tt</code> element.</td>
 						
 						<td></td>
           </tr>
+					
+          <tr>
+            <td><code>#extent-region</code></td>
+
+            <td>permitted</td>
+						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it 
+						SHALL use <code>px</code> units.</td>
+          </tr>
+
 
           <tr>
             <td><code>#fontFamily</code></td>
