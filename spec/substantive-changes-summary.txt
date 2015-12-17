@@ -46,7 +46,7 @@ From CR (20141209) to CR (20150601)
 * ISSUE-388: the presence of @ttp:timeBase is no longer required
 
 
-From CR (20141209) to 62d3eb09d711859cc90d96714b5cb6e26d45971f
+From CR (20141209) to abcb956b2bc46ee88a3baf2275d7dce99eb81996
 ==============================================================
 
 * ISSUE #79: ttp:profile element now forbidden (Section 6.10), while ttp:profile
@@ -54,7 +54,7 @@ From CR (20141209) to 62d3eb09d711859cc90d96714b5cb6e26d45971f
 
 * ISSUE #63: Liberation open source font added to reference fonts (Appendix A) 
 
-* ISSUES #68 and #69: performance of the HRM altered for scripts where mapping 
+* ISSUES #68, #69 and #103: performance of the HRM altered for scripts where mapping 
   of characters to glyphs is generally not one-to-one, and clarified that overflowing
   the Glyph Buffer is an error (Section 9.5)
   
@@ -76,3 +76,6 @@ From CR (20141209) to 62d3eb09d711859cc90d96714b5cb6e26d45971f
 
 * ISSUE #84: clarified that the mapping algorithm of Section 6.7.1 applies to each 
   image frame of the Related Video Object
+  
+* ISSUE #101: clarified that only "px" could be used when specifying tts:extent in Image profile
+
