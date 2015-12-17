@@ -46,8 +46,8 @@ From CR (20141209) to CR (20150601)
 * ISSUE-388: the presence of @ttp:timeBase is no longer required
 
 
-From CR (20141209) to 04242349075b0c642d5bf59d24a5261a70a0bbde
-==============================================================
+From CR (20141209) to CR (20160105)
+===================================
 
 * ISSUE #79: ttp:profile element now forbidden (Section 6.10), while ttp:profile
   attribute remains optional
