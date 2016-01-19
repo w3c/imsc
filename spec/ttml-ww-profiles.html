@@ -817,7 +817,28 @@ ittp:progressivelyDecodable
         NOT be greater than 4.</p>
       </section>
     </section>
-
+		
+		<section id='profile-signaling'>
+      <h3>Profile Signaling</h3>
+			
+			<p>
+						
+			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the document conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:
+			<ul>
+			<li>
+			the document also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
+			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the document conforms and 
+			the URI "urn:ebu:tt:distribution:2014-01" SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
+			[[!EBU-TT-D]]; or
+			</li>
+			<li>
+			the document also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
+			</li>
+			</ul>
+			</p>
+						
+		</section>
+		
     <section>
       <h3>Hypothetical Render Model</h3>
 
@@ -1134,17 +1155,7 @@ be present on the <code>tt</code> element.</td>
             <td>permitted</td>
 						
 						<td>
-						<p>
-						
-						The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile 
-						to which the document conforms; unless the document also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
-						SHOULD NOT be present on the <code>tt</code> element, and instead the designator of the IMSC1 profile to which the document conforms and 
-						the URI "urn:ebu:tt:distribution:2014-01" SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
-						[[!EBU-TT-D]].
-						
-						</p>
-						
-						<p>The <code>ttp:profile</code> element SHALL NOT be present.</p>
+						See <a href="profile-signaling"></a>.
 
 						</td>
           </tr>
