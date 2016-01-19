@@ -11,11 +11,8 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
-From CR (20150519) to CR (20160105)
+From CR (20150519) to CR (20160126)
 ===================================
-
-* ISSUE #79: ttp:profile element now forbidden (Section 6.10), while ttp:profile
-  attribute remains optional
 
 * ISSUE #63: Liberation open source font added to reference fonts (Appendix A) 
 
@@ -29,7 +26,7 @@ From CR (20150519) to CR (20160105)
 
 * ISSUES #85, #50, #53, #54, #57, #77, #78, #85 and #112: clarified conformance
   requirements for content processors and documents conforming to each profile,
-  and made dependencies between related features explicit
+  and made explicit dependencies between related features
 
 * ISSUE #94: clarified that empty div elements with smpte:backgroundImage attribute generate ISDs
 

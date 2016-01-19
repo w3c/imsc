@@ -241,11 +241,11 @@ input.task-list-item-checkbox {
 }
 </style><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-CR"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--><script id="initialUserConfig" type="application/json">{
   "specStatus": "CR",
-  "crEnd": "2016-02-03",
+  "crEnd": "2016-02-24",
   "implementationReportURI": "https://www.w3.org/wiki/TimedText/IMSC1_Implementation_Report",
   "processVersion": "2015",
   "previousMaturity": "CR",
-  "publishDate": "2016-01-05",
+  "publishDate": "2016-01-26",
   "sotdAfterWGinfo": "true",
   "previousPublishDate": "2015-05-19",
   "shortName": "ttml-imsc1",
@@ -283,11 +283,11 @@ input.task-list-item-checkbox {
   </p>
   <h1 class="title p-name" id="title" property="dcterms:title">TTML Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)</h1>
   
-  <h2 id="w3c-candidate-recommendation-05-january-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Candidate Recommendation <time property="dcterms:issued" class="dt-published" datetime="2016-01-05">05 January 2016</time></h2>
+  <h2 id="w3c-candidate-recommendation-26-january-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Candidate Recommendation <time property="dcterms:issued" class="dt-published" datetime="2016-01-26">26 January 2016</time></h2>
   <dl>
     
       <dt>This version:</dt>
-      <dd><a class="u-url" href="http://www.w3.org/TR/2016/CR-ttml-imsc1-20160105/">http://www.w3.org/TR/2016/CR-ttml-imsc1-20160105/</a></dd>
+      <dd><a class="u-url" href="http://www.w3.org/TR/2016/CR-ttml-imsc1-20160126/">http://www.w3.org/TR/2016/CR-ttml-imsc1-20160126/</a></dd>
       <dt>Latest published version:</dt>
       <dd><a href="http://www.w3.org/TR/ttml-imsc1/">http://www.w3.org/TR/ttml-imsc1/</a></dd>
     
@@ -345,12 +345,13 @@ input.task-list-item-checkbox {
   <section id="abstract" class="introductory" property="dc:abstract"><h2 id="h-abstract" resource="#h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
     <p>This document specifies two profiles of [<cite><a class="bibref" href="#bib-TTML1">TTML1</a></cite>]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
-    consistent rendering and conversion to other subtitling and captioning formats. The text profile is a superset of
-    [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>].</p>
+    consistent rendering and conversion to other subtitling and captioning formats.</p>
+		
+		<p>It is feasible to create documents that simultaneously conform to both [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>] and the text-only profile.</p>
 
     <p>The document defines extensions to [<cite><a class="bibref" href="#bib-TTML1">TTML1</a></cite>], as well as incorporates extensions specified in [<cite><a class="bibref" href="#bib-ST2052-1">ST2052-1</a></cite>] and
     [<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>].</p>
-
+		
     <p>Both profiles are based on [<cite><a class="bibref" href="#bib-SUBM">SUBM</a></cite>].</p>
   </section><section id="sotd" class="introductory"><h2 id="h-sotd" resource="#h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
   
@@ -378,7 +379,7 @@ input.task-list-item-checkbox {
               <abbr title="World Wide Web Consortium">W3C</abbr> publishes a Candidate Recommendation to indicate that the document is believed to be
               stable and to encourage implementation by the developer community. This Candidate
               Recommendation is expected to advance to Proposed Recommendation no earlier than
-              03 February 2016.
+              24 February 2016.
             
             
             
@@ -454,7 +455,7 @@ input.task-list-item-checkbox {
       
     
   
-</section><section id="toc"><h2 class="introductory" id="h-toc" resource="#h-toc"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2><ul class="toc" role="directory"><li class="tocline"><a href="#scope" class="tocxref"><span class="secno">1. </span>Scope</a></li><li class="tocline"><a href="#conventions" class="tocxref"><span class="secno">2. </span>Documentation Conventions</a></li><li class="tocline"><a href="#terms" class="tocxref"><span class="secno">3. </span>Terms and Definitions</a></li><li class="tocline"><a href="#conformance" class="tocxref"><span class="secno">4. </span>Conformance</a></li><li class="tocline"><a href="#profiles" class="tocxref"><span class="secno">5. </span>Profiles</a><ul class="toc"><li class="tocline"><a href="#general" class="tocxref"><span class="secno">5.1 </span>General</a></li><li class="tocline"><a href="#text-profile" class="tocxref"><span class="secno">5.2 </span>Text Profile</a></li><li class="tocline"><a href="#image-profile" class="tocxref"><span class="secno">5.3 </span>Image Profile</a></li></ul></li><li class="tocline"><a href="#common-constraints" class="tocxref"><span class="secno">6. </span>Common Constraints</a><ul class="toc"><li class="tocline"><a href="#document-encoding" class="tocxref"><span class="secno">6.1 </span>Document Encoding</a></li><li class="tocline"><a href="#foreign-element-and-attributes" class="tocxref"><span class="secno">6.2 </span>Foreign Element and Attributes</a></li><li class="tocline"><a href="#namespaces" class="tocxref"><span class="secno">6.3 </span>Namespaces</a></li><li class="tocline"><a href="#overflow" class="tocxref"><span class="secno">6.4 </span>Overflow</a></li><li class="tocline"><a href="#related-video-object" class="tocxref"><span class="secno">6.5 </span>Related Video Object</a></li><li class="tocline"><a href="#synchronization" class="tocxref"><span class="secno">6.6 </span>Synchronization</a></li><li class="tocline"><a href="#extensions" class="tocxref"><span class="secno">6.7 </span>Extensions</a><ul class="toc"><li class="tocline"><a href="#ttp-aspectRatio" class="tocxref"><span class="secno">6.7.1 </span>ittp:aspectRatio</a></li><li class="tocline"><a href="#ttp-progressivelyDecodable" class="tocxref"><span class="secno">6.7.2 </span>ittp:progressivelyDecodable</a></li><li class="tocline"><a href="#tts-forcedDisplay" class="tocxref"><span class="secno">6.7.3 </span>itts:forcedDisplay</a></li><li class="tocline"><a href="#ttm-altText" class="tocxref"><span class="secno">6.7.4 </span>ittm:altText</a></li></ul></li><li class="tocline"><a href="#region" class="tocxref"><span class="secno">6.8 </span>Region</a><ul class="toc"><li class="tocline"><a href="#presented-region" class="tocxref"><span class="secno">6.8.1 </span>Presented Region</a></li><li class="tocline"><a href="#dimensions-and-position" class="tocxref"><span class="secno">6.8.2 </span>Dimensions and Position</a></li><li class="tocline"><a href="#maximum-number" class="tocxref"><span class="secno">6.8.3 </span>Maximum number</a></li></ul></li><li class="tocline"><a href="#hypothetical-render-model-1" class="tocxref"><span class="secno">6.9 </span>Hypothetical Render Model</a></li><li class="tocline"><a href="#common-features" class="tocxref"><span class="secno">6.10 </span>Features</a></li></ul></li><li class="tocline"><a href="#text-profile-constraints" class="tocxref"><span class="secno">7. </span>Text Profile Constraints</a><ul class="toc"><li class="tocline"><a href="#text-profile-designator" class="tocxref"><span class="secno">7.1 </span>Profile Designator</a></li><li class="tocline"><a href="#recommended-character-sets" class="tocxref"><span class="secno">7.2 </span>Recommended Character Sets</a></li><li class="tocline"><a href="#reference-fonts-1" class="tocxref"><span class="secno">7.3 </span>Reference Fonts</a></li><li class="tocline"><a href="#features" class="tocxref"><span class="secno">7.4 </span>Features</a></li></ul></li><li class="tocline"><a href="#image-profile-constraints" class="tocxref"><span class="secno">8. </span>Image Profile Constraints</a><ul class="toc"><li class="tocline"><a href="#image-profile-designator" class="tocxref"><span class="secno">8.1 </span>Profile Designator</a></li><li class="tocline"><a href="#presented-image" class="tocxref"><span class="secno">8.2 </span>Presented Image</a><ul class="toc"><li class="tocline"><a href="#definition" class="tocxref"><span class="secno">8.2.1 </span>Definition</a></li><li class="tocline"><a href="#presented-image-constraints" class="tocxref"><span class="secno">8.2.2 </span>Constraints</a></li><li class="tocline"><a href="#intermediate-synchronic-document-construction" class="tocxref"><span class="secno">8.2.3 </span>Intermediate Synchronic Document Construction</a></li></ul></li><li class="tocline"><a href="#smpte-bg-constraints" class="tocxref"><span class="secno">8.3 </span><code>smpte:backgroundImage</code> Constraints</a></li><li class="tocline"><a href="#features-1" class="tocxref"><span class="secno">8.4 </span>Features</a></li></ul></li><li class="tocline"><a href="#hypothetical-render-model" class="tocxref"><span class="secno">9. </span>Hypothetical Render Model</a><ul class="toc"><li class="tocline"><a href="#overview-non-normative" class="tocxref"><span class="secno">9.1 </span>Overview (non-normative)</a></li><li class="tocline"><a href="#hypothetical-render-model-general" class="tocxref"><span class="secno">9.2 </span>General</a></li><li class="tocline"><a href="#paint-regions" class="tocxref"><span class="secno">9.3 </span>Paint Regions</a></li><li class="tocline"><a href="#paint-images" class="tocxref"><span class="secno">9.4 </span>Paint Images</a></li><li class="tocline"><a href="#paint-text" class="tocxref"><span class="secno">9.5 </span>Paint Text</a></li></ul></li><li class="tocline"><a href="#reference-fonts" class="tocxref"><span class="secno">A. </span>Reference Fonts</a></li><li class="tocline"><a href="#recommended-unicode-code-points-per-language" class="tocxref"><span class="secno">B. </span>Recommended Character Sets</a></li><li class="tocline"><a href="#forced-content" class="tocxref"><span class="secno">C. </span>Forced content (non-normative)</a></li><li class="tocline"><a href="#wcag-applications" class="tocxref"><span class="secno">D. </span>WCAG Considerations</a></li><li class="tocline"><a href="#sample-instance" class="tocxref"><span class="secno">E. </span>Sample Document Instance (non-normative)</a></li><li class="tocline"><a href="#features-and-extensions" class="tocxref"><span class="secno">F. </span>Extensions</a><ul class="toc"><li class="tocline"><a href="#general-1" class="tocxref"><span class="secno">F.1 </span>General</a></li><li class="tocline"><a href="#progressivelydecodable" class="tocxref"><span class="secno">F.2 </span>#progressivelyDecodable</a></li><li class="tocline"><a href="#aspectratio" class="tocxref"><span class="secno">F.3 </span>#aspectRatio</a></li><li class="tocline"><a href="#forceddisplay" class="tocxref"><span class="secno">F.4 </span>#forcedDisplay</a></li><li class="tocline"><a href="#alttext" class="tocxref"><span class="secno">F.5 </span>#altText</a></li><li class="tocline"><a href="#linepadding" class="tocxref"><span class="secno">F.6 </span>#linePadding</a></li><li class="tocline"><a href="#multirowalign" class="tocxref"><span class="secno">F.7 </span>#multiRowAlign</a></li></ul></li><li class="tocline"><a href="#xml-schemas" class="tocxref"><span class="secno">G. </span>XML Schema Definitions (non-normative)</a></li><li class="tocline"><a href="#references" class="tocxref"><span class="secno">H. </span>References</a><ul class="toc"><li class="tocline"><a href="#normative-references" class="tocxref"><span class="secno">H.1 </span>Normative references</a></li><li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">H.2 </span>Informative references</a></li></ul></li></ul></section>
+</section><section id="toc"><h2 class="introductory" id="h-toc" resource="#h-toc"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2><ul class="toc" role="directory"><li class="tocline"><a href="#scope" class="tocxref"><span class="secno">1. </span>Scope</a></li><li class="tocline"><a href="#conventions" class="tocxref"><span class="secno">2. </span>Documentation Conventions</a></li><li class="tocline"><a href="#terms" class="tocxref"><span class="secno">3. </span>Terms and Definitions</a></li><li class="tocline"><a href="#conformance" class="tocxref"><span class="secno">4. </span>Conformance</a></li><li class="tocline"><a href="#profiles" class="tocxref"><span class="secno">5. </span>Profiles</a><ul class="toc"><li class="tocline"><a href="#general" class="tocxref"><span class="secno">5.1 </span>General</a></li><li class="tocline"><a href="#text-profile" class="tocxref"><span class="secno">5.2 </span>Text Profile</a></li><li class="tocline"><a href="#image-profile" class="tocxref"><span class="secno">5.3 </span>Image Profile</a></li></ul></li><li class="tocline"><a href="#common-constraints" class="tocxref"><span class="secno">6. </span>Common Constraints</a><ul class="toc"><li class="tocline"><a href="#document-encoding" class="tocxref"><span class="secno">6.1 </span>Document Encoding</a></li><li class="tocline"><a href="#foreign-element-and-attributes" class="tocxref"><span class="secno">6.2 </span>Foreign Element and Attributes</a></li><li class="tocline"><a href="#namespaces" class="tocxref"><span class="secno">6.3 </span>Namespaces</a></li><li class="tocline"><a href="#overflow" class="tocxref"><span class="secno">6.4 </span>Overflow</a></li><li class="tocline"><a href="#related-video-object" class="tocxref"><span class="secno">6.5 </span>Related Video Object</a></li><li class="tocline"><a href="#synchronization" class="tocxref"><span class="secno">6.6 </span>Synchronization</a></li><li class="tocline"><a href="#extensions" class="tocxref"><span class="secno">6.7 </span>Extensions</a><ul class="toc"><li class="tocline"><a href="#ttp-aspectRatio" class="tocxref"><span class="secno">6.7.1 </span>ittp:aspectRatio</a></li><li class="tocline"><a href="#ttp-progressivelyDecodable" class="tocxref"><span class="secno">6.7.2 </span>ittp:progressivelyDecodable</a></li><li class="tocline"><a href="#tts-forcedDisplay" class="tocxref"><span class="secno">6.7.3 </span>itts:forcedDisplay</a></li><li class="tocline"><a href="#ttm-altText" class="tocxref"><span class="secno">6.7.4 </span>ittm:altText</a></li></ul></li><li class="tocline"><a href="#region" class="tocxref"><span class="secno">6.8 </span>Region</a><ul class="toc"><li class="tocline"><a href="#presented-region" class="tocxref"><span class="secno">6.8.1 </span>Presented Region</a></li><li class="tocline"><a href="#dimensions-and-position" class="tocxref"><span class="secno">6.8.2 </span>Dimensions and Position</a></li><li class="tocline"><a href="#maximum-number" class="tocxref"><span class="secno">6.8.3 </span>Maximum number</a></li></ul></li><li class="tocline"><a href="#profile-signaling" class="tocxref"><span class="secno">6.9 </span>Profile Signaling</a></li><li class="tocline"><a href="#hypothetical-render-model-1" class="tocxref"><span class="secno">6.10 </span>Hypothetical Render Model</a></li><li class="tocline"><a href="#common-features" class="tocxref"><span class="secno">6.11 </span>Features</a></li></ul></li><li class="tocline"><a href="#text-profile-constraints" class="tocxref"><span class="secno">7. </span>Text Profile Constraints</a><ul class="toc"><li class="tocline"><a href="#text-profile-designator" class="tocxref"><span class="secno">7.1 </span>Profile Designator</a></li><li class="tocline"><a href="#recommended-character-sets" class="tocxref"><span class="secno">7.2 </span>Recommended Character Sets</a></li><li class="tocline"><a href="#reference-fonts-1" class="tocxref"><span class="secno">7.3 </span>Reference Fonts</a></li><li class="tocline"><a href="#features" class="tocxref"><span class="secno">7.4 </span>Features</a></li></ul></li><li class="tocline"><a href="#image-profile-constraints" class="tocxref"><span class="secno">8. </span>Image Profile Constraints</a><ul class="toc"><li class="tocline"><a href="#image-profile-designator" class="tocxref"><span class="secno">8.1 </span>Profile Designator</a></li><li class="tocline"><a href="#presented-image" class="tocxref"><span class="secno">8.2 </span>Presented Image</a><ul class="toc"><li class="tocline"><a href="#definition" class="tocxref"><span class="secno">8.2.1 </span>Definition</a></li><li class="tocline"><a href="#presented-image-constraints" class="tocxref"><span class="secno">8.2.2 </span>Constraints</a></li><li class="tocline"><a href="#intermediate-synchronic-document-construction" class="tocxref"><span class="secno">8.2.3 </span>Intermediate Synchronic Document Construction</a></li></ul></li><li class="tocline"><a href="#smpte-bg-constraints" class="tocxref"><span class="secno">8.3 </span><code>smpte:backgroundImage</code> Constraints</a></li><li class="tocline"><a href="#features-1" class="tocxref"><span class="secno">8.4 </span>Features</a></li></ul></li><li class="tocline"><a href="#hypothetical-render-model" class="tocxref"><span class="secno">9. </span>Hypothetical Render Model</a><ul class="toc"><li class="tocline"><a href="#overview-non-normative" class="tocxref"><span class="secno">9.1 </span>Overview (non-normative)</a></li><li class="tocline"><a href="#hypothetical-render-model-general" class="tocxref"><span class="secno">9.2 </span>General</a></li><li class="tocline"><a href="#paint-regions" class="tocxref"><span class="secno">9.3 </span>Paint Regions</a></li><li class="tocline"><a href="#paint-images" class="tocxref"><span class="secno">9.4 </span>Paint Images</a></li><li class="tocline"><a href="#paint-text" class="tocxref"><span class="secno">9.5 </span>Paint Text</a></li></ul></li><li class="tocline"><a href="#reference-fonts" class="tocxref"><span class="secno">A. </span>Reference Fonts</a></li><li class="tocline"><a href="#recommended-unicode-code-points-per-language" class="tocxref"><span class="secno">B. </span>Recommended Character Sets</a></li><li class="tocline"><a href="#forced-content" class="tocxref"><span class="secno">C. </span>Forced content (non-normative)</a></li><li class="tocline"><a href="#wcag-applications" class="tocxref"><span class="secno">D. </span>WCAG Considerations</a></li><li class="tocline"><a href="#sample-instance" class="tocxref"><span class="secno">E. </span>Sample Document Instance (non-normative)</a></li><li class="tocline"><a href="#features-and-extensions" class="tocxref"><span class="secno">F. </span>Extensions</a><ul class="toc"><li class="tocline"><a href="#general-1" class="tocxref"><span class="secno">F.1 </span>General</a></li><li class="tocline"><a href="#progressivelydecodable" class="tocxref"><span class="secno">F.2 </span>#progressivelyDecodable</a></li><li class="tocline"><a href="#aspectratio" class="tocxref"><span class="secno">F.3 </span>#aspectRatio</a></li><li class="tocline"><a href="#forceddisplay" class="tocxref"><span class="secno">F.4 </span>#forcedDisplay</a></li><li class="tocline"><a href="#alttext" class="tocxref"><span class="secno">F.5 </span>#altText</a></li><li class="tocline"><a href="#linepadding" class="tocxref"><span class="secno">F.6 </span>#linePadding</a></li><li class="tocline"><a href="#multirowalign" class="tocxref"><span class="secno">F.7 </span>#multiRowAlign</a></li></ul></li><li class="tocline"><a href="#xml-schemas" class="tocxref"><span class="secno">G. </span>XML Schema Definitions (non-normative)</a></li><li class="tocline"><a href="#references" class="tocxref"><span class="secno">H. </span>References</a><ul class="toc"><li class="tocline"><a href="#normative-references" class="tocxref"><span class="secno">H.1 </span>Normative references</a></li><li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">H.2 </span>Informative references</a></li></ul></li></ul></section>
 
   
 
@@ -465,7 +466,7 @@ input.task-list-item-checkbox {
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
 
-    <p>The text-only profile is a strict superset of [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>].</p>
+    <p>The text profile is a syntactic superset of [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>], and a document can simultaneously conform to both [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>] and the text-only profile.</p>
 
     <p>The document defines extensions to [<cite><a class="bibref" href="#bib-TTML1">TTML1</a></cite>], as well as incorporates extensions specified in [<cite><a class="bibref" href="#bib-ST2052-1">ST2052-1</a></cite>] and
     [<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>].</p>
@@ -1186,15 +1187,36 @@ The <code>ittp:aspectRatio</code> parameter effectively defines the intended dis
         <p>The number of <a data-lt="presented region" href="#dfn-presented-region" class="internalDFN" data-link-type="dfn">presented regions</a> in a given <a href="#dfn-intermediate-synchronic-document" class="internalDFN" data-link-type="dfn">intermediate synchronic document</a> <em class="rfc2119" title="SHALL NOT">SHALL NOT</em> be greater than 4.</p>
       </section>
     </section>
-
+		
+		<section id="profile-signaling" typeof="bibo:Chapter" resource="#profile-signaling" property="bibo:hasPart">
+      <h3 id="h-profile-signaling" resource="#h-profile-signaling"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.9 </span>Profile Signaling</span></h3>
+			
+			<p>
+						
+			The <code>ttp:profile</code> attribute <em class="rfc2119" title="SHOULD">SHOULD</em> be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the document conforms, and the <code>ttp:profile</code> element <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> be present, unless:
+			</p><ul>
+			<li>
+			the document also conforms to [<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>], in which case the <code>ttp:profile</code> attribute 
+			and the <code>ttp:profile</code> element <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> be present, and instead the designator of the IMSC1 profile to which the document conforms and 
+			the URI "urn:ebu:tt:distribution:2014-01" <em class="rfc2119" title="SHOULD">SHOULD</em> each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
+			[<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>]; or
+			</li>
+			<li>
+			the document also conforms to [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>], in which case the <code>ttp:profile</code> attribute <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> be present. [<cite><a class="bibref" href="#bib-ttml10-sdp-us">ttml10-sdp-us</a></cite>] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
+			</li>
+			</ul>
+			<p></p>
+						
+		</section>
+		
     <section id="hypothetical-render-model-1" typeof="bibo:Chapter" resource="#hypothetical-render-model-1" property="bibo:hasPart">
-      <h3 id="h-hypothetical-render-model-1" resource="#h-hypothetical-render-model-1"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.9 </span>Hypothetical Render Model</span></h3>
+      <h3 id="h-hypothetical-render-model-1" resource="#h-hypothetical-render-model-1"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.10 </span>Hypothetical Render Model</span></h3>
 
       <p>It <em class="rfc2119" title="SHALL">SHALL</em> be possible to apply the Hypothetical Render Model specified in Section <a href="#hypothetical-render-model" class="sec-ref"><span class="secno">9.</span> <span class="sec-title">Hypothetical Render Model</span></a> to any sequence of consecutive <a data-lt="intermediate synchronic document" href="#dfn-intermediate-synchronic-document" class="internalDFN" data-link-type="dfn">intermediate synchronic documents</a> without error as defined in Section <a href="#hypothetical-render-model-general" class="sec-ref"><span class="secno">9.2</span> <span class="sec-title">General</span></a>.</p>
     </section>
 
     <section id="common-features" typeof="bibo:Chapter" resource="#common-features" property="bibo:hasPart">
-      <h3 id="h-common-features" resource="#h-common-features"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.10 </span>Features</span></h3>
+      <h3 id="h-common-features" resource="#h-common-features"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.11 </span>Features</span></h3>
 
 			<p>See <a href="#conformance" class="sec-ref"><span class="secno">4.</span> <span class="sec-title">Conformance</span></a> for a definition of "permitted" and "prohibited".</p>
 
@@ -1501,17 +1523,7 @@ be present on the <code>tt</code> element.</td>
             <td>permitted</td>
 						
 						<td>
-						<p>
-						
-						The <code>ttp:profile</code> attribute <em class="rfc2119" title="SHOULD">SHOULD</em> be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile 
-						to which the document conforms; unless the document also conforms to [<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>], in which case the <code>ttp:profile</code> attribute 
-						<em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> be present on the <code>tt</code> element, and instead the designator of the IMSC1 profile to which the document conforms and 
-						the URI "urn:ebu:tt:distribution:2014-01" <em class="rfc2119" title="SHOULD">SHOULD</em> each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
-						[<cite><a class="bibref" href="#bib-EBU-TT-D">EBU-TT-D</a></cite>].
-						
-						</p>
-						
-						<p>The <code>ttp:profile</code> element <em class="rfc2119" title="SHALL NOT">SHALL NOT</em> be present.</p>
+						See <a href="profile-signaling"></a>.
 
 						</td>
           </tr>
@@ -1800,7 +1812,7 @@ be present on the <code>tt</code> element.</td>
         </tbody>
       </table>
 
-      <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note15"><span>Note</span></div><p class="">As specified in <a href="#common-features" class="sec-ref"><span class="secno">6.10</span> <span class="sec-title">Features</span></a>, the presence of the <code>ttp:profile</code> attribute is
+      <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note15"><span>Note</span></div><p class="">As specified in <a href="#common-features" class="sec-ref"><span class="secno">6.11</span> <span class="sec-title">Features</span></a>, the presence of the <code>ttp:profile</code> attribute is
       not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
       of a <a href="#dfn-document-instance" class="internalDFN" data-link-type="dfn">Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for instance, use
       metadata structures out-of-band of the <a href="#dfn-document-instance" class="internalDFN" data-link-type="dfn">Document Instance</a>.</p></div>
@@ -2238,7 +2250,7 @@ be present on the <code>tt</code> element.</td>
         </tbody>
       </table>
 
-      <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note18"><span>Note</span></div><p class="">As specified in <a href="#common-features" class="sec-ref"><span class="secno">6.10</span> <span class="sec-title">Features</span></a>, the presence of the <code>ttp:profile</code> attribute is
+      <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note18"><span>Note</span></div><p class="">As specified in <a href="#common-features" class="sec-ref"><span class="secno">6.11</span> <span class="sec-title">Features</span></a>, the presence of the <code>ttp:profile</code> attribute is
       not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
       of a <a href="#dfn-document-instance" class="internalDFN" data-link-type="dfn">Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for instance, use
       metadata structures out-of-band of the <a href="#dfn-document-instance" class="internalDFN" data-link-type="dfn">Document Instance</a>.</p></div>
