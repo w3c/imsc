@@ -63,12 +63,13 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   <section id='abstract'>
     <p>This document specifies two profiles of [[!TTML1]]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
-    consistent rendering and conversion to other subtitling and captioning formats. The text profile is a superset of
-    [[ttml10-sdp-us]].</p>
+    consistent rendering and conversion to other subtitling and captioning formats.</p>
+		
+		<p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
     <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
     [[!EBU-TT-D]].</p>
-
+		
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
@@ -92,7 +93,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
 
-    <p>The text-only profile is a strict superset of [[ttml10-sdp-us]].</p>
+    <p>The text profile is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
     <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
     [[!EBU-TT-D]].</p>
