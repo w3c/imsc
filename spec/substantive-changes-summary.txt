@@ -34,7 +34,7 @@ From CR (20150519) to CR (20160126)
 
 * ISSUE #97: clarified smpte:backgroundImage processing requirements
 
-* ISSUE #61: replaced "earlier" with "lexically preceeding" in Section 6.7.2
+* ISSUE #61: replaced "earlier" with "lexically precedes" in Section 6.7.2
 
 * ISSUE #84: clarified that the mapping algorithm of Section 6.7.1 applies to each 
   image frame of the Related Video Object
