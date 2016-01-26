@@ -181,7 +181,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <section>
       <h3>General</h3>
 
-      <p>A <a>Document Instance</a> SHALL NOT conform to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously.</p>
+      <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>, <code>br</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible to construct a <a>Document Instance</a> that conforms to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously, i.e. that results in the presentation of both text data and image data.</p>
 
       <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form, two
       distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other conforming to the <a>Image Profile</a>,
@@ -822,20 +822,23 @@ ittp:progressivelyDecodable
 		<section id='profile-signaling'>
       <h3>Profile Signaling</h3>
 			
-			<p>
-						
-			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the document conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:
+			<p>		
+			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:
 			<ul>
 			<li>
-			the document also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
-			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the document conforms and 
+			the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
+			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms and 
 			the URI "urn:ebu:tt:distribution:2014-01" SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
 			[[!EBU-TT-D]]; or
 			</li>
 			<li>
-			the document also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
+			the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
 			</li>
 			</ul>
+			</p>
+			
+			<p>
+			The <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.
 			</p>
 						
 		</section>
