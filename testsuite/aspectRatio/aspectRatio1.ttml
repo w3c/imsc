@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" 
+xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text"
 xmlns:tts="http://www.w3.org/ns/ttml#styling"
-xmlns:ttp="http://www.w3.org/ns/ttml#parameter" 
 xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
 ittp:aspectRatio="4 3">
 	<head>
