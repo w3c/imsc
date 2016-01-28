@@ -7,7 +7,7 @@ xmlns:tts="http://www.w3.org/ns/ttml#styling">
 			<region xml:id="area1" tts:origin="0% 0%" tts:extent="100% 100%" tts:backgroundColor="green" tts:displayAlign="center" tts:color="white"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div>			
 			<p region="area1" begin="1s" end="9s">This region should fill the entire related video object frame.</p>
 		</div>
