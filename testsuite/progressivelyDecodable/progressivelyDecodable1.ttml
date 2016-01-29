@@ -9,7 +9,7 @@ ittp:progressivelyDecodable="true">
 			<region xml:id="area1" tts:origin="10% 80%" tts:extent="80% 10%" tts:backgroundColor="green" tts:displayAlign="center" tts:textAlign="center" tts:color="white"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div>			
 			<p region="area1" begin="00:00:01" end="00:00:02">One.</p>
             <p region="area1" begin="00:00:02" end="00:00:03">Two.</p>

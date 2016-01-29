@@ -15,7 +15,7 @@
 			<region xml:id="subtitleArea" style="white_PropSerif_18_L" tts:origin="100px 150px" tts:extent="450px 200px" tts:padding="5px 5px" tts:backgroundColor="black" tts:opacity="0.85" tts:displayAlign="center" tts:showBackground="whenActive" tts:wrapOption="wrap"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea">
 			<p ttm:role="caption" begin="00:00:02.3333" end="00:00:05.5000">This is Italian caption 1, using time values of the form <span tts:fontStyle="italic">HH:MM:SS.fraction</span>.</p>
 			<p ttm:role="caption" begin="00:00:07.8333" end="00:00:10.5000">This is Italian caption 2.<br/>A two-line caption.

@@ -7,7 +7,7 @@ xmlns:tts="http://www.w3.org/ns/ttml#styling">
 			<region xml:id="area1" tts:origin="10% 70%" tts:extent="80% 20%" tts:showBackground="whenActive" tts:backgroundColor="red" tts:displayAlign="center" tts:color="white"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div>			
 			<p region="area1" begin="00:00:01.01" end="00:00:03">This should appear on frame 25.</p>
             <p region="area1" begin="00:00:04" end="00:00:06">This should appear on frame 96.</p>

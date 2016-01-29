@@ -28,7 +28,7 @@
 			<region xml:id="alwaysVisible" style="black_72" tts:origin="45px 5px" tts:extent="10px 20px" tts:textAlign="center" tts:showBackground="always" tts:wrapOption="noWrap" tts:backgroundColor="#aaaaaa"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		
 		<div region="subtitleArea1">
 			<p begin="00:00:00:10" end="00:00:00:13" tts:backgroundColor="#97BF0D" style="white_73" tts:wrapOption="wrap" tts:fontSize="24px">Start</p>

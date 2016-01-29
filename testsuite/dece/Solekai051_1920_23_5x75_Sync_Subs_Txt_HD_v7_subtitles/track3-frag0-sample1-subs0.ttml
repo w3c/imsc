@@ -18,7 +18,7 @@
 
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea1">
 			<p ttm:role="caption" begin="00:00:01:02" end="00:00:06:02">Black subtitle text that is placed<br/>on a solid white background.<br/> A pink rectangle is not visible.</p>
 		</div>
