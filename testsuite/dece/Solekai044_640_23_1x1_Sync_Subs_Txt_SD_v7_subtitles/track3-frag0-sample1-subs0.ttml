@@ -17,7 +17,7 @@
 			<region xml:id="subtitleArea4" style="blue_PropSerif_36_L" tts:origin="100px 150px" tts:extent="450px 200px" tts:padding="0px 0px" tts:backgroundColor="white" tts:opacity="0.45" tts:displayAlign="center" tts:showBackground="whenActive" tts:wrapOption="wrap"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea1">
 			<p ttm:role="caption" begin="00:00:01:02" end="00:00:06:02">Black subtitle text<br/>on white background.<br/> Pink rectangle <br/> is not visible.</p>
 		</div>

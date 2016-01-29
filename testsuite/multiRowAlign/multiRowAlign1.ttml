@@ -19,7 +19,7 @@
 			<region xml:id="area2" tts:origin="15% 70%" tts:extent="70% 20%" style="blackBackground" tts:displayAlign="center"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div style="baseStyle">			
 			<p xml:id="s1" region="area1" style="startEnd" begin="00:00:01" end="00:00:09">
 multiRowAlign="end"<br/>textAlign="start"

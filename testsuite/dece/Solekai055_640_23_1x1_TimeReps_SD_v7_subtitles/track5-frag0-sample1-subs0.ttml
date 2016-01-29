@@ -14,7 +14,7 @@
 			<region xml:id="subtitleArea" style="white_PropSerif_18_L" tts:origin="100px 150px" tts:extent="450px 200px" tts:padding="5px 5px" tts:backgroundColor="black" tts:opacity="0.85" tts:displayAlign="center" tts:showBackground="whenActive" tts:wrapOption="wrap"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea">
 			<p ttm:role="caption" begin="0.000648h" end="0.0015278h">This is German caption 1, using time values of the form <span tts:fontStyle="italic">HH.fraction</span>.</p>
 			<p ttm:role="caption" begin="0.002176h" end="0.00292h">This is German caption 2.<br/>A two-line caption.</p>

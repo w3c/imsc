@@ -27,7 +27,7 @@
 						
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea1">
 			<p begin="00:00:00:12" end="00:00:00:26" tts:backgroundColor="#97BF0D" style="white_55" tts:wrapOption="wrap">This is a subtitle with 38 characters.</p>
 			<p begin="00:00:00:26" end="00:00:01:17" style="white_55" tts:wrapOption="wrap" tts:textOutline="black 3px">This text subtitle contains 42 characters.</p>

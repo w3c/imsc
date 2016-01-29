@@ -6,7 +6,7 @@ xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
 ittp:aspectRatio="4 3">
 	<head>
 		<layout>
-			<region xml:id="area1" tts:origin="0% 0%" tts:extent="100% 100%" tts:backgroundColor="green" tts:displayAlign="center" tts:color="white"/>
+			<region xml:id="area1" tts:origin="0% 0%" tts:extent="100% 100%" tts:backgroundColor="green" tts:displayAlign="center" tts:color="white" tts:lineHeight="100%"/>
 		</layout>
 	</head>
 	<body>

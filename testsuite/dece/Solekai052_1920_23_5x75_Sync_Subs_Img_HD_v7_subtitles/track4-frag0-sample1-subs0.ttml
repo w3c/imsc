@@ -14,7 +14,7 @@
 			<region xml:id="subtitleArea" style="white_PropSerif_18_L" tts:origin="30px 800px" tts:extent="750px 100px" tts:padding="5px 5px" tts:backgroundColor="black" tts:opacity="0.85" tts:displayAlign="center" tts:showBackground="whenActive" tts:wrapOption="wrap"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea">
 			<p ttm:role="caption" begin="00:00:02:08" end="00:00:05:12">This is English caption 1.</p>
 			<p ttm:role="caption" begin="00:00:07:20" end="00:00:10:12">This is English caption 2.<br/>A two-line caption.</p>

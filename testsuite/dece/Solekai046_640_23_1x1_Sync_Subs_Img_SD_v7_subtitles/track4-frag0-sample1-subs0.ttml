@@ -13,7 +13,7 @@
 			<region xml:id="subtitleArea" style="white_PropSerif_18_L" tts:origin="30px 300px" tts:extent="250px 50px" tts:padding="5px 5px" tts:backgroundColor="black" tts:opacity="0.85" tts:displayAlign="center" tts:showBackground="whenActive" tts:wrapOption="wrap"/>
 		</layout>
 	</head>
-	<body>
+	<body tts:lineHeight="100%">
 		<div region="subtitleArea">
 			<p ttm:role="caption" begin="00:00:02:08" end="00:00:07:12" itts:forcedDisplay="true">English text subtitle<br/> caption 1.</p>
 			<p ttm:role="caption" begin="00:00:09:06" end="00:00:14:12" itts:forcedDisplay="true">English text subtitle<br/> caption 2.</p>
