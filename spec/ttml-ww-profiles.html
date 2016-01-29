@@ -497,7 +497,8 @@ numerator | denominator
   xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
   xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
   ittp:aspectRatio=&quot;4 3&quot;
-	tts:extent=&quot;400px 300px&quot;
+  tts:extent=&quot;400px 300px&quot;
+  ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/text&quot;
  &gt;
  ...
  &lt;region id=&quot;A&quot; tts:origin=&quot;40px 10px&quot; tts:extent=&quot;320px 10px&quot;&gt;
@@ -596,6 +597,7 @@ ittp:progressivelyDecodable
   xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
   xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
   ittp:progressivelyDecodable=&quot;true&quot;
+  ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/text&quot;
  &gt;
  ...
 &lt;/tt&gt;
@@ -3282,13 +3284,14 @@ be present on the <code>tt</code> element.</td>
 
 <pre class='example'>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt
- xml:lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/ns/ttml&quot;
+&lt;tt xml:lang=&quot;en&quot;
+ xmlns=&quot;http://www.w3.org/ns/ttml&quot;
  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
  xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
- ittp:aspectRatio=&quot;4 3&quot;&gt;
+ ittp:aspectRatio=&quot;4 3&quot;
+ ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/text&quot;&gt;
 	
 	&lt;head&gt;
 		&lt;layout&gt;
@@ -3306,7 +3309,7 @@ be present on the <code>tt</code> element.</td>
 	 
 <pre class='example'>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt
+&lt;tt xml:lang=&quot;fr&quot;
  xmlns=&quot;http://www.w3.org/ns/ttml&quot;
  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
@@ -3315,7 +3318,7 @@ be present on the <code>tt</code> element.</td>
  xmlns:itts=&quot;http://www.w3.org/ns/ttml/profile/imsc1#styling&quot;
  tts:extent=&quot;640px 480px&quot;
  ttp:frameRate=&quot;25&quot;
- xml:lang=&quot;fr&quot;&gt;
+ ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/image&quot;&gt;
 	
 	&lt;head&gt;
 		&lt;layout&gt;
@@ -3329,7 +3332,7 @@ be present on the <code>tt</code> element.</td>
 		&lt;div region=&quot;region2&quot; itts:forcedDisplay=&quot;true&quot; begin=&quot;00:00:03:20&quot; end=&quot;00:00:04:12&quot; smpte:backgroundImage=&quot;3.png&quot;/&gt;
 	&lt;/body&gt;
 &lt;/tt&gt;
-&lt;/pre&gt;
+</pre>
   </section>
 
   <section class='appendix' id='features-and-extensions'>
