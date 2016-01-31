@@ -11,6 +11,12 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
+From CR (20160128) to ED
+========================
+
+* ISSUE #136: Clarified that document shall not signal conformance to both
+  profiles but can, in special cases, conform to both profiles
+
 From CR (20150519) to CR (20160128)
 ===================================
 
