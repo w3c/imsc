@@ -17,7 +17,7 @@
 			<region xml:id="region3" tts:origin="700px 350px" tts:extent="680px 200px" tts:showBackground="whenActive"/>
 		</layout>
 	</head>
-	<body tts:lineHeight="100%">
+	<body>
 		
 		
 		
