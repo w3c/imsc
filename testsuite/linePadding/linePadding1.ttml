@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tt xml:lang="en"
-    xmlns="http://www.w3.org/ns/ttml"
-    xmlns:ttm="http://www.w3.org/ns/ttml#metadata" 
-    xmlns:tts="http://www.w3.org/ns/ttml#styling"
-    xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text"
-    xmlns:ebutts="urn:ebu:tt:style"
-    ttp:timeBase="media">
+<tt xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter"
+ xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttm="http://www.w3.org/ns/ttml#metadata"
+ xmlns:ebutts="urn:ebu:tt:style" xml:lang="en" ttp:timeBase="media" xmlns:ebuttm="urn:ebu:tt:metadata" >
     <head>
+        <metadata>
+            <ebuttm:documentMetadata>
+                <ebuttm:conformsToStandard>urn:ebu:tt:distribution:2014-01</ebuttm:conformsToStandard>
+                <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1/text</ebuttm:conformsToStandard>
+            </ebuttm:documentMetadata>
+        </metadata>
         <styling>
             <style xml:id="baseStyle" tts:color="#FFFFFF" tts:textAlign="center"/>
             <style xml:id="blackBackground" tts:backgroundColor="#000000"/>
