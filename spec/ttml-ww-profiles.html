@@ -117,6 +117,10 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		
 		<p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML1]].</p>
 		
+		<p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+		
+		<p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+		
 		<p><dfn>Intermediate synchronic document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
 
 		<p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
@@ -212,6 +216,39 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <p>The <dfn>Image Profile</dfn> consists of Sections <a href="#common-constraints"></a> and <a href=
       "#image-profile-constraints"></a>.</p>
+    </section>
+		
+		
+		<section>
+      <h3>Profile Resolution Semantics</h3>
+
+				
+				<p>For the purpose of content processing, the determination of the resolved 
+				profile SHOULD take into account both the signaled profile, as defined 
+				in <a href="#profile-signaling"></a>, and profile metadata, as designated by either (or both) 
+				the <a>Document Interchange Context</a> or (and) the <a>Document Processing 
+				Context</a>, which MAY entail inspecting document content.</p>
+
+				<p>If the resolved profile is a not a profile supported by the <a>Processor</a> 
+				but is feasibly interoperable with the <a>Text Profile</a>, then the resolved 
+				profile is the <a>Text Profile</a>; otherwise, if the resolved profile is a not 
+				a profile supported by the <a>Processor</a>  but is feasibly interoperable with 
+				the <a>Image Profile</a>, then the resolved profile is the <a>Image Profile</a>.</p>
+
+
+				<p>If the resolved profile is a profile supported by the <a>Processor</a>, then 
+				the <a>Processor</a> SHOULD process the <a>Document Instance</a> according to the 
+				resolved profile. If the resolved profile is neither <a>Text Profile</a> nor 
+				<a>Image Profile</a>, processing is outside the scope of this specification.</p>
+ 
+
+				<p>If the resolved profile is undetermined or not supported by the 
+				<a>Processor</a>, then the <a>Processor</a> SHOULD nevertheless process the <a>Document 
+				Instance</a> using one of its supported profiles, with a preference for the 
+				<a>Text Profile</a> over the <a>Image Profile</a>; otherwise, processing MAY be 
+				aborted.</p>
+
+
     </section>
   </section>
 
