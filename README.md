@@ -8,7 +8,7 @@ The specification can be viewed [here](https://rawgit.com/w3c/imsc1/master/spec/
 
 * spec: specification artifacts, i.e. what is published on TR
 * spec/xml-schemas: XML schema documents
-* testsuite: test suite artifacts
+* test: test vectors, a selection of which are used in the [IMSC1 implementation report](https://www.w3.org/wiki/TimedText/IMSC1_Implementation_Report)
 * misc/cldr-supplemental-data: proposed supplemental CLDR data submitted to Unicode
-* misc/dece-20141120: test vectors contributed by DECE [WARNING: these test vectors 
+* misc/dece: test vectors contributed by DECE [WARNING: these test vectors 
   do not conform to IMSC1. See converted test vectors at testsuite/dece instead.]
