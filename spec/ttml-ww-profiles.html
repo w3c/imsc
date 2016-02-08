@@ -129,7 +129,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		
 		<p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a rectangular array of pixels.</p> 
 		
-		<p><dfn>text alternative</dfn>. As defined in [[!WCAG20]].</p>
+		<p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
   </section>
 
@@ -1932,7 +1932,7 @@ be present on the <code>tt</code> element.</td>
 				to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of the region in which the
 				<code>div</code> element is presented;</li>
 
-        <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>text alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
+        <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
 
         <li>The <code>smpte:backgroundImage</code> attribute SHALL reference a PNG datastream as specified in [[!PNG]]. If a pHYs chunk is present, it SHALL indicate square pixels. Note:
         If no pixel aspect ratio is carried, the default of square pixels is assumed.<br></li>
@@ -3258,8 +3258,8 @@ be present on the <code>tt</code> element.</td>
 
     <p>In order to meet the guidelines in [[!WCAG20]], the following considerations apply.</p>
 
-    <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide text alternatives for all non-text content. In the
-    context of this specification, this text alternative is intended primarily to support users of the subtitles who cannot see
+    <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a> for all non-text content. In the
+    context of this specification, this <a>Text Alternative</a> is intended primarily to support users of the subtitles who cannot see
     images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually represent subtitle or caption text, the
     guidelines for authoring text equivalent strings given at <span class='sec-no'>Images of text</span> of [[HTML5]] are
     appropriate.</p>
@@ -3277,7 +3277,7 @@ be present on the <code>tt</code> element.</td>
     <a>Document Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
     include this functional information in the rendered text.</p>
 
-    <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible text alternatives must be "programmatically determinable." This
+    <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be "programmatically determinable." This
     means that the text must be able to be read and used by the assistive technologies (and the accessibility features in browsers)
     that people with disabilities use. It also means that the user must be able to use their assistive technology to find the
     alternative text (that they can use) when they land on the non-text content (that they can't use).</p>
