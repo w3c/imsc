@@ -104,35 +104,24 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 	
 	  <section id='conventions'>
     <h2>Documentation Conventions</h2>
-
-    <p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes and metadata elements. In particular, Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements.</p>
+			
+			<p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes and metadata elements. In particular, Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements.</p>
+			
+			<p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered non-normative.</p>
 		
-    <p>This document uses <a>Feature</a> and <a>Extension</a> designations defined
-      in [[!TTML1]], [[!ST2052-11]], [[!EBU-TT-D]] and this
-      specification. When making reference to content conformance,
-      these designations are used to refer to the syntactic expression
-      or the semantic capability associated with each designated
-      <a>Feature</a> or <a>Extension</a>. When making reference to processing
-      conformance, these designations are used to refer to processing
-      requirements associated with each designated <a>Feature</a> or
-      <a>Extension</a>.</p>
-
-    <p>Within the feature tables contained in this specification, the
-      disposition <em>permitted</em> means that a syntactic expression
-      or semantic capability referred to by a <a>Feature</a> or <a>Extension</a>
-      designation is permitted within a document instance, while the
-      disposition <em>prohibited</em> means that a syntactic
-      expression or semantic capability referred to by a <a>Feature</a> or
-      <a>Extension</a> designation is prohibited (not permitted) within a
-      document instance.  The disposition does not refer to the
-      specification of a <code>ttp:feature</code>
-      or <code>ttp:extension</code> element as being permitted or
-      prohibited within a <code>ttp:profile</code> element; rather, it
-      refers to whether the syntactic expression or semantic
-      capability designated by a <a>Feature</a> or <a>Extension</a> is permitted or
-      prohibited in a document instance.</p>
-
-		<p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered non-normative.</p>
+			<p>This specification uses <a>Feature</a> and <a>Extension</a> 
+			designations as defined in Appendices D.1 and E.1 at [[!TTML1]]:
+			<ul>
+			<li>when making reference to content conformance, 
+			these designations refer to the syntactic expression or the semantic 
+			capability associated with each designated <a>Feature</a> or 
+			<a>Extension</a>; and</li>
+			<li>when making reference to processors 
+			conformance, these designations refer to processing 
+			requirements associated with each designated <a>Feature</a> or 
+			<a>Extension</a>.</li>
+			</ul></p>
+			
   </section>
 
   <section id='terms'>
@@ -168,16 +157,15 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
     <ul>
       <li>SHALL satisfy all normative provisions specified by the profile;</li>
-      <li>MAY use any vocabulary, syntax or attribute value which presence is
-        admitted by a <a>Feature</a> or <a>Extension</a> defined by the applicable profile as having the
-        disposition <em>permitted</em>;</li>
-      <li>SHALL NOT use any vocabulary, syntax or attribute value which presence
-        is admitted by a <a>Feature</a> or <a>Extension</a> defined by the applicable profile as having the
-        disposition <em>prohibited</em>.</li>
+			
+      <li>MAY include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or
+			<a>Extension</a> whose disposition is <em>permitted</em> in the profile;</li>
+			
+      <li>SHALL NOT include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or <a>Extension</a>
+			whose disposition is <em>prohibited</em> in the profile.</li>
+			
     </ul>
 			
-    <p class='note'>In the paragraph above, the term <em>use</em> means <em>appears in [a document instance]</em>.</p>
-
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
@@ -207,6 +195,12 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     Profile).</p>
 		
 		<p class='note'>This specification does not specify <a>presentation processor</a> or <a>transformation processor</a> behavior when processing or transforming a non-conformant <a>Document Instance</a>.</p>
+		
+		 <p class='note'>The <em>permitted</em> and <em>prohibited</em> 
+		dispositions do not refer to the specification of a 
+		<code>ttp:feature</code> or <code>ttp:extension</code> element as being 
+		permitted or prohibited within a <code>ttp:profile</code> element.</p> 
+
   </section>
 
   <section id='profiles'>
@@ -440,7 +434,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <section>
       <h3>Synchronization</h3>
 
-      <p>Each <a>intermediate Synchronic Document</a> of the <a>Document Instance</a> is intended to be displayed on a specific frame and
+      <p>Each <a>intermediate synchronic document</a> of the <a>Document Instance</a> is intended to be displayed on a specific frame and
       removed on a specific frame of the <a>Related Video Object</a>.</p>
 
       <p>When mapping a media time expression M to a frame F of a <a>Related Video Object</a>, e.g. for the purpose of rendering a
@@ -887,7 +881,7 @@ ittp:progressivelyDecodable
     <section id='common-features'>
       <h3>Features</h3>
 
-			<p>See <a href="#conventions"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1512,7 +1506,7 @@ be present on the <code>tt</code> element.</td>
     <section>
       <h3>Features</h3>
 
-			<p>See <a href="#conventions"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1974,7 +1968,7 @@ be present on the <code>tt</code> element.</td>
     <section>
       <h3>Features</h3>
 
-      <p>See <a href="#conventions"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
