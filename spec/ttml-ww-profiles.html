@@ -233,7 +233,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 				<p>If the resolved profile is not a profile supported by the <a>Processor</a> 
 				but is feasibly interoperable with the <a>Text Profile</a>, then the resolved 
 				profile is the <a>Text Profile</a>; otherwise, if the resolved profile is not 
-				a profile supported by the <a>Processor</a>  but is feasibly interoperable with 
+				a profile supported by the <a>Processor</a> but is feasibly interoperable with 
 				the <a>Image Profile</a>, then the resolved profile is the <a>Image Profile</a>.</p>
 
 
@@ -3477,9 +3477,6 @@ be present on the <code>tt</code> element.</td>
 			</p>
 			
 			<p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
-						
-			<p class='note'>This section is informative in nature. It is not intended to be complete and/or replace [[!ST2052-1]], [[!EBU-TT-D]], [[ttml10-sdp-us]], [[CFF]] and the normative prose of this specification
-			when evaluating conformance of documents and processors.</p>
 			
 			</section>
 	
@@ -3497,11 +3494,11 @@ be present on the <code>tt</code> element.</td>
 					</ul>
 				</p>
 				
-				<p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the <code>ebuttm:conformsToStandard</code> element is used instead as specified in <a href="#profile-signaling"></a>.</p>
+				<p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the <code>ebuttm:conformsToStandard</code> element is used instead to signal Text Profile, as specified in <a href="#profile-signaling"></a>.</p>
 				
 				<p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
 								
-				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]:</p>
+				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]. Note the presence of two <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
 				
 <pre class='example'>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -3554,7 +3551,17 @@ multiRowAlign=&quot;start&quot;&lt;br/&gt;textAlign=&quot;center&quot;
 					</ul>
 				</p>
 				
-				<p>[[!ttml10-sdp-us]] requires the use of the <code>ttp:profile</code> element. As a result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, as specified in <a href="#profile-resolution"></a>, Text Profile is signaled either explicitly by the Document Interchange Context and/or the Document Processing Context, or a priori by signalling the [[!ttml10-sdp-us]] profile.</p>
+				 <p>[[!ttml10-sdp-us]] requires a specific value of the <code>use</code> 
+				attribute of the <code>ttp:profile</code>. As a result, Text Profile is 
+				not signaled using the <code>ttp:profile</code> attribute. Instead, as 
+				specified in <a href="#profile-resolution"></a>, the Text Profile can be 
+				signaled by the Document Interchange Context and/or the Document 
+				Processing Context. Alternatively, a processor can choose to process a 
+				document as a Text Profile document if the <code>ttp:profile</code> 
+				element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly 
+				interoperable with Text Profile.</p> 
+
+
 								
 				<p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
 			
