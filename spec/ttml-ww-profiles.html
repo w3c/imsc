@@ -224,11 +224,13 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <p>A <a>Document Instance</a> SHALL use UTF-8 character encoding as specified in [[!UNICODE]].</p>
     </section>
 
-    <section>
+    <section id='foreign-elements'>
       <h3>Foreign Element and Attributes</h3>
 
       <p>A <a>Document Instance</a> MAY contain elements and attributes that are neither specifically permitted nor forbidden by a
       profile.</p>
+			
+			<p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
     </section>
 
     <section>
@@ -3426,6 +3428,21 @@ be present on the <code>tt</code> element.</td>
 		
 
 	</section>
+
+
+  <section class='appendix'>
+    <h2>Extensibility Objectives (non-normative)</h2>
+
+    <p>This section documents extensibility objectives for this specification.</p>
+
+    <p>This specification is intended to:
+		<ul>
+		<li>allow other profiles of TTML and future revisions of this specification to specify support for documents and/or processors conforming to Text Profile or Image Profile, in addition to specifying additional extensions;</li>
+		<li>allow content from external namespaces or without a namespace to be present in a document conforming to Text Profile or Image Profile (a) without affecting transformation or presentation, and (b) to be carried through by a <a>transformation processor</a> (see <a='#foreign-element'>);</li>
+		<li>allow documents that conform to Text Profile or Image Profile to be embedded in other XML documents.</li>
+		</ul>
+		</p>
+  </section>
 	
 </body>
 </html>
