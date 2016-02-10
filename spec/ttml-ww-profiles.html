@@ -29,6 +29,7 @@ var respecConfig = {
                                   "SUBM": "World Wide Web Consortium (W3C). <a href='http://www.w3.org/Submission/2013/SUBM-ttml-ww-profiles-20130607/'>TTML Text and Image Profiles for Internet Media Subtitles and Captions</a> (Member Submission, 07 June 2013)",
                   "CEA-608": "<a href='http://www.ce.org/Standards/Standard-Listings/R4-3-Television-Data-Systems-Subcommittee/Line-21-Data-Service.aspx'>Line-21 Data Services</a>, ANSI/CEA Standard.",
                   "CEA-708": "<a href='http://www.ce.org/Standards/Standard-Listings/R4-3-Television-Data-Systems-Subcommittee/CEA-708-D.aspx'>Digital Television (DTV) Closed Captioning</a>, ANSI/CEA Standard.",
+									"CFF": "Digital Entertainment Content Ecosystem (DECE). <a href='http://uvcentral.com/page/ultraviolet-online-guide-homepage'>Common File Format & Media Formats Specification (CFF) Version 2.2</a>.",
                   "ST2052-1": "SMPTE ST 2052-1, Timed Text Format (SMPTE-TT) URL: <a href='https://www.smpte.org/standards '>https://www.smpte.org/standards</a>",
                                   "EBU-TT-D": "European Broadcasting Union (EBU). <a href='https://tech.ebu.ch/docs/tech/tech3380.pdf'>Tech 3380, EBU-TT-D Subtitling Distribution Format Version 1.0</a>",
                                   
@@ -219,7 +220,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     </section>
 		
 		
-		<section>
+		<section id="profile-resolution">
       <h3>Profile Resolution Semantics</h3>
 
 				
@@ -3458,6 +3459,185 @@ be present on the <code>tt</code> element.</td>
 		<p>In any case where a definition specified by this appendix diverge from the prose of the specification, 
 		then the latter takes precedence.</p>
 		
+
+	</section>
+	
+		<section class='appendix' id='interop-examples'>
+    <h2>Compatibility with other TTML-based specifications (non-normative)</h2>
+		
+			<section class='appendix'>
+			<h3>Overview</h3>
+		
+			<p>This specification is designed to be compatible with [[!ST2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]]. 
+			Specifically, it is possible to create a document that:
+			<ul>
+			<li>conforms to one of [[!ST2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
+			<li>conforms to [[!ST2052-1]], and also conforms to Image Profile.</li>
+			</ul>
+			</p>
+			
+			<p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
+						
+			<p class='note'>This section is informative in nature. It is not intended to be complete and/or replace [[!ST2052-1]], [[!EBU-TT-D]], [[ttml10-sdp-us]], [[CFF]] and the normative prose of this specification
+			when evaluating conformance of documents and processors.</p>
+			
+			</section>
+	
+
+			<section class='appendix'>
+				<h3>EBU-TT-D</h3>
+				
+				<p>The Text Profile is a strict syntactic superset of [[!EBU-TT-D]].</p>
+
+				<p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the Text Profile, with a few exceptions, including:
+					<ul>
+					<li>[[!EBU-TT-D]] does not constrain document complexity using an HRM;</li>
+					<li>[[!EBU-TT-D]] allows UTF-16 encoding in addition to UTF-8 encoding; and</li>
+					<li>[[!EBU-TT-D]] does not constrain the number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>.</li>
+					</ul>
+				</p>
+				
+				<p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the <code>ebuttm:conformsToStandard</code> element is used instead as specified in <a href="#profile-signaling"></a>.</p>
+				
+				<p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+								
+				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]:</p>
+				
+<pre class='example'>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;tt xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xmlns=&quot;http://www.w3.org/ns/ttml&quot; xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
+ xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot; xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
+ xmlns:ebutts=&quot;urn:ebu:tt:style&quot; xml:lang=&quot;en&quot; ttp:timeBase=&quot;media&quot; xmlns:ebuttm=&quot;urn:ebu:tt:metadata&quot; &gt;
+	&lt;head&gt;
+		&lt;metadata&gt;
+			&lt;ebuttm:documentMetadata&gt;
+				&lt;ebuttm:conformsToStandard&gt;urn:ebu:tt:distribution:2014-01&lt;/ebuttm:conformsToStandard&gt;
+				&lt;ebuttm:conformsToStandard&gt;http://www.w3.org/ns/ttml/profile/imsc1/text&lt;/ebuttm:conformsToStandard&gt;
+			&lt;/ebuttm:documentMetadata&gt;
+		&lt;/metadata&gt;		
+		&lt;styling&gt;
+            &lt;style xml:id=&quot;baseStyle&quot; tts:color=&quot;#FFFFFF&quot;/&gt;
+            &lt;style xml:id=&quot;blackBackground&quot; tts:backgroundColor=&quot;#000000&quot;/&gt;
+            &lt;style xml:id=&quot;greenBackground&quot; tts:backgroundColor=&quot;#00FF00&quot;/&gt;
+			&lt;style xml:id=&quot;startEnd&quot; tts:textAlign=&quot;start&quot; ebutts:multiRowAlign=&quot;end&quot;/&gt;
+			&lt;style xml:id=&quot;centerStart&quot; tts:textAlign=&quot;center&quot; ebutts:multiRowAlign=&quot;start&quot;/&gt;
+		&lt;/styling&gt;
+		&lt;layout&gt;
+			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;15% 10%&quot; tts:extent=&quot;70% 20%&quot; style=&quot;greenBackground&quot; tts:displayAlign=&quot;center&quot;/&gt;
+			&lt;region xml:id=&quot;area2&quot; tts:origin=&quot;15% 70%&quot; tts:extent=&quot;70% 20%&quot; style=&quot;blackBackground&quot; tts:displayAlign=&quot;center&quot;/&gt;
+		&lt;/layout&gt;
+	&lt;/head&gt;
+	&lt;body tts:lineHeight=&quot;100%&quot;&gt;
+		&lt;div style=&quot;baseStyle&quot;&gt;			
+			&lt;p xml:id=&quot;s1&quot; region=&quot;area1&quot; style=&quot;startEnd&quot; begin=&quot;00:00:01&quot; end=&quot;00:00:09&quot;&gt;
+multiRowAlign=&quot;end&quot;&lt;br/&gt;textAlign=&quot;start&quot;
+			&lt;/p&gt;
+			&lt;p xml:id=&quot;s2&quot; region=&quot;area2&quot; style=&quot;centerStart&quot; begin=&quot;00:00:01&quot; end=&quot;00:00:09&quot;&gt;
+multiRowAlign=&quot;start&quot;&lt;br/&gt;textAlign=&quot;center&quot;
+			&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/tt&gt;
+</pre>
+			
+			</section>
+			
+			<section class='appendix'>
+				<h3>SDP-US</h3>
+				
+				<p>The Text Profile is a strict syntactic superset of [[ttml10-sdp-us]].</p>
+
+				<p>A document that conforms to [[ttml10-sdp-us]] therefore also generally conforms to the Text Profile, with a few exceptions, including:
+					<ul>
+					<li>[[!ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
+					</ul>
+				</p>
+				
+				<p>[[!ttml10-sdp-us]] requires the use of the <code>ttp:profile</code> element. As a result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, as specified in <a href="#profile-resolution"></a>, Text Profile is signaled either explicitly by the Document Interchange Context and/or the Document Processing Context, or a priori by signalling the [[!ttml10-sdp-us]] profile.</p>
+								
+				<p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+			
+				<p>As an illustration, Example 3 at [[!ttml10-sdp-us]] conforms to both Text Profile and [[!ttml10-sdp-us]].</p>
+			
+			</section>
+			
+			<section class='appendix'>
+				<h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
+				
+				<p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) suplemented by a number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
+				
+				<p>This specification defines practical constraints on [[!ST2052-1]], supplemented by a few extensions defined at <a href="#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
+				
+				<p>As a result, particular care is required when creating a document intended to be processed according to both [[!ST2052-1]] and Text Profile or Image Profile. In particular:
+					<ul>
+					
+					<li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows a document that contains <code>smpte:backgroundImage</code> attribute to also contain <code>p</code>, <code>span</code>, <code>br</code> elements;</li>
+					
+					<li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code> extension;</li>
+					
+					<li>[[!ST2052-1]] allows a document that contains <code>smpte:backgroundImage</code> attribute to also contain <code>p</code>, <code>span</code>, <code>br</code> elements;</li>
+					
+					<li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, 
+					<code>#linePadding</code> and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
+					
+					<li>when the designator "http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full" is used as a value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!ST2052-1]]), Text Profile or Image Profile is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
+					
+					</ul>
+				
+				</p>
+				
+								
+				<p>The following is an example of a document that conforms to both Text Profile and [[!ST2052-1]]:</p>
+			
+<pre class='example'>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;tt xml:lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/ns/ttml&quot; xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
+xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; ttp:profile=&quot;http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full&quot;
+xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot; ttp:frameRate=&quot;24&quot;&gt;
+	&lt;head&gt;
+		&lt;layout&gt;
+			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;10% 70%&quot; tts:extent=&quot;80% 20%&quot; tts:showBackground=&quot;whenActive&quot; tts:backgroundColor=&quot;red&quot; tts:displayAlign=&quot;center&quot; tts:color=&quot;white&quot;/&gt;
+		&lt;/layout&gt;
+	&lt;/head&gt;
+	&lt;body tts:lineHeight=&quot;100%&quot;&gt;
+		&lt;div&gt;			
+			&lt;p region=&quot;area1&quot; begin=&quot;00:00:01.01&quot; end=&quot;00:00:03&quot;&gt;This should appear on frame 25.&lt;/p&gt;
+            &lt;p region=&quot;area1&quot; begin=&quot;00:00:04&quot; end=&quot;00:00:06&quot;&gt;This should appear on frame 96.&lt;/p&gt;
+            &lt;p region=&quot;area1&quot; begin=&quot;00:00:07.33&quot; end=&quot;00:00:09&quot;&gt;This should appear on frame 176.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/tt&gt;
+</pre>
+
+			</section>
+			
+			<section class='appendix'>
+				<h3>CFF-TT</h3>
+				
+				<p>This specification was derived from the text and image profiles 
+				specified in Section 6 at [[CFF]], and is intended to be a superset in 
+				terms of capabilities. Additional processing is however generally necessary to 
+				convert a document from [[CFF]] to this specification. In particular: 
+
+				<ul>
+					
+					<li>the namespace of the <code>progressivelyDecodable</code> attribute is different;</li>
+					
+					<li>the <code>forcedDisplayMode</code> attribute in [[CFF]] is renamed to
+					<code>forcedDisplay</code> in this specification;</li>
+					
+					<li>the [[CFF]] HRM does not specifies GCpy as a function of script;</li>
+					
+					<li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at <a href='#common-features'></a>; and</li>
+					
+					 <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this 
+					 specification recommends the use of the <code>ttp:profile</code> attribute.</li>
+					
+					</ul>
+				</p>
+			
+			</section>
 
 	</section>
 	
