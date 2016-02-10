@@ -3489,7 +3489,7 @@ be present on the <code>tt</code> element.</td>
 				<p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the Text Profile, with a few exceptions, including:
 					<ul>
 					<li>[[!EBU-TT-D]] does not constrain document complexity using an HRM;</li>
-					<li>[[!EBU-TT-D]] allows UTF-16 encoding in addition to UTF-8 encoding; and</li>
+					<li>[[!EBU-TT-D]] recommends use of UTF-8 encoding but allows alternate encodings; and</li>
 					<li>[[!EBU-TT-D]] does not constrain the number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>.</li>
 					</ul>
 				</p>
@@ -3514,7 +3514,7 @@ be present on the <code>tt</code> element.</td>
 			&lt;/ebuttm:documentMetadata&gt;
 		&lt;/metadata&gt;		
 		&lt;styling&gt;
-            &lt;style xml:id=&quot;baseStyle&quot; tts:color=&quot;#FFFFFF&quot;/&gt;
+            &lt;style xml:id=&quot;baseStyle&quot; tts:color=&quot;#FFFFFF&quot; tts:lineHeight=&quot;100%&quot;/&gt;
             &lt;style xml:id=&quot;blackBackground&quot; tts:backgroundColor=&quot;#000000&quot;/&gt;
             &lt;style xml:id=&quot;greenBackground&quot; tts:backgroundColor=&quot;#00FF00&quot;/&gt;
 			&lt;style xml:id=&quot;startEnd&quot; tts:textAlign=&quot;start&quot; ebutts:multiRowAlign=&quot;end&quot;/&gt;
@@ -3525,7 +3525,7 @@ be present on the <code>tt</code> element.</td>
 			&lt;region xml:id=&quot;area2&quot; tts:origin=&quot;15% 70%&quot; tts:extent=&quot;70% 20%&quot; style=&quot;blackBackground&quot; tts:displayAlign=&quot;center&quot;/&gt;
 		&lt;/layout&gt;
 	&lt;/head&gt;
-	&lt;body tts:lineHeight=&quot;100%&quot;&gt;
+	&lt;body&gt;
 		&lt;div style=&quot;baseStyle&quot;&gt;			
 			&lt;p xml:id=&quot;s1&quot; region=&quot;area1&quot; style=&quot;startEnd&quot; begin=&quot;00:00:01&quot; end=&quot;00:00:09&quot;&gt;
 multiRowAlign=&quot;end&quot;&lt;br/&gt;textAlign=&quot;start&quot;
@@ -3572,18 +3572,16 @@ multiRowAlign=&quot;start&quot;&lt;br/&gt;textAlign=&quot;center&quot;
 			<section class='appendix'>
 				<h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
 				
-				<p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) suplemented by a number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
+				<p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) supplemented by a number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
 				
 				<p>This specification defines practical constraints on [[!ST2052-1]], supplemented by a few extensions defined at <a href="#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
 				
 				<p>As a result, particular care is required when creating a document intended to be processed according to both [[!ST2052-1]] and Text Profile or Image Profile. In particular:
 					<ul>
 					
-					<li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows a document that contains <code>smpte:backgroundImage</code> attribute to also contain <code>p</code>, <code>span</code>, <code>br</code> elements;</li>
+					<li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows documents to contain both <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code> elements;</li>
 					
 					<li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code> extension;</li>
-					
-					<li>[[!ST2052-1]] allows a document that contains <code>smpte:backgroundImage</code> attribute to also contain <code>p</code>, <code>span</code>, <code>br</code> elements;</li>
 					
 					<li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, 
 					<code>#linePadding</code> and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
