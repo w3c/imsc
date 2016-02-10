@@ -3323,57 +3323,10 @@ be present on the <code>tt</code> element.</td>
 
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the Text and Image Profiles, respectively. These samples are for illustration only, and are neither intended to capture current or future practice, nor exercise all normative prose contained in this specification.</p>
 
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xml:lang=&quot;en&quot;
- xmlns=&quot;http://www.w3.org/ns/ttml&quot;
- xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
- xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
- xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
- xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
- ittp:aspectRatio=&quot;4 3&quot;
- ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/text&quot;&gt;
-	
-	&lt;head&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;10% 10%&quot; tts:extent=&quot;80% 10%&quot; tts:backgroundColor=&quot;black&quot; tts:displayAlign=&quot;center&quot; tts:color=&quot;red&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div&gt;
-			&lt;p region=&quot;area1&quot; begin=&quot;0s&quot; end=&quot;6s&quot;&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/text-example.xml' data-include-format='text'></pre>
    
 	 
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xml:lang=&quot;fr&quot;
- xmlns=&quot;http://www.w3.org/ns/ttml&quot;
- xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
- xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
- xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
- xmlns:smpte=&quot;http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt&quot;
- xmlns:itts=&quot;http://www.w3.org/ns/ttml/profile/imsc1#styling&quot;
- tts:extent=&quot;640px 480px&quot;
- ttp:frameRate=&quot;25&quot;
- ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/image&quot;&gt;
-	
-	&lt;head&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;region1&quot; tts:origin=&quot;120px 410px&quot; tts:extent=&quot;240px 40px&quot; tts:showBackground=&quot;whenActive&quot;/&gt;
-			&lt;region xml:id=&quot;region2&quot; tts:origin=&quot;120px 20px&quot; tts:extent=&quot;240px 40px&quot; tts:showBackground=&quot;whenActive&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div region=&quot;region1&quot; begin=&quot;00:00:01:00&quot; end=&quot;00:00:02:00&quot; smpte:backgroundImage=&quot;1.png&quot;/&gt;
-		&lt;div region=&quot;region1&quot; begin=&quot;00:00:03:20&quot; end=&quot;00:00:04:12&quot; smpte:backgroundImage=&quot;2.png&quot;/&gt;
-		&lt;div region=&quot;region2&quot; itts:forcedDisplay=&quot;true&quot; begin=&quot;00:00:03:20&quot; end=&quot;00:00:04:12&quot; smpte:backgroundImage=&quot;3.png&quot;/&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/image-example.xml' data-include-format='text'></pre>
   </section>
 
   <section class='appendix' id='features-and-extensions'>
@@ -3500,43 +3453,7 @@ be present on the <code>tt</code> element.</td>
 								
 				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]. Note the presence of two <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
 				
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
- xmlns=&quot;http://www.w3.org/ns/ttml&quot; xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
- xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot; xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
- xmlns:ebutts=&quot;urn:ebu:tt:style&quot; xml:lang=&quot;en&quot; ttp:timeBase=&quot;media&quot; xmlns:ebuttm=&quot;urn:ebu:tt:metadata&quot; &gt;
-	&lt;head&gt;
-		&lt;metadata&gt;
-			&lt;ebuttm:documentMetadata&gt;
-				&lt;ebuttm:conformsToStandard&gt;urn:ebu:tt:distribution:2014-01&lt;/ebuttm:conformsToStandard&gt;
-				&lt;ebuttm:conformsToStandard&gt;http://www.w3.org/ns/ttml/profile/imsc1/text&lt;/ebuttm:conformsToStandard&gt;
-			&lt;/ebuttm:documentMetadata&gt;
-		&lt;/metadata&gt;		
-		&lt;styling&gt;
-            &lt;style xml:id=&quot;baseStyle&quot; tts:color=&quot;#FFFFFF&quot; tts:lineHeight=&quot;100%&quot;/&gt;
-            &lt;style xml:id=&quot;blackBackground&quot; tts:backgroundColor=&quot;#000000&quot;/&gt;
-            &lt;style xml:id=&quot;greenBackground&quot; tts:backgroundColor=&quot;#00FF00&quot;/&gt;
-			&lt;style xml:id=&quot;startEnd&quot; tts:textAlign=&quot;start&quot; ebutts:multiRowAlign=&quot;end&quot;/&gt;
-			&lt;style xml:id=&quot;centerStart&quot; tts:textAlign=&quot;center&quot; ebutts:multiRowAlign=&quot;start&quot;/&gt;
-		&lt;/styling&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;15% 10%&quot; tts:extent=&quot;70% 20%&quot; style=&quot;greenBackground&quot; tts:displayAlign=&quot;center&quot;/&gt;
-			&lt;region xml:id=&quot;area2&quot; tts:origin=&quot;15% 70%&quot; tts:extent=&quot;70% 20%&quot; style=&quot;blackBackground&quot; tts:displayAlign=&quot;center&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div style=&quot;baseStyle&quot;&gt;			
-			&lt;p xml:id=&quot;s1&quot; region=&quot;area1&quot; style=&quot;startEnd&quot; begin=&quot;00:00:01&quot; end=&quot;00:00:09&quot;&gt;
-multiRowAlign=&quot;end&quot;&lt;br/&gt;textAlign=&quot;start&quot;
-			&lt;/p&gt;
-			&lt;p xml:id=&quot;s2&quot; region=&quot;area2&quot; style=&quot;centerStart&quot; begin=&quot;00:00:01&quot; end=&quot;00:00:09&quot;&gt;
-multiRowAlign=&quot;start&quot;&lt;br/&gt;textAlign=&quot;center&quot;
-			&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'></pre>
 			
 			</section>
 			
@@ -3595,25 +3512,7 @@ multiRowAlign=&quot;start&quot;&lt;br/&gt;textAlign=&quot;center&quot;
 								
 				<p>The following is an example of a document that conforms to both Text Profile and [[!ST2052-1]]:</p>
 			
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xml:lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/ns/ttml&quot; xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
-xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; ttp:profile=&quot;http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full&quot;
-xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot; ttp:frameRate=&quot;24&quot;&gt;
-	&lt;head&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;10% 70%&quot; tts:extent=&quot;80% 20%&quot; tts:showBackground=&quot;whenActive&quot; tts:backgroundColor=&quot;red&quot; tts:displayAlign=&quot;center&quot; tts:color=&quot;white&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body tts:lineHeight=&quot;100%&quot;&gt;
-		&lt;div&gt;			
-			&lt;p region=&quot;area1&quot; begin=&quot;00:00:01.01&quot; end=&quot;00:00:03&quot;&gt;This should appear on frame 25.&lt;/p&gt;
-            &lt;p region=&quot;area1&quot; begin=&quot;00:00:04&quot; end=&quot;00:00:06&quot;&gt;This should appear on frame 96.&lt;/p&gt;
-            &lt;p region=&quot;area1&quot; begin=&quot;00:00:07.33&quot; end=&quot;00:00:09&quot;&gt;This should appear on frame 176.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'></pre>
 
 			</section>
 			
