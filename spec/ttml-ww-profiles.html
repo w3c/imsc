@@ -1557,8 +1557,12 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fontFamily-generic</code></td>
 
             <td>permitted</td>
-						<td>A <code>tts:fontFamily</code> of either <code>"monospaceSerif"</code> or <code>"proportionalSansSerif"</code> SHOULD be
-            specified for all presented text content. A tts:fontFamily of <code>"default"</code> SHALL be equivalent to <code>"monospaceSerif"</code>.</td>
+						<td><p>In absence of specific instructions on the choice of font families, and in
+						order to enhance reproducibility of line fitting, authors are encouraged to
+						use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code> generic font families,
+						for which reference font metrics are defined at <a href="#reference-fonts"></a>.<p>
+						
+						<p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p></td>
           </tr>
 
           <tr>
