@@ -700,7 +700,7 @@ ittp:progressivelyDecodable
         <p><code>itts:forcedDisplay</code> can be used to hide content whose computed value of <code>tts:visibility</code> is <code>"visible"</code> when the processor has been configured to do so via the application parameter <code>displayForcedOnlyMode</code>.</p>
 
         <p>If and only if the value of <code>displayForcedOnlyMode</code> is "true", a content element with a <code>itts:forcedDisplay</code>
-        computed value of "false" SHALL NOT produce any visible rendering, but still affect layout, regardless of the computed
+        computed value of <code>"false"</code> SHALL NOT produce any visible rendering, but still affect layout, regardless of the computed
         value of <code>tts:visibility</code>.</p>
 
         <p>The <code>itts:forcedDisplay</code> attribute shall conform to the following:</p>
@@ -757,7 +757,7 @@ ittp:progressivelyDecodable
 
         <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code>displayForcedOnlyMode</code>,
         whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
-        <code>displayForcedOnlyMode</code> SHALL be assumed to be equal to "false".</p>
+        <code>displayForcedOnlyMode</code> SHALL be assumed to be equal to <code>"false"</code>.</p>
 
         <p>The algorithm for setting the <code>displayForcedOnlyMode</code> parameter based on the circumstances under which the
         <a>Document Instance</a> is presented is left to the application.</p>
@@ -782,8 +782,8 @@ ittp:progressivelyDecodable
 
 
         <p class='note'>As specified in [[!TTML1]], the background of a region can be visible even if the computed value of <code>tts:visibility</code> equals
-        "hidden" for all active content within. The background of a region for which <code>itts:forcedDisplay</code> equals "true" can therefore remain visible even if <code>itts:forcedDisplay</code> equals "false" for all active
-        content elements within the region and <code>displayForcedOnlyMode</code> equals "true". Authors can avoid this situation, for instance, by ensuring that content
+        <code>"hidden"</code> for all active content within. The background of a region for which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active
+        content elements within the region and <code>displayForcedOnlyMode</code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring that content
         elements and the regions that they are flowed into always have the same value of <code>itts:forcedDisplay</code>.</p>
 
         <p class='note'>Although <code>itts:forcedDisplay</code>, like all the TTML style attributes, has no defined semantics on a
@@ -793,6 +793,9 @@ ittp:progressivelyDecodable
 
         <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
         style construct in a future revision of this specification.</p>
+		
+		<p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be 
+		compatible with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
       </section>
 
       <section id='ttm-altText'>
