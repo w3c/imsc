@@ -29,6 +29,7 @@ var respecConfig = {
                                   "SUBM": "World Wide Web Consortium (W3C). <a href='http://www.w3.org/Submission/2013/SUBM-ttml-ww-profiles-20130607/'>TTML Text and Image Profiles for Internet Media Subtitles and Captions</a> (Member Submission, 07 June 2013)",
                   "CEA-608": "<a href='http://www.ce.org/Standards/Standard-Listings/R4-3-Television-Data-Systems-Subcommittee/Line-21-Data-Service.aspx'>Line-21 Data Services</a>, ANSI/CEA Standard.",
                   "CEA-708": "<a href='http://www.ce.org/Standards/Standard-Listings/R4-3-Television-Data-Systems-Subcommittee/CEA-708-D.aspx'>Digital Television (DTV) Closed Captioning</a>, ANSI/CEA Standard.",
+									"CFF": "Digital Entertainment Content Ecosystem (DECE). <a href='http://uvcentral.com/page/ultraviolet-online-guide-homepage'>Common File Format & Media Formats Specification (CFF) Version 2.2</a>.",
                   "ST2052-1": "SMPTE ST 2052-1, Timed Text Format (SMPTE-TT) URL: <a href='https://www.smpte.org/standards '>https://www.smpte.org/standards</a>",
                                   "EBU-TT-D": "European Broadcasting Union (EBU). <a href='https://tech.ebu.ch/docs/tech/tech3380.pdf'>Tech 3380, EBU-TT-D Subtitling Distribution Format Version 1.0</a>",
                                   
@@ -137,6 +138,10 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		
 		<p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
 
+		<p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+		
+		<p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+
 		<p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
 
 		<p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!TTML1]].</p>
@@ -147,7 +152,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		
 		<p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a rectangular array of pixels.</p> 
 		
-		<p><dfn>text alternative</dfn>. As defined in [[!WCAG20]].</p>
+		<p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
   </section>
 
@@ -209,7 +214,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <section>
       <h3>General</h3>
 
-      <p>A <a>Document Instance</a> SHALL NOT conform to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously.</p>
+      <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>, <code>br</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible to construct a <a>Document Instance</a> that conforms to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously, and it is not possible to construct a <a>Document Instance</a> that results in the presentation of both text data and image data.</p>
 
       <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form, two
       distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other conforming to the <a>Image Profile</a>,
@@ -237,6 +242,39 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <p>The <dfn>Image Profile</dfn> consists of Sections <a href="#common-constraints"></a> and <a href=
       "#image-profile-constraints"></a>.</p>
+    </section>
+		
+		
+		<section id="profile-resolution">
+      <h3>Profile Resolution Semantics</h3>
+
+				
+				<p>For the purpose of content processing, the determination of the resolved 
+				profile SHOULD take into account both the signaled profile, as defined 
+				in <a href="#profile-signaling"></a>, and profile metadata, as designated by either (or both) 
+				the <a>Document Interchange Context</a> or (and) the <a>Document Processing 
+				Context</a>, which MAY entail inspecting document content.</p>
+
+				<p>If the resolved profile is not a profile supported by the <a>Processor</a> 
+				but is feasibly interoperable with the <a>Text Profile</a>, then the resolved 
+				profile is the <a>Text Profile</a>; otherwise, if the resolved profile is not 
+				a profile supported by the <a>Processor</a> but is feasibly interoperable with 
+				the <a>Image Profile</a>, then the resolved profile is the <a>Image Profile</a>.</p>
+
+
+				<p>If the resolved profile is a profile supported by the <a>Processor</a>, then 
+				the <a>Processor</a> SHOULD process the <a>Document Instance</a> according to the 
+				resolved profile. If the resolved profile is neither <a>Text Profile</a> nor 
+				<a>Image Profile</a>, processing is outside the scope of this specification.</p>
+ 
+
+				<p>If the resolved profile is undetermined or not supported by the 
+				<a>Processor</a>, then the <a>Processor</a> SHOULD nevertheless process the <a>Document 
+				Instance</a> using one of its supported profiles, with a preference for the 
+				<a>Text Profile</a> over the <a>Image Profile</a>; otherwise, processing MAY be 
+				aborted.</p>
+
+
     </section>
   </section>
 
@@ -852,20 +890,23 @@ ittp:progressivelyDecodable
 		<section id='profile-signaling'>
       <h3>Profile Signaling</h3>
 			
-			<p>
-						
-			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the document conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:
+			<p>		
+			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:
 			<ul>
 			<li>
-			the document also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
-			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the document conforms and 
+			the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
+			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms and 
 			the URI "urn:ebu:tt:distribution:2014-01" SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
 			[[!EBU-TT-D]]; or
 			</li>
 			<li>
-			the document also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
+			the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
 			</li>
 			</ul>
+			</p>
+			
+			<p>
+			The <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.
 			</p>
 						
 		</section>
@@ -1954,7 +1995,7 @@ be present on the <code>tt</code> element.</td>
 				to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of the region in which the
 				<code>div</code> element is presented;</li>
 
-        <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>text alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
+        <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code> element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and</li>
 
         <li>The <code>smpte:backgroundImage</code> attribute SHALL reference a PNG datastream as specified in [[!PNG]]. If a pHYs chunk is present, it SHALL indicate square pixels. Note:
         If no pixel aspect ratio is carried, the default of square pixels is assumed.<br></li>
@@ -3280,8 +3321,8 @@ be present on the <code>tt</code> element.</td>
 
     <p>In order to meet the guidelines in [[!WCAG20]], the following considerations apply.</p>
 
-    <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide text alternatives for all non-text content. In the
-    context of this specification, this text alternative is intended primarily to support users of the subtitles who cannot see
+    <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a> for all non-text content. In the
+    context of this specification, this <a>Text Alternative</a> is intended primarily to support users of the subtitles who cannot see
     images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually represent subtitle or caption text, the
     guidelines for authoring text equivalent strings given at <span class='sec-no'>Images of text</span> of [[HTML5]] are
     appropriate.</p>
@@ -3299,7 +3340,7 @@ be present on the <code>tt</code> element.</td>
     <a>Document Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
     include this functional information in the rendered text.</p>
 
-    <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible text alternatives must be "programmatically determinable." This
+    <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be "programmatically determinable." This
     means that the text must be able to be read and used by the assistive technologies (and the accessibility features in browsers)
     that people with disabilities use. It also means that the user must be able to use their assistive technology to find the
     alternative text (that they can use) when they land on the non-text content (that they can't use).</p>
@@ -3310,57 +3351,10 @@ be present on the <code>tt</code> element.</td>
 
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the Text and Image Profiles, respectively. These samples are for illustration only, and are neither intended to capture current or future practice, nor exercise all normative prose contained in this specification.</p>
 
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xml:lang=&quot;en&quot;
- xmlns=&quot;http://www.w3.org/ns/ttml&quot;
- xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
- xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
- xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
- xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
- ittp:aspectRatio=&quot;4 3&quot;
- ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/text&quot;&gt;
-	
-	&lt;head&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;area1&quot; tts:origin=&quot;10% 10%&quot; tts:extent=&quot;80% 10%&quot; tts:backgroundColor=&quot;black&quot; tts:displayAlign=&quot;center&quot; tts:color=&quot;red&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div&gt;
-			&lt;p region=&quot;area1&quot; begin=&quot;0s&quot; end=&quot;6s&quot;&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/text-example.xml' data-include-format='text'></pre>
    
 	 
-<pre class='example'>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;tt xml:lang=&quot;fr&quot;
- xmlns=&quot;http://www.w3.org/ns/ttml&quot;
- xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
- xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
- xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
- xmlns:smpte=&quot;http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt&quot;
- xmlns:itts=&quot;http://www.w3.org/ns/ttml/profile/imsc1#styling&quot;
- tts:extent=&quot;640px 480px&quot;
- ttp:frameRate=&quot;25&quot;
- ttp:profile=&quot;http://www.w3.org/ns/ttml/profile/imsc1/image&quot;&gt;
-	
-	&lt;head&gt;
-		&lt;layout&gt;
-			&lt;region xml:id=&quot;region1&quot; tts:origin=&quot;120px 410px&quot; tts:extent=&quot;240px 40px&quot; tts:showBackground=&quot;whenActive&quot;/&gt;
-			&lt;region xml:id=&quot;region2&quot; tts:origin=&quot;120px 20px&quot; tts:extent=&quot;240px 40px&quot; tts:showBackground=&quot;whenActive&quot;/&gt;
-		&lt;/layout&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div region=&quot;region1&quot; begin=&quot;00:00:01:00&quot; end=&quot;00:00:02:00&quot; smpte:backgroundImage=&quot;1.png&quot;/&gt;
-		&lt;div region=&quot;region1&quot; begin=&quot;00:00:03:20&quot; end=&quot;00:00:04:12&quot; smpte:backgroundImage=&quot;2.png&quot;/&gt;
-		&lt;div region=&quot;region2&quot; itts:forcedDisplay=&quot;true&quot; begin=&quot;00:00:03:20&quot; end=&quot;00:00:04:12&quot; smpte:backgroundImage=&quot;3.png&quot;/&gt;
-	&lt;/body&gt;
-&lt;/tt&gt;
-</pre>
+<pre class='example' data-include='examples/image-example.xml' data-include-format='text'></pre>
   </section>
 
   <section class='appendix' id='features-and-extensions'>
@@ -3446,6 +3440,136 @@ be present on the <code>tt</code> element.</td>
 		<p>In any case where a definition specified by this appendix diverge from the prose of the specification, 
 		then the latter takes precedence.</p>
 		
+
+	</section>
+	
+		<section class='appendix' id='interop-examples'>
+    <h2>Compatibility with other TTML-based specifications (non-normative)</h2>
+		
+			<section class='appendix'>
+			<h3>Overview</h3>
+		
+			<p>This specification is designed to be compatible with [[!ST2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]]. 
+			Specifically, it is possible to create a document that:
+			<ul>
+			<li>conforms to one of [[!ST2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
+			<li>conforms to [[!ST2052-1]], and also conforms to Image Profile.</li>
+			</ul>
+			</p>
+			
+			<p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
+			
+			</section>
+	
+
+			<section class='appendix'>
+				<h3>EBU-TT-D</h3>
+				
+				<p>The Text Profile is a strict syntactic superset of [[!EBU-TT-D]].</p>
+
+				<p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the Text Profile, with a few exceptions, including:
+					<ul>
+					<li>[[!EBU-TT-D]] does not constrain document complexity using an HRM;</li>
+					<li>[[!EBU-TT-D]] recommends use of UTF-8 encoding but allows alternate encodings; and</li>
+					<li>[[!EBU-TT-D]] does not constrain the number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>.</li>
+					</ul>
+				</p>
+				
+				<p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the <code>ebuttm:conformsToStandard</code> element is used instead to signal Text Profile, as specified in <a href="#profile-signaling"></a>.</p>
+				
+				<p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+								
+				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]. Note the presence of two <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
+				
+<pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'></pre>
+			
+			</section>
+			
+			<section class='appendix'>
+				<h3>SDP-US</h3>
+				
+				<p>The Text Profile is a strict syntactic superset of [[ttml10-sdp-us]].</p>
+
+				<p>A document that conforms to [[ttml10-sdp-us]] therefore also generally conforms to the Text Profile, with a few exceptions, including:
+					<ul>
+					<li>[[!ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
+					</ul>
+				</p>
+				
+				 <p>[[!ttml10-sdp-us]] requires a specific value of the <code>use</code> 
+				attribute of the <code>ttp:profile</code>. As a result, Text Profile is 
+				not signaled using the <code>ttp:profile</code> attribute. Instead, as 
+				specified in <a href="#profile-resolution"></a>, the Text Profile can be 
+				signaled by the Document Interchange Context and/or the Document 
+				Processing Context. Alternatively, a processor can choose to process a 
+				document as a Text Profile document if the <code>ttp:profile</code> 
+				element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly 
+				interoperable with Text Profile.</p> 
+
+
+								
+				<p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+			
+				<p>As an illustration, Example 3 at [[!ttml10-sdp-us]] conforms to both Text Profile and [[!ttml10-sdp-us]].</p>
+			
+			</section>
+			
+			<section class='appendix'>
+				<h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
+				
+				<p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) supplemented by a number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
+				
+				<p>This specification defines practical constraints on [[!ST2052-1]], supplemented by a few extensions defined at <a href="#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
+				
+				<p>As a result, particular care is required when creating a document intended to be processed according to both [[!ST2052-1]] and Text Profile or Image Profile. In particular:
+					<ul>
+					
+					<li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows documents to contain both <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code> elements;</li>
+					
+					<li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code> extension;</li>
+					
+					<li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, 
+					<code>#linePadding</code> and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
+					
+					<li>when the designator "http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full" is used as a value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!ST2052-1]]), Text Profile or Image Profile is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
+					
+					</ul>
+				
+				</p>
+				
+								
+				<p>The following is an example of a document that conforms to both Text Profile and [[!ST2052-1]]:</p>
+			
+<pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'></pre>
+
+			</section>
+			
+			<section class='appendix'>
+				<h3>CFF-TT</h3>
+				
+				<p>This specification was derived from the text and image profiles 
+				specified in Section 6 at [[CFF]], and is intended to be a superset in 
+				terms of capabilities. Additional processing is however generally necessary to 
+				convert a document from [[CFF]] to this specification. In particular: 
+
+				<ul>
+					
+					<li>the namespace of the <code>progressivelyDecodable</code> attribute is different;</li>
+					
+					<li>the <code>forcedDisplayMode</code> attribute in [[CFF]] is renamed to
+					<code>forcedDisplay</code> in this specification;</li>
+					
+					<li>the [[CFF]] HRM does not specifies GCpy as a function of script;</li>
+					
+					<li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at <a href='#common-features'></a>; and</li>
+					
+					 <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this 
+					 specification recommends the use of the <code>ttp:profile</code> attribute.</li>
+					
+					</ul>
+				</p>
+			
+			</section>
 
 	</section>
 	
