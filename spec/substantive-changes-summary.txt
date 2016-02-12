@@ -19,6 +19,9 @@ and may change significantly. It is included here for change management purposes
 
 * ISSUE #136: Clarified that document cannot signal conformance to both
   profiles but can, in special cases, conform to both profiles
+  
+* ISSUE #146: Removed incongruous qualifier "including its 
+  boundary" when discussing rectangular regions.
 
 From CR (20150519) to CR (20160128)
 ===================================
