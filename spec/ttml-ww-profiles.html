@@ -105,10 +105,24 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 	
 	  <section id='conventions'>
     <h2>Documentation Conventions</h2>
-
-    <p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes and metadata elements. In particular, Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements.</p>
+			
+			<p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes and metadata elements. In particular, Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements.</p>
+			
+			<p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered non-normative.</p>
 		
-		<p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered non-normative.</p>
+			<p>This specification uses <a>Feature</a> and <a>Extension</a> 
+			designations as defined in Appendices D.1 and E.1 at [[!TTML1]]:
+			<ul>
+			<li>when making reference to content conformance, 
+			these designations refer to the syntactic expression or the semantic 
+			capability associated with each designated <a>Feature</a> or 
+			<a>Extension</a>; and</li>
+			<li>when making reference to processors 
+			conformance, these designations refer to processing 
+			requirements associated with each designated <a>Feature</a> or 
+			<a>Extension</a>.</li>
+			</ul></p>
+			
   </section>
 
   <section id='terms'>
@@ -118,11 +132,15 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		
 		<p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML1]].</p>
 		
+		<p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML1]].</p>
+		
+		<p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML1]].</p>
+		
+		<p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
+
 		<p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
 		
 		<p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
-		<p><dfn>Intermediate synchronic document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
 
 		<p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
 
@@ -142,16 +160,17 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
     <p>A <a>Document Instance</a> that conforms to a profile defined herein:</p>
 
-		
-
     <ul>
-			<li>SHALL satisfy all normative provisions specified by the profile;</li>
-			<li>MAY use any vocabulary, syntax or attribute values whose interpretation will be successfully processed by a processor that supports "permitted" features;</li>
-			<li>SHALL NOT use any vocabulary, syntax or attribute values that would require the processor to implement any "prohibited" features to successfully process the document.</li>
-			</ul>
+      <li>SHALL satisfy all normative provisions specified by the profile;</li>
 			
-
-
+      <li>MAY include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or
+			<a>Extension</a> whose disposition is <em>permitted</em> in the profile;</li>
+			
+      <li>SHALL NOT include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or <a>Extension</a>
+			whose disposition is <em>prohibited</em> in the profile.</li>
+			
+    </ul>
+			
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
@@ -159,8 +178,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
-      <li>SHALL implement presentation semantic support for all features designated as "permitted" by the profile, subject to 
-			any additional constraints on features as specified by the profile.</li>
+      <li>SHALL implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
+			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
     <p>A <a>transformation processor</a> that conforms to a profile defined in this specification:</p>
@@ -170,8 +189,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
-      <li>SHALL implement transformation semantic support for all features designated as "permitted" by the profile, subject to 
-			any additional constraints on features as specified by the profile.</li>
+      <li>SHALL implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
+			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
     <p class='note'>The use of the term <a>presentation processor</a> (<a>transformation processor</a>) within this specification
@@ -181,6 +200,12 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     Profile).</p>
 		
 		<p class='note'>This specification does not specify <a>presentation processor</a> or <a>transformation processor</a> behavior when processing or transforming a non-conformant <a>Document Instance</a>.</p>
+		
+		 <p class='note'>The <em>permitted</em> and <em>prohibited</em> 
+		dispositions do not refer to the specification of a 
+		<code>ttp:feature</code> or <code>ttp:extension</code> element as being 
+		permitted or prohibited within a <code>ttp:profile</code> element.</p> 
+
   </section>
 
   <section id='profiles'>
@@ -894,9 +919,9 @@ ittp:progressivelyDecodable
     </section>
 
     <section id='common-features'>
-      <h3>Features</h3>
+      <h3>Features and Extensions</h3>
 
-			<p>See <a href="#conformance"></a> for a definition of "permitted" and "prohibited".</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1519,9 +1544,9 @@ be present on the <code>tt</code> element.</td>
     </section>
 	
     <section>
-      <h3>Features</h3>
+      <h3>Features and Extensions</h3>
 
-			<p>See <a href="#conformance"></a> for a definition of "permitted" and "prohibited".</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1981,9 +2006,9 @@ be present on the <code>tt</code> element.</td>
     </section>
 
     <section>
-      <h3>Features</h3>
+      <h3>Features and Extensions</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of "permitted" and "prohibited".</p>
+      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
 
       <table class='simple'>
         <tbody>
