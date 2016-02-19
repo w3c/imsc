@@ -119,6 +119,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 			<a>Extension</a>.</li>
 			</ul>
 			
+			<p>If the name of an element referenced in this specification is not namespace qualified, then the TT namespace applies (see <a href="#namespaces"></a>.)</p>
+			
   </section>
 
   <section id='terms'>
@@ -297,7 +299,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 	<p class="note"><a data-lt="Document Instance">Document Instances</a> remain subject to the structural requirements of [[!TTML1]].</p>
     </section>
 
-    <section>
+    <section id='namespaces'>
       <h3>Namespaces</h3>
 
       <p>The following namespaces (see [[!xml-names]]) are used in this specification:</p>
@@ -324,6 +326,16 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
             <td><code>http://www.w3.org/XML/1998/namespace</code></td>
 
             <td>[[!xml-names]]</td>
+          </tr>
+
+          <tr>
+            <td>TT</td>
+
+            <td><code>tt</code></td>
+
+            <td><code>http://www.w3.org/ns/ttml</code></td>
+
+            <td>[[!TTML1]]</td>
           </tr>
 
           <tr>
