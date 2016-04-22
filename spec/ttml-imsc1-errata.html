@@ -1,24 +1,119 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
   <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>IMSC 1 Errata page</title>
-    <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, shrink-to-fit=no">
-    <link rel=stylesheet href='https://www.w3.org/StyleSheets/TR/2016/base'>
+    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base">
     <style>
       img { border: 0; }
       table { border-collapse: collapse;border-spacing: 0;}
       th, td { border: 1px solid black; padding: 0.5ex; }
+      
+     
+    .diff-chg { background-color: lime }
+    .diff-add { background-color: LightYellow  }
+    .diff-del { background-color: #FFBBBB; text-decoration: line-through; }
+    .remove { background: #ccccff; }
+    .title-description { color:red; font-style:italic }
+    .title-correction { color:red; font-style:italic }
+    .error{ background:  #dddddd;border-width: 1;margin-top:1cm;}
+      
     </style>
   </head>
   <body>
-    <p>
-      <a href='https://www.w3.org/'><img width=72 height=48 alt=W3C src='https://www.w3.org/Icons/w3c_home'></a>
+    <p> <a href="https://www.w3.org/"><img alt="W3C" src="https://www.w3.org/Icons/w3c_home"
+          height="48" width="72"></a> </p>
+    <h1>IMSC 1 Recommendation Errata page</h1>
+    <dl>
+      <dt><span style="font-weight: normal;">This version:</span></dt>
+      <dd><a href="https://www.w3.org/2016/04/ttml-imsc1-errata.html">https://www.w3.org/2016/04/ttml-imsc1-errata.html</a></dd>
+      <dt><span style="font-weight: normal;">This document records known errors
+          in the document:</span></dt>
+      <dd><a href="https://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">https://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/</a></dd>
+      <dt><span style="font-weight: normal;">Latest TTML1 version:</span></dt>
+      <dd><a href="http://www.w3.org/TR/ttml-imsc1/">http://www.w3.org/TR/ttml-imsc1/</a></dd>
+    </dl>
+    <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+      Â© 2016 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>Â®</sup>
+      (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
+      <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+      <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>),
+      All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+      <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>
+      and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document
+        use</a> rules apply.</p>
+    <p><br>
     </p>
-    <h1>IMSC 1 Errata page</h1>
-
-    <p>This is the errata page for <a href="https://www.w3.org/TR/ttml-imsc1/">TTML Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)</a>.</p>
-
-    <p>No errata identified.</p>
+    <hr>
+    <h2>Introduction</h2>
+    <p>This is the errata page for <a href="https://www.w3.org/TR/ttml-imsc1/">TTML
+        Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)</a>.</p>
+    This document lists the known errata for <a href="https://www.w3.org/TR/ttml-imsc1/">TTML
+      Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)</a>.<br>
+    <p> Each entry has the following information:</p>
+    <ul>
+      <li>A unique entry number</li>
+      <li>The date it was added to the errata page.</li>
+      <li>Whether the entry is considered an important error, a minor
+        typographical error, a clarification, or a known problem with the
+        document itself.</li>
+      <li>The section referred to.</li>
+      <li>A description of the problem and correction if applicable.</li>
+    </ul>
+    <p>Please send general comments about this document to the public mailing to
+      <a rel="discussion" href="mailto:public-tt@w3.org">public-tt@w3.org</a> (<a
+        href="mailto:public-tt-request@w3.org?subject=subscribe">subscribe</a>,
+      <a href="http://lists.w3.org/Archives/Public/public-tt/">archives</a>).</p>
+    <h2>Conventions</h2>
+    <p>Added text marked <span class="diff-add">thus</span>. Removed text
+      marked <span class="diff-del">thus</span>. Changed text marked <span class="diff-chg">thus</span>.</p>
+    <hr>
+    <h2>Known errors as of 22 April 2016 </h2>
+    <ul>
+      <li><a href="#E01">E01: Correction in the IMSC1 Annexes (published 22 04
+          2016)</a></li>
+    </ul>
+    <h2>Rejected proposed erratas:</h2>
+    <ul>
+      <li>R01: <span style="color: #034575;">None</span></li>
+    </ul>
+    <hr>
+    <h2>Erratas:</h2>
+    <p id="E01" class="error"><strong>- E01: </strong> Correction in the IMSC1
+      Annex section (published 22 04 2016)</p>
+    <p class="description"><span class="title-description">Description</span>:</p>
+    <p>The IMSC1 Recommendation is mission an Acknowledgments section.</p>
+    <p class="description"><em><strong><span class="title-correction">Resolution</span></strong></em>:</p>
+    <p>Add the following section:</p>
+    <div class="diff-add" style="margin:5px; border: 1px solid red; padding:10px;">
+      <h2>Acknowledgments (Non-Normative)</h2>
+      <p>The editor acknowledges the current and former members of the Timed
+        Text Working Group, the members of other W3C Working Groups, and
+        industry experts in other forums who have contributed directly or
+        indirectly to the process or content of this document as follows:</p>
+      <p>Glenn Adams, Skynav Inc.; John Birch, Invited expert; Cyril Concolato,
+        Institut Telecom; Frans de Jong, European Broadcasting Union; Hemant
+        Desai, C-DAC; Mike Dolan, Invited expert; Jean-Pierre Evain, European
+        Broadcasting Union; Chris Flick, Apple Inc.; Yosuke Funahashi, W3C;
+        Sayali Godbole, C-DAC; Glenn Goldstein, Viacom; Loretta Guarino Reid,
+        Google Inc.; Ken Harrenstien, Google Inc.; Sean Hayes, Microsoft
+        Corporation; Courtney Kennedy, Apple Inc.; Kim Dae, Netflix Inc.;
+        Philippe Le HÃ©garet, W3C; Pierre-Anthony Lemieux, MovieLabs; Vladimir
+        Levantovsky, Monotype Imaging Inc.; Kasar Masood, Viacom; Nigel Megitt,
+        British Broadcasting Corporation; Thierry Michel, W3C; Shingo Mine,
+        Mitsubishi Electric Corporation; Frank Olivier, Microsoft Corporation;
+        Simon Pieters, Opera Software; Rohit Puri, Netflix Inc.; David Ronca,
+        Netflix Inc.; David Singer, Apple, Inc.; Jerry Smith, Microsoft
+        Corporation; Andreas Tai, IRT.</p>
+      <p>The editor wishes to especially acknowledge the following contributions
+        by members: Glenn Adams, Skynav Inc.; Mike Dolan, Invited expert; Nigel
+        Megitt, British Broadcasting Corporation; Thierry Michel, W3C;
+          Andreas Tai, IRT.</p>
+      <p>The editor also wishes to&nbsp; acknowledge Digital Entertainment
+        Content Ecosystem (DECE).</p>
+    </div>
+    <hr>
   </body>
 </html>
+
