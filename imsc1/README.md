@@ -11,8 +11,8 @@ NOTE: As specified in [W3C Process](http://www.w3.org/Consortium/Process/), Edit
 ## Issues
 
 Issues against IMSC1 are tracked [here](https://github.com/w3c/imsc/issues) using one the following milestones:
-    - imsc1errata: issues to be addressed as errata against the curently published version
-    - imsc1ed2: issues to be addressed in the next edition of IMSC1
+* imsc1errata: issues to be addressed as errata against the curently published version
+* imsc1ed2: issues to be addressed in the next edition of IMSC1
 
 ## Directories 
 
