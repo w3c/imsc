@@ -6,85 +6,12 @@
 
 
 NOTE 1: This summary is provided for illustration only. For an exhaustive list of changes, please
-refer to the changesets at https://github.com/w3c/imsc/commits/imsc-cr3 or use the W3C diff tool at
+refer to the changesets at https://github.com/w3c/imsc or use the W3C diff tool at
 http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
-From CR (20160128) to PR (20160302)
-===================================
+From REC (20160421)
+===================
 
-* ISSUE #136: Clarified that document cannot signal conformance to both
-  profiles but can, in special cases, conform to both profiles
-  
-* ISSUE #146: Removed incongruous qualifier "including its 
-  boundary" when discussing rectangular regions.
-
-From CR (20150519) to CR (20160128)
-===================================
-
-* ISSUE #63: Liberation open source font added to reference fonts (Appendix A) 
-
-* ISSUES #68, #69 and #103: performance of the HRM altered for scripts where mapping 
-  of characters to glyphs is generally not one-to-one, and clarified that overflowing
-  the Glyph Buffer is an error (Section 9.5)
-  
-* ISSUE #49: requires content processor to implement #lineBreak-uax14
-  
-* ISSUE #41: clarified constraints on ittp:aspectRatio parameters
-
-* ISSUES #85, #50, #53, #54, #57, #77, #78, #85 and #112: clarified conformance
-  requirements for content processors and documents conforming to each profile,
-  and made explicit dependencies between related features
-
-* ISSUE #94: clarified that empty div elements with smpte:backgroundImage attribute generate ISDs
-
-* ISSUE #96: definition of "Presented Image" modified
-
-* ISSUE #97: clarified smpte:backgroundImage processing requirements
-
-* ISSUE #61: replaced "earlier" with "lexically precedes" in Section 6.7.2
-
-* ISSUE #84: clarified that the mapping algorithm of Section 6.7.1 applies to each 
-  image frame of the Related Video Object
-  
-* ISSUE #101: clarified that only "px" could be used when specifying tts:extent in Image profile
-
-* ISSUE #118: clarified that, in Image profile, only one div element can be present
-  in a presented region in a given ISD
-
-
-From CR (20141209) to CR (20150519)
-===================================
-
-* ISSUE-364: when expressed in pixels, the extents of the root container
-  is no longer required to be equal to the dimensions of the related video object frame
-
-* ISSUE-367: adopted initial values for @tts:displayAlign and @tts:textAlign
-  as defined in TTML 1SE
-
-* ISSUE-375: clarified constraints on @ebutts:linePadding and
-  @ebutts:multiRowAlign position per EBU-TT-D normative reference
-
-* ISSUE-377: adopted rounding rules as defined in TTML 1SE
-
-* ISSUE-378: the product of @ttp:frameRate and @ttp:frameRateMultiplier is no longer
-  required to be equal to the frame rate of the related video object
-
-* ISSUE-382: recommended practice added for the use of @begin and @end attributes
-  on content elements
-
-* ISSUE-388: the presence of @ttp:timeBase is no longer required
-
-From WD (20140330) to CR (20141209)
-===================================
-
-* #length-cell constraint does not apply to ebutts:linePadding (Section 6.10)
-
-* Clarified that ittm:altText is intended to be a child of a metadata element (Section 6.7.4)
-
-* Clarified that the namespaces defined by this specification are mutable and that
-  all undefined names in these namespaces are reserved for future standardization by the W3C
-  (Section 6.3)
-
-
+None
