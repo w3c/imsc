@@ -15,7 +15,7 @@
     </head>
     <body>
         <div>
-            <p region="area1" begin="0s" end="6s">Lorem ipsum dolor sit amet.</p>
+            <p region="area1" begin="0s" end="6s">Lorem ipsum dolor.</p>
         </div>
     </body>
 </tt>

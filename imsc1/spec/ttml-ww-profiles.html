@@ -9,11 +9,11 @@
 </script>
   <script class='remove'>
 var respecConfig = {
-										specStatus:   "REC"
+										specStatus:   "ED"
                 ,   processVersion: "2015"
 								,   previousMaturity: "PR"
 								,   publishDate: "2016-04-21"
-								,		errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"
+								/*,		errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
 								,   sotdAfterWGinfo: "true"
 								,   previousPublishDate: "2016-03-08"
           ,   shortName:    "ttml-imsc1"
@@ -768,24 +768,7 @@ ittp:progressivelyDecodable
         <p>The algorithm for setting the <code>displayForcedOnlyMode</code> parameter based on the circumstances under which the
         <a>Document Instance</a> is presented is left to the application.</p>
 				
-				<pre class='example'>
-...
-&lt;head&gt;
-	...
-	&lt;region xml:id=&quot;r1&quot; tts:origin=&quot;10% 2%&quot; tts:extent=&quot;80% 10%&quot; tts:color=&quot;white&quot; itts:forcedDisplay=&quot;true&quot; tts:backgroundColor=&quot;black&quot;/&gt;
-	&lt;region xml:id=&quot;r2&quot; tts:origin=&quot;10% 80%&quot; tts:extent=&quot;80% 88%&quot; tts:color=&quot;white&quot; tts:backgroundColor=&quot;black&quot;/&gt;
-	...
-&lt;/head&gt;
-...
-&lt;div&gt;
-	 &lt;p region=&quot;r1&quot; begin=&quot;1s&quot; end=&quot;6s&quot;&gt;Lycée&lt;/p&gt;
-		
-	 &lt;!-- the following will not appear if displayForcedOnlyMode='true' --&gt;
-	 &lt;p region=&quot;r2&quot; begin=&quot;4s&quot; end=&quot;6s&quot;&gt;Nous étions inscrits au même lycée.&lt;/p&gt;
-&lt;/div&gt;
-...
-</pre>
-
+        <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'></pre>
 
         <p class='note'>As specified in [[!TTML1]], the background of a region can be visible even if the computed value of <code>tts:visibility</code> equals
         <code>"hidden"</code> for all active content within. The background of a region for which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active
@@ -1601,8 +1584,11 @@ be present on the <code>tt</code> element.</td>
             <td><code>#color</code></td>
 
             <td>permitted</td>
-						<td><p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
-<p class="inline-note">NOTE: This is consistent with [[ST2052-1]].</p></td>
+						<td>
+							<p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
+							<p class="inline-note">NOTE 1: This is consistent with [[ST2052-1]].</p>
+							<p class="inline-note">NOTE 2: The named color <code>"green"</code> defined in [[!TTML1]] is equivalent to the RGB triplet <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB triplet <code>#00ff00ff</code> or the named color <code>"lime"</code>.</p>
+						</td>
           </tr>
 
           <tr>
@@ -2393,12 +2379,19 @@ be present on the <code>tt</code> element.</td>
 						<td>permitted</td>
 
             <td><ul class="short-list">
-						<li><code>smpte:backgroundImage</code> MAY be used according to <a href="#smpte-bg-constraints"></a> with the semantics of the attribute defined by Section 5.5.2 of [[!ST2052-1]].</li>
+						<li>
+						<code>smpte:backgroundImage</code> MAY be used according to <a href="#smpte-bg-constraints"></a> with the semantics of the attribute defined by Sections 5.5.2 of [[!ST2052-1]].
+						</li>
             <li><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be used.</li>
-            <li><code>smpte:image</code> SHALL NOT be used.</li></ul></td>
+            <li><code>smpte:image</code> SHALL NOT be used.</li></ul>
+						</td>
           </tr>
         </tbody>
       </table>
+									<p class='note'>
+						The rendering semantics of <code>smpte:backgroundImage</code> are not identical
+						to those of <code>background-image</code> specified at Section 7.8.3 of [[XSL11]]. In particular, Section 5.5.6 at [[!ST2052-1]] amends the semantics of <code>background-image</code> by specifying values for its <code>min-height</code> and <code>min-width</code> properties.
+						</p>
     </section>
   </section>
 
@@ -3589,6 +3582,18 @@ be present on the <code>tt</code> element.</td>
 			
 			</section>
 
+	</section>
+	
+	<section class='appendix'>
+	
+  <h2>Acknowledgements (non-normative)</h2>
+	
+	<p>The editor acknowledges the current and former members of the Timed Text Working Group, the members of other W3C Working Groups, and industry experts in other forums who have contributed directly or indirectly to the process or content of this document.</p>
+
+	<p>The editor wishes to especially acknowledge the following contributions by members: Glenn Adams, Skynav; John Birch, Invited expert; Mike Dolan, Invited expert; Nigel Megitt, British Broadcasting Corporation; Thierry Michel, W3C; Andreas Tai, Institut für Rundfunktechnik.</p>
+
+	<p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial document for the Member Submission.</p>
+	
 	</section>
 	
 </body>
