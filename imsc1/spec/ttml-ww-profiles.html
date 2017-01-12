@@ -861,7 +861,7 @@ ittp:progressivelyDecodable
       </section>
 
       <section>
-        <h4>Dimensions and Position</h4>
+        <h4 id="region-dim-pos">Dimensions and Position</h4>
 
         <p>All regions SHALL NOT extend beyond the root container, i.e. the intersection of the sets of coordinates belonging to a
         region and the sets of coordinates belonging to the root container is the
@@ -1433,7 +1433,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#zIndex</code></td>
 
             <td>permitted</td>
-<td></td>
+						<td>NOTE: While permitted, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>, regions do not overlap in a <a>Document Instance</a>.</td>
           </tr>
 
           <tr>
