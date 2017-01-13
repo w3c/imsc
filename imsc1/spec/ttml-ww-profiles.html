@@ -852,15 +852,21 @@ ittp:progressivelyDecodable
         <code>ittm:altText</code> attribute content can however be read and used by assistive technologies.</p>
       </section>
 			
-	<section id='ttp-editorialarea'>
-        <h4>ittp:editorialArea</h4>
+	<section id='ttp-activeArea'>
+        <h4>ittp:activeArea</h4>
 		
-        <p>The <dfn>Editorial Area</dfn> of a <a>Document Instance</a> is the area within the root container that the author
+        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the root container that the author
 				intends to be visible to the viewer. This area typically fully contains all of the referenced regions within the <a>Document Instance</a>.</p>
+        
+        <div class='note'>
+          <p>Under normal circumstances, the entirety of the root container is presented. However, under special circumstances, such
+					as when the <a>related video object</a> is cropped, a system can, for instance, use the <code>ittp:activeArea</code>
+					parameter to avoid cropping areas of the root container that are intended to be visible to the viewer.</p>
+        </div>
 
-        <p>The <a>Editorial Area</a> is specified using the <code>ittp:editorialArea</code> attribute.</p>
+        <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
 
-        <p>If present, the <code>ittp:editorialArea</code> attribute SHALL conform to the following syntax:</p>
+        <p>If present, the <code>ittp:activeArea</code> attribute SHALL conform to the following syntax:</p>
 
         <table class="syntax">
           <tbody>
@@ -868,7 +874,7 @@ ittp:progressivelyDecodable
               <td>
                 <div class="exampleInner">
                   <pre>
-ittp:editorialArea
+ittp:activeArea
   : x y width height
 	
 x | y | width | height
@@ -884,24 +890,19 @@ x | y | width | height
 				
         <p>The <code>height</code> and <code>y</code> percentage values are relative to the height of the root container.</p>
 				
-				<p>The <code>x</code> and <code>y</code> percentage values are the x and y coordinates of the <a>Editorial Area</a> with respect to the origin of the root container.</p>
+				<p>The <code>x</code> and <code>y</code> percentage values are the x and y coordinates of the <a>Active Area</a> with respect to the origin of the root container.</p>
 				
-				<p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Editorial Area</a>.</p>
+				<p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
 				
-				<p>The <a>Editorial Area</a> SHALL NOT extend outside the root container in any dimension.</p>
+				<p>The <a>Active Area</a> SHALL NOT extend outside the root container in any dimension.</p>
 
-        <p>The <code>ittp:editorialArea</code> attribute is considered to be significant only when specified on the
+        <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the
         <code>tt</code> element.</p>
 
-        <p>If the <code>ittp:editorialArea</code> attribute is not specified, the <a>Editorial Area</a> SHALL be the root container.</p>
+        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the root container.</p>
 				
-				<pre class='example' data-include='examples/editorialArea-example.xml' data-include-format='text'></pre>
+				<pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'></pre>
 
-        <div class='note'>
-          <p>Under normal circumstances, the entirety of the root container is presented. However, under special circumstances, such
-					as when the <a>related video object</a> is cropped, a system can, for instance, use the <code>ittp:editorialArea</code>
-					parameter to avoid cropping areas of the root container that are intended to be visible to the viewer.</p>
-        </div>
  
     </section>
 		
@@ -1543,7 +1544,7 @@ be present on the <code>tt</code> element.</td>
           </tr>
 					
 					  <tr>
-            <td><code>#editorialArea</code></td>
+            <td><code>#activeArea</code></td>
 
             <td>permitted</td>
 <td></td>
@@ -3497,10 +3498,10 @@ be present on the <code>tt</code> element.</td>
     </section>
 		
     <section class='appendix'>
-      <h3>#editorialArea</h3>
+      <h3>#activeArea</h3>
 
-      <p>A <a>processor</a> supports the <code>#editorialArea</code> feature
-			if the presence of the <code>ittp:editorialArea</code> attribute does not cause the <a>processor</a> to reject or abort the processing of the <a>Document Instance</a>.</p>
+      <p>A <a>processor</a> supports the <code>#activeArea</code> feature
+			if the presence of the <code>ittp:activeArea</code> attribute does not cause the <a>processor</a> to reject or abort the processing of the <a>Document Instance</a>.</p>
 
 			<p class='note'>The requirement above, which is consistent with <a href='#foreign-elements'></a>, is designed such that a <a>processor</a> that conforms to the first edition of this specification also conforms to this edition.</p>
 			

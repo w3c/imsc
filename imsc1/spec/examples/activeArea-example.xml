@@ -5,7 +5,7 @@
     xmlns:tts="http://www.w3.org/ns/ttml#styling"
     xmlns:ttp="http://www.w3.org/ns/ttml#parameter" 
     xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
-    ittp:editorialArea="10% 10% 80% 80%"
+    ittp:activeArea="10% 10% 80% 80%"
     tts:extent="640px 480px"
     ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text">
     
