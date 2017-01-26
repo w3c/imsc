@@ -153,7 +153,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <li>SHALL satisfy all normative provisions specified by the profile;</li>
 			
       <li>MAY include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or
-			<a>Extension</a> whose disposition is <em>permitted</em> in the profile;</li>
+			<a>Extension</a> whose disposition is <em>permitted</em> or <em>optional</em> in the profile;</li>
 			
       <li>SHALL NOT include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or <a>Extension</a>
 			whose disposition is <em>prohibited</em> in the profile.</li>
@@ -172,6 +172,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <li>SHALL implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
 			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
+      
+      <li>MAY implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em> by the profile, subject to any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
     <p>A <a>transformation processor</a> that conforms to a profile defined in this specification:</p>
@@ -182,6 +184,9 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
       <li>SHALL implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
+			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
+      
+      <li>MAY implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em> by the profile, subject to 
 			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
@@ -836,7 +841,7 @@ ittp:progressivelyDecodable
         <code>ittm:altText</code> attribute content can however be read and used by assistive technologies.</p>
       </section>
 			
-	<section id='ttp-activeArea'>
+	<section id='ittp-activeArea'>
         <h4>ittp:activeArea</h4>
 		
         <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the root container that the author
@@ -890,6 +895,78 @@ x | y | width | height
  
     </section>
 		
+
+	<section id='itts-fillLineGap'>
+        <h4>itts:fillLineGap</h4>
+		
+        <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background
+        between line areas.</p>
+        
+        <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated
+        by descendant spans of the <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
+                
+        <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
+
+        <table class="simple">
+          <colgroup>
+            <col style="width:25%" span="1">
+            <col span="1">
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <td><em>Values:</em></td>
+
+              <td><code>false | true</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Initial:</em></td>
+
+              <td><code>false</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Applies to:</em></td>
+
+              <td><code>p</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Inherited:</em></td>
+
+              <td>yes</td>
+            </tr>
+
+            <tr>
+              <td><em>Percentages:</em></td>
+
+              <td>N/A</td>
+            </tr>
+
+            <tr>
+              <td><em>Animatable:</em></td>
+
+              <td>discrete</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap exists between its lines.</p>
+				
+				<pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'></pre>
+        
+        <figure id='fig-fillLineGap'>
+          <img src="figures/fillLineGap-example-figure-1.png" alt="tts:fillLineGap rendering example">
+
+          <figcaption>
+            Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or preserved (right).
+          </figcaption>
+        </figure>
+        
+    </section>
+    
+    
     </section>
 
     <section>
@@ -966,7 +1043,8 @@ x | y | width | height
     <section id='common-features'>
       <h3>Features and Extensions</h3>
 
-			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and
+      <em>optional</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1530,8 +1608,9 @@ be present on the <code>tt</code> element.</td>
 					  <tr>
             <td><code>#activeArea</code></td>
 
-            <td>permitted</td>
-<td></td>
+            <td>optional</td>
+<td>NOTE: This feature is optional such that a <a>processor</a> that conforms to the earlier version of this specification also conforms to this version.
+</td>
           </tr>
         </tbody>
       </table>
@@ -1599,7 +1678,8 @@ be present on the <code>tt</code> element.</td>
     <section>
       <h3>Features and Extensions</h3>
 
-			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+			<p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and
+      <em>optional</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -1928,6 +2008,19 @@ be present on the <code>tt</code> element.</td>
 
             <th style="text-align:center">Provisions</th>
           </tr>
+          
+                    <tr>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+          </tr>
+
+          <tr>
+            <td><code>#fillLineGap</code></td>
+
+            <td>optional</td>
+						
+<td>NOTE: This feature is optional such that a <a>processor</a> that conforms to the earlier version of this specification also conforms to this version.</td>
+          </tr>
+
 
           <tr>
             <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension Namespace</em></td>
@@ -2067,7 +2160,8 @@ be present on the <code>tt</code> element.</td>
     <section>
       <h3>Features and Extensions</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em> and <em>prohibited</em>.</p>
+      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> 
+      and <em>optional</em>.</p>
 
       <table class='simple'>
         <tbody>
@@ -2427,6 +2521,18 @@ be present on the <code>tt</code> element.</td>
             <th style="text-align:center">Extension</th>
 						<th style="text-align:center">Disposition</th>
             <th style="text-align:center">Provisions</th>
+          </tr>
+          
+                              <tr>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+          </tr>
+
+          <tr>
+            <td><code>#fillLineGap</code></td>
+
+            <td>prohibited</td>
+						
+<td></td>
           </tr>
 
           <tr>
@@ -3494,10 +3600,22 @@ be present on the <code>tt</code> element.</td>
     <section class='appendix'>
       <h3>#activeArea</h3>
 
-      <p>A <a>processor</a> supports the <code>#activeArea</code> feature
-			if the presence of the <code>ittp:activeArea</code> attribute does not cause the <a>processor</a> to reject or abort the processing of the <a>Document Instance</a>.</p>
+      <p>A <a>transformation processor</a> supports the <code>#activeArea</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
 
-			<p class='note'>The requirement above, which is consistent with <a href='#foreign-elements'></a>, is designed such that a <a>processor</a> that conforms to the first edition of this specification also conforms to this edition.</p>
+      <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic support
+      for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
+			
+    </section>
+    
+    <section class='appendix'>
+      <h3>#fillLineGap</h3>
+
+      <p>A <a>transformation processor</a> supports the <code>#fillLineGap</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic support
+      for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
 			
     </section>
   </section>
