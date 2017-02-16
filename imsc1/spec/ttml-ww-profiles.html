@@ -867,10 +867,10 @@ ittp:progressivelyDecodable
                 <div class="exampleInner">
                   <pre>
 ittp:activeArea
-  : x y width height
+  : leftOffset topOffset width height
 	
-x | y | width | height
-  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative
+leftOffset | topOffset | width | height
+  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
 </pre>
                 </div>
               </td>
@@ -878,14 +878,26 @@ x | y | width | height
           </tbody>
         </table>
 				
-				<p>The <code>width</code> and <code>x</code> percentage values are relative to the width of the root container.</p>
+				<p>The <code>width</code> percentage value is relative to the width of the root container.</p>
 				
-        <p>The <code>height</code> and <code>y</code> percentage values are relative to the height of the root container.</p>
-				
-				<p>The <code>x</code> and <code>y</code> percentage values are the x and y coordinates of the <a>Active Area</a> with respect to the origin of the root container.</p>
+        <p>The <code>height</code> percentage value is relative to the height of the root container.</p>
 				
 				<p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
 				
+        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the root container and the active area. The alignment point's horizontal coordinate is offset from the left of the root container region by the <code>leftOffset</code> percentage of the root container width and from the left of the active area by the <code>leftOffset</code> percentage of the width of the active area. The alignment point's vertical coordinate is offset from the top of the root container region by the <code>topOffset</code> percentage of the root container height and from the top of the active area by the <code>topOffset</code> percentage of the height of the active area.
+        
+        <div class='note'>
+        <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code> property where a two percentage value position is used.</p>
+        </div>
+
+        <div class='note'>
+          <p>One method for calculating the top left {x, y} percentage coordinates of the active area is as follows:</p>
+          <pre class='informative'>
+x = leftOffset * (1 - width/100)
+y = topOffset * (1 - height/100)
+          </pre>
+        </div>
+
 				<p>The <a>Active Area</a> SHALL NOT extend outside the root container in any dimension.</p>
 
         <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the
