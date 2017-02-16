@@ -2,7 +2,7 @@
 <xs:schema targetNamespace="http://www.w3.org/ns/ttml/profile/imsc1#parameter" xml:lang="en"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter">
-  
+
   <xs:attribute name="aspectRatio">
     <xs:simpleType>
       <xs:restriction>
@@ -19,6 +19,23 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:attribute>
-  
+
   <xs:attribute name="progressivelyDecodable" type="xs:boolean"/>
+
+  <xs:attribute name="activeArea">
+    <xs:simpleType>
+      <xs:restriction>
+        <xs:simpleType>
+          <xs:list>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="\+?(\d*\.\d+|\d+)\%"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:list>
+        </xs:simpleType>
+        <xs:length value="4"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
 </xs:schema>
