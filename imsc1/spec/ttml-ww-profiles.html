@@ -303,7 +303,24 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 			
 			<p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
 			
-	<p class="note"><a data-lt="Document Instance">Document Instances</a> remain subject to the structural requirements of [[!TTML1]].</p>
+	<div class="note"><a data-lt="Document Instance">Document Instances</a> remain subject to the structural requirements of [[!TTML1]]. In particular, elements and attributes not in any TT namespace, i.e. in foreign namespaces, are permitted as prescribed in [[!TTML1]]: 
+<ul>
+<li>
+  foreign namespace elements are only permitted as children of a <code>metadata</code> element; and
+  </li>
+  <li>with respect to content elements:
+<ul>
+<li>
+metadata elements are permitted as children of all content elements with the exception of the 
+<code>tt</code> element; and
+</li>
+<li>
+foreign namespace attributes are permitted on all content elements.
+</li>
+</ul>
+</li>
+</ul>
+</div>
     </section>
 
     <section id='namespaces'>
