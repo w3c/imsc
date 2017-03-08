@@ -128,6 +128,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   <section id='terms'>
     <h2>Terms and Definitions</h2>
 		
+		<p><dfn>Content element</dfn>. Element of the Content module (Table 3 at [[!TTML1]].)</p>
+		
 		<p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!TTML1]].</p>
 		
 		<p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML1]].</p>
@@ -303,24 +305,28 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 			
 			<p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
 			
-	<div class="note"><a data-lt="Document Instance">Document Instances</a> remain subject to the structural requirements of the <code>tt</code> root document element in [[!TTML1]]. In particular, elements and attributes not in any TT namespace, i.e. in foreign namespaces, are permitted as prescribed for the content model of the <code>tt</code> element in [[!TTML1]]: 
-<ul>
-<li>
-  foreign namespace elements are only permitted as descendants of a <code>metadata</code> element; and
-  </li>
-  <li>with respect to content elements:
-<ul>
-<li>
-metadata elements are permitted as children of all content elements with the exception of the 
-<code>tt</code> element; and
-</li>
-<li>
-foreign namespace attributes are permitted on all content elements.
-</li>
-</ul>
-</li>
-</ul>
-</div>
+			<div class="note"><a data-lt="Document Instance">Document Instances</a> remain subject
+			to the content specification for the <code>tt</code> root document element and its
+			descendants, as specified in [[!TTML1]]. In particular, the [[!TTML1]] content specification
+			specifies that elements and attributes not in any TT namespace, i.e. in foreign namespaces,
+			are permitted as follows:
+			<ul>
+				<li>
+					the <code>metadata</code> element is the only element whose children can belong to foreign namespaces; and
+				</li>
+				<li>with respect to <a data-lt="Content element">Content elements</a>:
+					<ul>
+						<li>
+			<code>metadata</code> elements are permitted as children of all <a data-lt="Content element">Content elements</a> with the exception of the 
+			<code>tt</code> element; and
+						</li>
+						<li>
+			foreign namespace attributes are permitted on all <a data-lt="Content element">Content elements</a>.
+						</li>
+					</ul>
+				</li>
+			</ul>
+			</div>
     </section>
 
     <section id='namespaces'>
@@ -728,7 +734,7 @@ ittp:progressivelyDecodable
             <li>a <code>ttm:actor</code> element referencing a <code>ttm:agent</code> element. In this case, Requirement 4 provides
             optimization of metadata elements ordering within the document.</li>
 
-            <li>a content element referencing <code>ttm:agent</code> elements using the <code>ttm:agent</code> attribute. In this
+            <li>a <a>Content element</a> referencing <code>ttm:agent</code> elements using the <code>ttm:agent</code> attribute. In this
             case, Requirement 4 provides optimization of metadata elements ordering within the document.</li>
           </ul>
         </div>
@@ -739,7 +745,7 @@ ittp:progressivelyDecodable
 
         <p><code>itts:forcedDisplay</code> can be used to hide content whose computed value of <code>tts:visibility</code> is <code>"visible"</code> when the processor has been configured to do so via the application parameter <code>displayForcedOnlyMode</code>.</p>
 
-        <p>If and only if the value of <code>displayForcedOnlyMode</code> is <code>"true"</code>, a content element with a <code>itts:forcedDisplay</code>
+        <p>If and only if the value of <code>displayForcedOnlyMode</code> is <code>"true"</code>, a <a>Content element</a> with a <code>itts:forcedDisplay</code>
         computed value of <code>"false"</code> SHALL NOT produce any visible rendering, but still affect layout, regardless of the computed
         value of <code>tts:visibility</code>.</p>
 
@@ -806,13 +812,13 @@ ittp:progressivelyDecodable
 
         <p class='note'>As specified in [[!TTML1]], the background of a region can be visible even if the computed value of <code>tts:visibility</code> equals
         <code>"hidden"</code> for all active content within. The background of a region for which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active
-        content elements within the region and <code>displayForcedOnlyMode</code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring that content
+        <a data-lt="Content element">Content elements</a> within the region and <code>displayForcedOnlyMode</code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring that content
         elements and the regions that they are flowed into always have the same value of <code>itts:forcedDisplay</code>.</p>
 
         <p class='note'>Although <code>itts:forcedDisplay</code>, like all the TTML style attributes, has no defined semantics on a
-        <code>br</code> content element, <code>itts:forcedDisplay</code> will apply to a <code>br</code> content element if it is
-        either defined on an ancestor content element of the <code>br</code> content element or it is applied to a region element
-        corresponding to a region that the <code>br</code> content element is being flowed into.</p>
+        <code>br</code> element, <code>itts:forcedDisplay</code> will apply to a <code>br</code> element if it is
+        either defined on an ancestor <a>Content element</a> of the <code>br</code> element or it is applied to a region element
+        corresponding to a region that the <code>br</code> element is being flowed into.</p>
 
         <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
         style construct in a future revision of this specification.</p>
@@ -1543,9 +1549,9 @@ be present on the <code>tt</code> element.</td>
 						<ul class="short-list"><li>All time expressions within a <a>Document Instance</a> SHOULD use the same syntax, either 
 						<code>clock-time</code> or <code>offset-time</code>.</li>
 						
-						<li>For any content element that contains <code>br</code> elements or text nodes or a 
+						<li>For any <a>Content element</a> that contains <code>br</code> elements or text nodes or a 
 						<code>smpte:backgroundImage</code> attribute, both the <code>begin</code> attribute and one of either the <code>end</code> or <code>dur</code> attributes SHOULD 
-						be specified on the content element or at least one of its ancestors.</li></ul>
+						be specified on the <a>Content element</a> or at least one of its ancestors.</li></ul>
 						</td>
           </tr>
 
@@ -2769,18 +2775,18 @@ be present on the <code>tt</code> element.</td>
         <ul>
           <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
 
-          <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is
+          <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> element that is
           to be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML1]] for more
-          details on when a content element is followed into a region); or
+          details on when a <a>Content element</a> is followed into a region); or
           </li>
 
-          <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be
+          <li>it is specified on a <code>set</code> animation element that is to be applied to <a data-lt="Content element">Content elements</a> that are to be
           flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML1]] for more details
-          on when a <code>set</code> animation element is applied to content elements).
+          on when a <code>set</code> animation element is applied to <a data-lt="Content element">Content elements</a>).
           </li>
         </ul>
 
-        <p>Even if a specified <code>tts:backgroundColor</code> is the same as specified on the nearest ancestor content element or
+        <p>Even if a specified <code>tts:backgroundColor</code> is the same as specified on the nearest ancestor <a>Content element</a> or
         animation element, specifying any <code>tts:backgroundColor</code> SHALL require an additional fill operation for all
         region pixels.</p>
       </section>
