@@ -38,9 +38,9 @@ var respecConfig = {
 									"CFF": "Digital Entertainment Content Ecosystem (DECE). <a href='http://www.uvcentral.com/specs'>Common File Format & Media Formats Specification (CFF) Version 2.2</a>.",
                   "ST2052-1": "SMPTE ST 2052-1, Timed Text Format (SMPTE-TT) URL: <a href='https://www.smpte.org/standards '>https://www.smpte.org/standards</a>",
                                   "EBU-TT-D": "European Broadcasting Union (EBU). <a href='https://tech.ebu.ch/docs/tech/tech3380.pdf'>Tech 3380, EBU-TT-D Subtitling Distribution Format Version 1.0</a>",
-                                  
+
                                   "CLDR": "Unicode Consortium. <a href='http://cldr.unicode.org'>The Common Locale Data Repository Project</a>",
-                                                                                                                                        
+
               }
         };
   </script>
@@ -71,12 +71,12 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <p>This document specifies two profiles of [[!TTML1]]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
     consistent rendering and conversion to other subtitling and captioning formats.</p>
-		
+
 		<p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
     <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
     [[!EBU-TT-D]].</p>
-		
+
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
@@ -93,55 +93,55 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
     <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
     [[!EBU-TT-D]].</p>
-    
+
     <p>This version of the specification makes editorial corrections and adds two optional features (<a href="#ittp-activeArea"></a>
     and <a href="#itts-fillLineGap"></a>) over the <a href="http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated
     21 April 2016</a>. <a data-lt="processor">Processors</a> and <a data-lt="document instance">document instances</a> that conform to
     the <a href="http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also
     conform to this version of the specification.</p>
   </section>
-	
+
 	  <section id='conventions'>
     <h2>Documentation Conventions</h2>
-			
+
 			<p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes and metadata elements. In particular, Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements.</p>
-			
+
 			<p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered non-normative.</p>
-		
-			<p>This specification uses <a>Feature</a> and <a>Extension</a> 
+
+			<p>This specification uses <a>Feature</a> and <a>Extension</a>
 			designations as defined in Appendices D.1 and E.1 at [[!TTML1]]:</p>
 			<ul>
-			<li>when making reference to content conformance, 
-			these designations refer to the syntactic expression or the semantic 
-			capability associated with each designated <a>Feature</a> or 
+			<li>when making reference to content conformance,
+			these designations refer to the syntactic expression or the semantic
+			capability associated with each designated <a>Feature</a> or
 			<a>Extension</a>; and</li>
-			<li>when making reference to processor 
-			conformance, these designations refer to processing 
-			requirements associated with each designated <a>Feature</a> or 
+			<li>when making reference to processor
+			conformance, these designations refer to processing
+			requirements associated with each designated <a>Feature</a> or
 			<a>Extension</a>.</li>
 			</ul>
-			
+
 			<p>If the name of an element referenced in this specification is not namespace qualified, then the TT namespace applies (see <a href="#namespaces"></a>.)</p>
-			
+
   </section>
 
   <section id='terms'>
     <h2>Terms and Definitions</h2>
-		
+
 		<p><dfn>Content element</dfn>. Element of the Content module (Table 3 at [[!TTML1]].)</p>
-		
+
 		<p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!TTML1]].</p>
-		
+
 		<p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
+
 		<p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
+
 		<p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
+
 		<p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
 
 		<p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
+
 		<p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
 
 		<p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
@@ -149,11 +149,11 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 		<p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!TTML1]].</p>
 
 		<p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
+
     <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!TTML1]].</p>
-		
-		<p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a rectangular array of pixels.</p> 
-		
+
+		<p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a rectangular array of pixels.</p>
+
 		<p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
   </section>
@@ -164,15 +164,15 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
     <ul>
       <li>SHALL satisfy all normative provisions specified by the profile;</li>
-			
+
       <li>MAY include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or
 			<a>Extension</a> whose disposition is <em>permitted</em> or <em>optional</em> in the profile;</li>
-			
+
       <li>SHALL NOT include any vocabulary, syntax or attribute value associated with a <a>Feature</a> or <a>Extension</a>
 			whose disposition is <em>prohibited</em> in the profile.</li>
-			
+
     </ul>
-			
+
 	<p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!TTML1]],
 	and hence a <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document Instance.</p>
 
@@ -183,9 +183,9 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
-      <li>SHALL implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
+      <li>SHALL implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to
 			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
-      
+
       <li>MAY implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em> by the profile, subject to any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
@@ -196,10 +196,10 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
-      <li>SHALL implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to 
+      <li>SHALL implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>permitted</em> by the profile, subject to
 			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
-      
-      <li>MAY implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em> by the profile, subject to 
+
+      <li>MAY implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em> by the profile, subject to
 			any additional constraints on each <a>Feature</a> and <a>Extension</a> as specified by the profile.</li>
     </ul>
 
@@ -208,13 +208,13 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     words, it is not considered an error for a <a>presentation processor</a> (<a>transformation processor</a>) to conform to a
     profile defined in this specification without also conforming to the DFXP Presentation Profile (DFXP Transformation
     Profile).</p>
-		
+
 		<p class='note'>This specification does not specify <a>presentation processor</a> or <a>transformation processor</a> behavior when processing or transforming a non-conformant <a>Document Instance</a>.</p>
-		
-		 <p class='note'>The <em>permitted</em> and <em>prohibited</em> 
-		dispositions do not refer to the specification of a 
-		<code>ttp:feature</code> or <code>ttp:extension</code> element as being 
-		permitted or prohibited within a <code>ttp:profile</code> element.</p> 
+
+		 <p class='note'>The <em>permitted</em> and <em>prohibited</em>
+		dispositions do not refer to the specification of a
+		<code>ttp:feature</code> or <code>ttp:extension</code> element as being
+		permitted or prohibited within a <code>ttp:profile</code> element.</p>
 
   </section>
 
@@ -230,7 +230,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other conforming to the <a>Image Profile</a>,
       SHOULD be offered. In addition, the <a>Text Profile</a> <a>Document Instance</a> SHOULD be associated with the <a>Image Profile</a>
       <a>Document Instance</a> such that, when image content is encountered, assistive technologies have access to its corresponding text
-      form. The method by which this association is made is left to each application.</p> 
+      form. The method by which this association is made is left to each application.</p>
 
       <p class='note'>The <code>ittm:altText</code> element specified <a href='#ttm-altText'></a> also allows text equivalent
       string to be associated with an image, e.g. to support indexation of the content and also facilitate quality checking of the
@@ -253,35 +253,35 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <p>The <dfn>Image Profile</dfn> consists of Sections <a href="#common-constraints"></a> and <a href=
       "#image-profile-constraints"></a>.</p>
     </section>
-		
-		
+
+
 		<section id="profile-resolution">
       <h3>Profile Resolution Semantics</h3>
 
-				
-				<p>For the purpose of content processing, the determination of the resolved 
-				profile SHOULD take into account both the signaled profile, as defined 
-				in <a href="#profile-signaling"></a>, and profile metadata, as designated by either (or both) 
-				the <a>Document Interchange Context</a> or (and) the <a>Document Processing 
+
+				<p>For the purpose of content processing, the determination of the resolved
+				profile SHOULD take into account both the signaled profile, as defined
+				in <a href="#profile-signaling"></a>, and profile metadata, as designated by either (or both)
+				the <a>Document Interchange Context</a> or (and) the <a>Document Processing
 				Context</a>, which MAY entail inspecting document content.</p>
 
-				<p>If the resolved profile is not a profile supported by the <a>Processor</a> 
-				but is feasibly interoperable with the <a>Text Profile</a>, then the resolved 
-				profile is the <a>Text Profile</a>; otherwise, if the resolved profile is not 
-				a profile supported by the <a>Processor</a> but is feasibly interoperable with 
+				<p>If the resolved profile is not a profile supported by the <a>Processor</a>
+				but is feasibly interoperable with the <a>Text Profile</a>, then the resolved
+				profile is the <a>Text Profile</a>; otherwise, if the resolved profile is not
+				a profile supported by the <a>Processor</a> but is feasibly interoperable with
 				the <a>Image Profile</a>, then the resolved profile is the <a>Image Profile</a>.</p>
 
 
-				<p>If the resolved profile is a profile supported by the <a>Processor</a>, then 
-				the <a>Processor</a> SHOULD process the <a>Document Instance</a> according to the 
-				resolved profile. If the resolved profile is neither <a>Text Profile</a> nor 
+				<p>If the resolved profile is a profile supported by the <a>Processor</a>, then
+				the <a>Processor</a> SHOULD process the <a>Document Instance</a> according to the
+				resolved profile. If the resolved profile is neither <a>Text Profile</a> nor
 				<a>Image Profile</a>, processing is outside the scope of this specification.</p>
- 
 
-				<p>If the resolved profile is undetermined or not supported by the 
-				<a>Processor</a>, then the <a>Processor</a> SHOULD nevertheless process the <a>Document 
-				Instance</a> using one of its supported profiles, with a preference for the 
-				<a>Text Profile</a> over the <a>Image Profile</a>; otherwise, processing MAY be 
+
+				<p>If the resolved profile is undetermined or not supported by the
+				<a>Processor</a>, then the <a>Processor</a> SHOULD nevertheless process the <a>Document
+				Instance</a> using one of its supported profiles, with a preference for the
+				<a>Text Profile</a> over the <a>Image Profile</a>; otherwise, processing MAY be
 				aborted.</p>
 
 
@@ -302,9 +302,9 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <p>A <a>Document Instance</a> MAY contain elements and attributes that are neither specifically permitted nor forbidden by a
       profile.</p>
-			
+
 			<p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
-			
+
 			<div class="note"><a data-lt="Document Instance">Document Instances</a> remain subject
 			to the content specification for the <code>tt</code> root document element and its
 			descendants, as specified in [[!TTML1]]. In particular, the [[!TTML1]] content specification
@@ -317,7 +317,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 				<li>with respect to <a data-lt="Content element">Content elements</a>:
 					<ul>
 						<li>
-			<code>metadata</code> elements are permitted as children of all <a data-lt="Content element">Content elements</a> with the exception of the 
+			<code>metadata</code> elements are permitted as children of all <a data-lt="Content element">Content elements</a> with the exception of the
 			<code>tt</code> element; and
 						</li>
 						<li>
@@ -325,8 +325,17 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 						</li>
 					</ul>
 				</li>
+        <li>foreign namespace attributes are permitted on all other elements defined
+           by [[!TTML1]].
+        </li>
 			</ul>
 			</div>
+
+      <div class="note">For validation purposes it is good practice to define and
+        use a content specification for all foreign namespace elements and
+        attributes used within a <a data-lt="Document Instance">Document
+        Instance</a>.
+      </div>
     </section>
 
     <section id='namespaces'>
@@ -417,7 +426,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td>[[!EBU-TT-D]]</td>
           </tr>
-					
+
           <tr>
             <td>EBU-TT Metadata</td>
 
@@ -492,7 +501,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <p>The namespace prefix values defined above are for convenience and <a data-lt='Document Instance'>Document Instances</a> MAY use any prefix value that
       conforms to [[!xml-names]].</p>
-			
+
 			<p>The namespaces defined by this specification are mutable [[namespaceState]]; all undefined names in these namespaces are reserved for future standardization by the W3C.</p>
     </section>
 
@@ -510,7 +519,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <h3>Related Video Object</h3>
 
       <p>A <a>Document Instance</a> MAY be associated with a <a>Related Video Object</a>.</p>
-			
+
 			<p class="note">While this specification contains specific provisions when a <a>Document Instance</a> is associated with a <a>Related Video Object</a>, it does not prevent the use of a <a>Document Instance</a> with other kinds of <a>Related Media Object</a>, e.g. an audio object.</p>
     </section>
 
@@ -557,7 +566,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 ittp:aspectRatio
   : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
                                    // where int(s) parses string s as a decimal integer.
-        
+
 numerator | denominator
   : &lt;digit&gt;+
 </pre>
@@ -602,9 +611,9 @@ numerator | denominator
 <pre>
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
-  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
+  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
   xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
-  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
+  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
   xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
   ittp:aspectRatio=&quot;4 3&quot;
   tts:extent=&quot;400px 300px&quot;
@@ -625,29 +634,29 @@ numerator | denominator
 			</p>
 
       <div class="note">The mapping algorithm above allows the author to
-			precisely control caption/subtitle position relative to elements within each frame of the video program, e.g. 
+			precisely control caption/subtitle position relative to elements within each frame of the video program, e.g.
 			to match the position of actors. This mapping algorithm does not however specify the presentation of
 			either the video frame or root container on the ultimate display device. This presentation depends on many factors, including
 			user input, and can involve displaying only parts of the content. Authors are therefore encouraged to follow best practices
 			for the intended target applications. Below are selected examples:
 			<ul style="list-style-type:lower-alpha">
-			<li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut. 
+			<li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut.
 			Accordingly subtitle/captions are authored using <code>ttp:aspectRatio="4 3"</code>, allowing the combination
-			to be displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative position 
+			to be displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative position
 			of caption/subtitles with video elements.
 			</li>
 			<li>
 			A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The system elects to scale
-			the root container to fit vertically within the display (maintaining its aspect ratio as authored), at the cost of losing relative 
+			the root container to fit vertically within the display (maintaining its aspect ratio as authored), at the cost of losing relative
 			positioning between caption/subtitles and video elements.
 			</li>
 			<li>
 			The system described in (b) instead elects to map the root container to the video frame, maintaining relative positioning
-			between caption/subtitles and video elements but at the risk of clipping subtitles/captions. 
+			between caption/subtitles and video elements but at the risk of clipping subtitles/captions.
 			</li>
 			</ul>
 			</div>
-			
+
     </section>
       <section id='ttp-progressivelyDecodable'>
         <h4>ittp:progressivelyDecodable</h4>
@@ -699,13 +708,13 @@ ittp:progressivelyDecodable
 
         <p>A <a>Document Instance</a> for which the computed value of <code>ittp:progressivelyDecodable</code> is <code>"false"</code> is neither
         asserted to be a <a>progressively decodable Document Instance</a> nor asserted not to be a progressively decodable <a>Document Instance</a>.</p>
-				
+
 				<pre class='example'>
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
-  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
+  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
   xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
-  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot; 
+  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
   xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
   ittp:progressivelyDecodable=&quot;true&quot;
   ttp:profile=&quot;...&quot;
@@ -807,7 +816,7 @@ ittp:progressivelyDecodable
 
         <p>The algorithm for setting the <code>displayForcedOnlyMode</code> parameter based on the circumstances under which the
         <a>Document Instance</a> is presented is left to the application.</p>
-				
+
         <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'></pre>
 
         <p class='note'>As specified in [[!TTML1]], the background of a region can be visible even if the computed value of <code>tts:visibility</code> equals
@@ -822,8 +831,8 @@ ittp:progressivelyDecodable
 
         <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
         style construct in a future revision of this specification.</p>
-		
-		<p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be 
+
+		<p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be
 		compatible with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
       </section>
 
@@ -855,24 +864,24 @@ ittp:progressivelyDecodable
             </tr>
           </tbody>
         </table>
-				
+
 				<p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
 
         <p><a href="#image-profile-constraints"></a> specifies the use of the <code>ittm:altText</code> element with images.</p>
-				
+
 				<pre class='example' data-include='examples/altText-example.xml' data-include-format='text'></pre>
-				
+
         <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML5]], the <code>ittm:altText</code>
         attribute content is not intended to be displayed in place of the element if the element is not loaded. The
         <code>ittm:altText</code> attribute content can however be read and used by assistive technologies.</p>
       </section>
-			
+
 	<section id='ittp-activeArea'>
         <h4>ittp:activeArea</h4>
-		
+
         <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the root container that the author
 				intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions within the <a>Document Instance</a>.</p>
-        
+
         <div class='note'>
           <p>Under normal circumstances, the entirety of the root container is presented. However, under special circumstances, such
 					as when the <a>related video object</a> is cropped, a system can, for instance, use the <code>ittp:activeArea</code>
@@ -891,7 +900,7 @@ ittp:progressivelyDecodable
 <pre>
 ittp:activeArea
   : leftOffset topOffset width height
-	
+
 leftOffset | topOffset | width | height
   : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
 </pre>
@@ -900,13 +909,13 @@ leftOffset | topOffset | width | height
             </tr>
           </tbody>
         </table>
-				
+
 				<p>The <code>width</code> percentage value is relative to the width of the root container.</p>
-				
+
         <p>The <code>height</code> percentage value is relative to the height of the root container.</p>
-				
+
 				<p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
-				
+
         <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the root
           container and the <a>Active Area</a>.</p>
 
@@ -915,7 +924,7 @@ leftOffset | topOffset | width | height
 x = leftOffset * (1 - width/100)
 y = topOffset * (1 - height/100)
           </pre>
-        
+
         <div class='note'>
         <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code>
         property where a two percentage value position is used.</p>
@@ -927,22 +936,22 @@ y = topOffset * (1 - height/100)
         <code>tt</code> element.</p>
 
         <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the root container.</p>
-				
+
 				<pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'></pre>
 
- 
+
     </section>
-		
+
 
 	<section id='itts-fillLineGap'>
         <h4>itts:fillLineGap</h4>
-		
+
         <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background
         between line areas.</p>
-        
+
         <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated
         by descendant spans of the <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
-                
+
         <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
 
         <table class="simple">
@@ -989,11 +998,11 @@ y = topOffset * (1 - height/100)
             </tr>
           </tbody>
         </table>
-        
+
         <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap exists between its lines.</p>
-				
+
 				<pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'></pre>
-        
+
         <figure id='fig-fillLineGap'>
           <img src="figures/fillLineGap-example-figure-1.png" alt="tts:fillLineGap rendering example">
 
@@ -1001,10 +1010,10 @@ y = topOffset * (1 - height/100)
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or preserved (right).
           </figcaption>
         </figure>
-        
+
     </section>
-    
-    
+
+
     </section>
 
     <section>
@@ -1045,31 +1054,31 @@ y = topOffset * (1 - height/100)
         NOT be greater than 4.</p>
       </section>
     </section>
-		
+
 		<section id='profile-signaling'>
       <h3>Profile Signaling</h3>
-			
-			<p>		
+
+			<p>
 			The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present, unless:</p>
 			<ul>
 			<li>
-			the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute 
-			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms and 
-			the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in 
+			the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute
+			and the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the <a>Document Instance</a> conforms and
+			the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element as specified in
 			[[!EBU-TT-D]]; or
 			</li>
 			<li>
 			the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>use</code> attribute be set to a specified value.
 			</li>
 			</ul>
-			
-			
+
+
 			<p>
 			The <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.
 			</p>
-						
+
 		</section>
-		
+
     <section>
       <h3>Hypothetical Render Model</h3>
 
@@ -1090,7 +1099,7 @@ y = topOffset * (1 - height/100)
             <th style="text-align:center">Feature</th>
 
 						<th style="text-align:center">Disposition</th>
-						
+
 						<th style="text-align:center">Additional provision</th>
           </tr>
 
@@ -1104,7 +1113,7 @@ y = topOffset * (1 - height/100)
             <td>permitted</td>
 <td></td>
           </tr>
-		  
+
 		   <tr>
             <td id="backgroundColor-block-feat"><code>#backgroundColor-block</code></td>
 
@@ -1132,21 +1141,21 @@ y = topOffset * (1 - height/100)
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#clockMode-gps</code></td>
 
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#clockMode-local</code></td>
 
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
 	          <tr>
             <td><code>#clockMode-utc</code></td>
 
@@ -1216,7 +1225,7 @@ y = topOffset * (1 - height/100)
             <td>prohibited</td>
 <td></td>
           </tr>
-		  
+
 		  <tr>
             <td><code>#extent-root</code></td>
 
@@ -1294,7 +1303,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#length-positive</code></td>
 
             <td>permitted</td>
-						
+
 						<td></td>
           </tr>
 
@@ -1318,14 +1327,14 @@ be present on the <code>tt</code> element.</td>
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#markerMode-continuous</code></td>
 
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#markerMode-discontinuous</code></td>
 
@@ -1386,7 +1395,7 @@ be present on the <code>tt</code> element.</td>
             <td id="profile-constraints"><code>#profile</code></td>
 
             <td>permitted</td>
-						
+
 						<td>
 						See <a href="#profile-signaling"></a>.
 
@@ -1397,7 +1406,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#showBackground</code></td>
 
             <td>permitted</td>
-						
+
 <td></td>
           </tr>
 
@@ -1468,17 +1477,17 @@ be present on the <code>tt</code> element.</td>
             <td><code>#tickRate</code></td>
 
             <td>permitted</td>
-						
+
 						<td><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the
              document contains any time expression that uses the <code>t</code> metric.</td>
-						 
+
           </tr>
 
           <tr>
             <td><code>#timeBase-clock</code></td>
 
             <td>prohibited</td>
-						
+
 <td></td>
           </tr>
 
@@ -1486,8 +1495,8 @@ be present on the <code>tt</code> element.</td>
             <td><code>#timeBase-media</code></td>
 
             <td>permitted</td>
-						
-						<td><p class="inline-note">NOTE: [[TTML1]] specifies that the default timebase is <code>"media"</code> if 
+
+						<td><p class="inline-note">NOTE: [[TTML1]] specifies that the default timebase is <code>"media"</code> if
 						<code>ttp:timeBase</code> is not specified on <code>tt</code>.</p></td>
 
           </tr>
@@ -1545,12 +1554,12 @@ be present on the <code>tt</code> element.</td>
             <td><code>#timing</code></td>
 
             <td>permitted</td>
-<td>						
-						<ul class="short-list"><li>All time expressions within a <a>Document Instance</a> SHOULD use the same syntax, either 
+<td>
+						<ul class="short-list"><li>All time expressions within a <a>Document Instance</a> SHOULD use the same syntax, either
 						<code>clock-time</code> or <code>offset-time</code>.</li>
-						
-						<li>For any <a>Content element</a> that contains <code>br</code> elements or text nodes or a 
-						<code>smpte:backgroundImage</code> attribute, both the <code>begin</code> attribute and one of either the <code>end</code> or <code>dur</code> attributes SHOULD 
+
+						<li>For any <a>Content element</a> that contains <code>br</code> elements or text nodes or a
+						<code>smpte:backgroundImage</code> attribute, both the <code>begin</code> attribute and one of either the <code>end</code> or <code>dur</code> attributes SHOULD
 						be specified on the <a>Content element</a> or at least one of its ancestors.</li></ul>
 						</td>
           </tr>
@@ -1575,7 +1584,7 @@ be present on the <code>tt</code> element.</td>
             <td>permitted</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#writingMode-horizontal-lr</code></td>
 
@@ -1618,7 +1627,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#aspectRatio</code></td>
 
             <td>permitted</td>
-						
+
 <td></td>
           </tr>
 
@@ -1642,7 +1651,7 @@ be present on the <code>tt</code> element.</td>
             <td>permitted</td>
 <td></td>
           </tr>
-					
+
 					  <tr>
             <td><code>#activeArea</code></td>
 
@@ -1697,22 +1706,22 @@ be present on the <code>tt</code> element.</td>
       <p>A <a>Document Instance</a> SHOULD be authored using characters selected from the sets specified in <a href=
       "#recommended-unicode-code-points-per-language"></a>.</p>
     </section>
-		
+
     <section>
       <h3>Reference Fonts</h3>
-				
-		  <p>The flow of text within a region depends the dimensions and spacing (kerning) between individual glyphs. 
+
+		  <p>The flow of text within a region depends the dimensions and spacing (kerning) between individual glyphs.
 			The following allows, for instance, region extents to be set such that text flows without clipping.</p>
 
-      <p>When rendering codepoints matching one of the combinations of computed font family and codepoints listed in 
+      <p>When rendering codepoints matching one of the combinations of computed font family and codepoints listed in
 			<a href="#reference-fonts"></a>, a processor SHALL use a font that generates a glyph sequence whose dimension is substantially
 			identical to the glyph sequence that would have been generated by one of the specified reference fonts.</p>
-			
-			<p class="note">Implementations can use fonts other than those specified in <a href="#reference-fonts"></a>. Two fonts 
+
+			<p class="note">Implementations can use fonts other than those specified in <a href="#reference-fonts"></a>. Two fonts
 			with equal metrics can have a different appearance, but flow identically.</p>
-			
+
     </section>
-	
+
     <section>
       <h3>Features and Extensions</h3>
 
@@ -1750,7 +1759,7 @@ be present on the <code>tt</code> element.</td>
 
             <td>permitted</td><td></td>
           </tr>
-					
+
 					<tr>
             <td><code>#content</code></td>
 
@@ -1785,7 +1794,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#extent-region</code></td>
 
             <td>permitted</td>
-						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it 
+						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it
 						SHALL use either <code>px</code> units or "percentage" syntax.<br>
           </tr>
 
@@ -1797,9 +1806,9 @@ be present on the <code>tt</code> element.</td>
 						order to enhance reproducibility of line fitting, authors are encouraged to
 						use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code> generic font families,
 						for which reference font metrics are defined at <a href="#reference-fonts"></a>.<p>
-						
+
 						<p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
-						
+
 						<p class="inline-note">NOTE: The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!TTML1]].</p>
 						</td>
           </tr>
@@ -1819,7 +1828,7 @@ be present on the <code>tt</code> element.</td>
           <tr>
             <td id="fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></td>
 
-            <td>prohibited</td>			
+            <td>prohibited</td>
 						<td></td>
           </tr>
 
@@ -1833,7 +1842,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fontSize</code></td>
 
             <td></td>
-			
+
 			<td>See individual disposition of <a href="#fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></a> and <a href="#fontSize-isomorphic-feat"><code>#fontSize-isomorphic</code></a>.</td>
           </tr>
 
@@ -1984,7 +1993,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#textOutline-blurred</code></td>
 
             <td>prohibited</td>
-						
+
 <td></td>
           </tr>
 
@@ -1998,7 +2007,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#textOutline</code></td>
 
             <td>permitted</td>
-						<td>The computed value of <code>tts:textOutline</code> on a <code>span</code> element 
+						<td>The computed value of <code>tts:textOutline</code> on a <code>span</code> element
 						SHALL be 10% or less than the computed value of <code>tts:fontSize</code> on the same element.</td>
           </tr>
 
@@ -2026,13 +2035,13 @@ be present on the <code>tt</code> element.</td>
 
             <td>permitted</td><td></td>
           </tr>
-					
+
           <tr>
             <td><code>#writingMode</code></td>
 
             <td>permitted</td><td></td>
           </tr>
-					
+
           <tr>
             <td><code>#writingMode-vertical</code></td>
 
@@ -2041,12 +2050,12 @@ be present on the <code>tt</code> element.</td>
 
           <tr>
             <th style="text-align:center">Extension</th>
-						
+
 						<th style="text-align:center">Disposition</th>
 
             <th style="text-align:center">Provisions</th>
           </tr>
-          
+
           <tr>
             <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension Namespace</em></td>
           </tr>
@@ -2055,8 +2064,8 @@ be present on the <code>tt</code> element.</td>
             <td><code>#image</code></td>
 
             <td>prohibited</td>
-						
-						
+
+
 <td></td>
           </tr>
 
@@ -2070,18 +2079,18 @@ be present on the <code>tt</code> element.</td>
 						<td>permitted</td>
 
             <td>
-						
-						<p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>, <code>body</code>, 
+
+						<p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>, <code>body</code>,
 						<code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
-												
+
 						<p>The <a>processor</a>:</p>
 						<ul class="short-list">
 							<li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
 							<li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
 						</ul>
-						
+
 						<p class="inline-note">NOTE: The <code>ebutts:linePadding</code> attribute only supports <code>c</code> length units.</p>
-						
+
 			</td>
           </tr>
 
@@ -2091,9 +2100,9 @@ be present on the <code>tt</code> element.</td>
 						<td>permitted</td>
 
 						<td>
-						<p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>, <code>body</code>, 
+						<p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>, <code>body</code>,
 						<code>div</code> and <code>p</code> in addition to <code>style</code></p>
-						
+
 						<p>The <a>processor</a>:</p>
 						<ul class="short-list">
 							<li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
@@ -2101,20 +2110,20 @@ be present on the <code>tt</code> element.</td>
 						</ul>
 						</td>
           </tr>
-          
+
                     <tr>
             <td><code>#fillLineGap</code></td>
 
             <td>optional</td>
-						
+
 <td>NOTE: This feature is optional such that a <a>processor</a> that conforms to the earlier version of this specification also conforms to this version.</td>
           </tr>
 
         </tbody>
       </table>
-			
+
 			<p class='note'>In contrast to this specification, [[!EBU-TT-D]] specifies that the attributes <code>ebutts:linePadding</code> and <code>ebutts:multiRowAlign</code> are allowed only on the <code>style</code> element.</p>
-			
+
     </section>
   </section>
 
@@ -2163,7 +2172,7 @@ be present on the <code>tt</code> element.</td>
         <p>In a given <a>intermediate synchronic document</a>, each <a>presented region</a> SHALL contain at most one <code>div</code> element, which SHALL be a <a>presented image</a>.</p>
 
       </section>
-			
+
 			<section>
         <h4>Intermediate Synchronic Document Construction</h4>
 
@@ -2186,22 +2195,22 @@ be present on the <code>tt</code> element.</td>
 
         <li>The <code>smpte:backgroundImage</code> attribute SHALL reference a PNG datastream as specified in [[!PNG]]. If a pHYs chunk is present, it SHALL indicate square pixels. Note that if no pixel aspect ratio is carried, the default of square pixels is assumed.</li>
       </ul>
-			
-			
+
+
 			<p class='note'>In [[!TTML1]], <code>tts:extent</code> and <code>tts:origin</code> do not apply to <code>div</code> elements. In order to individually position multiple <code>div</code> elements, each <code>div</code> can be associated with a distinct <code>region</code> with the desired <code>tts:extent</code> and <code>tts:origin</code>.</p>
     </section>
 
     <section>
       <h3>Features and Extensions</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> 
+      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em>
       and <em>optional</em>.</p>
 
       <table class='simple'>
         <tbody>
           <tr>
             <th style="text-align:center">Feature</th>
-						
+
 						<th style="text-align:center">Disposition</th>
 
             <th style="text-align:center">Additional provisions</th>
@@ -2210,7 +2219,7 @@ be present on the <code>tt</code> element.</td>
           <tr>
             <td colspan="3"  style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
           </tr>
-		  
+
 
           <tr>
             <td id="backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></td>
@@ -2221,11 +2230,11 @@ be present on the <code>tt</code> element.</td>
 
           <tr>
             <td><code>#backgroundColor</code></td>
-			
+
 			<td></td>
 
             <td>See individual disposition of <a href="#backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></a>, <a href="#backgroundColor-region-feat"><code>#backgroundColor-region</code></a> and <a href="#backgroundColor-block-feat"><code>#backgroundColor-block</code></a>.</td>
-			
+
           </tr>
 
           <tr>
@@ -2241,7 +2250,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#color</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2257,7 +2266,7 @@ be present on the <code>tt</code> element.</td>
             <td id="direction-i-feat"><code>#direction</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2265,15 +2274,15 @@ be present on the <code>tt</code> element.</td>
             <td><code>#displayAlign</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
           <tr>
             <td><code>#extent-region</code></td>
 
             <td>permitted</td>
-						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it 
+						<td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it
 						SHALL use <code>px</code> units.</td>
           </tr>
 
@@ -2282,7 +2291,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fontFamily</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2298,19 +2307,19 @@ be present on the <code>tt</code> element.</td>
 
             <td>prohibited</td><td></td>
           </tr>
-					
+
           <tr>
             <td><code>#fontSize</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					          <tr>
             <td><code>#fontSize-anamorphic</code></td>
 
-            <td>prohibited</td>			
+            <td>prohibited</td>
 						<td></td>
           </tr>
 
@@ -2324,11 +2333,11 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fontStyle</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
-					
+
+
           <tr>
             <td><code>#fontStyle-italic</code></td>
 
@@ -2347,10 +2356,10 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fontWeight</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					          <tr>
             <td><code>#fontWeight-bold</code></td>
 
@@ -2361,7 +2370,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#length-em</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2377,7 +2386,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#lineHeight</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2385,7 +2394,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#nested-div</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2393,7 +2402,7 @@ be present on the <code>tt</code> element.</td>
             <td><code>#nested-span</code></td>
 
              <td>prohibited</td>
-						
+
 			<td><p class="inline-note">NOTE: The prohibition of <code>span</code> elements by this profile implies the prohibition of this feature.<p></td>
           </tr>
 
@@ -2401,11 +2410,11 @@ be present on the <code>tt</code> element.</td>
             <td><code>#padding</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
-					
+
+
           <tr>
             <td><code>#padding-1</code></td>
 
@@ -2435,10 +2444,10 @@ be present on the <code>tt</code> element.</td>
             <td><code>#textAlign</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					 <tr>
             <td><code>#textAlign-absolute</code></td>
 
@@ -2455,10 +2464,10 @@ be present on the <code>tt</code> element.</td>
             <td><code>#textDecoration</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					          <tr>
             <td><code>#textDecoration-over</code></td>
 
@@ -2482,15 +2491,15 @@ be present on the <code>tt</code> element.</td>
             <td><code>#textOutline</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					          <tr>
             <td><code>#textOutline-blurred</code></td>
 
             <td>prohibited</td>
-						
+
 <td></td>
           </tr>
 
@@ -2505,14 +2514,14 @@ be present on the <code>tt</code> element.</td>
             <td id="unicodeBidi-i-feat"><code>#unicodeBidi</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					          <tr>
             <td><code>#visibility</code></td>
 <td></td>
-            <td>See individual disposition of <a href="#visibility-inline-i-feat"><code>#visibility-inline</code></a>, 
+            <td>See individual disposition of <a href="#visibility-inline-i-feat"><code>#visibility-inline</code></a>,
 			<a href="#visibility-region-feat"><code>#visibility-region</code></a> and <a href="#visibility-block-feat"><code>#visibility-block</code></a>.</td>
 
           </tr>
@@ -2524,30 +2533,30 @@ be present on the <code>tt</code> element.</td>
             <td>prohibited</td>
 <td></td>
           </tr>
-					
+
           <tr>
             <td><code>#wrapOption</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
-					
+
 					<tr>
             <td><code>#writingMode</code></td>
 
 						<td></td>
 
-            <td>See individual disposition of <a href="#writingMode-vertical-i-feat"><code>#writingMode-vertical</code></a> and 
+            <td>See individual disposition of <a href="#writingMode-vertical-i-feat"><code>#writingMode-vertical</code></a> and
 			<a href="#writingMode-horizontal-feat"><code>#writingMode-horizontal</code></a>.</td>
-						
+
           </tr>
 
           <tr>
             <td id='writingMode-vertical-i-feat'><code>#writingMode-vertical</code></td>
 
             <td>prohibited</td>
-						
+
 						<td></td>
           </tr>
 
@@ -2556,7 +2565,7 @@ be present on the <code>tt</code> element.</td>
 						<th style="text-align:center">Disposition</th>
             <th style="text-align:center">Provisions</th>
           </tr>
-          
+
 
           <tr>
             <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
@@ -2575,7 +2584,7 @@ be present on the <code>tt</code> element.</td>
             <li><code>smpte:image</code> SHALL NOT be used.</li></ul>
 						</td>
           </tr>
-          
+
           <tr>
             <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
           </tr>
@@ -2584,10 +2593,10 @@ be present on the <code>tt</code> element.</td>
             <td><code>#fillLineGap</code></td>
 
             <td>prohibited</td>
-						
+
             <td></td>
           </tr>
-          
+
         </tbody>
       </table>
 									<p class='note'>
@@ -2885,11 +2894,11 @@ be present on the <code>tt</code> element.</td>
 
     <section id='paint-text'>
         <h3>Paint Text</h3>
-				
+
 				<p>In the context of this section, a <dfn>glyph</dfn> is a tuple consisting of (i) one character and (ii) the computed values of the following
 				style properties:</p>
-				
-				<ul>				
+
+				<ul>
           <li><code>tts:color</code></li>
 
           <li><code>tts:fontFamily</code></li>
@@ -2904,18 +2913,18 @@ be present on the <code>tt</code> element.</td>
 
           <li><code>tts:textOutline</code></li>
         </ul>
-				
-				
+
+
 				<p class='note'>While one-to-one mapping between characters and typographical glyphs is generally the rule in some scripts,
-				e.g. latin script, it is the exception in others. For instance, in arabic script, a character can 
+				e.g. latin script, it is the exception in others. For instance, in arabic script, a character can
 				yield multiple glyphs depending on its position in a word. The Hypothetical Render Model
-				always assumes a one-to-one mapping, but reduces the performance of the glyph buffer for scripts where one-to-one mapping 
+				always assumes a one-to-one mapping, but reduces the performance of the glyph buffer for scripts where one-to-one mapping
 				is not the general rule (see GCpy below).</p>
-				
+
         <p>For each <a>glyph</a> associated with a character in a <a>presented region</a> of <a>intermediate synchronic document</a> E<sub>n</sub>,
 				the Presentation Compositor SHALL:</p>
 
-        <ul>				
+        <ul>
           <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n</sub>, copy the <a>glyph</a> from Glyph Buffer G<sub>n</sub> to the
           Presentation Buffer P<sub>n</sub> using the Glyph Copier; or</li>
 
@@ -2961,7 +2970,7 @@ be present on the <code>tt</code> element.</td>
         <p>The Normalized Rendered Glyph Area NRGA(g<sub>i</sub>) of a <a>glyph</a> g<sub>i</sub> SHALL be equal to:</p>
 
         <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of root container height)<sup>2</sup></p>
-				
+
 				<p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g.
         outline) or actual typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case
         glyph size complexity.</p>
@@ -2977,58 +2986,58 @@ be present on the <code>tt</code> element.</td>
         <table class='simple'>
 
           <tbody>
-					
+
             <tr>
-						
+
 						<th colspan="2">Normalized glyph copy performance factor (GCpy)</th>
-												
+
 						</tr>
-						
+
 				<tr>
-						
-														
+
+
 							<td style="text-align: center;"><em>Script property (see Standard Annex #24 at [[!UNICODE]]) for the
 							character of g<sub>i</sub></em></td>
-							
+
 							<td style="text-align: center;"><em>GCpy</em></td>
 
-							
+
 						</tr>
-						
+
 						<tr>
-						
-						
-								<td>latin, greek, cyrillic, hebrew or common</td>	
-													
+
+
+								<td>latin, greek, cyrillic, hebrew or common</td>
+
 								<td style="text-align: center;">12</td>
 
 						</tr>
-						
+
 						<tr>
-							
+
 							<td><i>any other value</i></td>
-							
+
 							<td style="text-align: center;">3</td>
 
             </tr>
 
 						<tr>
-						
+
 							<th colspan="2">Text rendering performance factor Ren(G<sub>i</sub>)</th>
-						
+
 						</tr>
-						
+
 						<tr>
-						
+
 						<td style="text-align: center;"><em>Block property (see [[!UNICODE]]) for the character of g<sub>i</sub></em></td>
-						
+
 						<td style="text-align: center;"><em>Ren(G<sub>i</sub>)</em></td>
-						
+
 						</tr>
-						
+
 
             <tr>
-							
+
 							<td>CJK Unified Ideograph</td>
 
 							<td style="text-align: center;">0.6</td>
@@ -3036,27 +3045,27 @@ be present on the <code>tt</code> element.</td>
 
             <tr>
 
-						
+
 							<td><i>any other value</i></td>
-							
+
 							<td style="text-align: center;">1.2</td>
-              
+
             </tr>
 
             <tr>
               <th colspan="2">Normalized Glyph Buffer Size (NGBS)</th>
-							
+
 						</tr>
-							
+
 						<tr>
 
             <td colspan="2" style="text-align: center;">1</td>
-							
+
             </tr>
           </tbody>
         </table>
-				
-				<p class='note'>The choice of font by the presentation processor can increase rendering complexity. 
+
+				<p class='note'>The choice of font by the presentation processor can increase rendering complexity.
 				For instance, a cursive font can generally result in a given character yielding different typographical glyphs depending
 				on context, even if latin script is used.</p>
 
@@ -3149,7 +3158,7 @@ be present on the <code>tt</code> element.</td>
 
     <ul>
       <li>the main exemplar character set specified for the language in [[!CLDR]] as well as any corresponding uppercase characters as specified in [[!UNICODE]]; and</li>
-			
+
 			<li>the punctuation exemplar character set specified for the language in [[!CLDR]];</li>
 
       <li>the digits and symbols included in all numberSystems specified for the language in [[!CLDR]];</li>
@@ -3176,7 +3185,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+0020 - U+007E</td>
       </tr>
-			
+
       <tr>
         <th>(Latin-1 Supplement)</th>
       </tr>
@@ -3216,7 +3225,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+017E : LATIN SMALL LETTER Z WITH CARON</td>
       </tr>
-			
+
 			<tr>
         <th>(Latin Extended-B)</th>
       </tr>
@@ -3224,7 +3233,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+0192 : LATIN SMALL LETTER F WITH HOOK</td>
       </tr>
-			
+
 			<tr>
         <th>(Spacing Modifier Letters)</th>
       </tr>
@@ -3232,7 +3241,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+02DC : SMALL TILDE</td>
       </tr>
-			
+
 			<tr>
         <th>(Combining Diacritical Marks)</th>
       </tr>
@@ -3264,7 +3273,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+20AC : EURO SIGN</td>
       </tr>
-			
+
       <tr>
         <th>(Letterlike Symbols)</th>
       </tr>
@@ -3284,7 +3293,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+2122 : TRADE MARK SIGN</td>
       </tr>
-			
+
       <tr>
         <th>(Number Forms)</th>
       </tr>
@@ -3292,7 +3301,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+2153 - U+215F : Fractions</td>
       </tr>
-			
+
 			<tr>
         <th>(Mathematical Operators)</th>
       </tr>
@@ -3300,7 +3309,7 @@ be present on the <code>tt</code> element.</td>
 			<tr>
         <td>U+2212 : MINUS SIGN</td>
       </tr>
-			
+
 			<tr>
         <td>U+221E : INFINITY</td>
       </tr>
@@ -3348,7 +3357,7 @@ be present on the <code>tt</code> element.</td>
       <tr>
         <td>U+25A1 : WHITE SQUARE</td>
       </tr>
-			
+
       <tr>
         <th>(Musical Symbols)</th>
       </tr>
@@ -3389,7 +3398,7 @@ be present on the <code>tt</code> element.</td>
 
           <td><em>no supplementary characters</em></td>
         </tr>
-			
+
         <tr>
           <td>lv, lt, et, tr, hr, cs, pl, sl, sk</td>
 
@@ -3455,19 +3464,19 @@ be present on the <code>tt</code> element.</td>
 
           <td>(Latin Extended-A)<br>
           U+0100 - U+017F<br>
-					
+
 					(Spacing Modifier Letters)<br>
           U+02BC<br>
-					
+
           (Cyrillic)<br>
           U+0400 - U+045F<br>
 					U+048A - U+04F9<br>
-					
+
           (Letterlike Symbols)<br>
-          U+2116				
-					
+          U+2116
+
 					</td>
-					
+
         </tr>
 
         <tr>
@@ -3550,15 +3559,15 @@ be present on the <code>tt</code> element.</td>
     that people with disabilities use. It also means that the user must be able to use their assistive technology to find the
     alternative text (that they can use) when they land on the non-text content (that they can't use).</p>
   </section>
-	
+
 	  <section class='appendix' id='sample-instance'>
     <h2>Sample Document Instance (non-normative)</h2>
 
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the <a>Text Profile</a> and <a>Image Profile</a>, respectively. These samples are for illustration only, and are neither intended to capture current or future practice, nor exercise all normative prose contained in this specification.</p>
 
 <pre class='example' data-include='examples/text-example.xml' data-include-format='text'></pre>
-   
-	 
+
+
 <pre class='example' data-include='examples/image-example.xml' data-include-format='text'></pre>
   </section>
 
@@ -3632,7 +3641,7 @@ be present on the <code>tt</code> element.</td>
       <p>A <a>presentation processor</a> supports the <code>#multiRowAlign</code> feature if it implements presentation semantic
       support for values of the <code>ebutts:multiRowAlign</code> attribute specified in [[!EBU-TT-D]].</p>
     </section>
-		
+
     <section class='appendix'>
       <h3>#activeArea</h3>
 
@@ -3641,9 +3650,9 @@ be present on the <code>tt</code> element.</td>
 
       <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic support
       for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
-			
+
     </section>
-    
+
     <section class='appendix'>
       <h3>#fillLineGap</h3>
 
@@ -3652,21 +3661,21 @@ be present on the <code>tt</code> element.</td>
 
       <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic support
       for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
-			
+
     </section>
   </section>
-	
+
 	<section class='appendix' id='xml-schemas'>
     <h2>XML Schema Definitions (non-normative)</h2>
-		
-		<p>XML Schema definitions (see [[xmlschema-1]]) for extension vocabulary defined 
+
+		<p>XML Schema definitions (see [[xmlschema-1]]) for extension vocabulary defined
 		by this specification are provided <a href="./xml-schemas">here</a> for convenience.</p>
 
 		<p>These definitions are non-normative and are not sufficient to validate conformance of a <a>Document Instance</a>.</p>
-				
-		<p>In any case where a definition specified by this appendix diverge from the prose of the specification, 
+
+		<p>In any case where a definition specified by this appendix diverge from the prose of the specification,
 		then the latter takes precedence.</p>
-		
+
 
 	</section>
 
@@ -3683,28 +3692,28 @@ be present on the <code>tt</code> element.</td>
 		<li>a document that conforms to Text Profile or Image Profile to be embedded in other XML documents.</li>
 		</ul>
   </section>
-	
+
 		<section class='appendix' id='interop-examples'>
     <h2>Compatibility with other TTML-based specifications (non-normative)</h2>
-		
+
 			<section class='appendix'>
 			<h3>Overview</h3>
-		
-			<p>This specification is designed to be compatible with [[!ST2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]]. 
+
+			<p>This specification is designed to be compatible with [[!ST2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]].
 			Specifically, it is possible to create a document that:</p>
 			<ul>
 			<li>conforms to one of [[!ST2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
 			<li>conforms to [[!ST2052-1]], and also conforms to Image Profile.</li>
 			</ul>
-			
+
 			<p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
-			
+
 			</section>
-	
+
 
 			<section class='appendix'>
 				<h3>EBU-TT-D</h3>
-				
+
 				<p>The Text Profile is a strict syntactic superset of [[!EBU-TT-D]].</p>
 
 				<p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the Text Profile, with a few exceptions, including:</p>
@@ -3713,112 +3722,112 @@ be present on the <code>tt</code> element.</td>
 					<li>[[!EBU-TT-D]] recommends use of UTF-8 encoding but allows alternate encodings; and</li>
 					<li>[[!EBU-TT-D]] does not constrain the number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>.</li>
 					</ul>
-				
+
 				<p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the <code>ebuttm:conformsToStandard</code> element is used instead to signal Text Profile, as specified in <a href="#profile-signaling"></a>.</p>
-				
+
 				<p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
-								
+
 				<p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]. Note the presence of two <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
-				
+
 <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'></pre>
-			
+
 			</section>
-			
+
 			<section class='appendix'>
 				<h3>SDP-US</h3>
-				
+
 				<p>The Text Profile is a strict syntactic superset of [[ttml10-sdp-us]].</p>
 
 				<p>A document that conforms to [[ttml10-sdp-us]] therefore also generally conforms to the Text Profile, with a few exceptions, including:</p>
 					<ul>
 					<li>[[!ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
 					</ul>
-				
-				 <p>[[!ttml10-sdp-us]] requires a specific value of the <code>use</code> 
-				attribute of the <code>ttp:profile</code>. As a result, Text Profile is 
-				not signaled using the <code>ttp:profile</code> attribute. Instead, as 
-				specified in <a href="#profile-resolution"></a>, the Text Profile can be 
-				signaled by the Document Interchange Context and/or the Document 
-				Processing Context. Alternatively, a processor can choose to process a 
-				document as a Text Profile document if the <code>ttp:profile</code> 
-				element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly 
-				interoperable with Text Profile.</p> 
+
+				 <p>[[!ttml10-sdp-us]] requires a specific value of the <code>use</code>
+				attribute of the <code>ttp:profile</code>. As a result, Text Profile is
+				not signaled using the <code>ttp:profile</code> attribute. Instead, as
+				specified in <a href="#profile-resolution"></a>, the Text Profile can be
+				signaled by the Document Interchange Context and/or the Document
+				Processing Context. Alternatively, a processor can choose to process a
+				document as a Text Profile document if the <code>ttp:profile</code>
+				element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly
+				interoperable with Text Profile.</p>
 
 
-								
+
 				<p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa, notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
-			
+
 				<p>As an illustration, Example 3 at [[!ttml10-sdp-us]] conforms to both Text Profile and [[!ttml10-sdp-us]].</p>
-			
+
 			</section>
-			
+
 			<section class='appendix'>
 				<h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
-				
+
 				<p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) supplemented by a number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
-				
+
 				<p>This specification defines practical constraints on [[!ST2052-1]], supplemented by a few extensions defined at <a href="#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
-				
+
 				<p>As a result, particular care is required when creating a document intended to be processed according to both [[!ST2052-1]] and Text Profile or Image Profile. In particular:</p>
 					<ul>
-					
+
 					<li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows documents to contain both <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code> elements;</li>
-					
+
 					<li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code> extension;</li>
-					
-					<li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, 
+
+					<li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>,
 					<code>#linePadding</code> and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
-					
+
 					<li>when the designator <code>"http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full"</code> is used as a value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!ST2052-1]]), Text Profile or Image Profile is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
-					
+
 					</ul>
-								
-								
+
+
 				<p>The following is an example of a document that conforms to both Text Profile and [[!ST2052-1]]:</p>
-			
+
 <pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'></pre>
 
 			</section>
-			
+
 			<section class='appendix'>
 				<h3>CFF-TT</h3>
-				
-				<p>This specification was derived from the text and image profiles 
-				specified in Section 6 at [[CFF]], and is intended to be a superset in 
-				terms of capabilities. Additional processing is however generally necessary to 
+
+				<p>This specification was derived from the text and image profiles
+				specified in Section 6 at [[CFF]], and is intended to be a superset in
+				terms of capabilities. Additional processing is however generally necessary to
 				convert a document from [[CFF]] to this specification. In particular:</p>
 
 				<ul>
-					
+
 					<li>the namespace of the <code>progressivelyDecodable</code> attribute is different;</li>
-					
+
 					<li>the <code>forcedDisplayMode</code> attribute in [[CFF]] is renamed to
 					<code>forcedDisplay</code> in this specification;</li>
-					
+
 					<li>the [[CFF]] HRM does not specifies GCpy as a function of script;</li>
-					
+
 					<li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at <a href='#common-features'></a>; and</li>
-					
-					 <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this 
+
+					 <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this
 					 specification recommends the use of the <code>ttp:profile</code> attribute.</li>
-					
+
 					</ul>
-			
+
 			</section>
 
 	</section>
-	
+
 	<section class='appendix'>
-	
+
   <h2>Acknowledgements (non-normative)</h2>
-	
+
 	<p>The editor acknowledges the current and former members of the Timed Text Working Group, the members of other W3C Working Groups, and industry experts in other forums who have contributed directly or indirectly to the process or content of this document.</p>
 
 	<p>The editor wishes to especially acknowledge the following contributions by members: Glenn Adams, Skynav; John Birch, Invited expert; Mike Dolan, Invited expert; Nigel Megitt, British Broadcasting Corporation; Thierry Michel, W3C; Andreas Tai, Institut für Rundfunktechnik.</p>
 
 	<p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial document for the Member Submission.</p>
-	
+
 	</section>
-	
+
 </body>
 </html>
