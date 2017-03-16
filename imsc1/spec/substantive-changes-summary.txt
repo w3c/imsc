@@ -11,7 +11,7 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
-From REC (20160421)
-===================
+From WD (20170202)
+==================
 
-None
+- syntax of ittp:activeArea modified (#211)
