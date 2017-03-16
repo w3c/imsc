@@ -4057,5 +4057,38 @@ y = topOffset * (1 - height/100)
     <p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial
     document for the Member Submission.</p>
   </section>
+  
+  <section class='appendix'>
+    <h2>Privacy and Security Considerations</h2>
+    
+    <h3>TTML security</h3>
+    <p>In general the security and privacy considerations of [[!XML]] and [[!TTML1]]
+    apply to the <a>Text Profile</a> and <a>Image Profile</a> defined in this
+    specification, particularly in relation to document parsing. XML Entity
+    expansion is prohibited by TTML.</p>
+      
+    <h3>Privacy of preference</h3>
+    A user agent that selects, and causes to download or interpret a 
+    <a>Document Instance</a>, might indicate to the origin server that the user 
+    has a need for 
+    captions or subtitles, and also the language preference of the user for 
+    captions or subtitles. That is a (small) piece of information about the 
+    user. However, the offering of a caption file, and the choice whether to 
+    retrieve and consume it, are really characteristics of the format or 
+    protocol which makes the offer (e.g. the HTML element), rather than of the 
+    caption format itself. [[HTML]]
+    
+    <h3>Security and Privacy related to external images</h3>
+    <p>The <a>Image Profile</a> includes a mechanism for referencing external
+    images. A user agent that downloads external images during media playback
+    might indicate to the origin server the progress of the user's media 
+    consumption. That is a small piece of information that in many cases is
+    available via other mechanisms, for example by scripting or by monitoring
+    streaming media requests.</p>
+    <p>User agents that do not enforce cross origin policies when downloading
+    external images could expose such media progress information to other
+    origins. This specification defines no APIs and makes no statement on how
+    implementations are expected to obtain referenced images.</p>
+  </section>
 </body>
 </html>
