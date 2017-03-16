@@ -4062,10 +4062,12 @@ y = topOffset * (1 - height/100)
     <h2>Privacy and Security Considerations</h2>
     
     <h3>TTML security</h3>
-    <p>In general the security and privacy considerations of [[!XML]] and [[!TTML1]]
-    apply to the <a>Text Profile</a> and <a>Image Profile</a> defined in this
-    specification, particularly in relation to document parsing. XML Entity
-    expansion is prohibited by TTML.</p>
+    <p>In general the security and privacy considerations of [[rfc3023]] and 
+    [[!TTML1]] apply, particularly in relation to document parsing. XML Entities
+    are excluded from the Reduced XML Infoset of TTML and are therefore not
+    considered part of conformant documents; nevertheless it would be prudent
+    for implementors to provide protection against recursive entity expansion or
+    prevent entity expansion altogether in processors.</p>
       
     <h3>Privacy of preference</h3>
     A user agent that selects, and causes to download or interpret a 
@@ -4081,12 +4083,12 @@ y = topOffset * (1 - height/100)
     <h3>Security and Privacy related to external images</h3>
     <p>The <a>Image Profile</a> includes a mechanism for referencing external
     images. A user agent that downloads external images during media playback
-    might indicate to the origin server the progress of the user's media 
+    indicates to the origin server the progress of the user's media 
     consumption. That is a small piece of information that in many cases is
     available via other mechanisms, for example by scripting or by monitoring
     streaming media requests.</p>
     <p>User agents that do not enforce cross origin policies when downloading
-    external images could expose such media progress information to other
+    external images expose such media progress information to other
     origins. This specification defines no APIs and makes no statement on how
     implementations are expected to obtain referenced images.</p>
   </section>
