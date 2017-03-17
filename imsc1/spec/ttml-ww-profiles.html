@@ -4083,14 +4083,16 @@ y = topOffset * (1 - height/100)
     <h3>Security and Privacy related to external images</h3>
     <p>The <a>Image Profile</a> includes a mechanism for referencing external
     images. A user agent that downloads external images during media playback
-    indicates to the origin server the progress of the user's media 
-    consumption. That is a small piece of information that in many cases is
-    available via other mechanisms, for example by scripting or by monitoring
-    streaming media requests.</p>
+    indicates to the origin server of the images the progress of the user's media 
+    consumption. In many cases such media progress information is available to
+    the origin server of the media via other mechanisms, for example by 
+    scripting or by monitoring streaming media requests.</p>
     <p>User agents that do not enforce cross origin policies when downloading
-    external images expose such media progress information to other
-    origins. This specification defines no APIs and makes no statement on how
-    implementations are expected to obtain referenced images.</p>
+    external images expose such media progress information and potentially 
+    other user tracking information to other origins without the consent of the
+    web site serving the media and without the consent of the user. This 
+    specification defines no APIs and makes no statement on how implementations 
+    are expected to obtain referenced images.</p>
   </section>
 </body>
 </html>
