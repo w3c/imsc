@@ -82,17 +82,19 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
   <section id='sotd'>
     <p>The Timed Text Working Group intends to recommend transition of this document to Candidate Recommendation and is offering
-    this Working Draft for a public review period ending on 7 May 2017. This revision of the document is designed such
-    that <a data-lt="processor">Processors</a> and <a data-lt="document instance">document instances</a> that conform to the
-    <a href="http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this
-    revision. As a result, review should focus on the modifications made since the <a href=
+    this Working Draft for a public review period ending on 7 May 2017. This revision of the document is designed such that
+    <a data-lt="processor">Processors</a> and <a data-lt="document instance">document instances</a> that conform to the <a href=
+    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this revision. As a
+    result, review should focus on the modifications made since the <a href=
     "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a>, including the <a href=
     "#ittp-activeArea"></a> and <a href="#itts-fillLineGap"></a> features.</p>
-		
-		<p>A list of the substantive changes applied since the initial Working Draft is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>.</p>
-		
-		<p>For convenience, a complete diff between this version and the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> is found at <a href="diff.html">diff.html</a>.</p>
+
+    <p>A list of the substantive changes applied since the initial Working Draft is found at <a href=
+    "substantive-changes-summary.txt">substantive-changes-summary.txt</a>.</p>
+
+    <p>For convenience, a complete diff between this version and the <a href=
+    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> is found at <a href=
+    "diff.html">diff.html</a>.</p>
   </section>
 
   <section id='scope'>
@@ -4056,6 +4058,35 @@ y = topOffset * (1 - height/100)
 
     <p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial
     document for the Member Submission.</p>
+  </section>
+
+  <section class='appendix'>
+    <h2>Privacy and Security Considerations (non-normative)</h2>
+
+    <h3>TTML security</h3>
+
+    <p>The security and privacy considerations of [[rfc3023]] and [[!TTML1]] apply, particularly in relation to document parsing.
+    XML Entities are excluded from the Reduced XML Infoset of TTML and are therefore not considered part of <a data-lt=
+    "Document Instance">Document Instances</a>; nevertheless implementations are encouraged to provide protection against recursive
+    entity expansion or prevent entity expansion altogether in processors.</p>
+
+    <h3>Privacy of preference</h3>A user agent that selects, and causes to download or interpret a <a>Document Instance</a>, might
+    indicate to the origin server that the user has a need for captions or subtitles, and also the language preference of the user
+    for captions or subtitles. That is a small piece of information about the user. However, the offering of a <a>Document
+    Instance</a>, and the choice whether to retrieve and consume it, are characteristics of the application that makes the offer
+    (e.g. a web application based on [[HTML]]), rather than of the <a>Document Instance</a> itself.
+
+    <h3>Security and Privacy related to external images</h3>
+
+    <p>The <a>Image Profile</a> includes a mechanism for referencing external images. A user agent that downloads external images
+    during media playback indicates to the origin server of the images the progress of the user's media consumption. In many cases
+    such media progress information is available to the origin server of the media via other mechanisms, for example by scripting
+    or by monitoring streaming media requests.</p>
+
+    <p>User agents that do not enforce cross origin policies when downloading external images expose such media progress
+    information and potentially other user tracking information to other origins without the consent of the web site serving the
+    media and without the consent of the user. This specification defines no APIs and makes no statement on how implementations are
+    expected to obtain referenced images.</p>
   </section>
 </body>
 </html>
