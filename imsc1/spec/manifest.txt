@@ -1,4 +1,4 @@
-ttml-ww-profiles.html?specStatus=WD;shortName=ttml-imsc1.0.1
+ttml-ww-profiles.html?specStatus=WD;shortName=ttml-imsc1.0.1 respec
 diff.html
 substantive-changes-summary.txt
 xml-schemas/index.html
