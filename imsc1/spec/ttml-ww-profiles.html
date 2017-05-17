@@ -85,19 +85,23 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   </section>
 
   <section id='sotd'>
-    <!--
-    <p>The Timed Text Working Group intends to recommend transition of this document to Candidate Recommendation and is offering
-    this Working Draft for a public review period ending on 7 May 2017. This revision of the document is designed such that
-    <a data-lt="processor">Processors</a> and <a data-lt="document instance">document instances</a> that conform to the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this revision. As a
-    result, review should focus on the modifications made since the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a>, including the <a href=
-    "#ittp-activeArea"></a> and <a href="#itts-fillLineGap"></a> features.</p>
+    <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
+    specification but not already present in [IMSC1] need to be documented in the <a href=
+    "https://www.w3.org/wiki/TimedText/IMSC1_0_1_Implementation_Report">implementation report</a>. The implementation report is
+    based on implementer-provided test results for the <a href="exit-criteria-tests">exit criteria test suite</a>. The Working
+    Group does not require that implementations are publicly available but encourages them to be so.</p>The Working Group has not
+    identified features "at risk" for this specification.
 
     <p>A list of the substantive changes applied since the initial Working Draft is found at <a href=
     "substantive-changes-summary.txt">substantive-changes-summary.txt</a>.</p>
 
-    <p>For convenience, a complete diff between this version and the <a href=
+    <p>This revision of the document is designed such that <a data-lt="processor">Processors</a> and <a data-lt=
+    "document instance">document instances</a> that conform to the <a href=
+    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this revision. As a
+    result, review should focus on the modifications made since the <a href=
+    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a>, including the <a href=
+    "#ittp-activeArea"></a> and <a href="#itts-fillLineGap"></a> features.</p>
+    <!--<p>For convenience, a complete diff between this version and the <a href=
     "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> is found at <a href=
     "diff.html">diff.html</a>.</p>
     -->
@@ -910,7 +914,10 @@ ittp:progressivelyDecodable
         <div class='note'>
           <p>Under normal circumstances, the entirety of the root container is presented. However, under special circumstances,
           such as when the <a>related video object</a> is cropped, a system can, for instance, use the <code>ittp:activeArea</code>
-          parameter to avoid cropping areas of the root container that are intended to be visible to the viewer.</p>
+          parameter to avoid cropping areas of the root container that are intended to be visible to the viewer. The specific
+          behavior of the system is however left undefined on purpose: the system can select a presentation mode appropriate to
+          display shape and user preferences. The <code>ittp:activeArea</code> is similar to the Active Format Description (AFD)
+          metadata commonly used in broadcast applications.</p>
         </div>
 
         <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
