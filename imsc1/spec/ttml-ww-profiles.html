@@ -586,8 +586,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
                 <div class="exampleInner">
                   <pre>
 ittp:aspectRatio
-  : numerator " " denominator          // with int(numerator) != 0 and int(denominator) != 0
-                                       // where int(s) parses string s as a decimal integer.
+  : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
+                                   // where int(s) parses string s as a decimal integer.
         
 numerator | denominator
   : &lt;digit&gt;+
@@ -931,7 +931,7 @@ ittp:progressivelyDecodable
                 <div class="exampleInner">
                   <pre>
 ittp:activeArea
-  : leftOffset " " topOffset " " width " " height
+  : leftOffset topOffset width height
   
 leftOffset | topOffset | width | height
   : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
