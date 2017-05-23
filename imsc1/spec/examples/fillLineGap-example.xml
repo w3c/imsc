@@ -12,7 +12,7 @@
 			<style xml:id="spanStyle" tts:color="#ffffff" tts:backgroundColor="#000000" />
 			<style xml:id="spanStyleSmall" tts:color="#000000" tts:backgroundColor="#dfbb02" tts:fontSize="50%"/>
 			<style xml:id="spanStyleBig" tts:color="#ffffff" tts:backgroundColor="#b75800" tts:fontSize="150%"/>						
-			<style xml:id="paragraphStyle" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%" tts:lineHeight="165%"  itts:fillLineGap="true"/>
+			<style xml:id="paragraphStyle" tts:backgroundColor="#006400" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%" tts:lineHeight="165%"  itts:fillLineGap="true"/>
 		</styling>
 		<layout>
 			<region xml:id="bottom" tts:origin="10% 10%" tts:extent="80% 80%" tts:displayAlign="after" />
