@@ -9,7 +9,7 @@
                 <ebuttm:conformsToStandard>urn:ebu:tt:distribution:2014-01</ebuttm:conformsToStandard>
                 <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1/text</ebuttm:conformsToStandard>
             </ebuttm:documentMetadata>
-        </metadata>		
+        </metadata>
         <styling>
             <style xml:id="baseStyle" tts:color="#FFFFFF" tts:lineHeight="100%"/>
             <style xml:id="blackBackground" tts:backgroundColor="#000000"/>
@@ -23,7 +23,7 @@
         </layout>
     </head>
     <body>
-        <div style="baseStyle">			
+        <div style="baseStyle">
             <p xml:id="s1" region="area1" style="startEnd" begin="00:00:01" end="00:00:09">
                 multiRowAlign="end"<br/>textAlign="start"
             </p>
