@@ -8,7 +8,7 @@
         </layout>
     </head>
     <body tts:lineHeight="100%">
-        <div>			
+        <div>
             <p region="area1" begin="00:00:01.01" end="00:00:03">This should appear on frame 25.</p>
             <p region="area1" begin="00:00:04" end="00:00:06">This should appear on frame 96.</p>
             <p region="area1" begin="00:00:07.33" end="00:00:09">This should appear on frame 176.</p>
