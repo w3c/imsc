@@ -133,7 +133,9 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <ul>
       <li>Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements; and</li>
 
-      <li>as specified in Sections 6.2 and 8.2 of [[!TTML1]] and for values of attributes defined in the IMSC 1.0 Styling and IMSC 1.0 Parameter namespaces, linear white-space (LWSP) is present between adjacent non-terminal components, unless some other delimiter is permitted and used.</li>
+      <li>Sections 6.2 and 8.2 of [[!TTML1]] specify conventions used when specifying the syntax of attribute values, such as in
+      <a href="#imsc-extensions"></a>.
+      </li>
     </ul>
 
     <p>All content of this specification that is not explicitly marked as non-normative is considered to be normative. If a section
@@ -173,6 +175,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
 
     <p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+
+    <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!TTML1]].</p>
 
     <p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
 
@@ -569,7 +573,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       content to be rendered at the same temporal locations it was authored.</p>
     </section>
 
-    <section>
+    <section id='imsc-extensions'>
       <h3>Extensions</h3>
 
       <section id='ttp-aspectRatio'>
@@ -589,9 +593,10 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 ittp:aspectRatio
   : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
                                    // where int(s) parses string s as a decimal integer.
-        
+
 numerator | denominator
-  : &lt;digit&gt;+
+  : &lt;digit&gt;+                 // no linear white-space is implied or permitted
+                                   // between each &lt;digit&gt; token
 </pre>
                 </div>
               </td>
@@ -1956,7 +1961,10 @@ y = topOffset * (1 - height/100)
 
             <td>permitted</td>
 
-            <td></td>
+            <td>
+              <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
+              <code>tts:fontFamily</code>.</p>
+            </td>
           </tr>
 
           <tr>
