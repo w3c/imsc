@@ -1104,14 +1104,13 @@ y = topOffset * (1 - height/100)
 
       <ul>
         <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute and
-        the <code>ttp:profile</code> element SHOULD NOT be present, and instead the designator of the IMSC1 profile to which the
-        <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in an
-        <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]]; or
+        the <code>ttp:profile</code> element are not present, and instead the designator of the IMSC1 profile to which the
+        <a>Document Instance</a> conforms SHOULD be carried in an <code>ebuttm:conformsToStandard</code> element as specified in
+        [[!EBU-TT-D]] and illustrated in <a href="#ebu-tt-d-interop"></a>; or
         </li>
 
         <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
-        SHOULD NOT be present. [[ttml10-sdp-us]] requires that the <code>ttp:profile</code> element be present and that its <code>
-          use</code> attribute be set to a specified value.
+        is not present and the <code>ttp:profile</code> element is present, as illustrated in <a href="#sdp-us-interop"></a>.
         </li>
       </ul>
 
@@ -3958,7 +3957,7 @@ y = topOffset * (1 - height/100)
       profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
     </section>
 
-    <section class='appendix'>
+    <section class='appendix' id='ebu-tt-d-interop'>
       <h3>EBU-TT-D</h3>
 
       <p>The Text Profile is a strict syntactic superset of [[!EBU-TT-D]].</p>
@@ -3976,9 +3975,8 @@ y = topOffset * (1 - height/100)
         </li>
       </ul>
 
-      <p>Note that the <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and the
-      <code>ebuttm:conformsToStandard</code> element is used instead to signal Text Profile, as specified in <a href=
-      "#profile-signaling"></a>.</p>
+      <p>The <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and one or more
+      <code>ebuttm:conformsToStandard</code> elements are used instead to signal document conformance.</p>
 
       <p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa,
       notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
@@ -3989,7 +3987,7 @@ y = topOffset * (1 - height/100)
 </pre>
     </section>
 
-    <section class='appendix'>
+    <section class='appendix' id='sdp-us-interop'>
       <h3>SDP-US</h3>
 
       <p>The Text Profile is a strict syntactic superset of [[ttml10-sdp-us]].</p>
@@ -3998,10 +3996,10 @@ y = topOffset * (1 - height/100)
       exceptions, including:</p>
 
       <ul>
-        <li>[[!ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
+        <li>[[ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
       </ul>
 
-      <p>[[!ttml10-sdp-us]] requires a specific value of the <code>use</code> attribute of the <code>ttp:profile</code>. As a
+      <p>[[ttml10-sdp-us]] requires a specific value of the <code>use</code> attribute of the <code>ttp:profile</code>. As a
       result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, as specified in <a href=
       "#profile-resolution"></a>, the Text Profile can be signaled by the Document Interchange Context and/or the Document
       Processing Context. Alternatively, a processor can choose to process a document as a Text Profile document if the
@@ -4011,7 +4009,7 @@ y = topOffset * (1 - height/100)
       <p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa,
       notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
 
-      <p>As an illustration, Example 3 at [[!ttml10-sdp-us]] conforms to both Text Profile and [[!ttml10-sdp-us]].</p>
+      <p>As an illustration, Example 3 at [[ttml10-sdp-us]] conforms to both Text Profile and [[ttml10-sdp-us]].</p>
     </section>
 
     <section class='appendix'>
