@@ -1103,10 +1103,11 @@ y = topOffset * (1 - height/100)
       unless:</p>
 
       <ul>
-        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case the <code>ttp:profile</code> attribute and
-        the <code>ttp:profile</code> element are not present, and instead the designator of the IMSC1 profile to which the
-        <a>Document Instance</a> conforms SHOULD be carried in an <code>ebuttm:conformsToStandard</code> element as specified in
-        [[!EBU-TT-D]] and illustrated in <a href="#ebu-tt-d-interop"></a>; or
+        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
+        attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC1 profile to which
+        the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in
+        an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
+        "#ebu-tt-d-interop"></a>; or
         </li>
 
         <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
@@ -3975,8 +3976,8 @@ y = topOffset * (1 - height/100)
         </li>
       </ul>
 
-      <p>The <code>ttp:profile</code> attribute is not allowed by [[!EBU-TT-D]], and one or more
-      <code>ebuttm:conformsToStandard</code> elements are used instead to signal document conformance.</p>
+      <p>The <code>ttp:profile</code> attribute and element are not allowed by [[!EBU-TT-D]]. The
+      <code>ebuttm:conformsToStandard</code> element is used instead, as discussed at <a href="#profile-signaling"></a>.</p>
 
       <p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa,
       notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
