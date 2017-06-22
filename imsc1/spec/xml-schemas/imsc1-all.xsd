@@ -11,7 +11,7 @@
   <xs:import namespace="http://www.w3.org/ns/ttml#styling"/>
   <xs:import namespace="http://www.w3.org/ns/ttml#metadata"/>
   
-  <!-- SMPTE-TT schemas can be found at www.smpte-ra.org/schemas/2052-1/2010/smpte-tt.xsd -->
+  <!-- SMPTE-TT schemas can be found at http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt -->
   
   <xs:import namespace="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt"/>
   
