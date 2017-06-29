@@ -11,7 +11,19 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
+
 From WD (20170202)
 ==================
 
-- syntax of ittp:activeArea modified (#211)
+- modified syntax of ittp:activeArea (#211)
+
+
+From WD (20170322)
+==================
+
+- clarified the presence of ttp:profile attribute and ttp:profile element if the document
+  instance also conforms to EBU-TT-D or SDP-US (#247)
+
+- clarified requirement that regions are contained within root container (#239)
+
+- clarified syntax of ittp:activeArea (#221)
