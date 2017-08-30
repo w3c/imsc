@@ -284,7 +284,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       assistive technologies have access to its corresponding text form. The method by which this association is made is left to
       each application.</p>
 
-      <p class='note'>The <code>ittm:altText</code> element specified <a href='#ttm-altText'></a> also allows text equivalent
+      <p class='note'>The <code>ittm:altText</code> element specified <a href='#ittm-altText'></a> also allows text equivalent
       string to be associated with an image, e.g. to support indexation of the content and also facilitate quality checking of the
       document during authoring.</p>
 
@@ -582,7 +582,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <section id='imsc-extensions'>
       <h3>Extensions</h3>
 
-      <section id='ttp-aspectRatio'>
+      <section id='ittp-aspectRatio'>
         <h4>ittp:aspectRatio</h4>
 
         <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the root container of a
@@ -658,7 +658,7 @@ numerator | denominator
 </pre>
 
           <p>In other words, <code>tts:extent</code>, when present on the <code>tt</code> element, determines the size of
-          <code>"px"</code> units relative to the root container. <code>ttp:aspectRatio</code> is independently used to map the
+          <code>"px"</code> units relative to the root container. <code>ittp:aspectRatio</code> is independently used to map the
           root container to each image frame of the <a>Related Video Object</a>.</p>
         </aside>
 
@@ -677,7 +677,7 @@ numerator | denominator
 
           <ul style="list-style-type:lower-alpha">
             <li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut.
-            Accordingly subtitle/captions are authored using <code>ttp:aspectRatio="4 3"</code>, allowing the combination to be
+            Accordingly subtitle/captions are authored using <code>ittp:aspectRatio="4 3"</code>, allowing the combination to be
             displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative
             position of caption/subtitles with video elements.</li>
 
@@ -691,7 +691,7 @@ numerator | denominator
         </div>
       </section>
 
-      <section id='ttp-progressivelyDecodable'>
+      <section id='ittp-progressivelyDecodable'>
         <h4>ittp:progressivelyDecodable</h4>
 
         <p>A <a>progressively decodable Document Instance</a> is structured to facilitate presentation before the document is
@@ -784,7 +784,7 @@ ittp:progressivelyDecodable
         </div>
       </section>
 
-      <section id='tts-forcedDisplay'>
+      <section id='itts-forcedDisplay'>
         <h4>itts:forcedDisplay</h4>
 
         <p><code>itts:forcedDisplay</code> can be used to hide content whose computed value of <code>tts:visibility</code> is
@@ -876,7 +876,7 @@ ittp:progressivelyDecodable
         with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
       </section>
 
-      <section id='ttm-altText'>
+      <section id='ittm-altText'>
         <h4>ittm:altText</h4>
 
         <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, typically an image. This
@@ -1048,7 +1048,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap'>
-          <img src="figures/fillLineGap-example-figure-1.png" alt="tts:fillLineGap rendering example">
+          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example">
 
           <figcaption>
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
@@ -3847,10 +3847,11 @@ y = topOffset * (1 - height/100)
       <h3>#progressivelyDecodable</h3>
 
       <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
-      capable of transforming values of the <a href="#ttp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>.</p>
+      capable of transforming values of the <a href=
+      "#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
-      semantic support for values of the <a href="#ttp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
       attribute.</p>
     </section>
 
@@ -3858,30 +3859,30 @@ y = topOffset * (1 - height/100)
       <h3>#aspectRatio</h3>
 
       <p>A <a>transformation processor</a> supports the <code>#aspectRatio</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ttp-aspectRatio"><code>ittp:aspectRatio</code></a>.</p>
+      transforming values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a>.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#aspectRatio</code> feature if it implements presentation semantic
-      support for values of the <a href="#ttp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
+      support for values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
     </section>
 
     <section class='appendix'>
       <h3>#forcedDisplay</h3>
 
       <p>A <a>transformation processor</a> supports the <code>#forcedDisplay</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#tts-forcedDisplay"><code>itts:forcedDisplay</code></a>.</p>
+      transforming values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a>.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#forcedDisplay</code> feature if it implements presentation semantic
-      support for values of the <a href="#tts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
+      support for values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
     </section>
 
     <section class='appendix'>
       <h3>#altText</h3>
 
       <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ttm-altText"><code>ittm:altText</code></a> element.</p>
+      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
-      for values of the <a href="#ttm-altText"><code>ittm:altText</code></a> element.</p>
+      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix'>
