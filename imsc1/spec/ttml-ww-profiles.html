@@ -4,21 +4,21 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>TTML Profiles for Internet Media Subtitles and Captions 1.0.1 (IMSC1)</title>
+  <title>TTML Profiles for Internet Media Subtitles and Captions vNEXT (IMSCvNEXT)</title>
   <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async="" class='remove'>
 </script>
   <script class='remove'>
 var respecConfig = {
                     specStatus:   "ED"
                 ,   processVersion: "2017"
-                ,   previousMaturity: "WD"
-                ,   publishDate: "2017-07-13"
-                ,   crEnd: "2017-08-13"
+                /*,   previousMaturity: "WD"*/
+                /*,   publishDate: "2017-07-13"*/
+                /*,   crEnd: "2017-08-13"*/
                 /*,   errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
-                ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_0_1_Implementation_Report"
+                /*,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_0_1_Implementation_Report"*/
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2017-03-22"
-                ,   shortName:    "ttml-imsc1.0.1"
+                /*,   previousPublishDate: "2017-03-22"*/
+                ,   shortName:    "ttml-imscvNext"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
                           data: [{
@@ -35,23 +35,21 @@ var respecConfig = {
                   ,   wgPublicList: "public-tt"
                   ,   wgPatentURI: "https://www.w3.org/2004/01/pp-impl/34314/status"
                   ,   subjectPrefix: "[imsc]"
-                  ,   edDraftURI: "https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html"
+                  ,   edDraftURI: "https://w3c.github.io/imsc/imscvNEXT/spec/ttml-ww-profiles.html"
 
                   ,   localBiblio:  {
                                   "SUBM": "World Wide Web Consortium (W3C). <a href='https://www.w3.org/Submission/2013/SUBM-ttml-ww-profiles-20130607/'>TTML Text and Image Profiles for Internet Media Subtitles and Captions</a> (Member Submission, 07 June 2013)",
                   "CEA-608": "Consumer Technology Association. <a href='http://www.techstreet.com/standards/cta-608-e-r2014?product_id=1815447'>CTA 608-E, Line-21 Data Services</a>.",
                   "CEA-708": "Consumer Technology Association. <a href='http://www.techstreet.com/standards/cta-708-d?product_id=1815448'>CTA 708-D, Digital Television (DTV) Closed Captioning</a>.",
                   "CFF": "Digital Entertainment Content Ecosystem (DECE). <a href='http://www.uvcentral.com/specs'>Common File Format & Media Formats Specification (CFF) Version 2.2</a>.",
-                  "ST2052-1": "SMPTE ST 2052-1, Timed Text Format (SMPTE-TT) URL: <a href='https://www.smpte.org/standards '>https://www.smpte.org/standards</a>",
                                   "EBU-TT-D": "European Broadcasting Union (EBU). <a href='https://tech.ebu.ch/docs/tech/tech3380.pdf'>Tech 3380, EBU-TT-D Subtitling Distribution Format Version 1.0</a>",
-                                  
-                                  "CLDR": "Unicode Consortium. <a href='http://cldr.unicode.org'>The Common Locale Data Repository Project</a>",
-                                  "IMSC1": "World Wide Web Consortium (W3C) Recommendation. <a href='https://www.w3.org/TR/ttml-imsc1/'>TTML Profiles for Internet Media Subtitles and Captions 1.0 (IMSC1)</a> (21 April 2016)."                                                                                                      
+                                  "CLDR": "Unicode Consortium. <a href='http://cldr.unicode.org'>The Common Locale Data Repository Project</a>"
               }
         };
   </script>
   <style type="text/css">
-table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
+table.coldividers td + td { border-left:1px solid gray; text-align: center;}
+  table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   table.syntax caption { font-weight: bold; text-align: left; padding-bottom: 0.5em }
   table.syntax th { border: 0px solid black; text-align: left }
   table.syntax td { border: 0px solid black }
@@ -74,73 +72,67 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
 <body>
   <section id='abstract'>
-    <p>This document specifies two profiles of [[!TTML1]]: a text-only profile and an image-only profile. These profiles are
+    <p>This specification defines two profiles of [[!TTML2]]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
     consistent rendering and conversion to other subtitling and captioning formats.</p>
+    
+    <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with [[ttml-imsc1.0.1]] documents.</p>
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
-    <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
+    <p>The specification defines extensions to [[!TTML2]], as well as incorporates extensions specified in [[!SMPTE2052-1]] and
     [[!EBU-TT-D]].</p>
 
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
   <section id='sotd'>
-    <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
-    specification but not already present in [[IMSC1]] need to be documented in the implementation report. The implementation
-    report is based on implementer-provided test results for the <a href=
-    "https://www.w3.org/AudioVideo/TT/IMSC/ttml-imsc1.0.1/testsuite/">exit criteria test suite</a>. The Working Group does not
-    require that implementations are publicly available but encourages them to be so.</p>The Working Group has not identified
-    features "at risk" for this specification.
-
-    <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.0.1-20170322/">initial
-    Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>.</p>
-
-    <p>This revision of the document is designed such that <a data-lt="processor">Processors</a> and <a data-lt=
-    "document instance">document instances</a> that conform to the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this revision. As a
-    result, review should focus on the modifications made since the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a>, including the <a href=
-    "#ittp-activeArea"></a> and <a href="#itts-fillLineGap"></a> features.</p>
-
-    <p>For convenience, a complete diff between this version and the <a href=
-    "http://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> is found at <a href=
-    "diff.html">diff.html</a>.</p>
+    <p>The version number of this specification (<em>vNEXT</em>) is a placeholder, and is likely to change prior to
+    publication.</p>
   </section>
 
   <section id='scope'>
     <h2>Scope</h2>
 
-    <p>This specification defines two profiles of [[!TTML1]]: a text-only profile and an image-only profile. These profiles are
+    <p>This specification defines two profiles of [[!TTML2]]: a text-only profile and an image-only profile. These profiles are
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
+    
+    <p>This specification maintains the scope of [[!ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
+    contemporary practices for worldwide subtitling and captioning delivery.</p>
 
     <p>The text profile is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
     [[ttml10-sdp-us]] and the text-only profile.</p>
 
-    <p>The document defines extensions to [[!TTML1]], as well as incorporates extensions specified in [[!ST2052-1]] and
+    <p>The specification defines extensions to [[!TTML2]], as well as incorporates extensions specified in [[!SMPTE2052-1]] and
     [[!EBU-TT-D]].</p>
 
-    <p>This version of the specification makes editorial corrections and adds two optional features (<a href=
-    "#ittp-activeArea"></a> and <a href="#itts-fillLineGap"></a>) over the <a href=
-    "https://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a>. <a data-lt=
-    "processor">Processors</a> and <a data-lt="document instance">document instances</a> that conform to the <a href=
-    "https://www.w3.org/TR/2016/REC-ttml-imsc1-20160421/">Recommendation dated 21 April 2016</a> also conform to this version of
-    the specification.</p>
+    <p>The specification is designed such that:</p>
+
+    <ul>
+      <li>a valid Text Profile document as specified in [[!ttml-imsc1.0.1]] is a valid Text Profile document as specified
+      herein;</li>
+
+      <li>a valid Image Profile document as specified in [[!ttml-imsc1.0.1]] is a valid Image Profile document as specified herein;
+      and</li>
+
+      <li>a <a>processor</a> as specified herein transforms a Document Instance as specified in [[!ttml-imsc1.0.1]] as it would
+      have been transformed by an processor as specified in [[!ttml-imsc1.0.1]].
+      </li>
+    </ul>
   </section>
 
   <section id='conventions'>
     <h2>Documentation Conventions</h2>
 
-    <p>This specification uses the same conventions as [[!TTML1]] for the specification of parameter attributes, styling attributes
+    <p>This specification uses the same conventions as [[!TTML2]] for the specification of parameter attributes, styling attributes
     and metadata elements. In particular:</p>
 
     <ul>
-      <li>Section 2.3 of [[!TTML1]] specifies conventions used in the XML representation of elements; and</li>
+      <li>Section 2.3 of [[!TTML2]] specifies conventions used in the XML representation of elements; and</li>
 
-      <li>Sections 6.2 and 8.2 of [[!TTML1]] specify conventions used when specifying the syntax of attribute values, such as in
-      <a href="#imsc-extensions"></a>.
+      <li>Sections 7.2, 10.2 and 10.4 of [[!TTML2]] specify conventions used when specifying the syntax of attribute values, such
+      as in <a href="#imsc-extensions"></a>.
       </li>
     </ul>
 
@@ -148,8 +140,8 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     or appendix header contains the expression "non-normative", then the entirety of the section or appendix is considered
     non-normative.</p>
 
-    <p>This specification uses <a>Feature</a> and <a>Extension</a> designations as defined in Appendices D.1 and E.1 at
-    [[!TTML1]]:</p>
+    <p>This specification uses <a>Feature</a> and <a>Extension</a> designations as defined in Appendices E.1 and F.1 at
+    [[!TTML2]]:</p>
 
     <ul>
       <li>when making reference to content conformance, these designations refer to the syntactic expression or the semantic
@@ -168,34 +160,46 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   <section id='terms'>
     <h2>Terms and Definitions</h2>
 
-    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!TTML1]].</p>
+    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!TTML2]].</p>
 
-    <p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Document Instance</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML1]].</p>
+    <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML2]].</p>
 
-    <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!TTML1]].</p>
+    <p><dfn>Image Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Image
+    Profile</a>.</p>
+
+    <p><dfn>Image Profile presentation processor</dfn>. A <a>presentation processor</a> that conforms to the <a>Image
+    Profile</a>.</p>
+
+    <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!TTML2]].</p>
 
     <p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
 
-    <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!TTML1]].</p>
+    <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
     <p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a
     rectangular array of pixels.</p>
 
     <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
+
+    <p><dfn>Text Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Text
+    Profile</a>.</p>
+
+    <p><dfn>Text Profile presentation processor</dfn>. A <a>presentation processor</a> that conforms to the <a>Text
+    Profile</a>.</p>
   </section>
 
   <section id="conformance">
@@ -213,19 +217,19 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       </li>
     </ul>
 
-    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!TTML1]], and hence a
+    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!TTML2]], and hence a
     <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document Instance.</p>
 
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
-      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!TTML1]];</li>
+      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!TTML2]];</li>
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
       <li>SHALL implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as
-      <em>permitted</em> by the profile, subject to any additional constraints on each <a>Feature</a> and <a>Extension</a> as
-      specified by the profile.
+      <em>permitted</em> or <em>permitted-deprecated</em> by the profile, subject to any additional constraints on each
+      <a>Feature</a> and <a>Extension</a> as specified by the profile.
       </li>
 
       <li>MAY implement presentation semantic support for every <a>Feature</a> and <a>Extension</a> designated as <em>optional</em>
@@ -237,13 +241,13 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <p>A <a>transformation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
-      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!TTML1]];</li>
+      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!TTML2]];</li>
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
       <li>SHALL implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as
-      <em>permitted</em> by the profile, subject to any additional constraints on each <a>Feature</a> and <a>Extension</a> as
-      specified by the profile.
+      <em>permitted</em> or or <em>permitted-deprecated</em> by the profile, subject to any additional constraints on each
+      <a>Feature</a> and <a>Extension</a> as specified by the profile.
       </li>
 
       <li>MAY implement transformation semantic support for every <a>Feature</a> and <a>Extension</a> designated as
@@ -252,8 +256,15 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       </li>
     </ul>
 
+    <p>A <a>Feature</a> or <a>Extension</a> currently designated <em>permitted-deprecated</em> is intended to be designated as
+    <em>optional</em> or <em>prohibited</em> in future versions of this specification.</p>
+
+    <p class='note'>A <a>processor</a> that conforms to one profile defined in this specification is not required to conform to the
+    other profile. For convenience, the terms <a>Image Profile transformation processor</a>, <a>Text Profile transformation
+    processor</a>, <a>Image Profile presentation processor</a>, and <a>Text Profile presentation processor</a> are defined.</p>
+
     <p class='note'>The use of the term <a>presentation processor</a> (<a>transformation processor</a>) within this specification
-    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!TTML1]]. In other
+    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!TTML2]]. In other
     words, it is not considered an error for a <a>presentation processor</a> (<a>transformation processor</a>) to conform to a
     profile defined in this specification without also conforming to the DFXP Presentation Profile (DFXP Transformation
     Profile).</p>
@@ -295,15 +306,15 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     <section>
       <h3>Text Profile</h3>
 
-      <p>The <dfn>Text Profile</dfn> consists of Sections <a href="#common-constraints"></a> and <a href=
-      "#text-profile-constraints"></a>.</p>
+      <p>The <dfn>Text Profile</dfn> consists of Sections <a href="#supported-features-and-extensions"></a>, <a href=
+      "#common-constraints"></a> and <a href="#text-profile-constraints"></a>.</p>
     </section>
 
     <section>
       <h3>Image Profile</h3>
 
-      <p>The <dfn>Image Profile</dfn> consists of Sections <a href="#common-constraints"></a> and <a href=
-      "#image-profile-constraints"></a>.</p>
+      <p>The <dfn>Image Profile</dfn> consists of Sections <a href="#supported-features-and-extensions"></a>, <a href=
+      "#common-constraints"></a> and <a href="#image-profile-constraints"></a>.</p>
     </section>
 
     <section id="profile-resolution">
@@ -329,8 +340,1529 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
     </section>
   </section>
 
+  <section id="supported-features-and-extensions">
+    <h2>Supported Features and Extensions</h2>
+
+    <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and <em>optional</em>.</p>
+
+    <table class='simple coldividers'>
+      <tbody>
+        <tr>
+          <th style="text-align:center">Feature or Extension</th>
+
+          <th style="text-align:center">Text Profile Disposition</th>
+
+          <th style="text-align:center">Image Profile Disposition</th>
+        </tr>
+
+        <tr>
+          <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+        </tr>
+
+        <tr>
+          <td><code>#activeArea</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-calculation-mode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-key-splines</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-key-times</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-repeat</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animation</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#animation-version-2</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#audio</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#audio-description</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#audio-speech</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#background</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#background-color</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#background-image</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundClip</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundColor</code></td>
+
+          <td>permitted</td>
+
+          <td>See individual disposition of <code>#backgroundColor-inline</code>, <code>#backgroundColor-region</code> and
+          <code>#backgroundColor-block</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundColor-block</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundColor-inline</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundColor-region</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundExtent</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundImage</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundOrigin</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundPosition</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#backgroundRepeat</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#bidi</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#bidi-version-2</code></td>
+
+          <td>See individual disposition of <code>#bidi</code> and <code>#unicodeBidi-isolate</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-block</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-inline</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-radii</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-radii-1</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-radii-2</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#border-region</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#bpd</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#cellResolution</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#chunk</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#clockMode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#clockMode-gps</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#clockMode-local</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#clockMode-utc</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#color</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#condition</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#content</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#content-sizing</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#contentProfiles</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#core</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#data</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#direction</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#disparity</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display-block</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display-inline</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display-region</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign-block</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign-justify</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign-region</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign-relative</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAlign-version-2</code></td>
+
+          <td>See individual disposition of <code>#displayAlign-content</code>, <code>#displayAlign-justify</code>,
+          <code>#displayAlign-region</code>, and <code>#displayAlign-relative</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#displayAspectRatio</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#dropMode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#dropMode-dropNTSC</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#dropMode-dropPAL</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#dropMode-nonDrop</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#embedded-audio</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#embedded-content</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#embedded-data</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#embedded-font</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#embedded-image</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-region</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-root</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#fillLineGap</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#font</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontFamily</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontFamily-generic</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontFamily-non-generic</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontKerning</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSelectionStrategy</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontShear</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSize</code></td>
+
+          <td>See individual disposition of <code>#fontSize-anamorphic</code> and <code>#fontSize-isomorphic</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSize-anamorphic</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSize-isomorphic</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontStyle</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontStyle-italic</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontStyle-oblique</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontVariant</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontWeight</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontWeight-bold</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#frameRate</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#frameRateMultiplier</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#gain</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#image</code></td>
+
+          <td>prohibited</td>
+
+          <td>permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#inferProcessorProfile</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#initial</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#inlineAreaBreak</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#inlineAreaBreak-cloneMostNested</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#ipd</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#layout</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length</code></td>
+
+          <td colspan="2">See individual disposition of <code>#length-integer</code>, <code>#length-real</code>,
+          <code>#length-positive</code>, <code>#length-negative</code>, <code>#length-cell</code>, <code>#length-em</code>,
+          <code>#length-percentage</code>, and <code>#length-pixel</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-cell</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-em</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-integer</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-negative</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-percentage</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-pixel</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-positive</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#length-real</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#letterSpacing</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#lineBreak-uax14</code></td>
+
+          <td>
+            <p>The <a>processor</a> SHALL implement the <code>#lineBreak-uax14</code> feature.</p>
+          </td>
+
+          <td>No processor requirement is specified.</td>
+        </tr>
+
+        <tr>
+          <td><code>#lineHeight</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#luminanceGain</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#markerMode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#markerMode-continuous</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#markerMode-discontinuous</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#metadata</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#nested-div</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#nested-span</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#opacity</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#origin</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#overflow</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#overflow-visible</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-1</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-2</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-3</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-4</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-block</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-inline</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-region</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#padding-version-2</code></td>
+
+          <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>,
+          <code>#padding-region</code>, and <code>#inlineAreaBreak-cloneMostNested</code></td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#pan</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#permitFeatureNarrowing</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#permitFeatureWidening</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#pitch</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#pixelAspectRatio</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#position</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#presentation</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#processorProfiles</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#profile</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#region-inline</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#region-inline-explicit</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#region-inline-implicit</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#region-timing</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#resources</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#ruby</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#ruby-full</code></td>
+
+          <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyOffset</code>,
+          <code>#rubyOverflow</code>, <code>#rubyOverhang</code>, <code>#rubyOverhangClass</code>, <code>#rubyPosition</code>, and
+          <code>#rubyReserve</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#ruby-non-nested</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#ruby-non-nested-full</code></td>
+
+          <td>See individual disposition of <code>#ruby-non-nested</code>, <code>#rubyAlign</code>, <code>#rubyOffset</code>,
+          <code>#rubyOverflow</code>, <code>#rubyOverhang</code>, <code>#rubyOverhangClass</code>, <code>#rubyPosition</code>, and
+          <code>#rubyReserve</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyAlign</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyOffset</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyOverflow</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyOverhang</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyOverhangClass</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyPosition</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#rubyReserve</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#showBackground</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#source</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#speak</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#speech</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#structure</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-chained</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-inheritance-content</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-inheritance-region</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-inline</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-nested</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#styling-referential</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#subFrameRate</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textAlign</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textAlign-absolute</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textAlign-justify</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textAlign-relative</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textAlign-version-2</code></td>
+
+          <td>See individual disposition of <code>#textAlign-relative</code>, <code>#textAlign-absolute</code> and
+          <code>#textAlign-justify</code>.</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textCombine</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textDecoration</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textDecoration-over</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textDecoration-through</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textDecoration-under</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textEmphasis</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textEmphasis-minimal</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textEmphasis-no-color</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textEmphasis-no-quoted-string</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOrientation</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOutline</code></td>
+
+          <td colspan="2">See individual disposition of <code>#textOutline-blurred</code> and <code>#textOutline-unblurred</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOutline-blurred</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOutline-unblurred</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textShadow</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#tickRate</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#timeBase-clock</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#timeBase-media</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#timeBase-smpte</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#timeContainer</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-clock</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-clock-with-frames</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-offset</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-offset-with-frames</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-offset-with-ticks</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#time-wall-clock</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#timing</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#transformation</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#unicodeBidi</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#unicodeBidi-isolate</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#validation</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#version</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#visibility</code></td>
+
+          <td>permitted</td>
+
+          <td>See individual disposition of <code>#visibility-block</code>, <code>#visibility-inline</code> and
+          <code>#visibility-region</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>#visibility-block</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#visibility-inline</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#visibility-region</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#wrapOption</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#writingMode</code></td>
+
+          <td>permitted</td>
+
+          <td>See individual disposition of <code>#writingMode-vertical</code> and <code>#writingMode-horizontal</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>#writingMode-vertical</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#writingMode-horizontal</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#writingMode-horizontal-lr</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#writingMode-horizontal-rl</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#zIndex</code></td>
+
+          <td colspan="2">permitted-deprecated</td>
+        </tr>
+
+        <tr>
+          <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension Namespace</em></td>
+        </tr>
+
+        <tr>
+          <td><code>#image</code></td>
+
+          <td>prohibited</td>
+
+          <td>permitted-deprecated</td>
+        </tr>
+
+        <tr>
+          <td colspan="3" style="text-align:center"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+        </tr>
+
+        <tr>
+          <td><code>#aspectRatio</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#fillLineGap</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#forcedDisplay</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#linePadding</code></td>
+
+          <td>permitted</td>
+
+          <td>permitted-deprecated</td>
+        </tr>
+
+        <tr>
+          <td><code>#multiRowAlign</code></td>
+
+          <td>permitted</td>
+
+          <td>permitted-deprecated</td>
+        </tr>
+
+        <tr>
+          <td><code>#progressivelyDecodable</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
   <section id='common-constraints'>
-    <h2>Common Constraints</h2>
+    <h2>Common Provisions</h2>
 
     <section>
       <h3>Document Encoding</h3>
@@ -348,17 +1880,17 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
       <div class="note">
         <a data-lt="Document Instance">Document Instances</a> remain subject to the content specification for the <code>tt</code>
-        root document element and its descendants, as specified in [[!TTML1]]. In particular, the [[!TTML1]] content specification
+        root document element and its descendants, as specified in [[!TTML2]]. In particular, the [[!TTML2]] content specification
         specifies that elements and attributes not in any TT namespace, i.e. in foreign namespaces, are permitted as follows:
 
         <ul>
           <li>the <code>metadata</code> element is the only element whose child elements can belong to foreign namespaces, and the
-          <code>metadata</code> element is permitted on all elements defined by [[!TTML1]] with the exception of the following:
+          <code>metadata</code> element is permitted on all elements defined by [[!TTML2]] with the exception of the following:
           <code>ttp:feature</code>, <code>ttp:extension</code>, <code>tt</code>, <code>style</code>, <code>ttm:title</code>,
           <code>ttm:desc</code>, <code>ttm:copyright</code>, <code>ttm:agent</code>, <code>ttm:name</code>, and
           <code>ttm:actor</code>; and</li>
 
-          <li>foreign namespace attributes are permitted on all elements defined by [[!TTML1]].</li>
+          <li>foreign namespace attributes are permitted on all elements defined by [[!TTML2]].</li>
         </ul>
       </div>
 
@@ -404,7 +1936,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><code>http://www.w3.org/ns/ttml</code></td>
 
-            <td>[[!TTML1]]</td>
+            <td>[[!TTML2]]</td>
           </tr>
 
           <tr>
@@ -414,7 +1946,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><code>http://www.w3.org/ns/ttml#parameter</code></td>
 
-            <td>[[!TTML1]]</td>
+            <td>[[!TTML2]]</td>
           </tr>
 
           <tr>
@@ -424,7 +1956,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><code>http://www.w3.org/ns/ttml#styling</code></td>
 
-            <td>[[!TTML1]]</td>
+            <td>[[!TTML2]]</td>
           </tr>
 
           <tr>
@@ -434,7 +1966,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><code>http://www.w3.org/ns/ttml/feature/</code></td>
 
-            <td>[[!TTML1]]</td>
+            <td>[[!TTML2]]</td>
           </tr>
 
           <tr>
@@ -444,7 +1976,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt</code></td>
 
-            <td>[[!ST2052-1]]</td>
+            <td>[[!SMPTE2052-1]]</td>
           </tr>
 
           <tr>
@@ -506,25 +2038,22 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
 
             <td><em>This specification</em></td>
           </tr>
-
+          
           <tr>
-            <td>IMSC 1.0 Text Profile Designator</td>
+            <td>IMSC vNEXT Text Profile Designator</td>
 
             <td><em>none</em></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1/text</code></td>
+            <td colspan='2'>See Section <a href='#text-profile-designator'></a></td>
 
-            <td><em>This specification</em></td>
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Image Profile Designator</td>
+            <td>IMSC vNEXT Image Profile Designator</td>
 
             <td><em>none</em></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1/image</code></td>
-
-            <td><em>This specification</em></td>
+            <td colspan='2'>See Section <a href='#image-profile-designator'></a></td>
           </tr>
         </tbody>
       </table>
@@ -542,7 +2071,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <p>A <a>Document Instance</a> SHOULD be authored assuming strict clipping of content that falls out of region areas,
       regardless of the computed value of <code>tts:overflow</code> for the region.</p>
 
-      <p class="note">As specified in [[!TTML1]], <code>tts:overflow</code> has no effect on the extent of the region, and hence
+      <p class="note">As specified in [[!TTML2]], <code>tts:overflow</code> has no effect on the extent of the region, and hence
       the total normalized drawing area S(E<sub>n</sub>) at <a href='#paint-regions'></a>.</p>
     </section>
 
@@ -759,7 +2288,7 @@ ittp:progressivelyDecodable
 </pre>
 
         <div class='note'>
-          <p>[[!TTML1]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
+          <p>[[!TTML2]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
           circumstances:</p>
 
           <ul>
@@ -856,7 +2385,7 @@ ittp:progressivelyDecodable
         <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
 </pre>
 
-        <p class='note'>As specified in [[!TTML1]], the background of a region can be visible even if the computed value of
+        <p class='note'>As specified in [[!TTML2]], the background of a region can be visible even if the computed value of
         <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
         which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
         <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
@@ -1059,66 +2588,81 @@ y = topOffset * (1 - height/100)
       </section>
     </section>
 
-    <section>
-      <h3>Region</h3>
-
-      <section>
-        <h4>Presented Region</h4>
-
-        <p>A <dfn>presented region</dfn> is a temporally active region that satisfies the following conditions:</p>
-
-        <ol>
-          <li>the computed value of <code>tts:opacity</code> is not equal to <code>"0.0"</code>; and</li>
-
-          <li>the computed value of <code>tts:display</code> is not <code>"none"</code>; and</li>
-
-          <li>the computed value of <code>tts:visibility</code> is not <code>"hidden"</code>; and</li>
-
-          <li>either (a) content is selected into the region or (b) the computed value of <code>tts:showBackground</code> is equal
-          to <code>"always"</code> and the computed value of <code>tts:backgroundColor</code> has non-transparent alpha.</li>
-        </ol>
-      </section>
-
-      <section>
-        <h4 id="region-dim-pos">Dimensions and Position</h4>
-
-        <p>All regions SHALL NOT extend beyond the root container, i.e. every coordinate in the set of coordinates of each region
-        is also in the set of coordinates of the root container.</p>
-
-        <p>No two <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a> SHALL
-        overlap, i.e. the intersection of the sets of coordinates within each <a>presented region</a> is empty.</p>
-      </section>
-
-      <section>
-        <h4>Maximum number</h4>
-
-        <p>The number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>
-        SHALL NOT be greater than 4.</p>
-      </section>
-    </section>
-
     <section id='profile-signaling'>
       <h3>Profile Signaling</h3>
 
-      <p>The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the
-      IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present,
-      unless:</p>
+      <section>
+        <h4>General</h4>
 
-      <ul>
-        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
-        attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC1 profile to which
-        the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in
-        an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
-        "#ebu-tt-d-interop"></a>; or
-        </li>
+        <p>Unless one of the mutually exclusive scenarios specified in the following Sections apply, the
+        <code>ttp:contentProfiles</code> attribute SHALL be present on the <code>tt</code> element and include the designator of
+        the IMSCvNEXT profile to which the <a>Document Instance</a> conforms.</p>
 
-        <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
-        is not present and the <code>ttp:profile</code> element is present, as illustrated in <a href="#sdp-us-interop"></a>.
-        </li>
-      </ul>
+        <p class="note">The <code>ttp:contentProfiles</code> can include additional designators, beyond the Text Profile or Image
+        Profle designators.</p>
+      </section>
 
-      <p>The <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both
-      <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.</p>
+      <section>
+        <h4>IMSC1 Compatibility</h4>
+
+        <p>If the <a>Document Instance</a> conforms to one of the profiles specified in [[ttml-imsc1.0.1]]:</p>
+
+        <ul>
+          <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
+          designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+          </li>
+
+          <li>the <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator
+          of the [[ttml-imsc1.0.1]] profiles to which the <a>Document Instance</a> conforms; and
+          </li>
+
+          <li>the <code>ttp:profile</code> element SHOULD NOT be present.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>EBU-TT-D Compatibility</h4>
+
+        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[EBU-TT-D]]:</p>
+
+        <ul>
+          <li>neither the <code>ttp:profile</code> attribute nor the <code>ttp:profile</code> element are present;</li>
+
+          <li>the <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
+          "#ebu-tt-d-interop"></a> SHOULD include:
+
+            <ul>
+              <li>the designator of the [ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms;
+              </li>
+
+              <li>the designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+              </li>
+
+              <li>the URI <code>"urn:ebu:tt:distribution:2014-01"</code></li>
+            </ul>
+          </li>
+
+          <li>the <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both
+          <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>SDP-US Compatibility</h4>
+
+        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[ttml10-sdp-us]]:</p>
+
+        <ul>
+          <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
+          designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+          </li>
+
+          <li>the <code>ttp:profile</code> attribute is not present and the <code>ttp:profile</code> element is present, as
+          illustrated in <a href="#sdp-us-interop"></a>.
+          </li>
+        </ul>
+      </section>
     </section>
 
     <section>
@@ -1129,674 +2673,126 @@ y = topOffset * (1 - height/100)
       error as defined in Section <a href="#hypothetical-render-model-general"></a>.</p>
     </section>
 
-    <section id='common-features'>
-      <h3>Features and Extensions</h3>
+    <section>
+      <h3>Constraints</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and <em>optional</em>.</p>
+      <section>
+        <h4>Region</h4>
 
-      <table class='simple'>
-        <tbody>
-          <tr>
-            <th style="text-align:center">Feature</th>
+        <section>
+          <h5>Presented Region</h5>
 
-            <th style="text-align:center">Disposition</th>
+          <p>A <dfn>presented region</dfn> is a temporally active region that satisfies the following conditions:</p>
 
-            <th style="text-align:center">Additional provision</th>
-          </tr>
+          <ol>
+            <li>the computed value of <code>tts:opacity</code> is not equal to <code>"0.0"</code>; and</li>
 
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
-          </tr>
+            <li>the computed value of <code>tts:display</code> is not <code>"none"</code>; and</li>
 
-          <tr>
-            <td><code>#animation</code></td>
+            <li>the computed value of <code>tts:visibility</code> is not <code>"hidden"</code>; and</li>
 
-            <td>permitted</td>
+            <li>either (a) content is selected into the region or (b) the computed value of <code>tts:showBackground</code> is
+            equal to <code>"always"</code> and the computed value of <code>tts:backgroundColor</code> has non-transparent
+            alpha.</li>
+          </ol>
+        </section>
 
-            <td></td>
-          </tr>
+        <section>
+          <h5 id="region-dim-pos">Dimensions and Position</h5>
 
-          <tr>
-            <td id="backgroundColor-block-feat"><code>#backgroundColor-block</code></td>
+          <p>All regions SHALL NOT extend beyond the root container, i.e. every coordinate in the set of coordinates of each region
+          is also in the set of coordinates of the root container.</p>
 
-            <td>permitted</td>
+          <p>No two <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a> SHALL
+          overlap, i.e. the intersection of the sets of coordinates within each <a>presented region</a> is empty.</p>
+        </section>
 
-            <td></td>
-          </tr>
+        <section>
+          <h5>Maximum number</h5>
 
-          <tr>
-            <td id="backgroundColor-region-feat"><code>#backgroundColor-region</code></td>
+          <p>The number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>
+          SHALL NOT be greater than 4.</p>
+        </section>
+      </section>
 
-            <td>permitted</td>
+      <section>
+        <h4><code>#cellResolution</code></h4>
 
-            <td></td>
-          </tr>
+        <p>If the <a>Document Instance</a> includes any length value that uses the <code>c</code> expression,
+        <code>ttp:cellResolution</code> SHOULD be present on the <code>tt</code> element.</p>
+      </section>
 
-          <tr>
-            <td><code>#cellResolution</code></td>
+      <section>
+        <h4><code>#contentProfiles</code></h4>
 
-            <td>permitted</td>
+        <p>The <code>ttp:contentProfileCombination</code> attribute SHALL not be used.</p>
+      </section>
 
-            <td>
-              If the <a>Document Instance</a> includes any length value that uses the <code>c</code> expression,
-              <code>ttp:cellResolution</code> SHOULD be present on the <code>tt</code> element.
-            </td>
-          </tr>
+      <section>
+        <h4><code>#extent-root</code></h4>
 
-          <tr>
-            <td><code>#clockMode</code></td>
+        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> expression,
+        <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
+      </section>
 
-            <td>prohibited</td>
+      <section>
+        <h4><code>#frameRate</code></h4>
 
-            <td></td>
-          </tr>
+        <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
+        time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present on the
+        <code>tt</code> element.</p>
+      </section>
 
-          <tr>
-            <td><code>#clockMode-gps</code></td>
+      <section>
+        <h4><code>#length-cell</code></h4>
 
-            <td>prohibited</td>
+        <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
+      </section>
 
-            <td></td>
-          </tr>
+      <section>
+        <h4><code>#tickRate</code></h4>
 
-          <tr>
-            <td><code>#clockMode-local</code></td>
+        <p><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the document contains any time expression
+        that uses the <code>t</code> metric.</p>
+      </section>
 
-            <td>prohibited</td>
+      <section>
+        <h4><code>#timeBase-media</code> (non-normative)</h4>
 
-            <td></td>
-          </tr>
+        <p>[[TTML2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not specified on
+        <code>tt</code>.</p>
+      </section>
 
-          <tr>
-            <td><code>#clockMode-utc</code></td>
+      <section>
+        <h4><code>#time-offset-with-frames</code> (non-normative)</h4>
 
-            <td>prohibited</td>
+        <p>As specified in [[!TTML2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M according
+        to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
+        <code>ttp:frameRate</code>)).</p>
+      </section>
 
-            <td></td>
-          </tr>
+      <section>
+        <h4><code>#timing</code></h4>
 
-          <tr>
-            <td><code>#core</code></td>
+        <p>All time expressions within a <a>Document Instance</a> SHOULD use the same syntax, either <code>clock-time</code> or
+        <code>offset-time</code>.</p>
 
-            <td>permitted</td>
+        <p>For any content element that contains <code>br</code> elements or text nodes or a <code>smpte:backgroundImage</code>
+        attribute, both the <code>begin</code> attribute and one of either the <code>end</code> or <code>dur</code> attributes
+        SHOULD be specified on the content element or at least one of its ancestors.</p>
+      </section>
 
-            <td></td>
-          </tr>
+      <section>
+        <h4><code>#zIndex</code> (non-normative)</h4>
 
-          <tr>
-            <td><code>#display-block</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#display-inline</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#display-region</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#display</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#dropMode</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#dropMode-dropNTSC</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#dropMode-dropPAL</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#dropMode-nonDrop</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#extent-root</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              If the <a>Document Instance</a> includes any length value that uses the <code>px</code> expression,
-              <code>tts:extent</code> SHALL be present on the <code>tt</code> element.
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#extent</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#frameRate</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any
-              offset time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present
-              on the <code>tt</code> element.
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#frameRateMultiplier</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#layout</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-cell</code></td>
-
-            <td>permitted</td>
-
-            <td><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</td>
-          </tr>
-
-          <tr>
-            <td><code>#length-integer</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-negative</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-percentage</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-pixel</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-positive</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-real</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#markerMode</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#markerMode-continuous</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#markerMode-discontinuous</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#metadata</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#opacity</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#origin</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#overflow</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#overflow-visible</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#pixelAspectRatio</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#presentation</code></td>
-
-            <td>permitted</td>
-
-            <td>See constraints applied to <code>#profile.</code></td>
-          </tr>
-
-          <tr>
-            <td id="profile-constraints"><code>#profile</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              See <a href="#profile-signaling"></a>.
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#showBackground</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#structure</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-chained</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-inheritance-content</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-inheritance-region</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-inline</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-nested</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling-referential</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#styling</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#subFrameRate</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#tickRate</code></td>
-
-            <td>permitted</td>
-
-            <td><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the document contains any time
-            expression that uses the <code>t</code> metric.</td>
-          </tr>
-
-          <tr>
-            <td><code>#timeBase-clock</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#timeBase-media</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <p class="inline-note">NOTE: [[TTML1]] specifies that the default timebase is <code>"media"</code> if
-              <code>ttp:timeBase</code> is not specified on <code>tt</code>.</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#timeBase-smpte</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#time-clock-with-frames</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#time-clock</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#time-offset-with-frames</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#time-offset-with-ticks</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#time-offset</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#timeContainer</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#timing</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <ul class="short-list">
-                <li>All time expressions within a <a>Document Instance</a> SHOULD use the same syntax, either
-                <code>clock-time</code> or <code>offset-time</code>.
-                </li>
-
-                <li>For any content element that contains <code>br</code> elements or text nodes or a
-                <code>smpte:backgroundImage</code> attribute, both the <code>begin</code> attribute and one of either the
-                <code>end</code> or <code>dur</code> attributes SHOULD be specified on the content element or at least one of its
-                ancestors.</li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#transformation</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              See constraints at <a href="#profile-constraints">#profile</a>.
-            </td>
-          </tr>
-
-          <tr>
-            <td id="visibility-block-feat"><code>#visibility-block</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td id="visibility-region-feat"><code>#visibility-region</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#writingMode-horizontal-lr</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#writingMode-horizontal-rl</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td id="writingMode-horizontal-feat"><code>#writingMode-horizontal</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#zIndex</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              NOTE: While permitted, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>, regions do
-              not overlap in a <a>Document Instance</a>.
-            </td>
-          </tr>
-
-          <tr>
-            <th style="text-align:center">Extension</th>
-
-            <th style="text-align:center">Disposition</th>
-
-            <th style="text-align:center">Provisions</th>
-          </tr>
-
-          <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
-          </tr>
-
-          <tr>
-            <td><code>#aspectRatio</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#forcedDisplay</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#progressivelyDecodable</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#altText</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#activeArea</code></td>
-
-            <td>optional</td>
-
-            <td>
-              NOTE: This feature is optional such that a <a>processor</a> that conforms to the earlier version of this
-              specification also conforms to this version.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class='note'>As specified in [[!TTML1]], a <code>#time-offset-with-frames</code> expression is translated to a media time
-      M according to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
-      <code>ttp:frameRate</code>)).</p>
+        <p>While permitted, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>, regions do not
+        overlap in a <a>Document Instance</a>.</p>
+      </section>
     </section>
   </section>
 
   <section id='text-profile-constraints'>
-    <h2>Text Profile Constraints</h2>
+    <h2>Text Profile Provisions</h2>
 
     <section id='text-profile-designator'>
       <h3>Profile Designator</h3>
@@ -1814,12 +2810,14 @@ y = topOffset * (1 - height/100)
 
         <tbody>
           <tr>
-            <td>IMSC 1.0 Text</td>
+            <td><dfn>IMSC vNEXT Text</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1/text</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imscvNEXT/text</code></td>
           </tr>
         </tbody>
       </table>
+
+      <p class='ednote'>The designator above is a placeholder.</p>
 
       <p class='note'>As specified in <a href="#common-features"></a>, the presence of the <code>ttp:profile</code> attribute is
       not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
@@ -1865,509 +2863,112 @@ y = topOffset * (1 - height/100)
     </section>
 
     <section>
-      <h3>Features and Extensions</h3>
+      <h3>Constraints</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and <em>optional</em>.</p>
+      <section>
+        <h4><code>#color</code></h4>
 
-      <table class='simple'>
-        <tbody>
-          <tr>
-            <th style="text-align:center">Feature</th>
+        <p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
 
-            <th style="text-align:center">Disposition</th>
+        <p class="note">This is consistent with [[!SMPTE2052-1]].</p>
 
-            <th style="text-align:center">Additional provisions</th>
-          </tr>
+        <p class="note">The named color <code>"green"</code> defined in [[!TTML2]] is equivalent to the RGB triplet
+        <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB triplet
+        <code>#00ff00ff</code> or the named color <code>"lime"</code>.</p>
+      </section>
 
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
-          </tr>
+      <section>
+        <h4><code>#extent-region</code></h4>
 
-          <tr>
-            <td><code>#backgroundColor-inline</code></td>
+        <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
+        <code>px</code> units or "percentage" syntax.</p>
+      </section>
 
-            <td>permitted</td>
+      <section>
+        <h4><code>#fontFamily-generic</code></h4>
 
-            <td></td>
-          </tr>
+        <p>In absence of specific instructions on the choice of font families, and in order to enhance reproducibility of line
+        fitting, authors are encouraged to use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code> generic font
+        families, for which reference font metrics are defined at <a href="#reference-fonts"></a>.</p>
 
-          <tr>
-            <td><code>#backgroundColor</code></td>
+        <p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of
+        <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
 
-            <td>permitted</td>
+        <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!TTML2]].</p>
+      </section>
 
-            <td></td>
-          </tr>
+      <section>
+        <h4><code>#fontFamily</code></h4>
 
-          <tr>
-            <td><code>#bidi</code></td>
+        <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
+        <code>tts:fontFamily</code>.</p>
+      </section>
 
-            <td>permitted</td>
+      <section>
+        <h4><code>#lineHeight</code></h4>
 
-            <td></td>
-          </tr>
+        <p>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
+        <code>tts:lineHeight</code> SHOULD NOT be set to <code>"normal"</code> and SHOULD be explicitly specified such that the
+        specified style set of each <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not
+        assigned by initial value fallback.</p>
+      </section>
 
-          <tr>
-            <td><code>#content</code></td>
+      <section>
+        <h4><code>#origin</code></h4>
 
-            <td>permitted</td>
+        <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT use
+        <code>em</code> units.</p>
+      </section>
 
-            <td></td>
-          </tr>
+      <section>
+        <h4><code>#textOutline-unblurred</code></h4>
 
-          <tr>
-            <td><code>#color</code></td>
+        <p>The computed value of <code>tts:textOutline</code> on a <code>span</code> element SHALL be 10% or less than the computed
+        value of <code>tts:fontSize</code> on the same element.</p>
+      </section>
 
-            <td>permitted</td>
+      <section>
+        <h4><code>ebutts:linePadding</code></h4>
 
-            <td>
-              <p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
+        <p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>,
+        <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
 
-              <p class="inline-note">NOTE 1: This is consistent with [[ST2052-1]].</p>
+        <p>The <a>processor</a>:</p>
 
-              <p class="inline-note">NOTE 2: The named color <code>"green"</code> defined in [[!TTML1]] is equivalent to the RGB
-              triplet <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB
-              triplet <code>#00ff00ff</code> or the named color <code>"lime"</code>.</p>
-            </td>
-          </tr>
+        <ul class="short-list">
+          <li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
 
-          <tr>
-            <td><code>#direction</code></td>
+          <li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
+        </ul>
 
-            <td>permitted</td>
+        <p class="note">The <code>ebutts:linePadding</code> attribute only supports <code>c</code> length units.</p>
 
-            <td></td>
-          </tr>
+        <p class='note'>In contrast to this specification, [[!EBU-TT-D]] specifies that the attribute
+        <code>ebutts:linePadding</code> is allowed only on the <code>style</code> element.</p>
+      </section>
 
-          <tr>
-            <td><code>#displayAlign</code></td>
+      <section>
+        <h4><code>ebutts:multiRowAlign</code></h4>
 
-            <td>permitted</td>
+        <p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>,
+        <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code></p>
 
-            <td></td>
-          </tr>
+        <p>The <a>processor</a>:</p>
 
-          <tr>
-            <td><code>#extent-region</code></td>
+        <ul class="short-list">
+          <li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
 
-            <td>permitted</td>
+          <li>SHALL treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
+        </ul>
 
-            <td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
-            <code>px</code> units or "percentage" syntax.<br></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily-generic</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <p>In absence of specific instructions on the choice of font families, and in order to enhance reproducibility of
-              line fitting, authors are encouraged to use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code>
-              generic font families, for which reference font metrics are defined at <a href="#reference-fonts"></a>.</p>
-
-              <p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of
-              <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
-
-              <p class="inline-note">NOTE: The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by
-              [[!TTML1]].</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily-non-generic</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
-              <code>tts:fontFamily</code>.</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td id="fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td id="fontSize-isomorphic-feat"><code>#fontSize-isomorphic</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontSize</code></td>
-
-            <td></td>
-
-            <td>
-              See individual disposition of <a href="#fontSize-anamorphic-feat"><code>#fontSize-anamorphic</code></a> and <a href=
-              "#fontSize-isomorphic-feat"><code>#fontSize-isomorphic</code></a>.
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle-italic</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle-oblique</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontWeight-bold</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontWeight</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-em</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#lineBreak-uax14</code></td>
-
-            <td></td>
-
-            <td>
-              The <a>processor</a> SHALL implement the <code>#lineBreak-uax14</code> feature defined in the TT Feature namespace.
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#lineHeight</code></td>
-
-            <td>permitted</td>
-
-            <td>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
-            <code>tts:lineHeight</code> SHOULD NOT be set to <code>"normal"</code> and SHOULD be explicitly specified such that the
-            specified style set of each <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not
-            assigned by initial value fallback.</td>
-          </tr>
-
-          <tr>
-            <td><code>#nested-div</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#nested-span</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#origin</code></td>
-
-            <td>permitted</td>
-
-            <td>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT
-            use <code>em</code> units.</td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-1</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-2</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-3</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-4</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign-absolute</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign-relative</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-over</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-through</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-under</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline-blurred</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline-unblurred</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline</code></td>
-
-            <td>permitted</td>
-
-            <td>The computed value of <code>tts:textOutline</code> on a <code>span</code> element SHALL be 10% or less than the
-            computed value of <code>tts:fontSize</code> on the same element.</td>
-          </tr>
-
-          <tr>
-            <td><code>#unicodeBidi</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#visibility</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#visibility-inline</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#wrapOption</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#writingMode</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#writingMode-vertical</code></td>
-
-            <td>permitted</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <th style="text-align:center">Extension</th>
-
-            <th style="text-align:center">Disposition</th>
-
-            <th style="text-align:center">Provisions</th>
-          </tr>
-
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension Namespace</em></td>
-          </tr>
-
-          <tr>
-            <td><code>#image</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
-          </tr>
-
-          <tr>
-            <td><code>#linePadding</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>,
-              <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
-
-              <p>The <a>processor</a>:</p>
-
-              <ul class="short-list">
-                <li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
-
-                <li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
-              </ul>
-
-              <p class="inline-note">NOTE: The <code>ebutts:linePadding</code> attribute only supports <code>c</code> length
-              units.</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#multiRowAlign</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>,
-              <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code></p>
-
-              <p>The <a>processor</a>:</p>
-
-              <ul class="short-list">
-                <li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
-
-                <li>SHALL treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#fillLineGap</code></td>
-
-            <td>optional</td>
-
-            <td>
-              NOTE: This feature is optional such that a <a>processor</a> that conforms to the earlier version of this
-              specification also conforms to this version.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class='note'>In contrast to this specification, [[!EBU-TT-D]] specifies that the attributes
-      <code>ebutts:linePadding</code> and <code>ebutts:multiRowAlign</code> are allowed only on the <code>style</code> element.</p>
+        <p class='note'>In contrast to this specification, [[!EBU-TT-D]] specifies that the attribute
+        <code>ebutts:multiRowAlign</code> is allowed only on the <code>style</code> element.</p>
+      </section>
     </section>
   </section>
 
   <section id='image-profile-constraints'>
-    <h2>Image Profile Constraints</h2>
+    <h2>Image Profile Provisions</h2>
 
     <section id='image-profile-designator'>
       <h3>Profile Designator</h3>
@@ -2383,14 +2984,16 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Image</td>
+            <td><dfn>IMSC vNEXT Image</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1/image</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imscvNEXT/image</code></td>
           </tr>
         </tbody>
       </table>
 
-      <p class='note'>As specified in <a href="#common-features"></a>, the presence of the <code>ttp:profile</code> attribute is
+      <p class='ednote'>The designator above is a placeholder.</p>
+
+      <p class='note'>As specified in <a href="#profile-signaling"></a>, the presence of the <code>ttp:profile</code> attribute is
       not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
       of a <a>Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for
       instance, use metadata structures out-of-band of the <a>Document Instance</a>.</p>
@@ -2402,8 +3005,17 @@ y = topOffset * (1 - height/100)
       <section>
         <h4>Definition</h4>
 
-        <p>A <dfn>presented image</dfn> is a <code>div</code> element with a <code>smpte:backgroundImage</code> attribute that
-        flows into a <a>presented region</a>.</p>
+        <p>A <dfn>presented image</dfn> is a <code>div</code> element:
+        
+        <ul>
+        
+        <li>with a <code>smpte:backgroundImage</code> attribute or a child <code>image</code> element; and</li>
+        
+        <li>that flows into a <a>presented region</a>.</li>
+        
+        </ul>
+        
+        </p>
       </section>
 
       <section>
@@ -2421,481 +3033,108 @@ y = topOffset * (1 - height/100)
       </section>
     </section>
 
-    <section>
-      <h3 id="smpte-bg-constraints">smpte:backgroundImage Constraints</h3>
+    <section id='image-resource'>
+      <h3>Image Resources</h3>
 
-      <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:</p>
+      <p>An <dfn>image resource</dfn> is a PNG datastream as specified in [[!PNG]].</p>
+      
+      <p>If a pHYs chunk is present, it SHALL indicate square pixels.</p>
 
-      <ul>
-        <li>the width and height (in pixels) of the image source referenced by <code>smpte:backgroundImage</code> SHALL be equal to
-        the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of the region in
-        which the <code>div</code> element is presented;</li>
-
-        <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
-        element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute; and
-        </li>
-
-        <li>The <code>smpte:backgroundImage</code> attribute SHALL reference a PNG datastream as specified in [[!PNG]]. If a pHYs
-        chunk is present, it SHALL indicate square pixels. Note that if no pixel aspect ratio is carried, the default of square
-        pixels is assumed.</li>
-      </ul>
-
-      <p class='note'>In [[!TTML1]], <code>tts:extent</code> and <code>tts:origin</code> do not apply to <code>div</code> elements.
-      In order to individually position multiple <code>div</code> elements, each <code>div</code> can be associated with a distinct
-      <code>region</code> with the desired <code>tts:extent</code> and <code>tts:origin</code>.</p>
+      <p class='note'>[[PNG]] specifies that, if no pixel aspect ratio is carried, the default of square pixels is assumed.</p>
     </section>
 
     <section>
-      <h3>Features and Extensions</h3>
+      <h3>Constraints</h3>
 
-      <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em> and <em>optional</em>.</p>
+      <section>
+        <h4><code>#content</code></h4>
 
-      <table class='simple'>
-        <tbody>
-          <tr>
-            <th style="text-align:center">Feature</th>
+        <p>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present. See Section <a href=
+        "#presented-image-constraints"></a> for constraints on <code>div</code> elements.</p>
+      </section>
 
-            <th style="text-align:center">Disposition</th>
+      <section>
+        <h4><code>#extent-region</code></h4>
 
-            <th style="text-align:center">Additional provisions</th>
-          </tr>
+        <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
+        <code>px</code> units.</p>
+      </section>
 
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
-          </tr>
+      <section>
+        <h4><code>TTML #image Feature</code></h4>
 
-          <tr>
-            <td id="backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></td>
+        <p>The <code>image</code> element SHALL only be used in a <a href=
+        "https://www.w3.org/TR/ttml2/#terms-image-presentation-context">image presentation context</a>.</p>
 
-            <td>prohibited</td>
+        <p>The <code>image</code> element SHALL be a child of a <code>div</code> element that does not have a <code>smpte:backgroundImage</code> attribute.</p>
 
-            <td></td>
-          </tr>
+        <p>A <code>div</code> element SHALL have zero or one child <code>image</code> element.</p>
 
-          <tr>
-            <td><code>#backgroundColor</code></td>
+        <p>A <code>div</code> element that contains a child <code>image</code> element SHOULD contain a <code>metadata</code>
+        element containing an <code>ittm:altText</code> element that is a <a>Text Alternative</a> of the image resource referenced
+        by the <code>image</code> element.</p>
 
-            <td></td>
+        <p>An <code>image</code> element SHALL specify a <code>src</code> attribute, which references an image resource that
+        conforms to <a href='#image-resource'></a>.</p>
 
-            <td>
-              See individual disposition of <a href="#backgroundColor-inline-i-feat"><code>#backgroundColor-inline</code></a>,
-              <a href="#backgroundColor-region-feat"><code>#backgroundColor-region</code></a> and <a href=
-              "#backgroundColor-block-feat"><code>#backgroundColor-block</code></a>.
-            </td>
-          </tr>
+        <p>An <code>image</code> element SHALL specify a <code>type</code> attribute.</p>
 
-          <tr>
-            <td><code>#bidi</code></td>
+        <p>An <code>image</code> element SHALL specify a <code>tts:extent</code> attribute, which shall be equal to:</p>
 
-            <td></td>
+        <ul>
+          <li>the <code>tts:extent</code> attribute of the region in which the <code>image</code> element is presented; and</li>
 
-            <td>
-              See individual disposition of <a href="#direction-i-feat"><code>#direction</code></a>, <a href=
-              "#unicodeBidi-i-feat"><code>#unicodeBidi</code></a> and <a href=
-              "#writingMode-horizontal-feat"><code>#writingMode-horizontal</code></a>.
-            </td>
-          </tr>
+          <li>the dimensions (in pixels) of the image resource.</li>
+        </ul>
+      </section>
 
-          <tr>
-            <td><code>#color</code></td>
+      <section>
+        <h4><code>SMPTE #image Extension</code></h4>
 
-            <td>prohibited</td>
+        <section>
+          <h5 id="smpte-bg-constraints"><code>smpte:backgroundImage</code></h5>
 
-            <td></td>
-          </tr>
+          <p><code>smpte:backgroundImage</code> MAY be used with the semantics of the attribute defined by Sections 5.5.2 of
+          [[!SMPTE2052-1]].</p>
 
-          <tr>
-            <td><code>#content</code></td>
+          <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:</p>
 
-            <td>permitted</td>
+          <ul>
+            <li>the width and height (in pixels) of the image source referenced by <code>smpte:backgroundImage</code> SHALL be
+            equal to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of
+            the region in which the <code>div</code> element is presented;</li>
 
-            <td>
-              The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present. See Section <a href=
-              "#presented-image-constraints"></a> for constraints on <code>div</code> elements.
-            </td>
-          </tr>
+            <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
+            element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
+            and
+            </li>
 
-          <tr>
-            <td id="direction-i-feat"><code>#direction</code></td>
+            <li>The <code>smpte:backgroundImage</code> attribute SHALL reference an image resource that conforms to <a href=
+            '#image-resource'></a>.
+            </li>
+          </ul>
 
-            <td>prohibited</td>
+          <p class='note'>In order to individually position multiple <code>div</code> elements, each <code>div</code> can be associated
+          with a distinct <code>region</code> with the desired <code>tts:extent</code> and <code>tts:origin</code>.</p>
 
-            <td></td>
-          </tr>
+          <p class='note'>The rendering semantics of <code>smpte:backgroundImage</code> are not identical to those of
+          <code>background-image</code> specified at Section 7.8.3 of [[XSL11]]. In particular, Section 5.5.6 at [[!SMPTE2052-1]]
+          amends the semantics of <code>background-image</code> by specifying values for its <code>min-height</code> and
+          <code>min-width</code> properties.</p>
+        </section>
 
-          <tr>
-            <td><code>#displayAlign</code></td>
+        <section>
+          <h5><code>smpte:backgroundImageHorizontal</code> and and <code>smpte:backgroundImageVertical</code></h5>
 
-            <td>prohibited</td>
+          <p><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be used.</p>
+        </section>
 
-            <td></td>
-          </tr>
+        <section>
+          <h5><code>smpte:image</code></h5>
 
-          <tr>
-            <td><code>#extent-region</code></td>
-
-            <td>permitted</td>
-
-            <td>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
-            <code>px</code> units.</td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily-generic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontFamily-non-generic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontSize</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontSize-anamorphic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontSize-isomorphic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle-italic</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontStyle-oblique</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontWeight</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#fontWeight-bold</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#length-em</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#lineBreak-uax14</code></td>
-
-            <td></td>
-
-            <td>No processor requirement is specified.</td>
-          </tr>
-
-          <tr>
-            <td><code>#lineHeight</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#nested-div</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#nested-span</code></td>
-
-            <td>prohibited</td>
-
-            <td>
-              <p class="inline-note">NOTE: The prohibition of <code>span</code> elements by this profile implies the prohibition of
-              this feature.</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>#padding</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-1</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-2</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-3</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#padding-4</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign-absolute</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textAlign-relative</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-over</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-through</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textDecoration-under</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline-blurred</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#textOutline-unblurred</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td id="unicodeBidi-i-feat"><code>#unicodeBidi</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#visibility</code></td>
-
-            <td></td>
-
-            <td>
-              See individual disposition of <a href="#visibility-inline-i-feat"><code>#visibility-inline</code></a>, <a href=
-              "#visibility-region-feat"><code>#visibility-region</code></a> and <a href=
-              "#visibility-block-feat"><code>#visibility-block</code></a>.
-            </td>
-          </tr>
-
-          <tr id="visibility-inline-i-feat">
-            <td><code>#visibility-inline</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#wrapOption</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <td><code>#writingMode</code></td>
-
-            <td></td>
-
-            <td>
-              See individual disposition of <a href="#writingMode-vertical-i-feat"><code>#writingMode-vertical</code></a> and
-              <a href="#writingMode-horizontal-feat"><code>#writingMode-horizontal</code></a>.
-            </td>
-          </tr>
-
-          <tr>
-            <td id='writingMode-vertical-i-feat'><code>#writingMode-vertical</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-
-          <tr>
-            <th style="text-align:center">Extension</th>
-
-            <th style="text-align:center">Disposition</th>
-
-            <th style="text-align:center">Provisions</th>
-          </tr>
-
-          <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
-          </tr>
-
-          <tr>
-            <td><code>#image</code></td>
-
-            <td>permitted</td>
-
-            <td>
-              <ul class="short-list">
-                <li>
-                  <code>smpte:backgroundImage</code> MAY be used according to <a href="#smpte-bg-constraints"></a> with the
-                  semantics of the attribute defined by Sections 5.5.2 of [[!ST2052-1]].
-                </li>
-
-                <li><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be
-                used.</li>
-
-                <li><code>smpte:image</code> SHALL NOT be used.</li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
-          </tr>
-
-          <tr>
-            <td><code>#fillLineGap</code></td>
-
-            <td>prohibited</td>
-
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class='note'>The rendering semantics of <code>smpte:backgroundImage</code> are not identical to those of
-      <code>background-image</code> specified at Section 7.8.3 of [[XSL11]]. In particular, Section 5.5.6 at [[!ST2052-1]] amends
-      the semantics of <code>background-image</code> by specifying values for its <code>min-height</code> and
-      <code>min-width</code> properties.</p>
+          <p><code>smpte:image</code> SHALL NOT be used.</p>
+        </section>
+      </section>
     </section>
   </section>
 
@@ -3079,12 +3318,12 @@ y = topOffset * (1 - height/100)
         <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
 
         <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is to
-        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML1]] for more details
+        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML2]] for more details
         on when a content element is followed into a region); or
         </li>
 
         <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be flowed
-        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML1]] for more details on when a
+        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!TTML2]] for more details on when a
         <code>set</code> animation element is applied to content elements).
         </li>
       </ul>
@@ -3949,7 +4188,7 @@ y = topOffset * (1 - height/100)
       <li>other profiles of TTML and future revisions of this specification to specify support for documents and/or processors
       conforming to Text Profile or Image Profile, in addition to specifying additional extensions;</li>
 
-      <li>subject to the structural requirements of [[!TTML1]], content from external namespaces to be present in a document that
+      <li>subject to the structural requirements of [[!TTML2]], content from external namespaces to be present in a document that
       conforms to Text Profile or Image Profile (a) without affecting transformation or presentation, and (b) to be carried through
       by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
       </li>
@@ -3964,13 +4203,13 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>Overview</h3>
 
-      <p>This specification is designed to be compatible with [[!ST2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]]. Specifically, it
-      is possible to create a document that:</p>
+      <p>This specification is designed to be compatible with [[!SMPTE2052-1]], [[!EBU-TT-D]] and [[ttml10-sdp-us]]. Specifically,
+      it is possible to create a document that:</p>
 
       <ul>
-        <li>conforms to one of [[!ST2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
+        <li>conforms to one of [[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
 
-        <li>conforms to [[!ST2052-1]], and also conforms to Image Profile.</li>
+        <li>conforms to [[!SMPTE2052-1]], and also conforms to Image Profile.</li>
       </ul>
 
       <p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image
@@ -4020,9 +4259,9 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <p>[[ttml10-sdp-us]] requires a specific value of the <code>use</code> attribute of the <code>ttp:profile</code>. As a
-      result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, as specified in <a href=
-      "#profile-resolution"></a>, the Text Profile can be signaled by the Document Interchange Context and/or the Document
-      Processing Context. Alternatively, a processor can choose to process a document as a Text Profile document if the
+      result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, the Text Profile can be signaled
+      using the <code>ttp:contentProfiles</code> attribute, or by the Document Interchange Context and/or the Document Processing
+      Context. Alternatively, a processor can choose to process a document as a Text Profile document if the
       <code>ttp:profile</code> element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly interoperable with Text
       Profile.</p>
 
@@ -4035,32 +4274,32 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
 
-      <p>[[!ST2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML1]]) supplemented by a number of
+      <p>[[!SMPTE2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!TTML2]]) supplemented by a number of
       extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
 
-      <p>This specification defines practical constraints on [[!ST2052-1]], supplemented by a few extensions defined at <a href=
+      <p>This specification defines practical constraints on [[!SMPTE2052-1]], supplemented by a few extensions defined at <a href=
       "#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
 
-      <p>As a result, particular care is required when creating a document intended to be processed according to both [[!ST2052-1]]
-      and Text Profile or Image Profile. In particular:</p>
+      <p>As a result, particular care is required when creating a document intended to be processed according to both
+      [[!SMPTE2052-1]] and Text Profile or Image Profile. In particular:</p>
 
       <ul>
-        <li>in contrast to Text Profile and Image Profile, [[!ST2052-1]] allows documents to contain both
+        <li>in contrast to Text Profile and Image Profile, [[!SMPTE2052-1]] allows documents to contain both
         <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code>
         elements;</li>
 
         <li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>
         extension;</li>
 
-        <li>[[!ST2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, <code>#linePadding</code>
+        <li>[[!SMPTE2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, <code>#linePadding</code>
         and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
 
         <li>when the designator <code>"http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full"</code> is used as a
-        value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!ST2052-1]]), Text Profile or Image Profile
-        is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
+        value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!SMPTE2052-1]]), Text Profile or Image
+        Profile is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
       </ul>
 
-      <p>The following is an example of a document that conforms to both Text Profile and [[!ST2052-1]]:</p>
+      <p>The following is an example of a document that conforms to both Text Profile and [[!SMPTE2052-1]]:</p>
       <pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'>
 </pre>
     </section>
@@ -4108,30 +4347,66 @@ y = topOffset * (1 - height/100)
   <section class='appendix'>
     <h2>Privacy and Security Considerations (non-normative)</h2>
 
-    <h3>TTML security</h3>
+    <section class='appendix'>
+      <h3>TTML security</h3>
 
-    <p>The security and privacy considerations of [[rfc3023]] and [[!TTML1]] apply, particularly in relation to document parsing.
-    XML Entities are excluded from the Reduced XML Infoset of TTML and are therefore not considered part of <a data-lt=
-    "Document Instance">Document Instances</a>; nevertheless implementations are encouraged to provide protection against recursive
-    entity expansion or prevent entity expansion altogether in processors.</p>
+      <p>The security and privacy considerations of [[rfc3023]] and [[!TTML2]] apply, particularly in relation to document parsing.
+      XML Entities are excluded from the Reduced XML Infoset of TTML and are therefore not considered part of <a data-lt=
+      "Document Instance">Document Instances</a>; nevertheless implementations are encouraged to provide protection against
+      recursive entity expansion or prevent entity expansion altogether in processors.</p>
+    </section>
 
-    <h3>Privacy of preference</h3>A user agent that selects, and causes to download or interpret a <a>Document Instance</a>, might
-    indicate to the origin server that the user has a need for captions or subtitles, and also the language preference of the user
-    for captions or subtitles. That is a small piece of information about the user. However, the offering of a <a>Document
-    Instance</a>, and the choice whether to retrieve and consume it, are characteristics of the application that makes the offer
-    (e.g. a web application based on [[HTML]]), rather than of the <a>Document Instance</a> itself.
+    <section class='appendix'>
+      <h3>Privacy of preference</h3>
 
-    <h3>Security and Privacy related to external images</h3>
+      <p>A user agent that selects, and causes to download or interpret a <a>Document Instance</a>, might indicate to the origin
+      server that the user has a need for captions or subtitles, and also the language preference of the user for captions or
+      subtitles. That is a small piece of information about the user. However, the offering of a <a>Document Instance</a>, and the
+      choice whether to retrieve and consume it, are characteristics of the application that makes the offer (e.g. a web
+      application based on [[HTML5]]), rather than of the <a>Document Instance</a> itself.</p>
+    </section>
 
-    <p>The <a>Image Profile</a> includes a mechanism for referencing external images. A user agent that downloads external images
-    during media playback indicates to the origin server of the images the progress of the user's media consumption. In many cases
-    such media progress information is available to the origin server of the media via other mechanisms, for example by scripting
-    or by monitoring streaming media requests.</p>
+    <section class='appendix'>
+      <h3>Security and Privacy related to external images</h3>
 
-    <p>User agents that do not enforce cross origin policies when downloading external images expose such media progress
-    information and potentially other user tracking information to other origins without the consent of the web site serving the
-    media and without the consent of the user. This specification defines no APIs and makes no statement on how implementations are
-    expected to obtain referenced images.</p>
+      <p>The <a>Image Profile</a> includes a mechanism for referencing external images. A user agent that downloads external images
+      during media playback indicates to the origin server of the images the progress of the user's media consumption. In many
+      cases such media progress information is available to the origin server of the media via other mechanisms, for example by
+      scripting or by monitoring streaming media requests.</p>
+
+      <p>User agents that do not enforce cross origin policies when downloading external images expose such media progress
+      information and potentially other user tracking information to other origins without the consent of the web site serving the
+      media and without the consent of the user. This specification defines no APIs and makes no statement on how implementations
+      are expected to obtain referenced images.</p>
+    </section>
+  </section>
+
+  <section class='appendix'>
+    <h2>Summary of substantive changes (non-normative)</h2>
+
+    <section class='appendix'>
+      <h3>Overview</h3>
+
+      <p>This appendix summarize changes made from [[!ttml-imsc1.0.1]].</p>
+    </section>
+
+    <section class='appendix'>
+      <h3>Changes</h3>
+
+      <section class='appendix'>
+        <h4>Reference to TTML2</h4>
+
+        <p>References to [[TTML1]] updated to [[TTML2]].</p>
+      </section>
+      
+      <section class='appendix'>
+        <h4>TTML #image Feature</h4>
+
+        <p>Added support for TTML #image feature.</p>
+        
+      </section>
+      
+    </section>
   </section>
 </body>
 </html>

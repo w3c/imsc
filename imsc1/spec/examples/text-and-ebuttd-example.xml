@@ -8,6 +8,7 @@
             <ebuttm:documentMetadata>
                 <ebuttm:conformsToStandard>urn:ebu:tt:distribution:2014-01</ebuttm:conformsToStandard>
                 <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1/text</ebuttm:conformsToStandard>
+                <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imscvNEXT/text</ebuttm:conformsToStandard>
             </ebuttm:documentMetadata>
         </metadata>
         <styling>

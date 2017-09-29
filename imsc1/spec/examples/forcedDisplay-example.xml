@@ -7,7 +7,8 @@
     xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
     xmlns:itts="http://www.w3.org/ns/ttml/profile/imsc1#styling"
     ittp:aspectRatio="16 9"
-    ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text">
+    ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text"
+    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imscvNEXT/text">
 
     <head>
         <layout>
