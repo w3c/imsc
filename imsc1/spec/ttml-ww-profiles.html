@@ -75,8 +75,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>This specification defines two profiles of [[!TTML2]]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
     consistent rendering and conversion to other subtitling and captioning formats.</p>
-    
-    <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with [[ttml-imsc1.0.1]] documents.</p>
+
+    <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with
+    [[ttml-imsc1.0.1]] documents.</p>
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
@@ -97,7 +98,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>This specification defines two profiles of [[!TTML2]]: a text-only profile and an image-only profile. These profiles are
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
-    
+
     <p>This specification maintains the scope of [[!ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
     contemporary practices for worldwide subtitling and captioning delivery.</p>
 
@@ -1594,7 +1595,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textOutline</code></td>
 
-          <td colspan="2">See individual disposition of <code>#textOutline-blurred</code> and <code>#textOutline-unblurred</code>.</td>
+          <td>See individual disposition of <code>#textOutline-blurred</code> and <code>#textOutline-unblurred</code>.</td>
+
+          <td>prohibited</td>
         </tr>
 
         <tr>
@@ -1859,6 +1862,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
       </tbody>
     </table>
+
+    <p class='note'>The <code>#linePadding</code> and <code>#multiRowAlign</code> features were erroneously not designated as
+    prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
   </section>
 
   <section id='common-constraints'>
@@ -2038,14 +2044,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>This specification</em></td>
           </tr>
-          
+
           <tr>
             <td>IMSC vNEXT Text Profile Designator</td>
 
             <td><em>none</em></td>
 
-            <td colspan='2'>See Section <a href='#text-profile-designator'></a></td>
-
+            <td colspan='2'>
+              See Section <a href='#text-profile-designator'></a>
+            </td>
           </tr>
 
           <tr>
@@ -2053,7 +2060,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>none</em></td>
 
-            <td colspan='2'>See Section <a href='#image-profile-designator'></a></td>
+            <td colspan='2'>
+              See Section <a href='#image-profile-designator'></a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -2785,8 +2794,8 @@ y = topOffset * (1 - height/100)
       <section>
         <h4><code>#zIndex</code> (non-normative)</h4>
 
-        <p>While permitted, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>, regions do not
-        overlap in a <a>Document Instance</a>.</p>
+        <p>While permitted, but deprecated, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>,
+        <a data-lt="presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
       </section>
     </section>
   </section>
@@ -3005,17 +3014,14 @@ y = topOffset * (1 - height/100)
       <section>
         <h4>Definition</h4>
 
-        <p>A <dfn>presented image</dfn> is a <code>div</code> element:
-        
+        <p>A <dfn>presented image</dfn> is a <code>div</code> element:</p>
+
         <ul>
-        
-        <li>with a <code>smpte:backgroundImage</code> attribute or a child <code>image</code> element; and</li>
-        
-        <li>that flows into a <a>presented region</a>.</li>
-        
+          <li>with a <code>smpte:backgroundImage</code> attribute or a child <code>image</code> element; and</li>
+
+          <li>that flows into a <a>presented region</a>.
+          </li>
         </ul>
-        
-        </p>
       </section>
 
       <section>
@@ -3037,7 +3043,7 @@ y = topOffset * (1 - height/100)
       <h3>Image Resources</h3>
 
       <p>An <dfn>image resource</dfn> is a PNG datastream as specified in [[!PNG]].</p>
-      
+
       <p>If a pHYs chunk is present, it SHALL indicate square pixels.</p>
 
       <p class='note'>[[PNG]] specifies that, if no pixel aspect ratio is carried, the default of square pixels is assumed.</p>
@@ -3066,7 +3072,8 @@ y = topOffset * (1 - height/100)
         <p>The <code>image</code> element SHALL only be used in a <a href=
         "https://www.w3.org/TR/ttml2/#terms-image-presentation-context">image presentation context</a>.</p>
 
-        <p>The <code>image</code> element SHALL be a child of a <code>div</code> element that does not have a <code>smpte:backgroundImage</code> attribute.</p>
+        <p>The <code>image</code> element SHALL be a child of a <code>div</code> element that does not have a
+        <code>smpte:backgroundImage</code> attribute.</p>
 
         <p>A <code>div</code> element SHALL have zero or one child <code>image</code> element.</p>
 
@@ -3114,8 +3121,8 @@ y = topOffset * (1 - height/100)
             </li>
           </ul>
 
-          <p class='note'>In order to individually position multiple <code>div</code> elements, each <code>div</code> can be associated
-          with a distinct <code>region</code> with the desired <code>tts:extent</code> and <code>tts:origin</code>.</p>
+          <p class='note'>In order to individually position multiple <code>div</code> elements, each <code>div</code> can be
+          associated with a distinct <code>region</code> with the desired <code>tts:extent</code> and <code>tts:origin</code>.</p>
 
           <p class='note'>The rendering semantics of <code>smpte:backgroundImage</code> are not identical to those of
           <code>background-image</code> specified at Section 7.8.3 of [[XSL11]]. In particular, Section 5.5.6 at [[!SMPTE2052-1]]
@@ -4207,9 +4214,10 @@ y = topOffset * (1 - height/100)
       it is possible to create a document that:</p>
 
       <ul>
-        <li>conforms to one of [[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms to Text Profile; or</li>
+        <li>conforms to one of [[ttml-imsc1]], [[ttml-imsc1.0.1]],[[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also
+        conforms to Text Profile; or</li>
 
-        <li>conforms to [[!SMPTE2052-1]], and also conforms to Image Profile.</li>
+        <li>conforms to [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[!SMPTE2052-1]], and also conforms to Image Profile.</li>
       </ul>
 
       <p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image
@@ -4327,6 +4335,16 @@ y = topOffset * (1 - height/100)
         <code>ttp:profile</code> attribute.</li>
       </ul>
     </section>
+
+    <section class='appendix' id='imsc-interop'>
+      <h3>IMSC1 and IMSC1.0.1</h3>
+
+      <p>The Text Profile is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Text Profile.</p>
+
+      <p>The Image Profile is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Image Profile.</p>
+
+      <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] therefore also conforms to this specification.</p>
+    </section>
   </section>
 
   <section class='appendix'>
@@ -4396,16 +4414,138 @@ y = topOffset * (1 - height/100)
       <section class='appendix'>
         <h4>Reference to TTML2</h4>
 
-        <p>References to [[TTML1]] updated to [[TTML2]].</p>
+        <p>Replaced normative references to [[TTML1]] with normative references to [[TTML2]].</p>
       </section>
-      
-      <section class='appendix'>
-        <h4>TTML #image Feature</h4>
 
-        <p>Added support for TTML #image feature.</p>
-        
+      <section class='appendix'>
+        <h4>Added Features</h4>
+
+        <p>Added support (partial or complete) for the following features.</p>
+
+        <table class='simple'>
+          <tbody>
+            <tr>
+              <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#contentProfiles</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#disparity</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#fontKerning</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#fontShear</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#initial</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#image</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#position</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#ruby</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#rubyAlign</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#rubyOverflow</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#rubyOverhang</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#rubyPosition</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#rubyReserve</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#textEmphasis</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#textOrientation</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#textCombine</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#textShadow</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#version</code></td>
+            </tr>
+          </tbody>
+        </table>
       </section>
-      
+
+      <section class='appendix'>
+        <h4>Deprecated selected Features</h4>
+
+        <p>Deprecated support (partial or complete) for the following features.</p>
+
+        <table class='simple'>
+          <tbody>
+            <tr>
+              <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#zIndex</code></td>
+            </tr>
+
+            <tr>
+              <td style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#image</code></td>
+            </tr>
+
+            <tr>
+              <td style="text-align:center"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#linePadding</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#multiRowAlign</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class='appendix'>
+        <h4>Revised Profile Signaling</h4>
+
+        <p>Section <a href="#profile-signaling"></a>, has been revised to include support for profiles specified herein.</p>
+      </section>
     </section>
   </section>
 </body>
