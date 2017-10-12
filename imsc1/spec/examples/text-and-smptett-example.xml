@@ -6,7 +6,7 @@
     ttp:profile="http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full"
     xmlns:tts="http://www.w3.org/ns/ttml#styling"
     ttp:frameRate="24"
-    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imscvNEXT/text">
+    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.1/text">
     <head>
         <layout>
             <region xml:id="area1" tts:origin="10% 70%" tts:extent="80% 20%" tts:showBackground="whenActive" tts:backgroundColor="red" tts:displayAlign="center" tts:color="white"/>

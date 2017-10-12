@@ -4,21 +4,21 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>TTML Profiles for Internet Media Subtitles and Captions vNEXT (IMSCvNEXT)</title>
+  <title>TTML Profiles for Internet Media Subtitles and Captions 1.1</title>
   <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async="" class='remove'>
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "ED"
+                    specStatus:   "FPWD"
                 ,   processVersion: "2017"
                 /*,   previousMaturity: "WD"*/
-                /*,   publishDate: "2017-07-13"*/
+                ,   publishDate: "2017-10-17"
                 /*,   crEnd: "2017-08-13"*/
                 /*,   errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
                 /*,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_0_1_Implementation_Report"*/
                 ,   sotdAfterWGinfo: "true"
                 /*,   previousPublishDate: "2017-03-22"*/
-                ,   shortName:    "ttml-imscvNext"
+                ,   shortName:    "ttml-imsc1.1"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
                           data: [{
@@ -35,7 +35,7 @@ var respecConfig = {
                   ,   wgPublicList: "public-tt"
                   ,   wgPatentURI: "https://www.w3.org/2004/01/pp-impl/34314/status"
                   ,   subjectPrefix: "[imsc]"
-                  ,   edDraftURI: "https://w3c.github.io/imsc/imscvNEXT/spec/ttml-ww-profiles.html"
+                  ,   edDraftURI: "https://rawgit.com/w3c/imsc/IMSC1.1/imsc1/spec/ttml-ww-profiles.html"
 
                   ,   localBiblio:  {
                                   "SUBM": "World Wide Web Consortium (W3C). <a href='https://www.w3.org/Submission/2013/SUBM-ttml-ww-profiles-20130607/'>TTML Text and Image Profiles for Internet Media Subtitles and Captions</a> (Member Submission, 07 June 2013)",
@@ -87,10 +87,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
-  <section id='sotd'>
-    <p>The version number of this specification (<em>vNEXT</em>) is a placeholder, and is likely to change prior to
-    publication.</p>
-  </section>
+  <section id='sotd'></section>
 
   <section id='scope'>
     <h2>Scope</h2>
@@ -2050,7 +2047,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC vNEXT Text Profile Designator</td>
+            <td>IMSC 1.1 Text Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -2060,7 +2057,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC vNEXT Image Profile Designator</td>
+            <td>IMSC 1.1 Image Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -2609,7 +2606,7 @@ y = topOffset * (1 - height/100)
 
         <p>Unless one of the mutually exclusive scenarios specified in the following Sections apply, the
         <code>ttp:contentProfiles</code> attribute SHALL be present on the <code>tt</code> element and include the designator of
-        the IMSCvNEXT profile to which the <a>Document Instance</a> conforms.</p>
+        the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a> conforms.</p>
 
         <p class="note">The <code>ttp:contentProfiles</code> can include additional designators, beyond the Text Profile or Image
         Profle designators.</p>
@@ -2622,7 +2619,8 @@ y = topOffset * (1 - height/100)
 
         <ul>
           <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
-          designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+          designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a>
+          conforms;
           </li>
 
           <li>the <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator
@@ -2648,7 +2646,8 @@ y = topOffset * (1 - height/100)
               <li>the designator of the [ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms;
               </li>
 
-              <li>the designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+              <li>the designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document
+              Instance</a> conforms;
               </li>
 
               <li>the URI <code>"urn:ebu:tt:distribution:2014-01"</code></li>
@@ -2668,7 +2667,8 @@ y = topOffset * (1 - height/100)
 
         <ul>
           <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
-          designator of the IMSCvNEXT profile to which the <a>Document Instance</a> conforms;
+          designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a>
+          conforms;
           </li>
 
           <li>the <code>ttp:profile</code> attribute is not present and the <code>ttp:profile</code> element is present, as
@@ -2823,9 +2823,9 @@ y = topOffset * (1 - height/100)
 
         <tbody>
           <tr>
-            <td><dfn>IMSC vNEXT Text</dfn></td>
+            <td><dfn>IMSC 1.1 Text</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imscvNEXT/text</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.1/text</code></td>
           </tr>
         </tbody>
       </table>
@@ -2997,9 +2997,9 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td><dfn>IMSC vNEXT Image</dfn></td>
+            <td><dfn>IMSC 1.1 Image</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imscvNEXT/image</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.1/image</code></td>
           </tr>
         </tbody>
       </table>

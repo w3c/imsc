@@ -9,7 +9,7 @@
     tts:extent="640px 480px"
     ttp:frameRate="25"
     ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/image"
-    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imscvNEXT/text">
+    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.1/text">
     
     <head>
         <layout>
