@@ -2748,7 +2748,7 @@ y = topOffset * (1 - height/100)
         <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
       </section>
 
-      <section>
+      <section id="frame-rate-constraints">
         <h4><code>#frameRate</code></h4>
 
         <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
@@ -2832,7 +2832,7 @@ y = topOffset * (1 - height/100)
 
       <p class='ednote'>The designator above is a placeholder.</p>
 
-      <p class='note'>As specified in <a href="#common-features"></a>, the presence of the <code>ttp:profile</code> attribute is
+      <p class='note'>As specified in <a href="#profile-signaling"></a>, the presence of the <code>ttp:profile</code> attribute is
       not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
       of a <a>Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for
       instance, use metadata structures out-of-band of the <a>Document Instance</a>.</p>
@@ -4331,8 +4331,8 @@ y = topOffset * (1 - height/100)
 
         <li>the [[CFF]] HRM does not specifies GCpy as a function of script;</li>
 
-        <li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at <a href=
-        '#common-features'></a>; and
+        <li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at Section <a href=
+        '#frame-rate-constraints'></a>; and
         </li>
 
         <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this specification recommends the use of the
