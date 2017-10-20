@@ -77,7 +77,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     consistent rendering and conversion to other subtitling and captioning formats.</p>
 
     <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with
-    [[ttml-imsc1.0.1]] documents. Relative to [[ttml-imsc1.0.1]], any addition or deprecation of features are summarised at
+    [[ttml-imsc1.0.1]] documents. Relative to [[ttml-imsc1.0.1]], any addition or deprecation of features are summarized at
     Appendix <a href="#substantive-changes-summary"></a>.</p>
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
@@ -97,28 +97,30 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
 
-    <p>This specification maintains the scope of [[!ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
+    <p>This specification maintains the scope of [[ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
     contemporary practices for worldwide subtitling and captioning delivery.</p>
-
-    <p>The text profile is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
-    [[ttml10-sdp-us]] and the text-only profile.</p>
-
-    <p>The specification defines extensions to [[!TTML2]], as well as incorporates extensions specified in [[!SMPTE2052-1]] and
-    [[!EBU-TT-D]].</p>
 
     <p>The specification is designed such that:</p>
 
     <ul>
-      <li>a valid Text Profile document as specified in [[!ttml-imsc1.0.1]] is a valid Text Profile document as specified
+      <li>a valid Text Profile document as specified in [[ttml-imsc1.0.1]] is a valid Text Profile document as specified
       herein;</li>
 
-      <li>a valid Image Profile document as specified in [[!ttml-imsc1.0.1]] is a valid Image Profile document as specified herein;
-      and</li>
+      <li>a valid Image Profile document as specified in [[ttml-imsc1.0.1]] is a valid Image Profile document as specified
+      herein;</li>
 
-      <li>a <a>processor</a> as specified herein transforms a Document Instance as specified in [[!ttml-imsc1.0.1]] as it would
-      have been transformed by an processor as specified in [[!ttml-imsc1.0.1]].
+      <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.0.1]] as it would have
+      been transformed by a processor defined in [[ttml-imsc1.0.1]]; and
       </li>
+
+      <li>extensions to [[TTML2]] that are specified in [[ttml-imsc1.0.1]] are mapped to [[TTML2]] features, and deprecated.</li>
     </ul>
+
+    <p class="ednote">The details of the mapping of [[ttml-imsc1.0.1]] extensions to [[TTML2]] remain under discussion -- see
+    <a href="https://github.com/w3c/ttml2/issues/429">Issue 429</a> for instance.</p>
+
+    <p>The text profile is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
+    [[ttml10-sdp-us]] and the text-only profile.</p>
   </section>
 
   <section id='conventions'>
