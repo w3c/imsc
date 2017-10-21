@@ -164,6 +164,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
+    <p><dfn>External Processing Context</dfn>. As defined in [[!TTML2]].</p>
+
     <p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
     <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML2]].</p>
@@ -318,23 +320,65 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section id="profile-resolution">
       <h3>Profile Resolution Semantics</h3>
 
-      <p>For the purpose of content processing, the determination of the resolved profile SHOULD take into account both the
-      signaled profile, as defined in <a href="#profile-signaling"></a>, and profile metadata, as designated by either (or both)
-      the <a>Document Interchange Context</a> or (and) the <a>Document Processing Context</a>, which MAY entail inspecting document
-      content.</p>
+      <section>
+        <h4>General</h4>
 
-      <p>If the resolved profile is not a profile supported by the <a>Processor</a> but is feasibly interoperable with the <a>Text
-      Profile</a>, then the resolved profile is the <a>Text Profile</a>; otherwise, if the resolved profile is not a profile
-      supported by the <a>Processor</a> but is feasibly interoperable with the <a>Image Profile</a>, then the resolved profile is
-      the <a>Image Profile</a>.</p>
+        <p>The Profile Semantics specified in [[!TTML2]] apply.</p>
 
-      <p>If the resolved profile is a profile supported by the <a>Processor</a>, then the <a>Processor</a> SHOULD process the
-      <a>Document Instance</a> according to the resolved profile. If the resolved profile is neither <a>Text Profile</a> nor
-      <a>Image Profile</a>, processing is outside the scope of this specification.</p>
+        <p>The following processor profiles are subsets of the <a>Text Profile</a> processor profile:</p>
 
-      <p>If the resolved profile is undetermined or not supported by the <a>Processor</a>, then the <a>Processor</a> SHOULD
-      nevertheless process the <a>Document Instance</a> using one of its supported profiles, with a preference for the <a>Text
-      Profile</a> over the <a>Image Profile</a>; otherwise, processing MAY be aborted.</p>
+        <ul>
+          <li>[[ttml10-sdp-us]]</li>
+
+          <li>[[EBU-TT-D]]</li>
+
+          <li>[[ttml-imsc1.0.1]] Text Profile</li>
+        </ul>
+
+        <p>The following processor profiles are subsets of the <a>Image Profile</a> processor profile:</p>
+
+        <ul>
+          <li>[[ttml-imsc1.0.1]] Image Profile</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Override</h4>
+
+        <p>If the profile of the <a>Document Instance</a> is specified by the <a>external processing context</a>, then the
+        <em>override content profile</em> is set to this profile.</p>
+
+        <aside class="example">
+          The use of <code>mimeType="application/mp4"</code> and <code>codecs="stpp.ttml.im1t"</code> in a [[MPEGDASH]] Manifest
+          signals a track that consists of [[ttml-imsc1.0.1]] Text Profile documents.
+        </aside>
+
+        <p>If the <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]], is present and includes at least
+        one of the following designators, then the <em>override content profile</em> SHALL be set to the profile associated with
+        that one designator:</p>
+
+        <ul>
+          <li>[[ttml-imsc1.0.1]] Text Profile Designator</li>
+
+          <li>[[ttml-imsc1.0.1]] Image Profile Designator</li>
+
+          <li>
+            <a>Image Profile</a> Designator
+          </li>
+
+          <li>
+            <a>Text Profile</a> Designator
+          </li>
+
+          <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[EBU-TT-D]]</li>
+        </ul>
+
+        <p class="ednote">The prose above assumes the existence of a <em>override content profile</em> that allows the external
+        processing context to specify an effective processor profile in the case such information is made available through
+        mechanisms other than those specified by [[!TTML2]], e.g. out of band of the <a>Document Instance</a> or using
+        <code>ebuttm:conformsToStandard</code>, as defined in [[EBU-TT-D]] -- see <a href=
+        "https://github.com/w3c/ttml2/issues/467">Issue #467</a>.</p>
+      </section>
     </section>
   </section>
 
@@ -1724,7 +1768,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#version</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2">prohibited</td>
         </tr>
 
         <tr>
@@ -1866,6 +1910,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p class='note'>The <code>#linePadding</code> and <code>#multiRowAlign</code> features were erroneously not designated as
     prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
+
+    <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
+    "https://github.com/w3c/ttml2/issues/435">issue #435</a>.</p>
   </section>
 
   <section id='common-constraints'>
@@ -2604,58 +2651,61 @@ y = topOffset * (1 - height/100)
       <section>
         <h4>General</h4>
 
-        <p>Unless one of the mutually exclusive scenarios specified in the following Sections apply, the
-        <code>ttp:contentProfiles</code> attribute SHALL be present on the <code>tt</code> element and include the designator of
-        the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a> conforms.</p>
+        <p>Unless one of the mutually exclusive scenarios specified in the following Sections apply:</p>
 
-        <p class="note">The <code>ttp:contentProfiles</code> can include additional designators, beyond the Text Profile or Image
-        Profle designators.</p>
+        <ul>
+          <li>the <code>ttp:contentProfiles</code> attribute SHALL be present on the <code>tt</code> element and include the
+          profile designator (either <a>Text Profile</a> or <a>Image Profile</a>), corresponding to the profile to which the
+          <a>Document Instance</a> conforms;
+          </li>
+
+          <li>the <code>ttp:contentProfiles</code> attribute SHALL NOT simultaneously signal conformance to both <a>Image
+          Profile</a> and <a>Text Profile</a>;
+          </li>
+
+          <li>the <code>ttp:profile</code> attribute SHALL NOT be present; and</li>
+
+          <li>the <code>ttp:profile</code> element SHALL NOT be present.</li>
+        </ul>
+
+        <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
+        herein.</p>
       </section>
 
       <section>
         <h4>IMSC1 Compatibility</h4>
 
-        <p>If the <a>Document Instance</a> conforms to one of the profiles specified in [[ttml-imsc1.0.1]]:</p>
+        <p>If the <a>Document Instance</a> conforms to one of the profiles specified in [[ttml-imsc1.0.1]], and compatibility with
+        [[ttml-imsc1.0.1]] processors is desired:</p>
 
         <ul>
-          <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
-          designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a>
-          conforms;
+          <li>the <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and SHALL be equal to the
+          designator of the [[ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms; and
           </li>
 
-          <li>the <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator
-          of the [[ttml-imsc1.0.1]] profiles to which the <a>Document Instance</a> conforms; and
-          </li>
+          <li>the <code>ttp:profile</code> element SHOULD NOT be present; and</li>
 
-          <li>the <code>ttp:profile</code> element SHOULD NOT be present.</li>
+          <li>the <code>ttp:contentProfiles</code> attribute SHALL NOT be present.</li>
         </ul>
+
+        <p class="note">If the <code>ttp:profile</code> is not set as recommended above, then conformance with the
+        [[ttml-imsc1.0.1]] profile is communicated using the <a>external processing context</a>.</p>
       </section>
 
       <section>
         <h4>EBU-TT-D Compatibility</h4>
 
-        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[EBU-TT-D]]:</p>
+        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[EBU-TT-D]], and compatibility with
+        [[EBU-TT-D]] processors is desired:</p>
 
         <ul>
-          <li>neither the <code>ttp:profile</code> attribute nor the <code>ttp:profile</code> element are present;</li>
+          <li>the <code>ttp:profile</code> attribute is not present;</li>
 
-          <li>the <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
-          "#ebu-tt-d-interop"></a> SHOULD include:
+          <li>the <code>ttp:contentProfiles</code> attribute is not present;</li>
 
-            <ul>
-              <li>the designator of the [ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms;
-              </li>
-
-              <li>the designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document
-              Instance</a> conforms;
-              </li>
-
-              <li>the URI <code>"urn:ebu:tt:distribution:2014-01"</code></li>
-            </ul>
-          </li>
-
-          <li>the <code>ttp:profile</code> and <code>ebuttm:conformsToStandard</code> elements SHALL NOT signal conformance to both
-          <a>Image Profile</a> and <a>Text Profile</a> in a given <a>Document Instance</a>.
+          <li>the <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]] and illustrated in <a href=
+          "#ebu-tt-d-interop"></a>, SHOULD include a single [[ttml-imsc1.0.1]] profile designator corresponding to the profile to
+          which the <a>Document Instance</a> conforms;
           </li>
         </ul>
       </section>
@@ -2663,16 +2713,15 @@ y = topOffset * (1 - height/100)
       <section>
         <h4>SDP-US Compatibility</h4>
 
-        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[ttml10-sdp-us]]:</p>
+        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[ttml10-sdp-us]], and compatibility with
+        [[ttml10-sdp-us]] processors is desired:</p>
 
         <ul>
-          <li>the <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element and include the
-          designator of the profile (either the <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document Instance</a>
-          conforms;
-          </li>
+          <li>the <code>ttp:profile</code> attribute is not present;</li>
 
-          <li>the <code>ttp:profile</code> attribute is not present and the <code>ttp:profile</code> element is present, as
-          illustrated in <a href="#sdp-us-interop"></a>.
+          <li>the <code>ttp:contentProfiles</code> attribute is not present;</li>
+
+          <li>the <code>ttp:profile</code> element is present, as illustrated in <a href="#sdp-us-interop"></a>.
           </li>
         </ul>
       </section>
@@ -2829,11 +2878,6 @@ y = topOffset * (1 - height/100)
           </tr>
         </tbody>
       </table>
-
-      <p class='note'>As specified in <a href="#profile-signaling"></a>, the presence of the <code>ttp:profile</code> attribute is
-      not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
-      of a <a>Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for
-      instance, use metadata structures out-of-band of the <a>Document Instance</a>.</p>
     </section>
 
     <section id='recommended-char-sets'>
@@ -3001,11 +3045,6 @@ y = topOffset * (1 - height/100)
           </tr>
         </tbody>
       </table>
-
-      <p class='note'>As specified in <a href="#profile-signaling"></a>, the presence of the <code>ttp:profile</code> attribute is
-      not required by this profile. The profile designator specified above is intended to be generally used to signal conformance
-      of a <a>Document Instance</a> to the profile. The details of such signaling depends on the application, and can, for
-      instance, use metadata structures out-of-band of the <a>Document Instance</a>.</p>
     </section>
 
     <section>
@@ -4415,6 +4454,25 @@ y = topOffset * (1 - height/100)
         <h4>Reference to TTML2</h4>
 
         <p>Replaced normative references to [[TTML1]] with normative references to [[TTML2]].</p>
+      </section>
+
+      <section class='appendix'>
+        <h4>Profile resolution semantics</h4>
+
+        <p>Section <a href="#profile-resolution"></a> is now based on [[TTML2]] Profile Semantics.</p>
+      </section>
+
+      <section class='appendix'>
+        <h4>Profile signaling</h4>
+
+        <p>Section <a href="#profile-signaling"></a> adds support for signaling of profiles specified hereing.</p>
+      </section>
+
+      <section class='appendix'>
+        <h4>Profile designators</h4>
+
+        <p>Profile designators introduced for each of the profiles specified herein. See Sections <a href=
+        "#text-profile-designator"></a> and <a href="#image-profile-designator"></a>.</p>
       </section>
 
       <section class='appendix'>
