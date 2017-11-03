@@ -1,6 +1,4 @@
 ttml-ww-profiles.html respec
-diff.html
-substantive-changes-summary.txt
 xml-schemas/index.html
 xml-schemas/imsc1.xsd
 xml-schemas/imsc1-all.xsd
