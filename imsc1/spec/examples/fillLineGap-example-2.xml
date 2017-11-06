@@ -10,8 +10,10 @@
   <head>
     <styling>
       <style xml:id="spanStyle" tts:color="#ffffff" tts:backgroundColor="#000000" />
-      <style xml:id="paragraphStyleNoGap" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%" tts:lineHeight="165%"  itts:fillLineGap="true"/>
-      <style xml:id="paragraphStyle" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%" tts:lineHeight="165%"  itts:fillLineGap="false"/>
+      <style xml:id="paragraphStyleNoGap" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%"
+          tts:lineHeight="165%" itts:fillLineGap="true"/>
+      <style xml:id="paragraphStyle" tts:fontFamily="monospaceSerif" tts:textAlign="center" tts:fontSize="200%"
+          tts:lineHeight="165%" itts:fillLineGap="false"/>
 
     </styling>
     <layout>
