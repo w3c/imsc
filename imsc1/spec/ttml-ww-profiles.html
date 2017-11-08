@@ -164,15 +164,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Extension</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>External Processing Context</dfn>. As defined in [[!TTML2]].</p>
-
     <p><dfn>Feature</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
     <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!TTML2]].</p>
 
     <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
-    <p><dfn>Document Processing Context</dfn>. See Section 2.2 at [[!TTML2]].</p>
+    <p><dfn>Document Processing Context</dfn>. As defined in [[!TTML2]].</p>
+
+    <p><dfn>Effective Processor Profile</dfn>. As defined in [[!TTML2]].</p>
 
     <p><dfn>Image Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Image
     Profile</a>.</p>
@@ -182,11 +182,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!TTML2]].</p>
 
+    <p><dfn>Override Content Profile</dfn>. As defined in [[!TTML2]].</p>
+
     <p><dfn>Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation processor</a>.</p>
 
     <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
     <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!TTML2]].</p>
+
+    <p><dfn data-lt="processor profile|processor profiles">Processor Profile</dfn>. As defined in [[!TTML2]].</p>
 
     <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!TTML2]].</p>
 
@@ -325,7 +329,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <p>The Profile Semantics specified in [[!TTML2]] apply.</p>
 
-        <p>The following processor profiles are subsets of the <a>Text Profile</a> processor profile:</p>
+        <p>The <a>Text Profile</a> <a>processor profile</a> includes all of the features required by each of the following
+        <a>processor profiles</a>:</p>
 
         <ul>
           <li>[[ttml10-sdp-us]]</li>
@@ -335,7 +340,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li>[[ttml-imsc1.0.1]] Text Profile</li>
         </ul>
 
-        <p>The following processor profiles are subsets of the <a>Image Profile</a> processor profile:</p>
+        <p>The <a>Image Profile</a> <a>processor profile</a> includes all of the features required by each of the following
+        <a>processor profiles</a>:</p>
 
         <ul>
           <li>[[ttml-imsc1.0.1]] Image Profile</li>
@@ -345,17 +351,19 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <section>
         <h4>Override</h4>
 
-        <p>If the profile of the <a>Document Instance</a> is specified by the <a>external processing context</a>, then the
-        <em>override content profile</em> is set to this profile.</p>
+        <p>If the profile of the <a>Document Instance</a> is specified by the <a>document processing context</a>, then the
+        <a>override content profile</a> is set to that profile.</p>
 
         <aside class="example">
-          The use of <code>mimeType="application/mp4"</code> and <code>codecs="stpp.ttml.im1t"</code> in a [[MPEGDASH]] Manifest
-          signals a track that consists of [[ttml-imsc1.0.1]] Text Profile documents.
+          The use of the <code>mimeType="application/mp4"</code> and <code>codecs="stpp.ttml.im1t"</code> attributes in a
+          [[MPEGDASH]] Manifest signals a track that consists of [[ttml-imsc1.0.1]] Text Profile documents. In this case the
+          Manifest is part of the <a>document processing context</a>, and the <a>override content profile</a> is extracted from the
+          <code>codecs</code> attribute using the [[ttml-profile-registry]].
         </aside>
 
         <p>If the <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]], is present and includes at least
-        one of the following designators, then the <em>override content profile</em> SHALL be set to the profile associated with
-        that one designator:</p>
+        one of the following designators, then the <a>override content profile</a> SHALL be set to the profile associated with
+        any of the matching designators:</p>
 
         <ul>
           <li>[[ttml-imsc1.0.1]] Text Profile Designator</li>
@@ -373,11 +381,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[EBU-TT-D]]</li>
         </ul>
 
-        <p class="ednote">The prose above assumes the existence of a <em>override content profile</em> that allows the external
-        processing context to specify an effective processor profile in the case such information is made available through
+        <p class="ednote">The prose above assumes the existence of a <a>override content profile</a> that allows the external
+        processing context to specify an <a>effective processor profile</a> in the case such information is made available through
         mechanisms other than those specified by [[!TTML2]], e.g. out of band of the <a>Document Instance</a> or using
         <code>ebuttm:conformsToStandard</code>, as defined in [[EBU-TT-D]] -- see <a href=
-        "https://github.com/w3c/ttml2/issues/467">Issue #467</a>.</p>
+        "https://github.com/w3c/ttml2/issues/467">TTML2 issue #467</a>.</p>
       </section>
     </section>
   </section>
@@ -1912,7 +1920,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
 
     <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
-    "https://github.com/w3c/ttml2/issues/435">issue #435</a>.</p>
+    "https://github.com/w3c/ttml2/issues/435">TTML2 issue #435</a>.</p>
   </section>
 
   <section id='common-constraints'>
@@ -2688,8 +2696,8 @@ y = topOffset * (1 - height/100)
           <li>the <code>ttp:contentProfiles</code> attribute SHALL NOT be present.</li>
         </ul>
 
-        <p class="note">If the <code>ttp:profile</code> is not set as recommended above, then conformance with the
-        [[ttml-imsc1.0.1]] profile is communicated using the <a>external processing context</a>.</p>
+        <p class="note">If the <code>ttp:profile</code> attribute is not set as recommended above, the [[ttml-imsc1.0.1]] profile
+        to which the <a>Document Instance</a> conforms is communicated through means outside the scope of this specification, e.g. through the <a>document processing context</a>.</p>
       </section>
 
       <section>
@@ -4465,7 +4473,7 @@ y = topOffset * (1 - height/100)
       <section class='appendix'>
         <h4>Profile signaling</h4>
 
-        <p>Section <a href="#profile-signaling"></a> adds support for signaling of profiles specified hereing.</p>
+        <p>Section <a href="#profile-signaling"></a> adds support for signaling of the profiles specified herein.</p>
       </section>
 
       <section class='appendix'>
