@@ -358,7 +358,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           The use of the <code>mimeType="application/mp4"</code> and <code>codecs="stpp.ttml.im1t"</code> attributes in a
           [[MPEGDASH]] Manifest signals a track that consists of [[ttml-imsc1.0.1]] Text Profile documents. In this case the
           Manifest is part of the <a>document processing context</a>, and the <a>override content profile</a> is extracted from the
-          <code>codecs</code> attribute using the [[ttml-profile-registry]].
+          <code>codecs</code> attribute and dereferenced via the [[ttml-profile-registry]].
         </aside>
 
         <p>If the <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]], is present and includes at least
@@ -2696,7 +2696,7 @@ y = topOffset * (1 - height/100)
           <li>the <code>ttp:contentProfiles</code> attribute SHALL NOT be present.</li>
         </ul>
 
-        <p class="note">If the <code>ttp:profile</code> attribute is not set as recommended above, the [[ttml-imsc1.0.1]] profile
+        <p class="note">If the <code>ttp:profile</code> attribute is not set as recommended above, the [[ttml-imsc1.0.1]] content profile
         to which the <a>Document Instance</a> conforms is communicated through means outside the scope of this specification, e.g. through the <a>document processing context</a>.</p>
       </section>
 
