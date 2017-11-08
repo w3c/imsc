@@ -351,19 +351,19 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <section>
         <h4>Override</h4>
 
-        <p>If the profile of the <a>Document Instance</a> is specified by the <a>document processing context</a>, then the
-        <a>override content profile</a> is set to that profile.</p>
+        <p>If the profile of the <a>Document Instance</a> is specified by the <a>document processing context</a> or the <a>document
+        interchange context</a>, then the <a>override content profile</a> is set to that profile.</p>
 
         <aside class="example">
           The use of the <code>mimeType="application/mp4"</code> and <code>codecs="stpp.ttml.im1t"</code> attributes in a
           [[MPEGDASH]] Manifest signals a track that consists of [[ttml-imsc1.0.1]] Text Profile documents. In this case the
-          Manifest is part of the <a>document processing context</a>, and the <a>override content profile</a> is extracted from the
-          <code>codecs</code> attribute and dereferenced via the [[ttml-profile-registry]].
+          Manifest is part of the <a>document interchange context</a>, and the <a>override content profile</a> is extracted from
+          the <code>codecs</code> attribute and dereferenced via the [[ttml-profile-registry]].
         </aside>
 
         <p>If the <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]], is present and includes at least
-        one of the following designators, then the <a>override content profile</a> SHALL be set to the profile associated with
-        any of the matching designators:</p>
+        one of the following designators, then the <a>override content profile</a> SHALL be set to the profile associated with any
+        of the matching designators:</p>
 
         <ul>
           <li>[[ttml-imsc1.0.1]] Text Profile Designator</li>
@@ -381,10 +381,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[EBU-TT-D]]</li>
         </ul>
 
-        <p class="ednote">The prose above assumes the existence of a <a>override content profile</a> that allows the external
-        processing context to specify an <a>effective processor profile</a> in the case such information is made available through
-        mechanisms other than those specified by [[!TTML2]], e.g. out of band of the <a>Document Instance</a> or using
-        <code>ebuttm:conformsToStandard</code>, as defined in [[EBU-TT-D]] -- see <a href=
+        <p class="ednote">The prose above assumes the existence of a <a>override content profile</a> that allows the <a>document
+        processing context</a> or the <a>document interchange context</a> to specify an <a>effective processor profile</a> in the
+        case such information is made available through mechanisms other than those specified by [[!TTML2]], e.g. out of band of
+        the <a>Document Instance</a> or using <code>ebuttm:conformsToStandard</code>, as defined in [[EBU-TT-D]] -- see <a href=
         "https://github.com/w3c/ttml2/issues/467">TTML2 issue #467</a>.</p>
       </section>
     </section>
@@ -2696,8 +2696,9 @@ y = topOffset * (1 - height/100)
           <li>the <code>ttp:contentProfiles</code> attribute SHALL NOT be present.</li>
         </ul>
 
-        <p class="note">If the <code>ttp:profile</code> attribute is not set as recommended above, the [[ttml-imsc1.0.1]] content profile
-        to which the <a>Document Instance</a> conforms is communicated through means outside the scope of this specification, e.g. through the <a>document processing context</a>.</p>
+        <p class="note">If the <code>ttp:profile</code> attribute is not set as recommended above, the [[ttml-imsc1.0.1]] content
+        profile to which the <a>Document Instance</a> conforms is communicated through means outside the scope of this
+        specification, e.g. through the <a>document interchange context</a>.</p>
       </section>
 
       <section>
@@ -4351,7 +4352,8 @@ y = topOffset * (1 - height/100)
 
         <li>when the designator <code>"http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full"</code> is used as a
         value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!SMPTE2052-1]]), Text Profile or Image
-        Profile is signaled by the Document Interchange Context and/or the Document Processing Context.</li>
+        Profile is signaled by the <a>Document Interchange Context</a> and/or the <a>Document Processing Context</a>.
+        </li>
       </ul>
 
       <p>The following is an example of a document that conforms to both Text Profile and [[!SMPTE2052-1]]:</p>
