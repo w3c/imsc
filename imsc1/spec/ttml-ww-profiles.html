@@ -995,6 +995,10 @@ y = topOffset * (1 - height/100)
         <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area
         (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
 
+        <p class='note'>The application of <code>itts:fillLineGap="true"</code> does not result in hiding any character glyphs that
+        would be visible without such application. Therefore after such application all parts of all character glyphs with a
+        background color behind them continue to have that background color applied.</p>
+
         <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
 
         <table class="simple">
