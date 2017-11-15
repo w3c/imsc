@@ -1833,7 +1833,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#writingMode-horizontal</code></td>
 
-          <td colspan="2">permitted</td>
+          <td>permitted</td>
+
+          <td>See individual disposition of <code>#writingMode-horizontal-lr</code> and
+          <code>#writingMode-horizontal-rl</code>.</td>
         </tr>
 
         <tr>
@@ -1845,7 +1848,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#writingMode-horizontal-rl</code></td>
 
-          <td colspan="2">permitted</td>
+          <td>permitted</td>
+
+          <td>permitted-deprecated</td>
         </tr>
 
         <tr>
@@ -1914,8 +1919,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       </tbody>
     </table>
 
-    <p class='note'>The <code>#linePadding</code> and <code>#multiRowAlign</code> features were erroneously not designated as
-    prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
+    <p class='note'>The <code>#linePadding</code>, <code>#multiRowAlign</code> and <code>#writingMode-horizontal-rl</code> features
+    were erroneously not designated as prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
 
     <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
     "https://github.com/w3c/ttml2/issues/435">TTML2 issue #435</a>.</p>
@@ -4610,6 +4615,13 @@ y = topOffset * (1 - height/100)
           <tbody>
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+
+            <tr>
+              <td>
+                <code>#writingMode-horizontal-rl</code><br>
+                (deprecated in <a>Image Profile</a> only)
+              </td>
             </tr>
 
             <tr>
