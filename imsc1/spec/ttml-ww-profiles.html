@@ -1914,16 +1914,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#progressivelyDecodable</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2">permitted-deprecated</td>
         </tr>
       </tbody>
     </table>
 
-    <p class='note'>The <code>#linePadding</code>, <code>#multiRowAlign</code> and <code>#writingMode-horizontal-rl</code> features
-    were erroneously not designated as prohibited in the [[ttml-imsc1.0.1]] Image Profile.</p>
-
     <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
     "https://github.com/w3c/ttml2/issues/435">TTML2 issue #435</a>.</p>
+
   </section>
 
   <section id='common-constraints'>
@@ -2869,11 +2867,11 @@ y = topOffset * (1 - height/100)
         SHOULD be specified on the content element or at least one of its ancestors.</p>
       </section>
 
-      <section>
+      <section id="zindex-constraints">
         <h4><code>#zIndex</code> (non-normative)</h4>
 
-        <p>While permitted, but deprecated, this feature has no effect since, as specified at <a href='#region-dim-pos'></a>,
-        <a data-lt="presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
+        <p>This feature has no effect since, as specified at <a href='#region-dim-pos'></a>, <a data-lt=
+        "presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
       </section>
     </section>
   </section>
@@ -4550,15 +4548,15 @@ y = topOffset * (1 - height/100)
             <tr>
               <td><code>#ruby</code></td>
             </tr>
-            
+
             <tr>
               <td><code>#ruby-full</code></td>
             </tr>
-            
+
             <tr>
               <td><code>#ruby-non-nested</code></td>
             </tr>
-            
+
             <tr>
               <td><code>#ruby-non-nested-full</code></td>
             </tr>
@@ -4613,8 +4611,12 @@ y = topOffset * (1 - height/100)
 
         <table class='simple'>
           <tbody>
+          <tr>
+          <th>Feature or extension</th>
+          <th>Notes</th>
+          </tr>
             <tr>
-              <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+              <td colspan="2" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
 
             <tr>
@@ -4626,32 +4628,46 @@ y = topOffset * (1 - height/100)
 
             <tr>
               <td><code>#zIndex</code></td>
+
+              <td>
+                This feature as no effect as described in <a href="#zindex-constraints"></a>.
+              </td>
             </tr>
 
             <tr>
-              <td style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
+              <td colspan="2" style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
             </tr>
 
             <tr>
               <td><code>#image</code></td>
+
+              <td></td>
             </tr>
 
             <tr>
-              <td style="text-align:center"><em>Relative to the <a>IMSC 1.0 Extension</a> namespace</em></td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>#linePadding</code><br>
-                (deprecated in <a>Image Profile</a> only)
-              </td>
+              <td colspan="2" style="text-align:center"><em>Relative to the <a>IMSC 1.0 Extension</a> namespace</em></td>
             </tr>
 
             <tr>
               <td>
-                <code>#multiRowAlign</code><br>
-                (deprecated in <a>Image Profile</a> only)
+                <code>#linePadding</code>
               </td>
+
+              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <code>#multiRowAlign</code>
+              </td>
+
+              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+            </tr>
+
+            <tr>
+              <td><code>#progressivelyDecodable</code><br></td>
+
+              <td>This feature has not found practical uses. See Annex R at [[!TTML2]] for guidelines for streaming TTML content.</td>
             </tr>
           </tbody>
         </table>
