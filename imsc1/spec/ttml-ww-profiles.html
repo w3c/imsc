@@ -67,6 +67,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   .equation {text-indent: 10%;}
   .example {font-size: small}
   .inline-note {font-size: small}
+  .deprecation {background-color: yellow; color:red; border: 2px solid darkred;}
   </style>
 </head>
 
@@ -304,9 +305,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       assistive technologies have access to its corresponding text form. The method by which this association is made is left to
       each application.</p>
 
-      <p class='note'>The <code>ittm:altText</code> element specified <a href='#ittm-altText'></a> also allows text equivalent
-      string to be associated with an image, e.g. to support indexation of the content and also facilitate quality checking of the
-      document during authoring.</p>
+      <p class='note'>The <code>altText</code> named metadata item element also allows text equivalent string to be associated with
+      an image, e.g. to support indexation of the content and also facilitate quality checking of the document during
+      authoring.</p>
 
       <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG20]]
       guidelines.</p>
@@ -1921,7 +1922,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
     "https://github.com/w3c/ttml2/issues/435">TTML2 issue #435</a>.</p>
-
   </section>
 
   <section id='common-constraints'>
@@ -2474,6 +2474,9 @@ ittp:progressivelyDecodable
       <section id='ittm-altText'>
         <h4>ittm:altText</h4>
 
+        <p class="deprecation">The <code>ittm:altText</code> element is intended to be removed from future revisions of this
+        specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
         <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, typically an image. This
         text equivalent MAY be used to support indexing of the content and also facilitate quality checking of the document during
         authoring.</p>
@@ -2798,6 +2801,23 @@ y = topOffset * (1 - height/100)
           <p>The number of <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a>
           SHALL NOT be greater than 4.</p>
         </section>
+      </section>
+
+      <section id="altText">
+        <h4><code>altText</code> named metadata item element</h4>
+
+        <p>A <code>altText</code> named metadata item element SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>ittm:altText</code> element is also present.</p>
+      </section>
+
+      <section id="itm-altText">
+        <h4><code>#altText</code></h4>
+
+        <p>The <code>ittm:altText</code> element SHOULD NOT be present unless compatibility with [[ttml-imsc1.0.1]] processors is
+        desired.</p>
+
+        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
+        metadata item element is also present.</p>
       </section>
 
       <section>
@@ -3140,8 +3160,8 @@ y = topOffset * (1 - height/100)
         <p>A <code>div</code> element SHALL have zero or one child <code>image</code> element.</p>
 
         <p>A <code>div</code> element that contains a child <code>image</code> element SHOULD contain a <code>metadata</code>
-        element containing an <code>ittm:altText</code> element that is a <a>Text Alternative</a> of the image resource referenced
-        by the <code>image</code> element.</p>
+        element containing an <code>altText</code> named metadata item element that is a <a>Text Alternative</a> of the image
+        resource referenced by the <code>image</code> element.</p>
 
         <p>An <code>image</code> element SHALL specify a <code>src</code> attribute, which references an image resource that
         conforms to <a href='#image-resource'></a>.</p>
@@ -4189,6 +4209,9 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>#altText</h3>
 
+      <p class="deprecation">This feature is intended to be removed from future revisions of this specification. The
+      <code>altText</code> named metadata item element provides equivalent semantics.</p>
+
       <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
       transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
 
@@ -4611,10 +4634,12 @@ y = topOffset * (1 - height/100)
 
         <table class='simple'>
           <tbody>
-          <tr>
-          <th>Feature or extension</th>
-          <th>Notes</th>
-          </tr>
+            <tr>
+              <th>Feature or extension</th>
+
+              <th>Notes</th>
+            </tr>
+
             <tr>
               <td colspan="2" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
@@ -4649,25 +4674,34 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td>
-                <code>#linePadding</code>
-              </td>
+              <td><code>#altText</code><br></td>
 
-              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+              <td>This feature is replaced by the <code>altText</code> named metadata item element.</td>
             </tr>
 
             <tr>
-              <td>
-                <code>#multiRowAlign</code>
-              </td>
+              <td><code>#linePadding</code></td>
 
-              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+              <td>
+                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
+                [[ttml-imsc1.0.1]] Image Profile.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code>#multiRowAlign</code></td>
+
+              <td>
+                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
+                [[ttml-imsc1.0.1]] Image Profile.
+              </td>
             </tr>
 
             <tr>
               <td><code>#progressivelyDecodable</code><br></td>
 
-              <td>This feature has not found practical uses. See Annex R at [[!TTML2]] for guidelines for streaming TTML content.</td>
+              <td>This feature has not found practical uses. See Annex R at [[!TTML2]] for guidelines for streaming TTML
+              content.</td>
             </tr>
           </tbody>
         </table>
