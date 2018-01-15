@@ -480,12 +480,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#background-color</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#background-image</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -1921,7 +1915,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p class="ednote">The disposition of <code>#version</code> may change upon clarification of its semantics -- see <a href=
     "https://github.com/w3c/ttml2/issues/435">TTML2 issue #435</a>.</p>
-
   </section>
 
   <section id='common-constraints'>
@@ -4611,10 +4604,12 @@ y = topOffset * (1 - height/100)
 
         <table class='simple'>
           <tbody>
-          <tr>
-          <th>Feature or extension</th>
-          <th>Notes</th>
-          </tr>
+            <tr>
+              <th>Feature or extension</th>
+
+              <th>Notes</th>
+            </tr>
+
             <tr>
               <td colspan="2" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
@@ -4649,25 +4644,28 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td>
-                <code>#linePadding</code>
-              </td>
+              <td><code>#linePadding</code></td>
 
-              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+              <td>
+                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
+                [[ttml-imsc1.0.1]] Image Profile.
+              </td>
             </tr>
 
             <tr>
-              <td>
-                <code>#multiRowAlign</code>
-              </td>
+              <td><code>#multiRowAlign</code></td>
 
-              <td>Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the [[ttml-imsc1.0.1]] Image Profile.</td>
+              <td>
+                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
+                [[ttml-imsc1.0.1]] Image Profile.
+              </td>
             </tr>
 
             <tr>
               <td><code>#progressivelyDecodable</code><br></td>
 
-              <td>This feature has not found practical uses. See Annex R at [[!TTML2]] for guidelines for streaming TTML content.</td>
+              <td>This feature has not found practical uses. See Annex R at [[!TTML2]] for guidelines for streaming TTML
+              content.</td>
             </tr>
           </tbody>
         </table>
