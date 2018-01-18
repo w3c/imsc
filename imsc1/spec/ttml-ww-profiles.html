@@ -2230,6 +2230,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <li>The system described in (b) instead elects to map the root container to the video frame, maintaining relative
           positioning between caption/subtitles and video elements but at the risk of clipping subtitles/captions.</li>
+
+          <li>Subtitle/captions are authored using <code>ttp:displayAspectRatio="16 9"</code> to match the 16:9 video, but
+          <code>ittp:activeArea</code> indicates that the <a>Active Area</a> is smaller than the root container. The system, which
+          uses a 4:3 display, elects to scale the video and the root container to fill the display such that all of the
+          subtitle/caption content within the <a>Active Area</a> is visible, with positional alignment maintained, at the cost of
+          clipping some of the video.
+          </li>
         </ul>
       </div>
     </section>
@@ -2240,8 +2247,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <section id='ittp-aspectRatio'>
         <h4>ittp:aspectRatio</h4>
 
-        <p class="deprecation">The <code>ittp:aspectRatio</code> attribute is intended to be removed from future revisions of this
-        specification. The <code>ttp:displayAspectRatio</code> attribute provides equivalent semantics.</p>
+        <p class="deprecation">The <code>#aspectRatio</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+        defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
 
         <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the root container of a
         <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
@@ -2272,8 +2279,8 @@ numerator | denominator
         element.</p>
 
         <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
-        ratio of the root container. If not specified, then the display aspect ratio of the root container region is determined
-        according to Appendix H of [[!TTML2]].</p>
+        ratio of the root container. If not specified, then the display aspect ratio of the root container is determined according
+        to Appendix H of [[!TTML2]].</p>
       </section>
 
       <section id='ittp-progressivelyDecodable'>
@@ -4176,8 +4183,8 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>#aspectRatio</h3>
 
-      <p class="deprecation">The <code>#aspectRatio</code> feature is intended to be removed from future revisions of this
-      specification. The <code>#displayAspectRatio</code> feature specified in [[TTML2]] provides equivalent semantics.</p>
+      <p class="deprecation">The <code>#aspectRatio</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+      defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
 
       <p>A <a>transformation processor</a> supports the <code>#aspectRatio</code> feature if it recognizes and is capable of
       transforming values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a>.</p>
