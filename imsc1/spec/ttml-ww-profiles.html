@@ -1119,11 +1119,18 @@ y = topOffset * (1 - height/100)
       unless:</p>
 
       <ul>
-        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
-        attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC 1.0 profile to which
-        the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in
-        an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
-        "#ebu-tt-d-interop"></a>; or
+        <li>
+          <p>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
+          attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC 1.0 profile to
+          which the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be
+          carried in an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
+          "#ebu-tt-d-interop"></a>; or</p>
+
+          <div class='note'>
+            <p>Additional <code>ebuttm:conformsToStandard</code> elements can be present beyond the two recommended above,
+            indicating simultaneous conformance to profiles defined in other specifications, including future versions of this
+            specification.</p>
+          </div>
         </li>
 
         <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
