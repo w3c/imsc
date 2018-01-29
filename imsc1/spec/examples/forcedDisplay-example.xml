@@ -4,12 +4,10 @@
     xmlns:ttm="http://www.w3.org/ns/ttml#metadata" 
     xmlns:tts="http://www.w3.org/ns/ttml#styling"
     xmlns:ttp="http://www.w3.org/ns/ttml#parameter" 
-    xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
     xmlns:itts="http://www.w3.org/ns/ttml/profile/imsc1#styling"
     ttp:displayAspectRatio="16 9"
-    ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text"
     ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.1/text">
-
+    
     <head>
         <layout>
             <region xml:id="r1" tts:showBackground="whenActive" tts:origin="10% 2%" tts:extent="80% 10%" tts:color="white" itts:forcedDisplay="true" tts:backgroundColor="black"/>
