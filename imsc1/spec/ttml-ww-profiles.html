@@ -1904,19 +1904,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
 
       <div class="note">
-        <a data-lt="Document Instance">Document Instances</a> remain subject to the content specification for the <code>tt</code>
-        root document element and its descendants, as specified in [[!TTML2]]. In particular, the [[!TTML2]] content specification
-        specifies that elements and attributes not in any TT namespace, i.e. in foreign namespaces, are permitted as follows:
-
-        <ul>
-          <li>the <code>metadata</code> element is the only element whose child elements can belong to foreign namespaces, and the
-          <code>metadata</code> element is permitted on all elements defined by [[!TTML2]] with the exception of the following:
-          <code>ttp:feature</code>, <code>ttp:extension</code>, <code>tt</code>, <code>style</code>, <code>ttm:title</code>,
-          <code>ttm:desc</code>, <code>ttm:copyright</code>, <code>ttm:agent</code>, <code>ttm:name</code>, and
-          <code>ttm:actor</code>; and</li>
-
-          <li>foreign namespace attributes are permitted on all elements defined by [[!TTML2]].</li>
-        </ul>
+        <p><a data-lt="Document Instance">Document Instances</a> remain subject to the content conformance requirements specified
+        at Section 3.1 of [[!TTML2]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in any TT
+        namespace, i.e. in foreign namespaces, since such elements and attributes are pruned by the algorithm at Section 4 of
+        [[!TTML2]] prior to evaluating content conformance.</p>
       </div>
 
       <div class="note">
@@ -2539,7 +2530,7 @@ y = topOffset * (1 - height/100)
           <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
           root container in any dimension.</p>
         </div>
-        
+
         <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
         element.</p>
 
