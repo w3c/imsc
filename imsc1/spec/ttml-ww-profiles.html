@@ -4447,38 +4447,13 @@ y = topOffset * (1 - height/100)
   <section class='appendix'>
     <h2>Privacy and Security Considerations (non-normative)</h2>
 
-    <section class='appendix'>
-      <h3>TTML security</h3>
+    <p>With the exception of the following, the security and privacy considerations of [[!TTML2]] apply:</p>
 
-      <p>The security and privacy considerations of [[rfc3023]] and [[!TTML2]] apply, particularly in relation to document parsing.
-      XML Entities are excluded from the Reduced XML Infoset of TTML and are therefore not considered part of <a data-lt=
-      "Document Instance">Document Instances</a>; nevertheless implementations are encouraged to provide protection against
-      recursive entity expansion or prevent entity expansion altogether in processors.</p>
-    </section>
+    <ul>
+      <li>Appendix P.7 (Access to Processing State), since the <code>condition</code> attribute is not supported;</li>
 
-    <section class='appendix'>
-      <h3>Privacy of preference</h3>
-
-      <p>A user agent that selects, and causes to download or interpret a <a>Document Instance</a>, might indicate to the origin
-      server that the user has a need for captions or subtitles, and also the language preference of the user for captions or
-      subtitles. That is a small piece of information about the user. However, the offering of a <a>Document Instance</a>, and the
-      choice whether to retrieve and consume it, are characteristics of the application that makes the offer (e.g. a web
-      application based on [[HTML5]]), rather than of the <a>Document Instance</a> itself.</p>
-    </section>
-
-    <section class='appendix'>
-      <h3>Security and Privacy related to external images</h3>
-
-      <p>The <a>Image Profile</a> includes a mechanism for referencing external images. A user agent that downloads external images
-      during media playback indicates to the origin server of the images the progress of the user's media consumption. In many
-      cases such media progress information is available to the origin server of the media via other mechanisms, for example by
-      scripting or by monitoring streaming media requests.</p>
-
-      <p>User agents that do not enforce cross origin policies when downloading external images expose such media progress
-      information and potentially other user tracking information to other origins without the consent of the web site serving the
-      media and without the consent of the user. This specification defines no APIs and makes no statement on how implementations
-      are expected to obtain referenced images.</p>
-    </section>
+      <li>Appendix P.8 (Hyperlinking Mechanisms), since the <code>xlink</code> linking mechanism is not supported.</li>
+    </ul>
   </section>
 
   <section class='appendix' id="substantive-changes-summary">
