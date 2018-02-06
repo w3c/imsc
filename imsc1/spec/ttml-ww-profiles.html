@@ -459,7 +459,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Styling</td>
+            <td>IMSC Styling</td>
 
             <td><code>itts</code></td>
 
@@ -469,7 +469,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Parameter</td>
+            <td>IMSC Parameter</td>
 
             <td><code>ittp</code></td>
 
@@ -479,7 +479,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Metadata</td>
+            <td>IMSC Metadata</td>
 
             <td><code>ittm</code></td>
 
@@ -489,7 +489,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Extension</td>
+            <td>IMSC Extension</td>
 
             <td><em>none</em></td>
 
@@ -889,7 +889,7 @@ ittp:progressivelyDecodable
   xml:id = ID
   xml:lang = string
   xml:space = (default|preserve)
-  {any attribute not in the default namespace, any TT namespace or any IMSC 1.0 namespace}&gt;
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
   Content: #PCDATA
 &lt;/ittm:altText&gt;
 </pre>
@@ -1112,15 +1112,22 @@ y = topOffset * (1 - height/100)
       <h3>Profile Signaling</h3>
 
       <p>The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the
-      IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present,
-      unless:</p>
+      IMSC 1.0 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be
+      present, unless:</p>
 
       <ul>
-        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
-        attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC1 profile to which
-        the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in
-        an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
-        "#ebu-tt-d-interop"></a>; or
+        <li>
+          <p>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
+          attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC 1.0 profile to
+          which the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be
+          carried in an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
+          "#ebu-tt-d-interop"></a>; or</p>
+
+          <div class='note'>
+            <p>Multiple other <code>ebuttm:conformsToStandard</code> elements can be present in addition to the two recommended
+            above, indicating simultaneous conformance to profiles defined in other specifications, including future versions of
+            this specification.</p>
+          </div>
         </li>
 
         <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
@@ -1752,7 +1759,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -2315,7 +2322,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td colspan="3" style="text-align:center"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -2890,7 +2897,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -3851,7 +3858,7 @@ y = topOffset * (1 - height/100)
       <h3>General</h3>
 
       <p>The following sections define extension designations, expressed as relative URIs (fragment identifiers) relative to the
-      IMSC 1.0 Extension Namespace base URI.</p>
+      IMSC Extension Namespace base URI.</p>
     </section>
 
     <section class='appendix'>
