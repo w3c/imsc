@@ -8,25 +8,32 @@
     ttp:cellResolution="50 30"
     ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.1/text">
   <head>
-      <styling>
-          <style xml:id="spanStyle" tts:color="#ffffff" tts:backgroundColor="#000000" />
-          <style xml:id="spanStyleSmall" tts:color="#000000" tts:backgroundColor="#dfbb02" tts:fontSize="50%"/>
-          <style xml:id="spanStyleBig" tts:color="#ffffff" tts:backgroundColor="#b75800" tts:fontSize="150%"/>
-          <style xml:id="paragraphStyle" tts:fontFamily="monospaceSerif" tts:textAlign="center"
+    <styling>
+      <style xml:id="spanStyle" tts:color="#ffffff" tts:backgroundColor="#000000" />
+      <style xml:id="spanStyleSmall" tts:color="#000000" tts:backgroundColor="#dfbb02" tts:fontSize="50%"/>
+      <style xml:id="spanStyleBig" tts:color="#ffffff" tts:backgroundColor="#b75800" tts:fontSize="150%"/>
+      <style xml:id="paragraphStyle" tts:fontFamily="monospaceSerif" tts:textAlign="center"
               tts:fontSize="200%" tts:lineHeight="165%"  itts:fillLineGap="true"/>
-      </styling>
-      <layout>
-          <region xml:id="bottom" tts:origin="10% 10%" tts:extent="80% 80%" tts:displayAlign="after" />
-      </layout>
+    </styling>
+    <layout>
+      <region xml:id="bottom" tts:origin="10% 10%" tts:extent="80% 80%" tts:displayAlign="after" />
+    </layout>
   </head>
   <body>
-      <div>
-          <p xml:id="subtitle1" region="bottom" begin="00:00:00.000" end="00:00:30.000" style="paragraphStyle">
-              <span style="spanStyle">##Line gaps##</span><br/>
-              <span style="spanStyle">The quick </span><span style="spanStyleBig">brown</span><span style="spanStyle"> fox</span><br/>
-              <span style="spanStyle">jumps over the </span><span style="spanStyleSmall">lazy</span><span style="spanStyle"> dog</span><br/>
-              <span style="spanStyle">##Line gaps##</span>
-          </p>
-      </div>
+    <div>
+      <p xml:id="subtitle1" region="bottom" begin="00:00:00.000" end="00:00:30.000" style="paragraphStyle">
+        <span style="spanStyle">##Line gaps##</span>
+        <br/>
+        <span style="spanStyle">The quick </span>
+        <span style="spanStyleBig">brown</span>
+        <span style="spanStyle"> fox</span>
+        <br/>
+        <span style="spanStyle">jumps over the </span>
+        <span style="spanStyleSmall">lazy</span>
+        <span style="spanStyle"> dog</span>
+        <br/>
+        <span style="spanStyle">##Line gaps##</span>
+      </p>
+    </div>
   </body>
 </tt>
