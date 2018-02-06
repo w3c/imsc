@@ -349,19 +349,10 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
       <p>A <a>transformation processor</a> SHOULD preserve such elements or attributes whenever possible.</p>
 
       <div class="note">
-        <a data-lt="Document Instance">Document Instances</a> remain subject to the content specification for the <code>tt</code>
-        root document element and its descendants, as specified in [[!TTML1]]. In particular, the [[!TTML1]] content specification
-        specifies that elements and attributes not in any TT namespace, i.e. in foreign namespaces, are permitted as follows:
-
-        <ul>
-          <li>the <code>metadata</code> element is the only element whose child elements can belong to foreign namespaces, and the
-          <code>metadata</code> element is permitted on all elements defined by [[!TTML1]] with the exception of the following:
-          <code>ttp:feature</code>, <code>ttp:extension</code>, <code>tt</code>, <code>style</code>, <code>ttm:title</code>,
-          <code>ttm:desc</code>, <code>ttm:copyright</code>, <code>ttm:agent</code>, <code>ttm:name</code>, and
-          <code>ttm:actor</code>; and</li>
-
-          <li>foreign namespace attributes are permitted on all elements defined by [[!TTML1]].</li>
-        </ul>
+        <p><a data-lt="Document Instance">Document Instances</a> remain subject to the content conformance requirements specified
+        at Section 3.1 of [[!TTML1]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in any TT
+        namespace, i.e. in foreign namespaces, since such elements and attributes are pruned by the algorithm at Section 4 of
+        [[!TTML1]] prior to evaluating content conformance.</p>
       </div>
 
       <div class="note">
@@ -470,7 +461,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Styling</td>
+            <td>IMSC Styling</td>
 
             <td><code>itts</code></td>
 
@@ -480,7 +471,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Parameter</td>
+            <td>IMSC Parameter</td>
 
             <td><code>ittp</code></td>
 
@@ -490,7 +481,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Metadata</td>
+            <td>IMSC Metadata</td>
 
             <td><code>ittm</code></td>
 
@@ -500,7 +491,7 @@ table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Extension</td>
+            <td>IMSC Extension</td>
 
             <td><em>none</em></td>
 
@@ -797,8 +788,11 @@ ittp:progressivelyDecodable
         <code>displayForcedOnlyMode</code>.</p>
 
         <p>If and only if the value of <code>displayForcedOnlyMode</code> is <code>"true"</code>, a content element with a
-        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, but still
-        affect layout, regardless of the computed value of <code>tts:visibility</code>.</p>
+        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
+        of the computed value of <code>tts:visibility</code>.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
+        whether composed content is visible or not.</p>
 
         <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
 
@@ -900,7 +894,7 @@ ittp:progressivelyDecodable
   xml:id = ID
   xml:lang = string
   xml:space = (default|preserve)
-  {any attribute not in the default namespace, any TT namespace or any IMSC 1.0 namespace}&gt;
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
   Content: #PCDATA
 &lt;/ittm:altText&gt;
 </pre>
@@ -980,7 +974,10 @@ y = topOffset * (1 - height/100)
           property where a two percentage value position is used.</p>
         </div>
 
-        <p>The <a>Active Area</a> SHALL NOT extend outside the <a>Root Container Region</a> in any dimension.</p>
+        <div class='note'>
+          <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
+          <a>Root Container Region</a> in any dimension.</p>
+        </div>
 
         <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
         element.</p>
@@ -1121,15 +1118,22 @@ y = topOffset * (1 - height/100)
       <h3>Profile Signaling</h3>
 
       <p>The <code>ttp:profile</code> attribute SHOULD be present on the <code>tt</code> element and equal to the designator of the
-      IMSC1 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be present,
-      unless:</p>
+      IMSC 1.0 profile to which the <a>Document Instance</a> conforms, and the <code>ttp:profile</code> element SHOULD NOT be
+      present, unless:</p>
 
       <ul>
-        <li>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
-        attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC1 profile to which
-        the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be carried in
-        an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
-        "#ebu-tt-d-interop"></a>; or
+        <li>
+          <p>the <a>Document Instance</a> also conforms to [[!EBU-TT-D]], in which case neither the <code>ttp:profile</code>
+          attribute nor the <code>ttp:profile</code> element are present, and, instead, the designator of the IMSC 1.0 profile to
+          which the <a>Document Instance</a> conforms and the URI <code>"urn:ebu:tt:distribution:2014-01"</code> SHOULD each be
+          carried in an <code>ebuttm:conformsToStandard</code> element as specified in [[!EBU-TT-D]] and illustrated in <a href=
+          "#ebu-tt-d-interop"></a>; or</p>
+
+          <div class='note'>
+            <p>Multiple other <code>ebuttm:conformsToStandard</code> elements can be present in addition to the two recommended
+            above, indicating simultaneous conformance to profiles defined in other specifications, including future versions of
+            this specification.</p>
+          </div>
         </li>
 
         <li>the <a>Document Instance</a> also conforms to [[ttml10-sdp-us]], in which case the <code>ttp:profile</code> attribute
@@ -1761,7 +1765,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -2324,7 +2328,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td colspan="3" style="text-align:center"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td colspan="3" style="text-align:center"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -2899,7 +2903,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td style="text-align:center" colspan="3"><em>Relative to the IMSC 1.0 Extension namespace</em></td>
+            <td style="text-align:center" colspan="3"><em>Relative to the IMSC Extension namespace</em></td>
           </tr>
 
           <tr>
@@ -3862,7 +3866,7 @@ y = topOffset * (1 - height/100)
       <h3>General</h3>
 
       <p>The following sections define extension designations, expressed as relative URIs (fragment identifiers) relative to the
-      IMSC 1.0 Extension Namespace base URI.</p>
+      IMSC Extension Namespace base URI.</p>
     </section>
 
     <section class='appendix'>
