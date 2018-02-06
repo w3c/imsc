@@ -203,6 +203,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a
     rectangular array of pixels.</p>
 
+    <p><dfn>Root Container Region</dfn>. See Section 2.2 at [[!TTML2]].</p>
+
     <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
     <p><dfn>Text Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Text
@@ -2128,14 +2130,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     </section>
 
     <section>
-      <h3>Mapping the Root Container to the <a>Related Video Object</a></h3>
+      <h3>Mapping the <a>Root Container Region</a> to the <a>Related Video Object</a></h3>
 
-      <p>The root container of a <a>Document Instance</a> SHALL be mapped to each image frame of the <a>Related Video Object</a>
-      according to the following:</p>
+      <p>The <a>Root Container Region</a> of a <a>Document Instance</a> SHALL be mapped to each image frame of the <a>Related Video
+      Object</a> according to the following:</p>
 
       <ol style="list-style-type: lower-roman;">
-        <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the root container
-        as determined in Appendix H of [[!TTML2]];</li>
+        <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the <a>Root
+        Container Region</a> as determined in Appendix H of [[!TTML2]];
+        </li>
 
         <li>the center of the rectangular area is collocated with the center of the image frame;</li>
 
@@ -2168,9 +2171,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <div class="note">
         The mapping algorithm above allows the author to precisely control caption/subtitle position relative to elements within
         each frame of the video program, e.g. to match the position of actors. This mapping algorithm does not however specify the
-        presentation of either the video frame or root container on the ultimate display device. This presentation depends on many
-        factors, including user input, and can involve displaying only parts of the content. Authors are therefore encouraged to
-        follow best practices for the intended target applications. Below are selected examples:
+        presentation of either the video frame or <a>Root Container Region</a> on the ultimate display device. This presentation
+        depends on many factors, including user input, and can involve displaying only parts of the content. Authors are therefore
+        encouraged to follow best practices for the intended target applications. Below are selected examples:
 
         <ul style="list-style-type:lower-alpha">
           <li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut.
@@ -2179,16 +2182,19 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           position of caption/subtitles with video elements.</li>
 
           <li>A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The
-          system elects to scale the root container to fit vertically within the display (maintaining its aspect ratio as
-          authored), at the cost of losing relative positioning between caption/subtitles and video elements.</li>
+          system elects to scale the <a>Root Container Region</a> to fit vertically within the display (maintaining its aspect
+          ratio as authored), at the cost of losing relative positioning between caption/subtitles and video elements.
+          </li>
 
-          <li>The system described in (b) instead elects to map the root container to the video frame, maintaining relative
-          positioning between caption/subtitles and video elements but at the risk of clipping subtitles/captions.</li>
+          <li>The system described in (b) instead elects to map the <a>Root Container Region</a> to the video frame, maintaining
+          relative positioning between caption/subtitles and video elements but at the risk of clipping subtitles/captions.
+          </li>
 
           <li>Subtitle/captions are authored using <code>ttp:displayAspectRatio="16 9"</code> to match the 16:9 video, but
-          <code>ittp:activeArea</code> indicates that the <a>Active Area</a> is smaller than the root container. The system, which
-          uses a 4:3 display, elects to scale the video and the root container such that all of the subtitle/caption content within
-          the <a>Active Area</a> is visible, with positional alignment maintained, at the cost of clipping some of the video.
+          <code>ittp:activeArea</code> indicates that the <a>Active Area</a> is smaller than the <a>Root Container Region</a>. The
+          system, which uses a 4:3 display, elects to scale the video and the <a>Root Container Region</a> such that all of the
+          subtitle/caption content within the <a>Active Area</a> is visible, with positional alignment maintained, at the cost of
+          clipping some of the video.
           </li>
         </ul>
       </div>
@@ -2203,8 +2209,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <p class="deprecation">The <code>#aspectRatio</code> feature is designated as <em>permitted-deprecated</em> in the profiles
         defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
 
-        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the root container of a
-        <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
+        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the <a>Root Container Region</a>
+        of a <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
 
         <p>If present, the <code>ittp:aspectRatio</code> attribute SHALL conform to the following syntax:</p>
 
@@ -2232,8 +2238,8 @@ numerator | denominator
         element.</p>
 
         <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
-        ratio of the root container. If not specified, then the display aspect ratio of the root container is determined according
-        to Appendix H of [[!TTML2]].</p>
+        ratio of the <a>Root Container Region</a>. If not specified, then the display aspect ratio of the <a>Root Container
+        Region</a> is determined according to Appendix H of [[!TTML2]].</p>
       </section>
 
       <section id='ittp-progressivelyDecodable'>
@@ -2470,17 +2476,17 @@ ittp:progressivelyDecodable
       <section id='ittp-activeArea'>
         <h4>ittp:activeArea</h4>
 
-        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the root container that the author intends
-        to be minimally visible to the viewer. This area typically fully contains all of the referenced regions within the
-        <a>Document Instance</a>.</p>
+        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the <a>Root Container Region</a> that the
+        author intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions
+        within the <a>Document Instance</a>.</p>
 
         <div class='note'>
-          <p>Under normal circumstances, the entirety of the root container is presented. However, under special circumstances,
-          such as when the <a>related video object</a> is cropped, a system can, for instance, use the <code>ittp:activeArea</code>
-          parameter to avoid cropping areas of the root container that are intended to be visible to the viewer. The specific
-          behavior of the system is however left undefined intentionally: the system can select a presentation mode appropriate to
-          the display shape, user preferences, etc. The <code>ittp:activeArea</code> is analogous to the Active Format Description
-          (AFD) metadata commonly used in broadcast applications.</p>
+          <p>Under normal circumstances, the entirety of the <a>Root Container Region</a> is presented. However, under special
+          circumstances, such as when the <a>related video object</a> is cropped, a system can, for instance, use the
+          <code>ittp:activeArea</code> parameter to avoid cropping areas of the <a>Root Container Region</a> that are intended to
+          be visible to the viewer. The specific behavior of the system is however left undefined intentionally: the system can
+          select a presentation mode appropriate to the display shape, user preferences, etc. The <code>ittp:activeArea</code> is
+          analogous to the Active Format Description (AFD) metadata commonly used in broadcast applications.</p>
         </div>
 
         <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
@@ -2505,14 +2511,14 @@ leftOffset | topOffset | width | height
           </tbody>
         </table>
 
-        <p>The <code>width</code> percentage value is relative to the width of the root container.</p>
+        <p>The <code>width</code> percentage value is relative to the width of the <a>Root Container Region</a>.</p>
 
-        <p>The <code>height</code> percentage value is relative to the height of the root container.</p>
+        <p>The <code>height</code> percentage value is relative to the height of the <a>Root Container Region</a>.</p>
 
         <p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
 
-        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the root
-        container and the <a>Active Area</a>.</p>
+        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the <a>Root
+        Container Region</a> and the <a>Active Area</a>.</p>
 
         <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
         <pre>
@@ -2528,13 +2534,14 @@ y = topOffset * (1 - height/100)
 
         <div class='note'>
           <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
-          root container in any dimension.</p>
+          <a>Root Container Region</a> in any dimension.</p>
         </div>
 
         <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
         element.</p>
 
-        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the root container.</p>
+        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the <a>Root Container
+        Region</a>.</p>
         <pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'>
 </pre>
       </section>
@@ -2762,8 +2769,8 @@ y = topOffset * (1 - height/100)
         <section>
           <h5 id="region-dim-pos">Dimensions and Position</h5>
 
-          <p>All regions SHALL NOT extend beyond the root container, i.e. every coordinate in the set of coordinates of each region
-          is also in the set of coordinates of the root container.</p>
+          <p>All regions SHALL NOT extend beyond the <a>Root Container Region</a>, i.e. every coordinate in the set of coordinates
+          of each region is also in the set of coordinates of the <a>Root Container Region</a>.</p>
 
           <p>No two <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a> SHALL
           overlap, i.e. the intersection of the sets of coordinates within each <a>presented region</a> is empty.</p>
@@ -3264,8 +3271,8 @@ y = topOffset * (1 - height/100)
       images. Complexity is then limited by requiring that painting of <a>intermediate synchronic document</a> E<sub>n</sub>
       completes before the end of <a>intermediate synchronic document</a> E<sub>n-1</sub>.</p>
 
-      <p>Whenever applicable, constraints are specified relative to root container dimensions, allowing subtitle sequences to be
-      authored independently of <a>Related Video Object</a> resolution.</p>
+      <p>Whenever applicable, constraints are specified relative to <a>Root Container Region</a> dimensions, allowing subtitle
+      sequences to be authored independently of <a>Related Video Object</a> resolution.</p>
 
       <p>To enable scenarios where the same glyphs are used in multiple successive <a data-lt=
       "intermediate synchronic document">intermediate synchronic documents</a>, e.g. to convey a CEA-608/708-style roll-up (see
@@ -3365,8 +3372,8 @@ y = topOffset * (1 - height/100)
         </tbody>
       </table>
 
-      <p class='note'>BDraw effectively sets a limit on fillings regions - for example, assuming that the root container is
-      ultimately rendered at 1920×1080 resolution, a BDraw of 12 s<sup>-1</sup> would correspond to a fill rate of
+      <p class='note'>BDraw effectively sets a limit on fillings regions - for example, assuming that the <a>Root Container
+      Region</a> is ultimately rendered at 1920×1080 resolution, a BDraw of 12 s<sup>-1</sup> would correspond to a fill rate of
       1920×1080×12/s=23.7×2<sup>20</sup>pixels s<sup>-1</sup>.</p>
 
       <p class='note'>IPD effectively sets a limit on the complexity of any given <a>intermediate synchronic document</a>.</p>
@@ -3379,10 +3386,11 @@ y = topOffset * (1 - height/100)
 
       <p class="equation">S(E<sub>n</sub>) = CLEAR(E<sub>n</sub>) + PAINT(E<sub>n</sub> )</p>
 
-      <p>where CLEAR(E<sub>0</sub>) = 0 and CLEAR(E<sub>n | n &gt; 0</sub>) = 1, i.e. the root container in its entirety.</p>
+      <p>where CLEAR(E<sub>0</sub>) = 0 and CLEAR(E<sub>n | n &gt; 0</sub>) = 1, i.e. the <a>Root Container Region</a> in its
+      entirety.</p>
 
       <p class='note'>To ensure consistency of the Presentation Buffer, a new <a>intermediate synchronic document</a> requires
-      clearing of the root container.</p>
+      clearing of the <a>Root Container Region</a>.</p>
 
       <p>PAINT(E<sub>n</sub>) SHALL be the normalized area to be painted for all regions that are used in <a>intermediate
       synchronic document</a> E<sub>n</sub> according to:</p>
@@ -3395,11 +3403,11 @@ y = topOffset * (1 - height/100)
 
       <p>NSIZE(R<sub>i</sub>) SHALL be given by:</p>
 
-      <p class="equation">NSIZE(R<sub>i</sub>) = (width of R<sub>i</sub> ∙ height of R<sub>i</sub> ) ÷ (root container height
-      ∙ root container width)</p>
+      <p class="equation">NSIZE(R<sub>i</sub>) = (width of R<sub>i</sub> ∙ height of R<sub>i</sub> ) ÷ (<a>Root Container
+      Region</a> height ∙ <a>Root Container Region</a> width)</p>
 
       <aside class='example'>
-        For a region R<sub>i</sub> in with <code>tts:extent="250px 50px"</code> within a root container with
+        For a region R<sub>i</sub> in with <code>tts:extent="250px 50px"</code> within a <a>Root Container Region</a> with
         <code>tts:extent="1920px 1080px"</code>, NSIZE(R<sub>i</sub>) ≈ 0.00603.
       </aside>
 
@@ -3472,8 +3480,8 @@ y = topOffset * (1 - height/100)
 
       <p>NRGA(I<sub>i</sub>) is the Normalized Image Area of <a>presented image</a> I<sub>i</sub> and SHALL be equal to:</p>
 
-      <p class="equation">NRGA(I<sub>i</sub>)= (width of I<sub>i</sub> ∙ height of I<sub>i</sub> ) ÷ ( root container height ∙
-      root container width )</p>
+      <p class="equation">NRGA(I<sub>i</sub>)= (width of I<sub>i</sub> ∙ height of I<sub>i</sub> ) ÷ ( <a>Root Container
+      Region</a> height ∙ <a>Root Container Region</a> width )</p>
 
       <p>NSIZ(I<sub>i</sub>) SHALL be the number of pixels of <a>presented image</a> I<sub>i</sub>.</p>
 
@@ -3598,7 +3606,8 @@ y = topOffset * (1 - height/100)
 
       <p>The Normalized Rendered Glyph Area NRGA(g<sub>i</sub>) of a <a>glyph</a> g<sub>i</sub> SHALL be equal to:</p>
 
-      <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of root container height)<sup>2</sup></p>
+      <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of <a>Root Container Region</a>
+      height)<sup>2</sup></p>
 
       <p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g. outline) or actual
       typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case glyph size
@@ -3676,25 +3685,25 @@ y = topOffset * (1 - height/100)
       <aside class='example'>
         Setting a Normalized Glyph Buffer Size effectively sets a limit on the total number of distinct <a data-lt=
         "glyph">glyphs</a> present in any given <a>intermediate synchronic document</a> E<sub>n</sub>. For example, assuming a
-        maximum Normalized Glyph Buffer Size of 1 and the default tts:fontSize of 1c are used, the font size relative to the root
-        container height is 1/15 , and the maximum number of distinct glyphs that can be buffered is 1÷(1÷15)<sup>2</sup>=225
-        glyphs.
+        maximum Normalized Glyph Buffer Size of 1 and the default tts:fontSize of 1c are used, the font size relative to the
+        <a>Root Container Region</a> height is 1/15 , and the maximum number of distinct glyphs that can be buffered is
+        1÷(1÷15)<sup>2</sup>=225 glyphs.
       </aside>
 
       <aside class='example'>
-        GCpy effectively sets a limit on animating text. For example, assuming that the root container is ultimately rendered at
-        1920×1080 resolution and no regions need to have background color painted (so only a CLEAR(E<sub>n</sub>) operation is
-        required for the normalized drawing area for the <a>intermediate synchronic document</a>), a GCpy and BDraw of 12
-        s<sup>-1</sup> would mean that a group of 160 <a data-lt="glyph">glyphs</a> with a tts:fontSize equal to 5% of the root
-        container height could be moved at most approximately 12 s<sup>-1</sup> ÷ (1 + ( 160 × 0.05<sup>2</sup> )) = 8.6 times
-        per second.
+        GCpy effectively sets a limit on animating text. For example, assuming that the <a>Root Container Region</a> is ultimately
+        rendered at 1920×1080 resolution and no regions need to have background color painted (so only a CLEAR(E<sub>n</sub>)
+        operation is required for the normalized drawing area for the <a>intermediate synchronic document</a>), a GCpy and BDraw of
+        12 s<sup>-1</sup> would mean that a group of 160 <a data-lt="glyph">glyphs</a> with a tts:fontSize equal to 5% of the
+        <a>Root Container Region</a> height could be moved at most approximately 12 s<sup>-1</sup> ÷ (1 + ( 160 ×
+        0.05<sup>2</sup> )) = 8.6 times per second.
       </aside>
 
       <aside class='example'>
-        Ren(G<sub>i</sub>) effectively sets a limit on the text rendering rate. For example, assuming that the root container is
-        ultimately rendered at a 1920×1080 resolution, a Ren(G<sub>i</sub>) of 1.2 s<sup>-1</sup> would mean that at most 120
-        <a data-lt="glyph">glyphs</a> with a fontSize of 108 px (10% of 1080 px and NRGA(G<sub>i</sub>) = 0.01) could be rendered
-        every second.
+        Ren(G<sub>i</sub>) effectively sets a limit on the text rendering rate. For example, assuming that the <a>Root Container
+        Region</a> is ultimately rendered at a 1920×1080 resolution, a Ren(G<sub>i</sub>) of 1.2 s<sup>-1</sup> would mean that at
+        most 120 <a data-lt="glyph">glyphs</a> with a fontSize of 108 px (10% of 1080 px and NRGA(G<sub>i</sub>) = 0.01) could be
+        rendered every second.
       </aside>
     </section>
   </section>
