@@ -269,6 +269,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>A <a>Feature</a> or <a>Extension</a> currently designated <em>permitted-deprecated</em> is intended to be designated as
     <em>optional</em> or <em>prohibited</em> in future versions of this specification.</p>
 
+    <p class='note'>[[TTML2]] makes a distinction between a <a>presentation processor</a>, whose purpose is to present a
+    <a>Document Instance</a>, and <a>transformation processor</a>, whose purpose is to process a <a>Document Instance</a> without
+    presenting it. A renderer embedded in the media pipeline of a mobile device is an example of a <a>presentation processor</a>,
+    whereas a validator is an example of a <a>transformation processor</a>.</p>
+
     <p class='note'>A <a>processor</a> that conforms to one profile defined in this specification is not required to conform to the
     other profile. For convenience, the terms <a>Image Profile transformation processor</a>, <a>Text Profile transformation
     processor</a>, <a>Image Profile presentation processor</a>, and <a>Text Profile presentation processor</a> are defined.</p>
@@ -292,6 +297,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <section>
       <h3>General</h3>
+
+      <p>This specification defines two profiles of [[TTML2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In the <a>Text
+      Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed text is
+      expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and processing
+      complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is permitted.
+      It also removes the need to define complex mechanisms for associating bitmap images with their text equivalents within a
+      document.</p>
+
+      <p class='note'>Image-based timed text is typically used to achieve a visual effect that is beyond the capabilities of TTML,
+      e.g. glyph or symbol that is not supported by Unicode, illuminated letters, etc.</p>
 
       <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>,
       <code>br</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible to construct a
