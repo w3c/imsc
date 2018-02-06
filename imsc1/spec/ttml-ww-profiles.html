@@ -1832,7 +1832,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td colspan="3" style="text-align:center"><em>Relative to the <a>IMSC 1.0 Extension</a> namespace</em></td>
+          <td colspan="3" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
         </tr>
 
         <tr>
@@ -2016,7 +2016,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Styling</td>
+            <td>IMSC Styling</td>
 
             <td><code>itts</code></td>
 
@@ -2026,7 +2026,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Parameter</td>
+            <td>IMSC Parameter</td>
 
             <td><code>ittp</code></td>
 
@@ -2036,7 +2036,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.0 Metadata</td>
+            <td>IMSC Metadata</td>
 
             <td><code>ittm</code></td>
 
@@ -2046,7 +2046,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td><dfn><a>IMSC 1.0 Extension</a></dfn></td>
+            <td><dfn><a>IMSC Extension</a></dfn></td>
 
             <td><em>none</em></td>
 
@@ -2446,7 +2446,7 @@ ittp:progressivelyDecodable
   xml:id = ID
   xml:lang = string
   xml:space = (default|preserve)
-  {any attribute not in the default namespace, any TT namespace or any IMSC 1.0 namespace}&gt;
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
   Content: #PCDATA
 &lt;/ittm:altText&gt;
 </pre>
@@ -2695,15 +2695,19 @@ y = topOffset * (1 - height/100)
 
           <li>the <code>ttp:contentProfiles</code> attribute is not present;</li>
 
-          <li>one <code>ebuttm:conformsToStandard</code> element, as specified in [[!EBU-TT-D]] and illustrated in <a href=
-          "#ebu-tt-d-interop"></a>, SHOULD be set to the [[ttml-imsc1.0.1]] profile designator corresponding to the profile to
-          which the <a>Document Instance</a> conforms;
+          <li>the designator of the [[ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms and the URI
+          <code>urn:ebu:tt:distribution:2014-01</code> SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element
+          as specified in [[!EBU-TT-D]] and illustrated in <a href="#ebu-tt-d-interop"></a>.
           </li>
         </ul>
 
         <p class="note">If <code>ebuttm:conformsToStandard</code> elements signal neither [[ttml-imsc1.0.1]] nor [[!EBU-TT-D]]
         profile conformance, the <a>Document Instance</a> conforms is communicated through means outside the scope of this
         specification, e.g. through the <a>document interchange context</a>.</p>
+
+        <p class='note'>Multiple other <code>ebuttm:conformsToStandard</code> elements can be present in addition to the two
+        recommended above, indicating simultaneous conformance to profiles defined in other specifications, including other
+        versions of this specification.</p>
       </section>
 
       <section id="sdp-us-compat">
@@ -4169,10 +4173,7 @@ y = topOffset * (1 - height/100)
       <h3>General</h3>
 
       <p>The following sections define extension designations, expressed as relative URIs (fragment identifiers) relative to the
-      <a>IMSC 1.0 Extension</a> Namespace base URI.</p>
-
-      <p class="note">The following extensions are intentionally defined under the <a>IMSC 1.0 Extension</a> (instead of a
-      namespace specific to this specification), indicating that they intend to mirror those specified in [[ttml-imsc1.0.1]].</p>
+      <a>IMSC Extension</a> Namespace base URI.</p>
     </section>
 
     <section class='appendix'>
@@ -4662,7 +4663,7 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td colspan="2" style="text-align:center"><em>Relative to the <a>IMSC 1.0 Extension</a> namespace</em></td>
+              <td colspan="2" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
             </tr>
 
             <tr>
