@@ -2826,9 +2826,10 @@ y = topOffset * (1 - height/100)
       <section>
         <h4><code>#item-metadata</code></h4>
 
-        <p>The <code>usesForced</code> named metadata item SHALL NOT be present.</p>
+        <p>The <code>usesForced</code> named metadata item SHOULD NOT be present.</p>
 
-        <p class="note">The <code>#forcedDisplay</code> feature is used instead.</p>
+        <p class='note'>This specification prohibits the <code>condition</code> attribute. As a result, the <code>usesForced</code>
+        named metadata item does not apply, even if <code>itts:forcedDisplay</code> is used.</p>
       </section>
 
       <section>
