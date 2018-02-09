@@ -1,5 +1,4 @@
 ttml-ww-profiles.html respec
-diff.html
 substantive-changes-summary.txt
 xml-schemas/index.html
 xml-schemas/imsc1.xsd
@@ -8,6 +7,7 @@ xml-schemas/imsc1-metadata.xsd
 xml-schemas/imsc1-parameters.xsd
 xml-schemas/imsc1-styling.xsd
 figures/fillLineGap-example-figure-1.png
+figures/fillLineGap-example-figure-2.png
 figures/forced-example-figure-1.png
 figures/hypothetical-render-figure-1.png
 figures/text-render-example-figure-2.png
