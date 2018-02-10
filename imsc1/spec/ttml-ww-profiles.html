@@ -2702,17 +2702,26 @@ y = topOffset * (1 - height/100)
 
           <li>the <code>ttp:contentProfiles</code> attribute is not present;</li>
 
-          <li>the designator of the [[ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms and the URI
-          <code>urn:ebu:tt:distribution:2014-01</code> SHOULD each be carried in an <code>ebuttm:conformsToStandard</code> element
-          as specified in [[!EBU-TT-D]] and illustrated in <a href="#ebu-tt-d-interop"></a>.
+          <li>the value of one <code>ebuttm:conformsToStandard</code> element is equal to the designator of the [[ttml-imsc1.0.1]]
+          profile to which the <a>Document Instance</a> conforms;
           </li>
+
+          <li>the value of one <code>ebuttm:conformsToStandard</code> element is equal to the designator of the [[ttml-imsc1.1]]
+          profile to which the <a>Document Instance</a> conforms; and
+          </li>
+
+          <li>the value of one <code>ebuttm:conformsToStandard</code> element is equal to the URI
+          <code>urn:ebu:tt:distribution:2014-01</code>.</li>
         </ul>
 
-        <p class="note">If <code>ebuttm:conformsToStandard</code> elements signal neither [[ttml-imsc1.0.1]] nor [[!EBU-TT-D]]
-        profile conformance, the <a>Document Instance</a> conforms is communicated through means outside the scope of this
-        specification, e.g. through the <a>document interchange context</a>.</p>
+        <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
+        of this section.</p>
 
-        <p class='note'>Multiple other <code>ebuttm:conformsToStandard</code> elements can be present in addition to the two
+        <p class="note">If none of the <code>ebuttm:conformsToStandard</code> elements specified above are present, the <a>Document
+        Instance</a> conforms is communicated through means outside the scope of this specification, e.g. through the <a>document
+        interchange context</a>.</p>
+
+        <p class='note'>Multiple other <code>ebuttm:conformsToStandard</code> elements can be present in addition to those
         recommended above, indicating simultaneous conformance to profiles defined in other specifications, including other
         versions of this specification.</p>
       </section>
