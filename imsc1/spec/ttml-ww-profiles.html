@@ -2824,15 +2824,6 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section>
-        <h4><code>#item-metadata</code></h4>
-
-        <p>The <code>usesForced</code> named metadata item SHOULD NOT be present.</p>
-
-        <p class='note'>This specification prohibits the <code>condition</code> attribute. As a result, the <code>usesForced</code>
-        named metadata item does not apply, even if <code>itts:forcedDisplay</code> is used.</p>
-      </section>
-
-      <section>
         <h4><code>#length-cell</code></h4>
 
         <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
@@ -2883,6 +2874,15 @@ y = topOffset * (1 - height/100)
         <p>For any content element that contains <code>br</code> elements or text nodes or a <code>smpte:backgroundImage</code>
         attribute, both the <code>begin</code> attribute and one of either the <code>end</code> or <code>dur</code> attributes
         SHOULD be specified on the content element or at least one of its ancestors.</p>
+      </section>
+
+      <section class="informative">
+        <h4><code>usesForced</code> named metadata item</h4>
+
+        <p>The <code>usesForced</code> named metadata item does not apply since the <code>condition</code> attribute is
+        prohibited.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute is used instead to specify forced content semantics.</p>
       </section>
 
       <section id="zindex-constraints">
