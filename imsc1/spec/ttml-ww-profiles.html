@@ -301,12 +301,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <p>This specification defines two profiles of [[TTML2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In the <a>Text
       Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed text is
       expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and processing
-      complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is permitted.
-      It also removes the need to define complex mechanisms for associating bitmap images with their text equivalents within a
-      document.</p>
+      complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is
+      permitted.</p>
 
-      <p class='note'>Image-based timed text is typically used to achieve a visual effect that is beyond the capabilities of TTML,
-      e.g. glyph or symbol that is not supported by Unicode, illuminated letters, etc.</p>
+      <p class='note'>Image-based timed text images can be used in scenarios where the required text rendering functionality is not
+      available, for example if the required fonts can not be distributed, or if the receiving processor has insufficient computing
+      resources to present text while displaying video. They can also be used to achieve a visual effect that is beyond the
+      capabilities of TTML, e.g. illuminated letters.</p>
 
       <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>,
       <code>br</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible to construct a
