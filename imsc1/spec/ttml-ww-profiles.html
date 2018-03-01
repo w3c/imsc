@@ -2694,17 +2694,13 @@ y = topOffset * (1 - height/100)
       <section id="ebu-tt-d-compat">
         <h4>EBU-TT-D Compatibility</h4>
 
-        <p>If the <a>Document Instance</a> conforms to both [[ttml-imsc1.0.1]] and [[EBU-TT-D]], and compatibility with
+        <p>If the <a>Document Instance</a> conforms to both [[EBU-TT-D]] and either the <a>Text Profile</a> or the <a>Image Profile</a>, and compatibility with
         [[EBU-TT-D]] processors is desired:</p>
 
         <ul>
           <li>the <code>ttp:profile</code> attribute is not present;</li>
 
           <li>the <code>ttp:contentProfiles</code> attribute is not present;</li>
-
-          <li>the value of one <code>ebuttm:conformsToStandard</code> element is equal to the designator of the [[ttml-imsc1.0.1]]
-          profile to which the <a>Document Instance</a> conforms;
-          </li>
 
           <li>the value of one <code>ebuttm:conformsToStandard</code> element is equal to the designator of the <a>Text Profile</a>
           or <a>Image Profile</a> to which the <a>Document Instance</a> conforms; and
@@ -2714,6 +2710,10 @@ y = topOffset * (1 - height/100)
           <code>urn:ebu:tt:distribution:2014-01</code>.</li>
         </ul>
 
+        <p class="note">Conformance to a [[ttml-imsc1.0.1]] profile can also be indicated as defined in [[ttml-imsc1.0.1]],
+        by including an additional <code>ebuttm:conformsToStandard</code> element whose value is equal to the designator of the [[ttml-imsc1.0.1]]
+        profile to which the <a>Document Instance</a> conforms.
+        
         <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
         of this section.</p>
 
