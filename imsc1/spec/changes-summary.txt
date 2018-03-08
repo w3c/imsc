@@ -1,0 +1,17 @@
+**********************
+*                    *
+* Summary of changes *
+*                    *
+**********************
+
+NOTE 1: This summary is provided for illustration only. For an exhaustive list of changes, please
+refer to the changesets at https://github.com/w3c/imsc or use the W3C diff tool at
+http://services.w3.org/htmldiff across published versions of the specification.
+
+NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
+
+
+From PR (20180227)
+==================
+
+- corrected URL of [EBU-TT-D] reference
