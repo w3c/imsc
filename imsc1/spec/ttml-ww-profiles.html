@@ -2962,6 +2962,14 @@ y = topOffset * (1 - height/100)
         <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
       </section>
 
+      <section>
+        <h4><code>#extent-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/693</p>
+
+        <p>The <code>tts:extent</code> attribute SHALL NOT use the values <code>contain</code> and <code>cover</code>.</p>
+      </section>
+
       <section id="frame-rate-constraints">
         <h4><code>#frameRate</code></h4>
 
@@ -2988,6 +2996,18 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
+      </section>
+
+      <section>
+        <h4><code>#profile-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/687</p>
+
+        <p>The attributes <code>combine</code>, <code>designator</code> and <code>type</code> SHALL NOT be present on the
+        <code>ttp:profile</code> element.</p>
+
+        <p>The attributes <code>extends</code> and <code>restricts</code> SHALL NOT be present on either the
+        <code>ttp:feature</code> or <code>ttp:extension</code> elements.</p>
       </section>
 
       <section>
@@ -3125,14 +3145,6 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section>
-        <h4><code>#extent-version-2</code></h4>
-
-        <p class="ednote">See https://github.com/w3c/ttml2/issues/693</p>
-
-        <p>The <code>tts:extent</code> attribute SHALL NOT use the values <code>contain</code> and <code>cover</code>.</p>
-      </section>
-
-      <section>
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
@@ -3173,18 +3185,6 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT use
         <code>em</code> units.</p>
-      </section>
-
-      <section>
-        <h4><code>#profile-version-2</code></h4>
-
-        <p class="ednote">See https://github.com/w3c/ttml2/issues/687</p>
-
-        <p>The attributes <code>combine</code>, <code>designator</code> and <code>type</code> SHALL NOT be present on the
-        <code>ttp:profile</code> element.</p>
-
-        <p>The attributes <code>extends</code> and <code>restricts</code> SHALL NOT be present on either the
-        <code>ttp:feature</code> or <code>ttp:extension</code> elements.</p>
       </section>
 
       <section>
