@@ -27,3 +27,9 @@ From WD (20170322)
 - clarified requirement that regions are contained within root container (#239)
 
 - clarified syntax of ittp:activeArea (#221)
+
+From CR (20170713)
+==================
+
+- clarified that the TTML1 style resolution procedure applies to extension style properties
+  defined in this specification (#300)
