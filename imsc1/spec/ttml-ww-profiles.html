@@ -409,12 +409,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#activeArea</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#animate</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -422,6 +416,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td><code>#animate-calculation-mode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-fill</code></td>
 
           <td colspan='2'>prohibited</td>
         </tr>
@@ -451,9 +451,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#animation-version-2</code></td>
+          <td><code>#animation-out-of-line</code></td>
 
           <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animation-version-2</code></td>
+
+          <td colspan='2'>See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
+          <code>#animation</code>.</td>
         </tr>
 
         <tr>
@@ -666,6 +673,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#condition-media</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#content</code></td>
 
           <td colspan="2">permitted</td>
@@ -725,6 +738,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#display-inline</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display-inlineBlock</code></td>
+
+          <td colspan="2">prohibited</td>
         </tr>
 
         <tr>
@@ -845,6 +864,26 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#extent-block</code></td>
+
+          <td colspan="2">prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-image</code></td>
+
+          <td>prohibited</td>
+
+          <td>permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-measure</code></td>
+
+          <td colspan="2">prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#extent-region</code></td>
 
           <td colspan="2">permitted</td>
@@ -857,9 +896,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#fillLineGap</code></td>
+          <td><code>#extent-version-2</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan="2">See individual disposition of <code>#extent</code>, <code>#extent-block</code>,
+          <code>#extent-image</code>, and <code>#extent-measure</code>.</td>
         </tr>
 
         <tr>
@@ -893,6 +933,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontFamily-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontKerning</code></td>
 
           <td>permitted</td>
@@ -902,6 +948,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td><code>#fontSelectionStrategy</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSelectionStrategy-character</code></td>
 
           <td colspan='2'>prohibited</td>
         </tr>
@@ -937,6 +989,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontSize-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontStyle</code></td>
 
           <td>permitted</td>
@@ -961,6 +1019,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontStyle-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontVariant</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -980,6 +1044,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontWeight-p</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1020,18 +1090,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#inlineAreaBreak</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#inlineAreaBreak-cloneMostNested</code></td>
-
-          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1273,8 +1331,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#padding-version-2</code></td>
 
-          <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>,
-          <code>#padding-region</code>, and <code>#inlineAreaBreak-cloneMostNested</code></td>
+          <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>, and
+          <code>#padding-region</code></td>
 
           <td>prohibited</td>
         </tr>
@@ -1324,6 +1382,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#presentation-version-2</code></td>
+
+          <td colspan="2">See individual disposition of <code>#presentation</code> and <code>#profile-version-2</code></td>
+        </tr>
+
+        <tr>
           <td><code>#processorProfiles</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -1333,6 +1397,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#profile</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#profile-version-2</code></td>
+
+          <td colspan="2">The vocabulary defined by this feature is prohibited, otherwise see individual disposition of
+          <code>#contentProfiles</code>, <code>#inferProcessorProfile</code>, <code>#permitFeatureNarrowing</code>,
+          <code>#permitFeatureWidening</code>, <code>#processorProfiles</code>, and <code>#profile</code></td>
         </tr>
 
         <tr>
@@ -1376,7 +1448,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#ruby-full</code></td>
 
-          <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyOffset</code>,
+          <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyAlign-withBase</code>,
           <code>#rubyPosition</code>, and <code>#rubyReserve</code>.</td>
 
           <td>prohibited</td>
@@ -1391,9 +1463,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#rubyOffset</code></td>
+          <td><code>#rubyAlign-withBase</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan="2">prohibited</td>
         </tr>
 
         <tr>
@@ -1410,6 +1482,30 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-fill</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-multiple-styles</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-repeat</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1610,6 +1706,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#textOrientation-sideways-LR</code></td>
+
+          <td>permitted</td>
+
+          <td>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#textOutline</code></td>
 
           <td>See individual disposition of <code>#textOutline-blurred</code> and <code>#textOutline-unblurred</code>.</td>
@@ -1715,6 +1819,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#transformation</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#transformation-version-2</code></td>
+
+          <td colspan="2">See individual disposition of <code>#transformation</code> and <code>#profile-version-2</code>.</td>
         </tr>
 
         <tr>
@@ -2692,8 +2802,8 @@ y = topOffset * (1 - height/100)
       <section id="ebu-tt-d-compat">
         <h4>EBU-TT-D Compatibility</h4>
 
-        <p>If the <a>Document Instance</a> conforms to both [[EBU-TT-D]] and either the <a>Text Profile</a> or the <a>Image Profile</a>, and compatibility with
-        [[EBU-TT-D]] processors is desired:</p>
+        <p>If the <a>Document Instance</a> conforms to both [[EBU-TT-D]] and either the <a>Text Profile</a> or the <a>Image
+        Profile</a>, and compatibility with [[EBU-TT-D]] processors is desired:</p>
 
         <ul>
           <li>the <code>ttp:profile</code> attribute is not present;</li>
@@ -2708,10 +2818,10 @@ y = topOffset * (1 - height/100)
           <code>urn:ebu:tt:distribution:2014-01</code>.</li>
         </ul>
 
-        <p class="note">Conformance to a [[ttml-imsc1.0.1]] profile can also be indicated as defined in [[ttml-imsc1.0.1]],
-        by including an additional <code>ebuttm:conformsToStandard</code> element whose value is equal to the designator of the [[ttml-imsc1.0.1]]
-        profile to which the <a>Document Instance</a> conforms.
-        
+        <p class="note">Conformance to a [[ttml-imsc1.0.1]] profile can also be indicated as defined in [[ttml-imsc1.0.1]], by
+        including an additional <code>ebuttm:conformsToStandard</code> element whose value is equal to the designator of the
+        [[ttml-imsc1.0.1]] profile to which the <a>Document Instance</a> conforms.</p>
+
         <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
         of this section.</p>
 
@@ -3011,6 +3121,14 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section>
+        <h4><code>#extent-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/693</p>
+
+        <p>The <code>tts:extent</code> attribute SHALL NOT use the values <code>contain</code> and <code>cover</code>.</p>
+      </section>
+
+      <section>
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
@@ -3051,6 +3169,18 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT use
         <code>em</code> units.</p>
+      </section>
+
+      <section>
+        <h4><code>#profile-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/687</p>
+
+        <p>The attributes <code>combine</code>, <code>designator</code> and <code>type</code> SHALL NOT be present on the
+        <code>ttp:profile</code> element.</p>
+
+        <p>The attributes <code>extends</code> and <code>restricts</code> SHALL NOT be present on either the
+        <code>ttp:feature</code> or <code>ttp:extension</code> elements.</p>
       </section>
 
       <section>
