@@ -1668,7 +1668,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis</code></td>
 
-          <td>permitted</td>
+          <td>See individual disposition of <code>#textEmphasis-minimal</code>, <code>#textEmphasis-no-color</code>, and
+          <code>#textEmphasis-no-quoted-string</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1684,7 +1685,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-color</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1692,7 +1693,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-quoted-string</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -2987,6 +2988,13 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
+      </section>
+
+      <section>
+        <h4><code>#textEmphasis-minimal</code></h4>
+
+        <p>The computed value of the <code>emphasis-position</code> component of the <code>tts:textEmphasis</code> attribute SHALL
+        be equal to <code>outside</code>.</p>
       </section>
 
       <section>
