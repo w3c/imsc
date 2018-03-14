@@ -2643,8 +2643,15 @@ y = topOffset * (1 - height/100)
         values equal to the designator of the profile (either <a>Text Profile</a> or <a>Image Profile</a>) to which the <a>Document
         Instance</a> conforms.</p>
 
+        <p class="note">The <code>ttp:contentProfiles</code> attribute is prohibited in some profiles, e.g. [[EBU-TT-D]] as
+        discussed in <a href="#ebu-tt-d-interop"></a>.</p>
+
+        <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
+        other [[TTML2]] syntax is not recommended in documents intended to conform to profiles that are based on [[TTML1]], e.g.
+        [[SMPTE-TT]], [[IMSC1]], [[IMSC1.0.1]], or [[SDP-US]].</p>
+
         <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
-        herein.</p>
+        herein, including designators for other versions of this specification.</p>
 
         <p class="note"><a href="#profile-resolution"></a> specifies the process by which the effective processor profile
         associated with the <a>Document Instance</a> is determined.</p>
@@ -4256,7 +4263,8 @@ y = topOffset * (1 - height/100)
       <h3>Overview</h3>
 
       <p>This specification is designed to be compatible with [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[SMPTE2052-1]], [[EBU-TT-D]] and
-      [[ttml10-sdp-us]]. Specifically, it is possible to create a document that:</p>
+      [[ttml10-sdp-us]]. Specifically, by selecting a subset of the features and extensions defined in this specification, it is
+      possible to create a document that:</p>
 
       <ul>
         <li>conforms to one of [[ttml-imsc1]], [[ttml-imsc1.0.1]],[[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also
@@ -4294,11 +4302,15 @@ y = topOffset * (1 - height/100)
       <code>head</code> element, with each <code>ebuttm:conformsToStandard</code> indicating conformance to a specification,
       including other versions of this specification.</p>
 
+      <p class="note">Conformance to a [[ttml-imsc1.0.1]] profile can be indicated as defined in [[ttml-imsc1.0.1]], by including
+      an additional <code>ebuttm:conformsToStandard</code> element whose value is equal to the designator of the [[ttml-imsc1.0.1]]
+      profile to which the <a>Document Instance</a> conforms.</p>
+
       <p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to <a>Image Profile</a>, and vice-versa,
       notwithstanding the special case where the document also conforms to <a>Text Profile</a> as noted at <a href=
       "#profiles"></a>.</p>
 
-      <p>The following is an example of a document that conforms to both <a>Text Profile</a>, [[ttml-imsc1.0.1]] Text Profile and
+      <p>The following is an example of a document that conforms to <a>Text Profile</a>, [[ttml-imsc1.0.1]] Text Profile and
       [[!EBU-TT-D]]. Note the presence of multiple <code>ebuttm:conformsToStandard</code> elements, one of which equals the <a>Text
       Profile</a> designator:</p>
       <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'>
@@ -4317,9 +4329,6 @@ y = topOffset * (1 - height/100)
       <ul>
         <li>[[ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
       </ul>
-
-      <p>The <code>ttp:contentProfiles</code> attribute can be used to signal conformance of an [[ttml10-sdp-us]] document to this
-      specification, as detailed at <a href="#profile-signaling"></a>.</p>
 
       <p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa,
       notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
@@ -4350,9 +4359,6 @@ y = topOffset * (1 - height/100)
         <li>[[!SMPTE2052-1]] does not support many features introduced in [[TTML2]] and extensions defined by this
         specification.</li>
       </ul>
-
-      <p>The <code>ttp:contentProfiles</code> attribute can be used to signal conformance of an [[ttml10-sdp-us]] document to this
-      specification, as detailed at <a href="#profile-signaling"></a>.</p>
 
       <p>The following is an example of a document that conforms to both Text Profile and [[!SMPTE2052-1]]:</p>
       <pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'>
@@ -4391,9 +4397,6 @@ y = topOffset * (1 - height/100)
       <p>The Image Profile is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Image Profile.</p>
 
       <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] therefore also conforms to this specification.</p>
-
-      <p>The <code>ttp:contentProfiles</code> attribute can be used to signal conformance of an [[ttml10-sdp-us]] document to this
-      specification, as detailed at <a href="#profile-signaling"></a>.</p>
 
       <p>A number of features that previously permitted in [[ttml-imsc1.0.1]] have been designated as permitted-deprecated in the
       <a>Text Profile</a> and <a>Image Profile</a>. [[ttml-imsc1.0.1]] documents that use such features are therefore susceptible
