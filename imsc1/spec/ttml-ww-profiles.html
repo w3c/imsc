@@ -2647,8 +2647,8 @@ y = topOffset * (1 - height/100)
         discussed in <a href="#ebu-tt-d-interop"></a>.</p>
 
         <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
-        other [[TTML2]] syntax is not recommended in documents intended to conform to profiles that are based on [[TTML1]], e.g.
-        [[SMPTE-TT]], [[IMSC1]], [[IMSC1.0.1]], or [[SDP-US]].</p>
+        other syntax introduced in [[TTML2]] is not recommended in documents intended to conform to profiles that are based on
+        [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
 
         <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
         herein, including designators for other versions of this specification.</p>
@@ -2658,7 +2658,7 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section id="ebu-tt-signaling">
-        <h4>Signaling in EBU-TT documents</h4>
+        <h4>Signaling conformance using EBU-TT metadata</h4>
 
         <p>When using the <code>ebuttm:conformsToStandard</code> element specified in [[!EBU-TT-M]], the designators of the <a>Text
         Profile</a> and <a>Image Profile</a> SHALL be used when indicating conformance to the corresponding profile.</p>
@@ -4267,8 +4267,8 @@ y = topOffset * (1 - height/100)
       possible to create a document that:</p>
 
       <ul>
-        <li>conforms to one of [[ttml-imsc1]], [[ttml-imsc1.0.1]],[[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also
-        conforms to <a>Text Profile</a>; or
+        <li>conforms to one or more of [[ttml-imsc1]], [[ttml-imsc1.0.1]],[[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and
+        also conforms to <a>Text Profile</a>; or
         </li>
 
         <li>conforms to [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[!SMPTE2052-1]], and also conforms to <a>Image Profile</a>.
@@ -4378,14 +4378,14 @@ y = topOffset * (1 - height/100)
         <li>the <code>forcedDisplayMode</code> attribute in [[CFF]] is renamed to <code>forcedDisplay</code> in this
         specification;</li>
 
-        <li>the [[CFF]] HRM does not specifies GCpy as a function of script;</li>
+        <li>the [[CFF]] HRM does not specify GCpy as a function of script;</li>
 
         <li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at Section <a href=
         '#frame-rate-constraints'></a>; and
         </li>
 
-        <li>[[CFF]] requires the use of the <code>ttp:profile</code> element, whereas this specification recommends the use of the
-        <code>ttp:contentProfiles</code> attribute.</li>
+        <li>[[CFF]] mandates a value for the <code>use</code> attribute of the <code>ttp:profile</code>. This value signals a
+        processor profile that is not compatible with the processor profiles specified in this specification.</li>
       </ul>
     </section>
 
@@ -4398,13 +4398,24 @@ y = topOffset * (1 - height/100)
 
       <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] therefore also conforms to this specification.</p>
 
-      <p>A number of features that previously permitted in [[ttml-imsc1.0.1]] have been designated as permitted-deprecated in the
+      <p>A number of features that were previously permitted in [[ttml-imsc1.0.1]] are designated as permitted-deprecated in the
       <a>Text Profile</a> and <a>Image Profile</a>. [[ttml-imsc1.0.1]] documents that use such features are therefore susceptible
-      to be incompatible with future versions of this specification.</p>
+      to being incompatible with future versions of this specification.</p>
 
       <p>The following is an example of a document that conforms to both <a>Image Profile</a> and [[ttml-imsc1.0.1]] Image
       Profile:</p>
       <pre class='example' data-include='examples/imsc1-image-example.xml' data-include-format='text'>
+      
+      
+</pre>
+
+      <aside class='note'>
+        The example document above includes the <code>smpte:backgroundImage</code> attribute, which is designated as
+        permitted-deprecated in the <a>Image Profile</a>. As such, this example document is susceptible to being incompatible with
+        future versions of this specification.
+      </aside>
+      <pre>
+
 
       
 </pre>
