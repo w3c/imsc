@@ -3584,7 +3584,7 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td>latin, greek, cyrillic, hebrew or common</td>
+            <td>latin, greek, cyrillic, hebrew or base</td>
 
             <td style="text-align: center;">12</td>
           </tr>
@@ -3704,24 +3704,24 @@ y = topOffset * (1 - height/100)
   </section>
 
   <section class='appendix' id='recommended-unicode-code-points-per-language'>
-    <h2>Safe Character Sets</h2>
+    <h2>Common Character Sets</h2>
 
     <p>While a <a>Processor</a> is required to accept, and encouraged to render, all <a>Character Information Items</a>, practical
     considerations can result in a <a>Processor</a> being capable of rendering only a subset of them. In order to increase the
-    confidence that text will be presented correctly by <a>Processors</a> targeting specific languages, this section defines safe
+    confidence that text will be presented correctly by <a>Processors</a> targeting specific languages, this section defines common
     character sets that authors are encouraged to use.</p>
 
-    <p class="note">The safe character sets defined herein are expected to evolve over time, and implementers are encouraged to
+    <p class="note">The common character sets defined herein are expected to evolve over time, and implementers are encouraged to
     review them regularly.</p>
 
-    <p class="note">The definition of safe character sets herein is in no way intended to limit the set of characters that a
+    <p class="note">The definition of common character sets herein is in no way intended to limit the set of characters that a
     <a>Processor</a> renders.</p>
 
     <p class="note">Implementers are cautioned that a given sequence of characters can yield different visual representations
     depending on the context, including surrounding characters, language and font. In other words, there is not necessarily a
     one-to-one mapping between a character and its visual representation.</p>
 
-    <p>For a given language indicated using the <code>xml:lang</code> attribute, the safe character set is equal to the union of
+    <p>For a given language indicated using the <code>xml:lang</code> attribute, the common character set is equal to the union of
     the following sets:</p>
 
     <ul>
@@ -3732,7 +3732,7 @@ y = topOffset * (1 - height/100)
 
       <li>the digits and symbols included in all numberSystems specified for the language in [[!CLDR]];</li>
 
-      <li>the common character set specified in Table 1; and</li>
+      <li>the base character set specified in Table 1; and</li>
 
       <li>supplementary characters specified for the language in Table 2, if any.</li>
     </ul>
@@ -3744,7 +3744,7 @@ y = topOffset * (1 - height/100)
 
     <table class='simple'>
       <caption>
-        Table 1. Common Character Set.
+        Table 1. Base Character Set.
       </caption>
 
       <tr>
