@@ -105,11 +105,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>The specification is designed such that:</p>
 
     <ul>
-      <li>a valid Text Profile document as specified in [[ttml-imsc1.0.1]] is a valid Text Profile document as specified
-      herein;</li>
+      <li>a valid Text Profile document as specified in [[ttml-imsc1.0.1]] is a valid <a>Text Profile</a> document as specified
+      herein;
+      </li>
 
-      <li>a valid Image Profile document as specified in [[ttml-imsc1.0.1]] is a valid Image Profile document as specified
-      herein;</li>
+      <li>a valid Image Profile document as specified in [[ttml-imsc1.0.1]] is a valid <a>Image Profile</a> document as specified
+      herein;
+      </li>
 
       <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.0.1]] as it would have
       been transformed by a processor defined in [[ttml-imsc1.0.1]]; and
@@ -119,8 +121,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       deprecated.</li>
     </ul>
 
-    <p>The text profile is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
-    [[ttml10-sdp-us]] and the text-only profile.</p>
+    <p>The <a>Text Profile</a> is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
+    [[ttml10-sdp-us]] and the <a>Text Profile</a>.</p>
   </section>
 
   <section id='conventions'>
@@ -4319,14 +4321,16 @@ y = topOffset * (1 - height/100)
 
     <ul>
       <li>other profiles of TTML and future revisions of this specification to specify support for documents and/or processors
-      conforming to Text Profile or Image Profile, in addition to specifying additional extensions;</li>
-
-      <li>subject to the structural requirements of [[!TTML2]], content from external namespaces to be present in a document that
-      conforms to Text Profile or Image Profile (a) without affecting transformation or presentation, and (b) to be carried through
-      by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
+      conforming to <a>Text Profile</a> or <a>Image Profile</a>, in addition to specifying additional extensions;
       </li>
 
-      <li>a document that conforms to Text Profile or Image Profile to be embedded in other XML documents.</li>
+      <li>subject to the structural requirements of [[!TTML2]], content from external namespaces to be present in a document that
+      conforms to <a>Text Profile</a> or <a>Image Profile</a> (a) without affecting transformation or presentation, and (b) to be
+      carried through by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
+      </li>
+
+      <li>a document that conforms to <a>Text Profile</a> or <a>Image Profile</a> to be embedded in other XML documents.
+      </li>
     </ul>
   </section>
 
@@ -4341,22 +4345,24 @@ y = topOffset * (1 - height/100)
 
       <ul>
         <li>conforms to one of [[ttml-imsc1]], [[ttml-imsc1.0.1]],[[!SMPTE2052-1]], [[!EBU-TT-D]] or [[ttml10-sdp-us]], and also
-        conforms to Text Profile; or</li>
+        conforms to <a>Text Profile</a>; or
+        </li>
 
-        <li>conforms to [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[!SMPTE2052-1]], and also conforms to Image Profile.</li>
+        <li>conforms to [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[!SMPTE2052-1]], and also conforms to <a>Image Profile</a>.
+        </li>
       </ul>
 
       <p>This specification is also intended to allow straightforward conversion of a document that conforms to the text or image
-      profiles of [[CFF]] to the Text Profile or Image Profile, respectively.</p>
+      profiles of [[CFF]] to the <a>Text Profile</a> or <a>Image Profile</a>, respectively.</p>
     </section>
 
     <section class='appendix' id='ebu-tt-d-interop'>
       <h3>EBU-TT-D</h3>
 
-      <p>The Text Profile is a strict syntactic superset of [[!EBU-TT-D]].</p>
+      <p>The <a>Text Profile</a> is a strict syntactic superset of [[!EBU-TT-D]].</p>
 
-      <p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the Text Profile, with a few exceptions,
-      including:</p>
+      <p>A document that conforms to [[!EBU-TT-D]] therefore generally also conforms to the <a>Text Profile</a>, with a few
+      exceptions, including:</p>
 
       <ul>
         <li>[[!EBU-TT-D]] does not constrain document complexity using an HRM;</li>
@@ -4371,11 +4377,12 @@ y = topOffset * (1 - height/100)
       <p>The <code>ttp:profile</code> attribute and element are not allowed by [[!EBU-TT-D]]. The
       <code>ebuttm:conformsToStandard</code> element is used instead, as discussed at <a href="#profile-signaling"></a>.</p>
 
-      <p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to Image Profile, and vice-versa,
-      notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+      <p>It is not possible for a document that conforms to [[!EBU-TT-D]] to also conform to <a>Image Profile</a>, and vice-versa,
+      notwithstanding the special case where the document also conforms to <a>Text Profile</a> as noted at <a href=
+      "#profiles"></a>.</p>
 
-      <p>The following is an example of a document that conforms to both Text Profile and [[!EBU-TT-D]]. Note the presence of two
-      <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
+      <p>The following is an example of a document that conforms to both <a>Text Profile</a> and [[!EBU-TT-D]]. Note the presence
+      of two <code>ebuttm:conformsToStandard</code> elements, one of which equals the Text Profile designator:</p>
       <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'>
 </pre>
     </section>
@@ -4383,9 +4390,9 @@ y = topOffset * (1 - height/100)
     <section class='appendix' id='sdp-us-interop'>
       <h3>SDP-US</h3>
 
-      <p>The Text Profile is a strict syntactic superset of [[ttml10-sdp-us]].</p>
+      <p>The <a>Text Profile</a> is a strict syntactic superset of [[ttml10-sdp-us]].</p>
 
-      <p>A document that conforms to [[ttml10-sdp-us]] therefore also generally conforms to the Text Profile, with a few
+      <p>A document that conforms to [[ttml10-sdp-us]] therefore also generally conforms to the <a>Text Profile</a>, with a few
       exceptions, including:</p>
 
       <ul>
@@ -4393,16 +4400,17 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <p>[[ttml10-sdp-us]] requires a specific value of the <code>use</code> attribute of the <code>ttp:profile</code>. As a
-      result, Text Profile is not signaled using the <code>ttp:profile</code> attribute. Instead, the Text Profile can be signaled
-      using the <code>ttp:contentProfiles</code> attribute, or by the Document Interchange Context and/or the Document Processing
-      Context. Alternatively, a processor can choose to process a document as a Text Profile document if the
-      <code>ttp:profile</code> element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly interoperable with Text
-      Profile.</p>
+      result, <a>Text Profile</a> is not signaled using the <code>ttp:profile</code> attribute. Instead, the <a>Text Profile</a>
+      can be signaled using the <code>ttp:contentProfiles</code> attribute, or by the Document Interchange Context and/or the
+      Document Processing Context. Alternatively, a processor can choose to process a document as a <a>Text Profile</a> document if
+      the <code>ttp:profile</code> element signals [[ttml10-sdp-us]], since [[ttml10-sdp-us]] is feasibly interoperable with
+      <a>Text Profile</a>.</p>
 
-      <p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to Image Profile, and vice-versa,
-      notwithstanding the special case where the document also conforms to Text Profile as noted at <a href="#profiles"></a>.</p>
+      <p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to <a>Image Profile</a>, and
+      vice-versa, notwithstanding the special case where the document also conforms to <a>Text Profile</a> as noted at <a href=
+      "#profiles"></a>.</p>
 
-      <p>As an illustration, Example 3 at [[ttml10-sdp-us]] conforms to both Text Profile and [[ttml10-sdp-us]].</p>
+      <p>As an illustration, Example 3 at [[ttml10-sdp-us]] conforms to both <a>Text Profile</a> and [[ttml10-sdp-us]].</p>
     </section>
 
     <section class='appendix'>
@@ -4414,27 +4422,29 @@ y = topOffset * (1 - height/100)
       <p>This specification defines practical constraints on [[!SMPTE2052-1]], supplemented by a few extensions defined at <a href=
       "#features-and-extensions"></a>. These constraints and extensions are intended to reflect industry practice.</p>
 
-      <p>As a result, particular care is required when creating a document intended to be processed according to both
-      [[!SMPTE2052-1]] and Text Profile or Image Profile. In particular:</p>
+      <p>As a result, particular care is required when creating a document intended to be processed according to [[!SMPTE2052-1]],
+      and <a>Text Profile</a> or <a>Image Profile</a>. In particular:</p>
 
       <ul>
-        <li>in contrast to Text Profile and Image Profile, [[!SMPTE2052-1]] allows documents to contain both
-        <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code>
-        elements;</li>
+        <li>in contrast to <a>Text Profile</a> or <a>Image Profile</a>, [[!SMPTE2052-1]] allows documents to contain both
+        <code>smpte:backgroundImage</code> attributes and any of <code>p</code>, <code>span</code>, or <code>br</code> elements;
+        </li>
 
-        <li>Image Profile allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>
-        extension;</li>
+        <li>
+          <a>Image Profile</a> allows only a subset of the <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>
+          extension;
+        </li>
 
         <li>[[!SMPTE2052-1]] does not support the <code>#aspectRatio</code>, <code>#forcedDisplay</code>, <code>#linePadding</code>
         and <code>#multiRowAlign</code> extensions that impact presentation; and</li>
 
         <li>when the designator <code>"http://www.smpte-ra.org/schemas/2052-1/2010/profiles/smpte-tt-full"</code> is used as a
-        value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!SMPTE2052-1]]), Text Profile or Image
-        Profile is signaled by the <a>Document Interchange Context</a> and/or the <a>Document Processing Context</a>.
+        value for <code>ttp:profile</code> element or attribute (see Section 5.8 at [[!SMPTE2052-1]]), <a>Text Profile</a> or
+        <a>Image Profile</a> is signaled by the <a>Document Interchange Context</a> and/or the <a>Document Processing Context</a>.
         </li>
       </ul>
 
-      <p>The following is an example of a document that conforms to both Text Profile and [[!SMPTE2052-1]]:</p>
+      <p>The following is an example of a document that conforms to both <a>Text Profile</a> and [[!SMPTE2052-1]]:</p>
       <pre class='example' data-include='examples/text-and-smptett-example.xml' data-include-format='text'>
 </pre>
     </section>
@@ -4466,9 +4476,9 @@ y = topOffset * (1 - height/100)
     <section class='appendix' id='imsc-interop'>
       <h3>IMSC1 and IMSC1.0.1</h3>
 
-      <p>The Text Profile is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Text Profile.</p>
+      <p>The <a>Text Profile</a> is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Text Profile.</p>
 
-      <p>The Image Profile is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Image Profile.</p>
+      <p>The <a>Image Profile</a> is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Image Profile.</p>
 
       <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] therefore also conforms to this specification.</p>
     </section>
