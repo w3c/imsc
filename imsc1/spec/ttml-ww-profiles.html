@@ -413,12 +413,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#activeArea</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#animate</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -426,6 +420,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td><code>#animate-calculation-mode</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animate-fill</code></td>
 
           <td colspan='2'>prohibited</td>
         </tr>
@@ -455,9 +455,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#animation-version-2</code></td>
+          <td><code>#animation-out-of-line</code></td>
 
           <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#animation-version-2</code></td>
+
+          <td colspan='2'>See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
+          <code>#animation</code>.</td>
         </tr>
 
         <tr>
@@ -670,6 +677,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#condition-media</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#content</code></td>
 
           <td colspan="2">permitted</td>
@@ -729,6 +742,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#display-inline</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#display-inlineBlock</code></td>
+
+          <td colspan="2">prohibited</td>
         </tr>
 
         <tr>
@@ -849,6 +868,26 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#extent-block</code></td>
+
+          <td colspan="2">prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-image</code></td>
+
+          <td>prohibited</td>
+
+          <td>permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-measure</code></td>
+
+          <td colspan="2">prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#extent-region</code></td>
 
           <td colspan="2">permitted</td>
@@ -861,9 +900,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#fillLineGap</code></td>
+          <td><code>#extent-version-2</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan="2">See individual disposition of <code>#extent</code>, <code>#extent-block</code>,
+          <code>#extent-image</code>, and <code>#extent-measure</code>.</td>
         </tr>
 
         <tr>
@@ -897,15 +937,31 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontFamily-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontKerning</code></td>
 
-          <td>permitted</td>
+          <td colspan='2'>prohibited</td>
+        </tr>
 
-          <td>prohibited</td>
+        <tr>
+          <td><code>#fontKerning</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontSelectionStrategy</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontSelectionStrategy-character</code></td>
 
           <td colspan='2'>prohibited</td>
         </tr>
@@ -941,6 +997,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontSize-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontStyle</code></td>
 
           <td>permitted</td>
@@ -965,6 +1027,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#fontStyle-p</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
           <td><code>#fontVariant</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -984,6 +1052,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#fontWeight-p</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1024,18 +1098,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#inlineAreaBreak</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#inlineAreaBreak-cloneMostNested</code></td>
-
-          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1277,8 +1339,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#padding-version-2</code></td>
 
-          <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>,
-          <code>#padding-region</code>, and <code>#inlineAreaBreak-cloneMostNested</code></td>
+          <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>, and
+          <code>#padding-region</code></td>
 
           <td>prohibited</td>
         </tr>
@@ -1328,6 +1390,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#presentation-version-2</code></td>
+
+          <td colspan="2">See individual disposition of <code>#presentation</code> and <code>#profile-version-2</code></td>
+        </tr>
+
+        <tr>
           <td><code>#processorProfiles</code></td>
 
           <td colspan='2'>prohibited</td>
@@ -1337,6 +1405,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#profile</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#profile-version-2</code></td>
+
+          <td colspan="2">The vocabulary defined by this feature is prohibited, otherwise see individual disposition of
+          <code>#contentProfiles</code>, <code>#inferProcessorProfile</code>, <code>#permitFeatureNarrowing</code>,
+          <code>#permitFeatureWidening</code>, <code>#processorProfiles</code>, and <code>#profile</code></td>
         </tr>
 
         <tr>
@@ -1360,7 +1436,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#region-timing</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan='2'>permitted</td>
         </tr>
 
         <tr>
@@ -1380,7 +1456,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#ruby-full</code></td>
 
-          <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyOffset</code>,
+          <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyAlign-withBase</code>,
           <code>#rubyPosition</code>, and <code>#rubyReserve</code>.</td>
 
           <td>prohibited</td>
@@ -1395,9 +1471,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#rubyOffset</code></td>
+          <td><code>#rubyAlign-withBase</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan="2">prohibited</td>
         </tr>
 
         <tr>
@@ -1414,6 +1490,30 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>permitted</td>
 
           <td>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set</code></td>
+
+          <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-fill</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-multiple-styles</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#set-repeat</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1576,7 +1676,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis</code></td>
 
-          <td>permitted</td>
+          <td>See individual disposition of <code>#textEmphasis-minimal</code>, <code>#textEmphasis-no-color</code>, and
+          <code>#textEmphasis-no-quoted-string</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1592,7 +1693,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-color</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1600,13 +1701,25 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-quoted-string</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textOrientation</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOrientation-sideways-LR</code></td>
+
+          <td colspan='2'>prohibited</td>
+        </tr>
+
+        <tr>
+          <td><code>#textOrientation-sideways-LR</code></td>
 
           <td>permitted</td>
 
@@ -1719,6 +1832,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#transformation</code></td>
 
           <td colspan="2">permitted</td>
+        </tr>
+
+        <tr>
+          <td><code>#transformation-version-2</code></td>
+
+          <td colspan="2">See individual disposition of <code>#transformation</code> and <code>#profile-version-2</code>.</td>
         </tr>
 
         <tr>
@@ -1837,6 +1956,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td colspan="3" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
+        </tr>
+
+        <tr>
+          <td><code>#activeArea</code></td>
+
+          <td colspan="2">permitted</td>
         </tr>
 
         <tr>
@@ -2785,6 +2910,14 @@ y = topOffset * (1 - height/100)
         <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
       </section>
 
+      <section>
+        <h4><code>#extent-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/693</p>
+
+        <p>The <code>tts:extent</code> attribute SHALL NOT use the values <code>contain</code> and <code>cover</code>.</p>
+      </section>
+
       <section id="frame-rate-constraints">
         <h4><code>#frameRate</code></h4>
 
@@ -2811,6 +2944,18 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
+      </section>
+
+      <section>
+        <h4><code>#profile-version-2</code></h4>
+
+        <p class="ednote">See https://github.com/w3c/ttml2/issues/687</p>
+
+        <p>The attributes <code>combine</code>, <code>designator</code> and <code>type</code> SHALL NOT be present on the
+        <code>ttp:profile</code> element.</p>
+
+        <p>The attributes <code>extends</code> and <code>restricts</code> SHALL NOT be present on either the
+        <code>ttp:feature</code> or <code>ttp:extension</code> elements.</p>
       </section>
 
       <section>
@@ -2981,8 +3126,8 @@ y = topOffset * (1 - height/100)
       <section>
         <h4><code>#textOutline-unblurred</code></h4>
 
-        <p>The computed value of <code>tts:textOutline</code> on a <code>span</code> element SHALL be 10% or less than the computed
-        value of <code>tts:fontSize</code> on the same element.</p>
+        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
+        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same element.</p>
       </section>
 
       <section>
@@ -4509,7 +4654,11 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#fontKerning</code></td>
+              <td><code>#displayAspectRatio</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#extent-image</code></td>
             </tr>
 
             <tr>
@@ -4545,10 +4694,6 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#ruby-full</code></td>
-            </tr>
-
-            <tr>
               <td><code>#rubyAlign</code></td>
             </tr>
 
@@ -4561,11 +4706,7 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#textEmphasis</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#textOrientation</code></td>
+              <td><code>#textEmphasis-minimal</code></td>
             </tr>
 
             <tr>
@@ -4574,6 +4715,18 @@ y = topOffset * (1 - height/100)
 
             <tr>
               <td><code>#textShadow</code></td>
+            </tr>
+
+            <tr>
+              <td style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#activeArea</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#fillLineGap</code></td>
             </tr>
           </tbody>
         </table>
