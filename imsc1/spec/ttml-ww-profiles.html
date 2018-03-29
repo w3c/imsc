@@ -942,9 +942,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#fontKerning</code></td>
 
-          <td>permitted</td>
+          <td colspan='2'>prohibited</td>
+        </tr>
 
-          <td>prohibited</td>
+        <tr>
+          <td><code>#fontKerning</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1429,7 +1433,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#region-timing</code></td>
 
-          <td colspan='2'>prohibited</td>
+          <td colspan='2'>permitted</td>
         </tr>
 
         <tr>
@@ -1669,7 +1673,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis</code></td>
 
-          <td>permitted</td>
+          <td>See individual disposition of <code>#textEmphasis-minimal</code>, <code>#textEmphasis-no-color</code>, and
+          <code>#textEmphasis-no-quoted-string</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1685,7 +1690,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-color</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1693,7 +1698,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-no-quoted-string</code></td>
 
-          <td>permitted</td>
+          <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
           <td>prohibited</td>
         </tr>
@@ -1701,9 +1706,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textOrientation</code></td>
 
-          <td>permitted</td>
+          <td colspan='2'>prohibited</td>
+        </tr>
 
-          <td>prohibited</td>
+        <tr>
+          <td><code>#textOrientation-sideways-LR</code></td>
+
+          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1944,6 +1953,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td colspan="3" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
+        </tr>
+
+        <tr>
+          <td><code>#activeArea</code></td>
+
+          <td colspan="2">permitted</td>
         </tr>
 
         <tr>
@@ -3108,8 +3123,8 @@ y = topOffset * (1 - height/100)
       <section>
         <h4><code>#textOutline-unblurred</code></h4>
 
-        <p>The computed value of <code>tts:textOutline</code> on a <code>span</code> element SHALL be 10% or less than the computed
-        value of <code>tts:fontSize</code> on the same element.</p>
+        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
+        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same element.</p>
       </section>
 
       <section>
@@ -4631,7 +4646,11 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#fontKerning</code></td>
+              <td><code>#displayAspectRatio</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#extent-image</code></td>
             </tr>
 
             <tr>
@@ -4667,10 +4686,6 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#ruby-full</code></td>
-            </tr>
-
-            <tr>
               <td><code>#rubyAlign</code></td>
             </tr>
 
@@ -4683,11 +4698,7 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
-              <td><code>#textEmphasis</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#textOrientation</code></td>
+              <td><code>#textEmphasis-minimal</code></td>
             </tr>
 
             <tr>
@@ -4696,6 +4707,18 @@ y = topOffset * (1 - height/100)
 
             <tr>
               <td><code>#textShadow</code></td>
+            </tr>
+
+            <tr>
+              <td style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
+            </tr>
+
+            <tr>
+              <td><code>#activeArea</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#fillLineGap</code></td>
             </tr>
           </tbody>
         </table>
