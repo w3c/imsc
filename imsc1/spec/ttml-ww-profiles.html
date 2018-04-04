@@ -4256,35 +4256,46 @@ y = topOffset * (1 - height/100)
     subtitle and audio tracks depends on the application.</p>
   </section>
 
-  <section class='appendix' id='wcag-applications'>
-    <h2>WCAG Considerations</h2>
+  <section class='appendix' id='wcag-maur-applications'>
+    <h2>WCAG and MAUR Considerations</h2>
 
-    <p>In order to meet the guidelines in [[!WCAG20]], the following considerations apply.</p>
+    <section class='appendix' id='wcag-applications'>
+      <h3>WCAG Considerations</h3>
 
-    <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a>
-    for all non-text content. In the context of this specification, this <a>Text Alternative</a> is intended primarily to support
-    users of the subtitles who cannot see images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually
-    represent subtitle or caption text, the guidelines for authoring text equivalent strings given at <span class='sec-no'>Images
-    of text</span> of [[HTML5]] are appropriate.</p>
+      <p>In order to meet the guidelines in [[!WCAG20]], the following considerations apply.</p>
 
-    <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
-    Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same function
-    as the corresponding subtitle image. In the context of subtitling and captioning, this content will be (as a minimum) the
-    verbatim equivalent of the image without précis or summarization. However, the author MAY include extra information to the
-    text equivalent string in cases where styling is applied to the text image with a deliberate connotation, as a
-    <em>functional</em> replacement for the applied style.</p>
+      <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a>
+      for all non-text content. In the context of this specification, this <a>Text Alternative</a> is intended primarily to support
+      users of the subtitles who cannot see images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually
+      represent subtitle or caption text, the guidelines for authoring text equivalent strings given at <span class='sec-no'>Images
+      of text</span> of [[HTML5]] are appropriate.</p>
 
-    <p>For instance, in subtitling and captioning, italics can be used to indicate an off screen speaker context (for example a
-    voice from a radio). An author can choose to include this functional information in the text equivalent; for example, by
-    including the word "Radio: " before the image equivalent text. Note that images in an <a>Image Profile</a> <a>Document
-    Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
-    include this functional information in the rendered text.</p>
+      <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
+      Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same
+      function as the corresponding subtitle image. In the context of subtitling and captioning, this content will be (as a
+      minimum) the verbatim equivalent of the image without précis or summarization. However, the author MAY include extra
+      information to the text equivalent string in cases where styling is applied to the text image with a deliberate connotation,
+      as a <em>functional</em> replacement for the applied style.</p>
 
-    <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be
-    "programmatically determinable." This means that the text must be able to be read and used by the assistive technologies (and
-    the accessibility features in browsers) that people with disabilities use. It also means that the user must be able to use
-    their assistive technology to find the alternative text (that they can use) when they land on the non-text content (that they
-    can't use).</p>
+      <p>For instance, in subtitling and captioning, italics can be used to indicate an off screen speaker context (for example a
+      voice from a radio). An author can choose to include this functional information in the text equivalent; for example, by
+      including the word "Radio: " before the image equivalent text. Note that images in an <a>Image Profile</a> <a>Document
+      Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
+      include this functional information in the rendered text.</p>
+
+      <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be
+      "programmatically determinable." This means that the text must be able to be read and used by the assistive technologies (and
+      the accessibility features in browsers) that people with disabilities use. It also means that the user must be able to use
+      their assistive technology to find the alternative text (that they can use) when they land on the non-text content (that they
+      can't use).</p>
+    </section>
+
+    <section class='appendix' id='maur-applications'>
+      <h3>MAUR Considerations (non-normative)</h3>
+
+      <p>Authors and implementers are encouraged to consult [[media-accessibility-reqs]], which presents accessibility requirements
+      users with disabilities have with respect to audio and video on the web.</p>
+    </section>
   </section>
 
   <section class='appendix' id='sample-instance'>
