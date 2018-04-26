@@ -1,0 +1,53 @@
+**********************************
+*                                *
+* Summary of substantive changes *
+*                                *
+**********************************
+
+
+NOTE 1: This summary is provided for illustration only. For an exhaustive list of changes, please
+refer to the changesets at https://github.com/w3c/imsc or use the W3C diff tool at
+http://services.w3.org/htmldiff across published versions of the specification.
+
+NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
+
+
+From WD (20171017)
+==================
+
+* Clarify the use of recommended character sets (#236)
+
+* Update feature list per TTML2 CR (#341)
+
+* Refactor profile signaling provisions (#331)
+
+* Remove recommendation against TAB characters per TTML2 semantics (#353)
+
+* Clarify fillLineGap semantics when applied to successive <p> elements (#263)
+
+* Clarify forcedDisplay semantics (#284)
+
+* Clarify handling of foreign elements and attributes (#213)
+
+* Clarify style resolution procedure (#300)
+
+* Remove recommendations on time expressions and ttp:cellResolution (#329)
+
+* Remove ttp:version and fix examples (#261)
+
+* Prohibit simultaneous tts:origin and tts:position (#289)
+
+* Remove background-color feature per removal in TTML2 (#255)
+
+* Remove rubyOverhang related features (#286 and #285)
+
+* Deprecate ittp:aspectRatio in favor of ttp:displayAspectRatio (#273)
+
+* Deprecate ittm:altText in favor of altText named metadata item (#274)
+
+* Deprecate #progressivelyDecodable (#272) 
+
+* Deprecates #writingMode-horizontal-rl in Image Profile (#147)
+
+* Updated profile signaling and resolution to match TTML2 semantics (#3, #124 and #125)
+
