@@ -456,14 +456,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#animation-version-2</code></td>
 
-          <td colspan='2'>See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
+          <td colspan="2">See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
           <code>#animation</code>.</td>
         </tr>
 
         <tr>
           <td><code>#background</code></td>
 
-          <td colspan='2'>See individual disposition of <code>#backgroundColor</code> and <code>#backgroundColor-image</code>.</td>
+          <td colspan="2">See individual disposition of <code>#backgroundColor</code> and <code>#background-image</code>.</td>
         </tr>
 
         <tr>
@@ -619,7 +619,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#displayAspectRatio</code></td>
 
-          <td colspan='2'>permitted<br>
+          <td colspan="2" class="permitted">permitted<br>
           <small>Section <a href="#displayAspectRatio"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -640,8 +640,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#extent-region</code></td>
 
-          <td colspan="2" class="permitted">permitted<br>
+          <td class="permitted">permitted<br>
           <small>Section <a href="#text-extent-region"></a> specifies additional constraints.</small></td>
+
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#image-extent-region"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -662,7 +665,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#fontFamily</code></td>
 
-          <td class="permitted">permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-fontFamily"></a> specifies additional constraints.</small></td>
 
           <td class="prohibited">prohibited</td>
         </tr>
@@ -851,7 +855,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#lineHeight</code></td>
 
-          <td class="permitted">permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-lineHeight"></a> specifies additional constraints.</small></td>
 
           <td class="prohibited">prohibited</td>
         </tr>
@@ -980,12 +985,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#permitFeatureNarrowing</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#position</code></td>
 
           <td class="permitted">permitted<br>
@@ -1024,13 +1023,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#region-timing</code></td>
 
-          <td colspan='2'>permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#ruby</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
           <td class="prohibited">prohibited</td>
         </tr>
@@ -1074,12 +1073,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><code>#set</code></td>
 
           <td colspan="2" class="permitted">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#set-fill</code></td>
-
-          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
@@ -1290,12 +1283,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#timeBase-smpte</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#timeContainer</code></td>
 
           <td colspan="2" class="permitted">permitted</td>
@@ -1334,7 +1321,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#timing</code></td>
 
-          <td colspan="2" class="permitted">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#timing"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -1691,7 +1679,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>none</em></td>
 
-            <td colspan='2'>
+            <td colspan="2">
               See Section <a href='#text-profile-designator'></a>
             </td>
           </tr>
@@ -1701,7 +1689,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>none</em></td>
 
-            <td colspan='2'>
+            <td colspan="2">
               See Section <a href='#image-profile-designator'></a>
             </td>
           </tr>
@@ -1873,6 +1861,9 @@ numerator | denominator
 
       <section id='ittp-progressivelyDecodable'>
         <h4>ittp:progressivelyDecodable</h4>
+
+        <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in
+        the profiles defined by this specification.</p>
 
         <p>A <a>progressively decodable Document Instance</a> is structured to facilitate presentation before the document is
         received in its entirety, and can be identified using <code>ittp:progressivelyDecodable</code> attribute.</p>
@@ -2602,14 +2593,14 @@ y = topOffset * (1 - height/100)
         <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!TTML2]].</p>
       </section>
 
-      <section>
+      <section id="text-fontFamily">
         <h4><code>#fontFamily</code></h4>
 
         <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
         <code>tts:fontFamily</code>.</p>
       </section>
 
-      <section>
+      <section id="text-lineHeight">
         <h4><code>#lineHeight</code></h4>
 
         <p>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
@@ -2770,7 +2761,7 @@ y = topOffset * (1 - height/100)
         "#presented-image-constraints"></a> for constraints on <code>div</code> elements.</p>
       </section>
 
-      <section>
+      <section id="image-extent-region">
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
