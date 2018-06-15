@@ -9,15 +9,15 @@
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "CR"
+                    specStatus:   "ED"
                 ,   processVersion: "2018"
-                ,   previousMaturity: "WD"
-                ,   publishDate: "2018-05-03"
-                ,   crEnd: "2018-05-31"
+                ,   previousMaturity: "CR"
+                /*,   publishDate: "2018-05-03"*/
+                /*,   crEnd: "2018-05-31"/
                 /*,   errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
                 ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2017-10-17"
+                ,   previousPublishDate: "2018-05-03"
                 ,   shortName:    "ttml-imsc1.1"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
@@ -71,6 +71,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   .inline-note {font-size: small}
   .deprecation {background-color: lavender; border: 3px double; margin: 2px;}
   .deprecation::before {content: "\26A0"; margin:0.2em; font-size:2em; float:left;}
+  td.permitted::first-line { color: green }
+  td.prohibited::first-line { color: #ff6666 }
+  td.permitted-deprecated::first-line { color: orange }
   </style>
 </head>
 
@@ -440,104 +443,33 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
-        </tr>
-
-        <tr>
-          <td><code>#animate</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#animate-calculation-mode</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#animate-fill</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#animate-key-splines</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#animate-key-times</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#animate-repeat</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em><br>
+          All features specified in [[TTML2]] are <em>prohibited</em> unless specified otherwise below</td>
         </tr>
 
         <tr>
           <td><code>#animation</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#animation-out-of-line</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#animation-version-2</code></td>
 
-          <td colspan='2'>See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
+          <td colspan="2">See individual disposition of <code>#animate</code>, <code>#animation-out-of-line</code> and
           <code>#animation</code>.</td>
-        </tr>
-
-        <tr>
-          <td><code>#audio</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#audio-description</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#audio-speech</code></td>
-
-          <td colspan='2'>prohibited</td>
         </tr>
 
         <tr>
           <td><code>#background</code></td>
 
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#background-image</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundClip</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2">See individual disposition of <code>#backgroundColor</code> and <code>#background-image</code>.</td>
         </tr>
 
         <tr>
           <td><code>#backgroundColor</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
           <td>See individual disposition of <code>#backgroundColor-inline</code>, <code>#backgroundColor-region</code> and
           <code>#backgroundColor-block</code>.</td>
@@ -546,59 +478,29 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#backgroundColor-block</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#backgroundColor-inline</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#backgroundColor-region</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundExtent</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundImage</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundOrigin</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundPosition</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#backgroundRepeat</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#bidi</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -606,221 +508,103 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>See individual disposition of <code>#bidi</code> and <code>#unicodeBidi-isolate</code>.</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-block</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-inline</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-radii</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-radii-1</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-radii-2</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#border-region</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#bpd</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#cellResolution</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#chunk</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#clockMode</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#clockMode-gps</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#clockMode-local</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#clockMode-utc</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#color</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-color"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#condition</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#condition-media</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#content</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#content-sizing</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#contentProfiles</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#contentProfiles"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#core</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#data</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#direction</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#disparity</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#display</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#display-block</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#display-inline</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#display-inlineBlock</code></td>
-
-          <td colspan="2">prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#display-region</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#displayAlign</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#displayAlign-block</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#displayAlign-justify</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#displayAlign-region</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#displayAlign-relative</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -829,180 +613,87 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>See individual disposition of <code>#displayAlign-block</code>, <code>#displayAlign-justify</code>,
           <code>#displayAlign-region</code>, and <code>#displayAlign-relative</code>.</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#displayAspectRatio</code></td>
 
-          <td colspan='2'>permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#dropMode</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#dropMode-dropNTSC</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#dropMode-dropPAL</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#dropMode-nonDrop</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#embedded-audio</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#embedded-content</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#embedded-data</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#embedded-font</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#embedded-image</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#displayAspectRatio"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#extent</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#extent-block</code></td>
-
-          <td colspan="2">prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#extent-image</code></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
 
-          <td>permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#extent-measure</code></td>
-
-          <td colspan="2">prohibited</td>
+          <td class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#extent-region</code></td>
 
-          <td colspan="2">permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-extent-region"></a> specifies additional constraints.</small></td>
+
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#image-extent-region"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#extent-root</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#extent-root"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#extent-version-2</code></td>
 
           <td colspan="2">See individual disposition of <code>#extent</code>, <code>#extent-block</code>,
-          <code>#extent-image</code>, and <code>#extent-measure</code>.</td>
-        </tr>
-
-        <tr>
-          <td><code>#font</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <code>#extent-image</code>, and <code>#extent-measure</code>.<br>
+          <small>Section <a href="#extent-version-2"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#fontFamily</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-fontFamily"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontFamily-generic</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-fontFamily-generic"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontFamily-non-generic</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontFamily-p</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontKerning</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontKerning</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontSelectionStrategy</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontSelectionStrategy-character</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontShear</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1010,137 +701,92 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>See individual disposition of <code>#fontSize-anamorphic</code> and <code>#fontSize-isomorphic</code>.</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontSize-anamorphic</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontSize-isomorphic</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontSize-p</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontStyle</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontStyle-italic</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontStyle-oblique</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontStyle-p</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontVariant</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontWeight</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#fontWeight-bold</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#fontWeight-p</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#frameRate</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#frame-rate-constraints"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#frameRateMultiplier</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#gain</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#image</code></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
 
-          <td>permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#inferProcessorProfile</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#image-ttml-image"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#initial</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#ipd</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#layout</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#region"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -1154,57 +800,46 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#length-cell</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#length-cell"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#length-em</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#length-integer</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#length-negative</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#length-percentage</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#length-pixel</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#length-positive</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#length-real</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#letterSpacing</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
@@ -1220,151 +855,124 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#lineHeight</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-lineHeight"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#luminanceGain</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#markerMode</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#markerMode-continuous</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#markerMode-discontinuous</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#metadata</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#metadata-item</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#altText"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#metadata-version-2</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#nested-div</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#nested-span</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#opacity</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#origin</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Sections <a href="#origin"></a> and <a href="#text-origin"></a> specify additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#overflow</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#overflow-visible</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#padding</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#padding-1</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#padding-2</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#padding-3</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#padding-4</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#padding-block</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#padding-inline</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#padding-region</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1373,51 +981,22 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>See individual disposition of <code>#padding-block</code>, <code>#padding-inline</code>, and
           <code>#padding-region</code></td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#pan</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#permitFeatureNarrowing</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#permitFeatureWidening</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#pitch</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#pixelAspectRatio</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#position</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#position"></a> specify additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#presentation</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
@@ -1427,15 +1006,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td><code>#processorProfiles</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
           <td><code>#profile</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
@@ -1443,45 +1016,22 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td colspan="2">The vocabulary defined by this feature is prohibited, otherwise see individual disposition of
           <code>#contentProfiles</code>, <code>#inferProcessorProfile</code>, <code>#permitFeatureNarrowing</code>,
-          <code>#permitFeatureWidening</code>, <code>#processorProfiles</code>, and <code>#profile</code></td>
-        </tr>
-
-        <tr>
-          <td><code>#region-inline</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#region-inline-explicit</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#region-inline-implicit</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <code>#permitFeatureWidening</code>, <code>#processorProfiles</code>, and <code>#profile</code>.<br>
+          <small>Section <a href="#profile-version-2"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#region-timing</code></td>
 
-          <td colspan='2'>permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#resources</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#ruby</code></td>
 
-          <td>permitted.</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1490,169 +1040,117 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>See individual disposition of <code>#ruby</code>, <code>#rubyAlign</code>, <code>#rubyAlign-withBase</code>,
           <code>#rubyPosition</code>, and <code>#rubyReserve</code>.</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#rubyAlign</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-rubyAlign"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#rubyAlign-withBase</code></td>
-
-          <td colspan="2">prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#rubyPosition</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-rubyPosition"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#rubyReserve</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#set</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#set-fill</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#set-multiple-styles</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#set-repeat</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#showBackground</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#source</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#speak</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#speech</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#structure</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-chained</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-inheritance-content</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-inheritance-region</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-inline</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-nested</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#styling-referential</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#subFrameRate</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#textAlign</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textAlign-absolute</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#textAlign-justify</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textAlign-relative</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1661,47 +1159,47 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>See individual disposition of <code>#textAlign-relative</code>, <code>#textAlign-absolute</code> and
           <code>#textAlign-justify</code>.</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textCombine</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textDecoration</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textDecoration-over</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textDecoration-through</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textDecoration-under</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1710,15 +1208,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td>See individual disposition of <code>#textEmphasis-minimal</code>, <code>#textEmphasis-no-color</code>, and
           <code>#textEmphasis-no-quoted-string</code>.</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textEmphasis-minimal</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-textEmphasis-minimal"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1726,7 +1225,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1734,27 +1233,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>See disposition of <code>#textEmphasis-minimal</code>.</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#textOrientation</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textOrientation-sideways-LR</code></td>
 
-          <td colspan='2'>prohibited</td>
-        </tr>
+          <td class="permitted">permitted</td>
 
-        <tr>
-          <td><code>#textOrientation-sideways-LR</code></td>
-
-          <td>permitted</td>
-
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
@@ -1762,107 +1249,86 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>See individual disposition of <code>#textOutline-blurred</code> and <code>#textOutline-unblurred</code>.</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#textOutline-blurred</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textOutline-unblurred</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-textOutline-unblurred"></a> specifies additional constraints.</small></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#textShadow</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#tickRate</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#timeBase-clock</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#tickRate"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#timeBase-media</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#timeBase-smpte</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#timeContainer</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#time-clock</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#time-clock-with-frames</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#time-offset</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#time-offset-with-frames</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#time-offset-with-ticks</code></td>
 
-          <td colspan="2">permitted</td>
-        </tr>
-
-        <tr>
-          <td><code>#time-wall-clock</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#timing</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted<br>
+          <small>Section <a href="#timing"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#transformation</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
@@ -1874,27 +1340,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#unicodeBidi</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#unicodeBidi-isolate</code></td>
-
-          <td colspan='2'>prohibited</td>
-        </tr>
-
-        <tr>
-          <td><code>#validation</code></td>
-
-          <td colspan='2'>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#visibility</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
           <td>See individual disposition of <code>#visibility-block</code>, <code>#visibility-inline</code> and
           <code>#visibility-region</code>.</td>
@@ -1903,35 +1357,35 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#visibility-block</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#visibility-inline</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#visibility-region</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#wrapOption</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#writingMode</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
           <td>See individual disposition of <code>#writingMode-vertical</code> and <code>#writingMode-horizontal</code>.</td>
         </tr>
@@ -1939,15 +1393,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#writingMode-vertical</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#writingMode-horizontal</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
           <td>See individual disposition of <code>#writingMode-horizontal-lr</code> and
           <code>#writingMode-horizontal-rl</code>.</td>
@@ -1956,21 +1410,21 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#writingMode-horizontal-lr</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#writingMode-horizontal-rl</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>permitted-deprecated</td>
+          <td class="permitted-deprecated">permitted-deprecated</td>
         </tr>
 
         <tr>
           <td><code>#zIndex</code></td>
 
-          <td colspan="2">permitted-deprecated</td>
+          <td colspan="2" class="permitted-deprecated">permitted-deprecated</td>
         </tr>
 
         <tr>
@@ -1980,9 +1434,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#image</code></td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
 
-          <td>permitted-deprecated</td>
+          <td class="permitted-deprecated">permitted-deprecated<br>
+          <small>Section <a href="#image-smpte-image"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -1992,55 +1447,59 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#activeArea</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#altText</code></td>
 
-          <td colspan="2">permitted-deprecated</td>
+          <td colspan="2" class="permitted-deprecated">permitted-deprecated<br>
+          <small>Section <a href="#itm-altText"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#aspectRatio</code></td>
 
-          <td colspan="2">permitted-deprecated</td>
+          <td colspan="2" class="permitted-deprecated">permitted-deprecated<br>
+          <small>Section <a href="#aspectRatio"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
           <td><code>#fillLineGap</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted</td>
 
-          <td>prohibited</td>
+          <td class="prohibited">prohibited</td>
         </tr>
 
         <tr>
           <td><code>#forcedDisplay</code></td>
 
-          <td colspan="2">permitted</td>
+          <td colspan="2" class="permitted">permitted</td>
         </tr>
 
         <tr>
           <td><code>#linePadding</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-linePadding"></a> specifies additional constraints.</small></td>
 
-          <td>permitted-deprecated</td>
+          <td class="permitted-deprecated">permitted-deprecated</td>
         </tr>
 
         <tr>
           <td><code>#multiRowAlign</code></td>
 
-          <td>permitted</td>
+          <td class="permitted">permitted<br>
+          <small>Section <a href="#text-multiRowAlign"></a> specifies additional constraints.</small></td>
 
-          <td>permitted-deprecated</td>
+          <td class="permitted-deprecated">permitted-deprecated</td>
         </tr>
 
         <tr>
           <td><code>#progressivelyDecodable</code></td>
 
-          <td colspan="2">permitted-deprecated</td>
+          <td colspan="2" class="permitted-deprecated">permitted-deprecated</td>
         </tr>
       </tbody>
     </table>
@@ -2220,7 +1679,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>none</em></td>
 
-            <td colspan='2'>
+            <td colspan="2">
               See Section <a href='#text-profile-designator'></a>
             </td>
           </tr>
@@ -2230,7 +1689,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><em>none</em></td>
 
-            <td colspan='2'>
+            <td colspan="2">
               See Section <a href='#image-profile-designator'></a>
             </td>
           </tr>
@@ -2402,6 +1861,9 @@ numerator | denominator
 
       <section id='ittp-progressivelyDecodable'>
         <h4>ittp:progressivelyDecodable</h4>
+
+        <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in
+        the profiles defined by this specification.</p>
 
         <p>A <a>progressively decodable Document Instance</a> is structured to facilitate presentation before the document is
         received in its entirety, and can be identified using <code>ittp:progressivelyDecodable</code> attribute.</p>
@@ -2855,7 +2317,7 @@ y = topOffset * (1 - height/100)
     <section>
       <h3>Constraints</h3>
 
-      <section>
+      <section id="region">
         <h4>Region</h4>
 
         <section>
@@ -2911,7 +2373,7 @@ y = topOffset * (1 - height/100)
         metadata item element is also present.</p>
       </section>
 
-      <section>
+      <section id="aspectRatio">
         <h4><code>#aspectRatio</code></h4>
 
         <p>The <code>ittp:aspectRatio</code> attribute SHOULD NOT be present in a <a>Document Instance</a> unless compatibility
@@ -2921,27 +2383,27 @@ y = topOffset * (1 - height/100)
         <code>ttp:displayAspectRatio</code> attribute is also present.</p>
       </section>
 
-      <section>
+      <section id="contentProfiles">
         <h4><code>#contentProfiles</code></h4>
 
         <p>The <code>ttp:contentProfileCombination</code> attribute SHALL not be used.</p>
       </section>
 
-      <section>
+      <section id="displayAspectRatio">
         <h4><code>#displayAspectRatio</code></h4>
 
         <p>The <code>ttp:displayAspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
         <code>ittp:aspectRatio</code> attribute is also present.</p>
       </section>
 
-      <section>
+      <section id="extent-root">
         <h4><code>#extent-root</code></h4>
 
         <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> expression,
         <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
       </section>
 
-      <section>
+      <section id="extent-version-2">
         <h4><code>#extent-version-2</code></h4>
 
         <p class="ednote">See https://github.com/w3c/ttml2/issues/693</p>
@@ -2957,27 +2419,27 @@ y = topOffset * (1 - height/100)
         <code>tt</code> element.</p>
       </section>
 
-      <section>
+      <section id="length-cell">
         <h4><code>#length-cell</code></h4>
 
         <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
       </section>
 
-      <section>
+      <section id="origin">
         <h4><code>#origin</code></h4>
 
         <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:position</code> attribute is also present.</p>
       </section>
 
-      <section>
+      <section id="position">
         <h4><code>#position</code></h4>
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
       </section>
 
-      <section>
+      <section id="profile-version-2">
         <h4><code>#profile-version-2</code></h4>
 
         <p class="ednote">See https://github.com/w3c/ttml2/issues/687</p>
@@ -2989,7 +2451,7 @@ y = topOffset * (1 - height/100)
         <code>ttp:feature</code> or <code>ttp:extension</code> elements.</p>
       </section>
 
-      <section>
+      <section id="tickRate">
         <h4><code>#tickRate</code></h4>
 
         <p><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the document contains any time expression
@@ -3011,7 +2473,7 @@ y = topOffset * (1 - height/100)
         <code>ttp:frameRate</code>)).</p>
       </section>
 
-      <section>
+      <section id="timing">
         <h4><code>#timing</code></h4>
 
         <p>For any content element that contains <code>br</code> elements or text nodes or a <code>smpte:backgroundImage</code>
@@ -3099,7 +2561,7 @@ y = topOffset * (1 - height/100)
     <section>
       <h3>Constraints</h3>
 
-      <section>
+      <section id="text-color">
         <h4><code>#color</code></h4>
 
         <p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
@@ -3111,14 +2573,14 @@ y = topOffset * (1 - height/100)
         <code>#00ff00</code> or the named color <code>lime</code>.</p>
       </section>
 
-      <section>
+      <section id="text-extent-region">
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
         <code>px</code> units or "percentage" syntax.</p>
       </section>
 
-      <section>
+      <section id="text-fontFamily-generic">
         <h4><code>#fontFamily-generic</code></h4>
 
         <p>In absence of specific instructions on the choice of font families, and in order to enhance reproducibility of line
@@ -3131,14 +2593,14 @@ y = topOffset * (1 - height/100)
         <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!TTML2]].</p>
       </section>
 
-      <section>
+      <section id="text-fontFamily">
         <h4><code>#fontFamily</code></h4>
 
         <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
         <code>tts:fontFamily</code>.</p>
       </section>
 
-      <section>
+      <section id="text-lineHeight">
         <h4><code>#lineHeight</code></h4>
 
         <p>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
@@ -3147,35 +2609,35 @@ y = topOffset * (1 - height/100)
         assigned by initial value fallback.</p>
       </section>
 
-      <section>
+      <section id="text-origin">
         <h4><code>#origin</code></h4>
 
         <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT use
         <code>em</code> units.</p>
       </section>
 
-      <section>
+      <section id="text-rubyAlign">
         <h4><code>#rubyAlign</code></h4>
 
         <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
         <code>center</code>.</p>
       </section>
 
-      <section>
+      <section id="text-rubyPosition">
         <h4><code>#rubyPosition</code></h4>
 
         <p>The specified value of the <code>tts:rubyPosition</code> attribute SHALL be such that its computed value is
         <code>outside</code>.</p>
       </section>
 
-      <section>
+      <section id="text-textEmphasis-minimal">
         <h4><code>#textEmphasis-minimal</code></h4>
 
         <p>The specified value of the <code>emphasis-position</code> component of the <code>tts:textEmphasis</code> attribute SHALL
         be such that its computed value is <code>outside</code>.</p>
       </section>
 
-      <section>
+      <section id="text-textOutline-unblurred">
         <h4><code>#textOutline-unblurred</code></h4>
 
         <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
@@ -3183,7 +2645,7 @@ y = topOffset * (1 - height/100)
         element.</p>
       </section>
 
-      <section>
+      <section id="text-linePadding">
         <h4><code>ebutts:linePadding</code></h4>
 
         <p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>,
@@ -3203,7 +2665,7 @@ y = topOffset * (1 - height/100)
         <code>ebutts:linePadding</code> is allowed only on the <code>style</code> element.</p>
       </section>
 
-      <section>
+      <section id="text-multiRowAlign">
         <h4><code>ebutts:multiRowAlign</code></h4>
 
         <p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>,
@@ -3299,14 +2761,14 @@ y = topOffset * (1 - height/100)
         "#presented-image-constraints"></a> for constraints on <code>div</code> elements.</p>
       </section>
 
-      <section>
+      <section id="image-extent-region">
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
         <code>px</code> units.</p>
       </section>
 
-      <section>
+      <section id="image-ttml-image">
         <h4><code>TTML #image Feature</code></h4>
 
         <p>The <code>image</code> element SHALL only be used in a <a href=
@@ -3335,7 +2797,7 @@ y = topOffset * (1 - height/100)
         </ul>
       </section>
 
-      <section>
+      <section id="image-smpte-image">
         <h4><code>SMPTE #image Extension</code></h4>
 
         <section>
@@ -4356,9 +3818,12 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>#progressivelyDecodable</h3>
 
+      <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in the
+      profiles defined by this specification.</p>
+
       <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
-      capable of transforming values of the <a href=
-      "#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>.</p>
+      capable of transforming values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      attribute.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
       semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
@@ -4372,7 +3837,7 @@ y = topOffset * (1 - height/100)
       defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
 
       <p>A <a>transformation processor</a> supports the <code>#aspectRatio</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a>.</p>
+      transforming values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#aspectRatio</code> feature if it implements presentation semantic
       support for values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
@@ -4382,7 +3847,7 @@ y = topOffset * (1 - height/100)
       <h3>#forcedDisplay</h3>
 
       <p>A <a>transformation processor</a> supports the <code>#forcedDisplay</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a>.</p>
+      transforming values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
 
       <p>A <a>presentation processor</a> supports the <code>#forcedDisplay</code> feature if it implements presentation semantic
       support for values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
