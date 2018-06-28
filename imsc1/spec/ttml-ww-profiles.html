@@ -1246,8 +1246,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#rubyPosition</code></td>
 
-          <td><span class="permitted label">permitted</span><br>
-          <small>Section <a href="#text-rubyPosition"></a> specifies additional constraints.</small></td>
+          <td><span class="permitted label">permitted</span></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -1419,8 +1418,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textEmphasis-minimal</code></td>
 
-          <td><span class="permitted label">permitted</span><br>
-          <small>Section <a href="#text-textEmphasis-minimal"></a> specifies additional constraints.</small></td>
+          <td><span class="permitted label">permitted</span></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -2433,7 +2431,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap'>
-          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+          <img height="" width="" src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
 
           <figcaption>
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
@@ -2448,7 +2446,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap-2'>
-          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+          <img height="" width="" src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
 
           <figcaption>
             Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
@@ -2799,8 +2797,7 @@ y = topOffset * (1 - height/100)
       <section id="text-origin">
         <h4><code>#origin</code></h4>
 
-        <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or "percentage" representation, and SHALL NOT use
-        <code>em</code> units.</p>
+        <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or percentage values.</p>
       </section>
 
       <section id="text-position">
@@ -2808,6 +2805,8 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
+
+        <p>The <code>tts:position</code> attribute SHALL use <code>px</code> units or percentage values.</p>
       </section>
 
       <section id="text-rubyAlign">
@@ -2815,20 +2814,6 @@ y = topOffset * (1 - height/100)
 
         <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
         <code>center</code>.</p>
-      </section>
-
-      <section id="text-rubyPosition">
-        <h4><code>#rubyPosition</code></h4>
-
-        <p>The specified value of the <code>tts:rubyPosition</code> attribute SHALL be such that its computed value is
-        <code>outside</code>.</p>
-      </section>
-
-      <section id="text-textEmphasis-minimal">
-        <h4><code>#textEmphasis-minimal</code></h4>
-
-        <p>The specified value of the <code>emphasis-position</code> component of the <code>tts:textEmphasis</code> attribute SHALL
-        be such that its computed value is <code>outside</code>.</p>
       </section>
 
       <section id="text-textOutline-unblurred">
@@ -3072,7 +3057,7 @@ y = topOffset * (1 - height/100)
       models the sub-pixel character positioning and anti-aliased glyph rendering that can be used to produce text output.</p>
 
       <figure id='fig-hypothetical-render-model'>
-        <img src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
+        <img height="" width="" src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
 
         <figcaption>
           Hypothetical Render Model
@@ -3366,6 +3351,8 @@ y = topOffset * (1 - height/100)
         <li><code>tts:textDecoration</code></li>
 
         <li><code>tts:textOutline</code></li>
+
+        <li><code>tts:textShadow</code></li>
       </ul>
 
       <p class='note'>While one-to-one mapping between characters and typographical glyphs is generally the rule in some scripts,
@@ -3392,8 +3379,8 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <figure>
-        <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering"
-        height="150" width="324">
+        <img height="" width="" src="figures/text-render-example-figure-2.png" alt=
+        "Example of Presentation Compositor Behavior for Text Rendering">
 
         <figcaption>
           Example of Presentation Compositor Behavior for Text Rendering
@@ -3943,7 +3930,7 @@ y = topOffset * (1 - height/100)
     "High School" sign. The content with <code>itts:forcedDisplay="false"</code> are French subtitles capturing a voiceover.</p>
 
     <figure id='fig-forced-content'>
-      <img src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
+      <img height="" width="" src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
 
       <figcaption>
         Illustration of the use of itts:forcedDisplay
