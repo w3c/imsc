@@ -158,7 +158,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     specification but not already present in either [[TTML2]] or [[ttml-imsc1.0.1]] need to be documented in the implementation
     report. The Working Group does not require that implementations are publicly available but encourages them to be so.</p>
 
-    <p>The Working Group has not identified features "at risk" for this specification.</p>
+    <p>The Working Group has identified the following features "at risk", indicating that one or more may become prohibited prior
+    to advancement to Proposed Recommendation, based on implementation experience:</p>
+
+    <ul>
+      <li><code>#lineShear</code></li>
+
+      <li><code>#shear</code></li>
+    </ul>
 
     <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.1-20171017/">initial
     Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>. For convenience, a
@@ -730,12 +737,19 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#extent-length</code></td>
 
-          <td colspan="2"><span class="permitted label">permitted</span><br>
+          <td colspan="2">
+            <span class="permitted label">permitted</span><br>
 
             <aside class="ednote">
               See <a href="https://github.com/w3c/ttml2/issues/846">TTML2 Issue #846</a>
             </aside>
           </td>
+        </tr>
+
+        <tr>
+          <td><code>#extent-length-version-2</code></td>
+
+          <td colspan="2">See the disposition of <code>#length-version-2</code>.</td>
         </tr>
 
         <tr>
@@ -757,8 +771,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#extent-root</code></td>
 
-          <td colspan="2">See individual disposition of <code>#extent-length</code> and
-          <code>#extent-auto</code>.<br>
+          <td colspan="2">See individual disposition of <code>#extent-length</code> and <code>#extent-auto</code>.<br>
           <small>Section <a href="#extent-root"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -906,9 +919,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#length</code></td>
 
-          <td colspan="2">See individual disposition of <code>#length-integer</code>, <code>#length-real</code>,
-          <code>#length-positive</code>, <code>#length-negative</code>, <code>#length-cell</code>, <code>#length-em</code>,
-          <code>#length-percentage</code>, and <code>#length-pixel</code>.</td>
+          <td><span class="permitted label">permitted</span></td>
+
+          <td>See individual disposition of <code>#length-integer</code>, <code>#length-real</code>, <code>#length-positive</code>,
+          <code>#length-negative</code>, <code>#length-cell</code>, <code>#length-em</code>, <code>#length-percentage</code>, and
+          <code>#length-pixel</code>.</td>
         </tr>
 
         <tr>
@@ -2415,7 +2430,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap'>
-          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+          <img height="" width="" src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
 
           <figcaption>
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
@@ -2430,7 +2445,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap-2'>
-          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+          <img height="" width="" src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
 
           <figcaption>
             Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
@@ -3033,7 +3048,7 @@ y = topOffset * (1 - height/100)
       models the sub-pixel character positioning and anti-aliased glyph rendering that can be used to produce text output.</p>
 
       <figure id='fig-hypothetical-render-model'>
-        <img src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
+        <img height="" width="" src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
 
         <figcaption>
           Hypothetical Render Model
@@ -3353,8 +3368,8 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <figure>
-        <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering"
-        height="150" width="324">
+        <img height="" width="" src="figures/text-render-example-figure-2.png" alt=
+        "Example of Presentation Compositor Behavior for Text Rendering">
 
         <figcaption>
           Example of Presentation Compositor Behavior for Text Rendering
@@ -3904,7 +3919,7 @@ y = topOffset * (1 - height/100)
     "High School" sign. The content with <code>itts:forcedDisplay="false"</code> are French subtitles capturing a voiceover.</p>
 
     <figure id='fig-forced-content'>
-      <img src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
+      <img height="" width="" src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
 
       <figcaption>
         Illustration of the use of itts:forcedDisplay
