@@ -164,6 +164,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <ul>
       <li><code>#lineShear</code></li>
 
+      <li><code>#length-root-container-relative</code></li>
+
       <li><code>#shear</code></li>
     </ul>
 
@@ -982,9 +984,19 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
+          <td><code>#length-root-container-relative</code></td>
+
+          <td><span class="permitted label">permitted</span></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+
+        <tr>
           <td><code>#length-version-2</code></td>
 
-          <td colspan="2">See individual disposition of <code>#length</code> and <code>#length-root-container-relative</code>.</td>
+          <td><span class="permitted label">permitted</span></td>
+
+          <td>See individual disposition of <code>#length</code> and <code>#length-root-container-relative</code>.</td>
         </tr>
 
         <tr>
@@ -2746,7 +2758,7 @@ y = topOffset * (1 - height/100)
         <h4><code>#extent-region</code></h4>
 
         <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
-        <code>px</code> units or "percentage" syntax.</p>
+        <code>px</code> units, percentage values, or root container relative units.</p>
       </section>
 
       <section id="text-fontFamily-generic">
@@ -2806,7 +2818,8 @@ y = topOffset * (1 - height/100)
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
 
-        <p>The <code>tts:position</code> attribute SHALL use <code>px</code> units or percentage values.</p>
+        <p>The <code>tts:position</code> attribute SHALL use <code>px</code> units, percentage values or root container relative
+        units.</p>
       </section>
 
       <section id="text-rubyAlign">
@@ -4409,6 +4422,10 @@ y = topOffset * (1 - height/100)
 
             <tr>
               <td><code>#length-negative</code></td>
+            </tr>
+
+            <tr>
+              <td><code>#length-root-container-relative</code></td>
             </tr>
 
             <tr>
