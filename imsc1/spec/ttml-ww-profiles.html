@@ -1443,7 +1443,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td><code>#textShadow</code></td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-textShadow"></a> specifies additional constraints.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -2821,6 +2822,13 @@ y = topOffset * (1 - height/100)
         <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
         <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same
         element.</p>
+      </section>
+
+      <section id="text-textShadow">
+        <h4><code>#textShadow</code></h4>
+
+        <p>The specified value of the <code>tts:textShadow</code> attribute SHALL NOT have more than 4 <code>&lt;shadow&gt;</code>
+        values.</p>
       </section>
 
       <section id="text-linePadding">
