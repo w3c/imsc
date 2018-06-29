@@ -12,6 +12,32 @@ http://services.w3.org/htmldiff across published versions of the specification.
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
 
+From CR (20180503)
+==================
+
+* Make reference to TTML2 dated (#381)
+
+* Apply tt:initial to extension style properties (#386)
+
+* Add support for #length-root-container-relative (rh/rw units) (#372)
+
+* Add support for tts:rubyAlign='spaceAround' (#402)
+
+* Limit number of tts:textShadow <values> to 4 (#407)
+
+* Apply tts:origin constraints to tts:position (#366)
+
+* Add tts:textShadow to HRM glyph definition (#405)
+
+* Relax <annotation-position> constraints (#385)
+
+* Add support for negative length values (#370, #394)
+
+* Replace tts:fontShear with tts:shear and tts:lineShear (#401)
+
+* Make feature lists consistent with TTML2 CR2 (#390, #393, #373, #382, #374)
+
+
 From WD (20171017)
 ==================
 
