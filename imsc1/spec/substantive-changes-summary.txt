@@ -17,11 +17,11 @@ From CR (20180503)
 
 * Make reference to TTML2 dated (#381)
 
-* Apply tt:initial to extension style properties (#386)
+* Permit extension style properties to be used in tt:initial (#386)
 
 * Add support for #length-root-container-relative (rh/rw units) (#372)
 
-* Add support for tts:rubyAlign='spaceAround' (#402)
+* Add support for tts:rubyAlign="spaceAround" (#402)
 
 * Limit number of tts:textShadow <values> to 4 (#407)
 
