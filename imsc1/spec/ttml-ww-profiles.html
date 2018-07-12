@@ -1909,8 +1909,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span></td>
 
-          <td>Partially supported via <code>#writingMode-horizontal-lr</code> and
-          <code>#writingMode-horizontal-rl</code>.</td>
+          <td>Partially supported via <code>#writingMode-horizontal-lr</code> and <code>#writingMode-horizontal-rl</code>.</td>
         </tr>
 
         <tr>
@@ -3130,10 +3129,10 @@ y = topOffset * (1 - height/100)
       <section id="text-lineHeight">
         <h4><code>#lineHeight</code></h4>
 
-        <p>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
-        <code>tts:lineHeight</code> SHOULD NOT be set to <code>"normal"</code> and SHOULD be explicitly specified such that the
-        specified style set of each <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not
-        assigned by initial value fallback.</p>
+        <p>The specified value of the <code>tts:lineHeight</code> attribute SHOULD be such that specified style set of each
+        <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not <code>normal</code>.</p>
+
+        <p class="note">Implementation of the <code>normal</code> value is not uniform at the time of this writing.</p>
       </section>
 
       <section id="text-origin">
