@@ -1399,15 +1399,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td>
-            <a href=
-            "https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-profile-full-version-2"><code>#profile-full-version-2</code></a>
-          </td>
-
-          <td colspan="2">Partially supported via <code>#presentation</code> and <code>#profile-version-2</code></td>
-        </tr>
-
-        <tr>
-          <td>
             <a href="https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-region-timing"><code>#region-timing</code></a>
           </td>
 
@@ -1913,17 +1904,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <tr>
           <td>
             <a href=
-            "https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-writingMode-vertical"><code>#writingMode-vertical</code></a>
-          </td>
-
-          <td><span class="permitted label">permitted</span></td>
-
-          <td><span class="prohibited label">prohibited</span></td>
-        </tr>
-
-        <tr>
-          <td>
-            <a href=
             "https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-writingMode-horizontal"><code>#writingMode-horizontal</code></a>
           </td>
 
@@ -1951,6 +1931,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <td><span class="permitted label">permitted</span></td>
 
           <td><span class="permitted-deprecated label">permitted-deprecated</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href=
+            "https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-writingMode-vertical"><code>#writingMode-vertical</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
         </tr>
 
         <tr>
@@ -2299,8 +2290,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>Mapping the <a>Root Container Region</a> to the <a>Related Video Object</a></h3>
 
-      <p>The <a>Root Container Region</a> of a <a>Document Instance</a> SHALL be mapped to each image frame of the <a>Related Video
-      Object</a> according to the following:</p>
+      <p>The <a>Root Container Region</a> of a <a>Document Instance</a> SHALL be mapped to a rectangular area within each image
+      frame of the <a>Related Video Object</a> according to the following:</p>
 
       <ol style="list-style-type: lower-roman;">
         <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the <a>Root
@@ -2850,9 +2841,8 @@ y = topOffset * (1 - height/100)
     <section id='style-resolution-procedure'>
       <h3>Style Resolution</h3>
 
-      <p>The following style properties are subject to the <em>Style Resolution</em> procedures specified at Section 10.4 of
-      [[!ttml2-20180628]], and MAY be specified as an attribute of the <code>initial</code> element specified at Section 10.1.1 of
-      [[!ttml2-20180628]], instead of an attribute in the <em>TT Style Namespaces</em>:</p>
+      <p>The following style properties SHALL be subject to the <em>Style Resolution</em> procedures specified at Section 10.4 of
+      [[!ttml2-20180628]]:</p>
 
       <ul>
         <li><code>itts:fillLineGap</code></li>
@@ -2863,6 +2853,9 @@ y = topOffset * (1 - height/100)
 
         <li><code>ebutts:multiRowAlign</code></li>
       </ul>
+
+      <p class="note">The style properties above can be specified as attributes of the <code>initial</code> element specified at
+      Section 10.1.1 of [[!ttml2-20180628]].</p>
     </section>
 
     <section>
