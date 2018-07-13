@@ -300,10 +300,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Text Profile presentation processor</dfn>. A <a>presentation processor</a> that conforms to the <a>Text
     Profile</a>.</p>
+
+    <p><dfn>Valid abstract document instance</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
   </section>
 
   <section id="conformance">
-    <p>A <a>Document Instance</a> that conforms to a profile defined herein:</p>
+    <p>A <a>Document Instance</a> that conforms to a profile defined herein SHALL be a concretely encoded representation of
+      a <a>Valid abstract document instance</a> that:</p>
 
     <ul>
       <li>SHALL satisfy all normative provisions specified by the profile;</li>
@@ -320,6 +323,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!ttml2-20180628]],
     and hence a <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document
     Instance.</p>
+    
+    <p class='note'>The assessment that a <a>Document Instance</a> is a <a>Valid abstract document instance</a>
+      as defined by Section 4 at [[ttml2-20180628]] prunes elements and attributes that are not associated with the
+      abstract document type, which in this case is defined by the applicable profile defined in this specification. See also
+      <a href="#foreign-elements"></a>.</p>
 
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
