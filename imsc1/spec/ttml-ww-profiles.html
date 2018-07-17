@@ -2051,7 +2051,21 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>Document Encoding</h3>
 
-      <p>A <a>Document Instance</a> SHALL use UTF-8 character encoding as specified in [[!UNICODE]].</p>
+      <p>A <a>Document Instance</a> SHALL be concretely encoded as a well-formed XML 1.0 [[!xml-20081126]] document using the UTF-8
+      character encoding as specified in [[!UNICODE]].</p>
+
+      <p>The resulting [[!xml-20081126]] document SHOULD NOT contain any of the following physical structures:</p>
+
+      <ul>
+        <li><em>entity declarations</em>; and</li>
+
+        <li><em>entity references</em> other than to <em>predefined entities</em>.</li>
+      </ul>
+
+      <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
+
+      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity references</em>
+      to <em>predefined entities</em>.</p>
     </section>
 
     <section id='foreign-elements'>
