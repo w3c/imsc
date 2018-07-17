@@ -61,12 +61,12 @@ var respecConfig = {
                           },
                           "EBU-TT-D": {
                           publisher: "European Broadcasting Union (EBU)",
-                          href: "https://tech.ebu.ch/docs/tech/tech3380.pdf",
+                          href: "https://tech.ebu.ch/files/live/sites/tech/files/shared/tech/tech3380v1_0_1.pdf",
                           title: "Tech 3380, EBU-TT-D Subtitling Distribution Format Version 1.0.1"
                           },
                           "EBU-TT-M": {
                           publisher: "European Broadcasting Union (EBU)",
-                          href :"https://tech.ebu.ch/docs/tech/tech3390.pdf",
+                          href :"https://tech.ebu.ch/files/live/sites/tech/files/shared/tech/tech3390.pdf",
                           title: "Tech 3390, EBU-TT-M Metadata Definitions 1.0"
                           },
                           "CLDR": {
@@ -474,7 +474,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <section>
         <h4>Override</h4>
 
-        <p>If one or more <code>ebuttm:conformsToStandard</code> elements, as specified in [[!EBU-TT-D]], are set to any of the
+        <p>If one or more <code>ebuttm:conformsToStandard</code> elements, as specified in [[!EBU-TT-M]], are set to any of the
         following designators, then the <a>override content profile</a> SHALL be set to the profile associated with any one of the
         matching designators:</p>
 
@@ -491,7 +491,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a>Text Profile</a> Designator
           </li>
 
-          <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[EBU-TT-D]]</li>
+          <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[!EBU-TT-D]]</li>
+          <li><code>urn:ebu:tt:distribution:2018-04</code>, as specified in [[!EBU-TT-D]]</li>
         </ul>
       </section>
     </section>
@@ -1252,10 +1253,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </td>
 
           <td><span class="permitted label">permitted</span><br>
-          <small>Sections <a href="#origin"></a> and <a href="#text-origin"></a> specify additional constraints.</small></td>
+          <small>Section <a href="#text-origin"></a> specifies additional constraints.</small></td>
 
-          <td><span class="permitted label">permitted</span><br>
-          <small>Section <a href="#origin"></a> specifies additional constraints.</small></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1911,8 +1911,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span></td>
 
-          <td>Partially supported via <code>#writingMode-horizontal-lr</code> and
-          <code>#writingMode-horizontal-rl</code>.</td>
+          <td>Partially supported via <code>#writingMode-horizontal-lr</code> and <code>#writingMode-horizontal-rl</code>.</td>
         </tr>
 
         <tr>
@@ -2054,7 +2053,21 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>Document Encoding</h3>
 
-      <p>A <a>Document Instance</a> SHALL use UTF-8 character encoding as specified in [[!UNICODE]].</p>
+      <p>A <a>Document Instance</a> SHALL be concretely encoded as a well-formed XML 1.0 [[!xml-20081126]] document using the UTF-8
+      character encoding as specified in [[!UNICODE]].</p>
+
+      <p>The resulting [[!xml-20081126]] document SHOULD NOT contain any of the following physical structures:</p>
+
+      <ul>
+        <li><em>entity declarations</em>; and</li>
+
+        <li><em>entity references</em> other than to <em>predefined entities</em>.</li>
+      </ul>
+
+      <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
+
+      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity references</em>
+      to <em>predefined entities</em>.</p>
     </section>
 
     <section id='foreign-elements'>
@@ -2957,13 +2970,6 @@ y = topOffset * (1 - height/100)
         <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
       </section>
 
-      <section id="origin">
-        <h4><code>#origin</code></h4>
-
-        <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>tts:position</code> attribute is also present.</p>
-      </section>
-
       <section id="tickRate">
         <h4><code>#tickRate</code></h4>
 
@@ -3132,26 +3138,29 @@ y = topOffset * (1 - height/100)
       <section id="text-lineHeight">
         <h4><code>#lineHeight</code></h4>
 
-        <p>As implementation of the <code>"normal"</code> value is not uniform at the time of this writing,
-        <code>tts:lineHeight</code> SHOULD NOT be set to <code>"normal"</code> and SHOULD be explicitly specified such that the
-        specified style set of each <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not
-        assigned by initial value fallback.</p>
+        <p>The specified value of the <code>tts:lineHeight</code> attribute SHOULD be such that specified style set of each
+        <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not <code>normal</code>.</p>
+
+        <p class="note">Implementation of the <code>normal</code> value is not uniform at the time of this writing.</p>
       </section>
 
       <section id="text-origin">
         <h4><code>#origin</code></h4>
 
         <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or percentage values.</p>
+
+        <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>tts:position</code> attribute is also present.</p>
       </section>
 
       <section id="text-position">
         <h4><code>#position</code></h4>
 
-        <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>tts:origin</code> attribute is also present.</p>
-
         <p>The <code>tts:position</code> attribute SHALL use <code>px</code> units, percentage values or root container relative
         units.</p>
+
+        <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>tts:origin</code> attribute is also present.</p>
       </section>
 
       <section id="text-rubyAlign">
@@ -3179,8 +3188,20 @@ y = topOffset * (1 - height/100)
       <section id="text-linePadding">
         <h4><code>ebutts:linePadding</code></h4>
 
-        <p>If used, the attribute <code>ebutts:linePadding</code> MAY be specified on elements <code>region</code>,
-        <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code>.</p>
+        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:linePadding</code> MAY be specified on the
+        following elements:</p>
+
+        <ul>
+          <li><code>region</code></li>
+
+          <li><code>body</code></li>
+
+          <li><code>div</code></li>
+
+          <li><code>p</code></li>
+
+          <li><code>initial</code></li>
+        </ul>
 
         <p>The <a>processor</a>:</p>
 
@@ -3199,8 +3220,20 @@ y = topOffset * (1 - height/100)
       <section id="text-multiRowAlign">
         <h4><code>ebutts:multiRowAlign</code></h4>
 
-        <p>If used, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on elements <code>region</code>,
-        <code>body</code>, <code>div</code> and <code>p</code> in addition to <code>style</code></p>
+        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on the
+        following elements:</p>
+
+        <ul>
+          <li><code>region</code></li>
+
+          <li><code>body</code></li>
+
+          <li><code>div</code></li>
+
+          <li><code>p</code></li>
+
+          <li><code>initial</code></li>
+        </ul>
 
         <p>The <a>processor</a>:</p>
 
@@ -3356,12 +3389,13 @@ y = topOffset * (1 - height/100)
 
             <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
             element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
-            and
             </li>
 
             <li>The <code>smpte:backgroundImage</code> attribute SHALL reference an image resource that conforms to <a href=
-            '#image-resource'></a>.
+            '#image-resource'></a>; and
             </li>
+
+            <li>the <code>div</code> element SHALL NOT have any <code>image</code> element as a descendant.</li>
           </ul>
 
           <p class='note'>In order to individually position multiple <code>div</code> elements, each <code>div</code> can be
