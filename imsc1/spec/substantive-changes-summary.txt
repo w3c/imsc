@@ -37,6 +37,16 @@ From CR (20180503)
 
 * Make feature lists consistent with TTML2 CR2 (#390, #393, #373, #382, #374)
 
+* Permit multiRowAlign and linePadding on initial (#434)
+
+* Clarify that the concrete encoding uses XML 1.0 (#431)
+
+* Clarify recommendation on using tts:lineHeight="normal" (#420)
+
+* Clarify that tt:initial allows multiple style properties as specified in TTML2 (#421)
+
+* Recommend against use of XML entities other than character reference and predefined entities (#431)
+
 
 From WD (20171017)
 ==================
