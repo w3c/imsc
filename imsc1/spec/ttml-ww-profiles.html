@@ -3387,12 +3387,13 @@ y = topOffset * (1 - height/100)
 
             <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
             element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
-            and
             </li>
 
             <li>The <code>smpte:backgroundImage</code> attribute SHALL reference an image resource that conforms to <a href=
-            '#image-resource'></a>.
+            '#image-resource'></a>; and
             </li>
+
+            <li>the <code>div</code> element SHALL NOT have any <code>image</code> element as a descendant.</li>
           </ul>
 
           <p class='note'>In order to individually position multiple <code>div</code> elements, each <code>div</code> can be
