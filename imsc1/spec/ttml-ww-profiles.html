@@ -5,6 +5,11 @@
   <meta charset='utf-8'>
 
   <title>TTML Profiles for Internet Media Subtitles and Captions 1.1</title>
+  <style>
+figure img {
+      height: auto;
+    }
+  </style>
   <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async="" class='remove'>
 </script>
   <script class='remove'>
@@ -77,7 +82,7 @@ var respecConfig = {
                       }
         };
   </script>
-  <style type="text/css">
+  <style>
 table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   table.syntax caption { font-weight: bold; text-align: left; padding-bottom: 0.5em }
@@ -155,7 +160,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
   <section id='sotd'>
     <p>The deadline for comments is 23 August 2018.</p>
-  
+
     <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
     specification but not already present in either [[ttml2-20180628]] or [[ttml-imsc1.0.1]] need to be documented in the
     implementation report. The Working Group does not require that implementations are publicly available but encourages them to be
@@ -492,6 +497,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </li>
 
           <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[!EBU-TT-D]]</li>
+
           <li><code>urn:ebu:tt:distribution:2018-04</code>, as specified in [[!EBU-TT-D]]</li>
         </ul>
       </section>
@@ -2066,8 +2072,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
 
-      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity references</em>
-      to <em>predefined entities</em>.</p>
+      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity
+      references</em> to <em>predefined entities</em>.</p>
     </section>
 
     <section id='foreign-elements'>
@@ -2785,7 +2791,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap'>
-          <img height="" width="" src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
 
           <figcaption>
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
@@ -2800,7 +2806,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap-2'>
-          <img height="" width="" src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
 
           <figcaption>
             Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
@@ -3436,7 +3442,7 @@ y = topOffset * (1 - height/100)
       models the sub-pixel character positioning and anti-aliased glyph rendering that can be used to produce text output.</p>
 
       <figure id='fig-hypothetical-render-model'>
-        <img height="" width="" src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
+        <img src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
 
         <figcaption>
           Hypothetical Render Model
@@ -3758,8 +3764,7 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <figure>
-        <img height="" width="" src="figures/text-render-example-figure-2.png" alt=
-        "Example of Presentation Compositor Behavior for Text Rendering">
+        <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering">
 
         <figcaption>
           Example of Presentation Compositor Behavior for Text Rendering
@@ -4309,7 +4314,7 @@ y = topOffset * (1 - height/100)
     "High School" sign. The content with <code>itts:forcedDisplay="false"</code> are French subtitles capturing a voiceover.</p>
 
     <figure id='fig-forced-content'>
-      <img height="" width="" src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
+      <img src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
 
       <figcaption>
         Illustration of the use of itts:forcedDisplay
@@ -4883,9 +4888,10 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
+              <td><code>#writingMode-horizontal-rl</code></td>
+
               <td>
-                <code>#writingMode-horizontal-rl</code><br>
-                (deprecated in <a>Image Profile</a> only)
+                Deprecated in <a>Image Profile</a> only
               </td>
             </tr>
 
