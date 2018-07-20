@@ -47,6 +47,8 @@ From CR (20180503)
 
 * Recommend against use of XML entities other than character reference and predefined entities (#431)
 
+* The following features are marked "at-risk":  #lineShear, #length-root-container-relative, and #shear 
+
 
 From WD (20171017)
 ==================
