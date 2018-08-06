@@ -12,6 +12,44 @@ http://services.w3.org/htmldiff across published versions of the specification.
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
 
+From CR (20180503)
+==================
+
+* Make reference to TTML2 dated (#381)
+
+* Permit extension style properties to be used in tt:initial (#386)
+
+* Add support for #length-root-container-relative (rh/rw units) (#372)
+
+* Add support for tts:rubyAlign="spaceAround" (#402)
+
+* Limit number of tts:textShadow <values> to 4 (#407)
+
+* Apply tts:origin constraints to tts:position (#366)
+
+* Add tts:textShadow to HRM glyph definition (#405)
+
+* Relax <annotation-position> constraints (#385)
+
+* Add support for negative length values (#370, #394)
+
+* Replace tts:fontShear with tts:shear and tts:lineShear (#401)
+
+* Make feature lists consistent with TTML2 CR2 (#390, #393, #373, #382, #374)
+
+* Permit multiRowAlign and linePadding on initial (#434)
+
+* Clarify that the concrete encoding uses XML 1.0 (#431)
+
+* Clarify recommendation on using tts:lineHeight="normal" (#420)
+
+* Clarify that tt:initial allows multiple style properties as specified in TTML2 (#421)
+
+* Recommend against use of XML entities other than character reference and predefined entities (#431)
+
+* The following features are marked "at-risk":  #lineShear, #length-root-container-relative, and #shear 
+
+
 From WD (20171017)
 ==================
 

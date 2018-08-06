@@ -5,15 +5,20 @@
   <meta charset='utf-8'>
 
   <title>TTML Profiles for Internet Media Subtitles and Captions 1.1</title>
+  <style>
+figure img {
+      height: auto;
+    }
+  </style>
   <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async="" class='remove'>
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "ED"
+                    specStatus:   "CR"
                 ,   processVersion: "2018"
                 ,   previousMaturity: "CR"
-                /*,   publishDate: "2018-05-03"*/
-                /*,   crEnd: "2018-05-31"/
+                ,   publishDate: "2018-07-26"
+                ,   crEnd: "2018-09-06"
                 /*,   errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
                 ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"
@@ -35,8 +40,12 @@ var respecConfig = {
                   ,   wgPublicList: "public-tt"
                   ,   wgPatentURI: "https://www.w3.org/2004/01/pp-impl/34314/status"
                   ,   subjectPrefix: "[imsc1.1]"
-                  ,   edDraftURI: "https://rawgit.com/w3c/imsc/IMSC1.1/imsc1/spec/ttml-ww-profiles.html"
-                  ,   github: "https://github.com/w3c/imsc"
+                  ,   edDraftURI: "https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html"
+                  ,   github: {
+                          repoURL : "https://github.com/w3c/imsc/",
+                          branch : "master"
+                          
+                        }
                   ,   license: "w3c"
                   ,   localBiblio:  {
                           "SUBM": {
@@ -77,7 +86,7 @@ var respecConfig = {
                       }
         };
   </script>
-  <style type="text/css">
+  <style>
 table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   table.syntax caption { font-weight: bold; text-align: left; padding-bottom: 0.5em }
@@ -154,6 +163,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   </section>
 
   <section id='sotd'>
+    <p>The deadline for comments is 23 August 2018.</p>
+
     <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
     specification but not already present in either [[ttml2-20180628]] or [[ttml-imsc1.0.1]] need to be documented in the
     implementation report. The Working Group does not require that implementations are publicly available but encourages them to be
@@ -172,7 +183,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.1-20171017/">initial
     Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>. For convenience, a
-    diff is offered at the <a href="https://www.w3.org/TR/2018/CR-ttml-imsc1.1-20180503/">W3C HTML Diff service</a>.</p>
+    diff is offered at the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FCR-ttml-imsc1.1-20180503%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FCR-ttml-imsc1.1-20180726%2F">W3C HTML Diff service</a>.</p>
   </section>
 
   <section id='scope'>
@@ -490,6 +501,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </li>
 
           <li><code>urn:ebu:tt:distribution:2014-01</code>, as specified in [[!EBU-TT-D]]</li>
+
           <li><code>urn:ebu:tt:distribution:2018-04</code>, as specified in [[!EBU-TT-D]]</li>
         </ul>
       </section>
@@ -2064,8 +2076,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
 
-      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity references</em>
-      to <em>predefined entities</em>.</p>
+      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity
+      references</em> to <em>predefined entities</em>.</p>
     </section>
 
     <section id='foreign-elements'>
@@ -2783,7 +2795,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap'>
-          <img height="" width="" src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
 
           <figcaption>
             Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
@@ -2798,7 +2810,7 @@ y = topOffset * (1 - height/100)
 </pre>
 
         <figure id='fig-fillLineGap-2'>
-          <img height="" width="" src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
 
           <figcaption>
             Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
@@ -3434,7 +3446,7 @@ y = topOffset * (1 - height/100)
       models the sub-pixel character positioning and anti-aliased glyph rendering that can be used to produce text output.</p>
 
       <figure id='fig-hypothetical-render-model'>
-        <img height="" width="" src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
+        <img src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
 
         <figcaption>
           Hypothetical Render Model
@@ -3756,8 +3768,7 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <figure>
-        <img height="" width="" src="figures/text-render-example-figure-2.png" alt=
-        "Example of Presentation Compositor Behavior for Text Rendering">
+        <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering">
 
         <figcaption>
           Example of Presentation Compositor Behavior for Text Rendering
@@ -4307,7 +4318,7 @@ y = topOffset * (1 - height/100)
     "High School" sign. The content with <code>itts:forcedDisplay="false"</code> are French subtitles capturing a voiceover.</p>
 
     <figure id='fig-forced-content'>
-      <img height="" width="" src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
+      <img src="figures/forced-example-figure-1.png" alt="Illustration of the use of itts:forcedDisplay">
 
       <figcaption>
         Illustration of the use of itts:forcedDisplay
@@ -4881,9 +4892,10 @@ y = topOffset * (1 - height/100)
             </tr>
 
             <tr>
+              <td><code>#writingMode-horizontal-rl</code></td>
+
               <td>
-                <code>#writingMode-horizontal-rl</code><br>
-                (deprecated in <a>Image Profile</a> only)
+                Deprecated in <a>Image Profile</a> only
               </td>
             </tr>
 
