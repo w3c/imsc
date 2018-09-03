@@ -2912,6 +2912,12 @@ y = topOffset * (1 - height/100)
 
           <p>No two <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a> SHALL
           overlap, i.e. the intersection of the sets of coordinates within each <a>presented region</a> is empty.</p>
+
+          <aside class='note'>
+            A <a>Document instance</a> can be validated with respect to the constraints above by computing the coordinate sets from
+            the specified location (<code>tts:origin</code> or <code>tts:position</code>) and size (<code>tts:extent</code>) of
+            each region.
+          </aside>
         </section>
 
         <section>
@@ -2975,6 +2981,18 @@ y = topOffset * (1 - height/100)
         <h4><code>#length-cell</code></h4>
 
         <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
+      </section>
+
+      <section id="length-root-container-relative">
+        <h4><code>#length-root-container-relative</code></h4>
+
+        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute, <code>rh</code> and <code>rw</code>
+        units SHALL NOT be used for horizontal length components and vertical length components, respectively.</p>
+
+        <aside class="note">
+          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
+          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
+        </aside>
       </section>
 
       <section id="tickRate">
