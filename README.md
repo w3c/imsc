@@ -6,7 +6,7 @@ This repository covers the IMSC family of specifications.
 
 ## Published IMSC Specifications
 
-See the [ttml-imsc over page](https://www.w3.org/TR/ttml-imsc/all).
+See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 
 ## Drafts
 
