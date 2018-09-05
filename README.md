@@ -15,6 +15,7 @@ See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 * [branch](https://github.com/w3c/imsc)
 * [draft](https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html)
 * [issues](https://github.com/w3c/imsc/labels/imsc1.1)
+* [requirements documentation](https://github.com/w3c/imsc-vnext-reqs)
 
 ### IMSC 1.0.1
 
