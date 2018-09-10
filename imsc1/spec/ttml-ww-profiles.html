@@ -181,8 +181,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     to advancement to Proposed Recommendation, based on implementation experience:</p>
 
     <ul>
-      <li><code>#lineShear</code></li>
-
       <li><code>#length-root-container-relative</code></li>
 
       <li><code>#shear</code></li>
@@ -411,9 +409,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       capabilities of TTML, e.g. illuminated letters.</p>
 
       <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>,
-      <code>br</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible to construct a
-      <a>Document Instance</a> that conforms to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously, and it is not
-      possible to construct a <a>Document Instance</a> that results in the presentation of both text data and image data.</p>
+      <code>br</code>, <code>image</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible
+      to construct a <a>Document Instance</a> that conforms to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously, and
+      it is not possible to construct a <a>Document Instance</a> that results in the presentation of both text data and image
+      data.</p>
 
       <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form, two
       distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other
@@ -1131,7 +1130,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-length-root-container-relative"><code>#length-root-container-relative</code></a>
           </td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#length-root-container-relative"></a> specifies additional constraints.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -1165,16 +1165,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#text-lineHeight"></a> specifies additional constraints.</small></td>
-
-          <td><span class="prohibited label">prohibited</span></td>
-        </tr>
-
-        <tr>
-          <td>
-            <a href="https://www.w3.org/TR/2018/CR-ttml2-20180628/#feature-lineShear"><code>#lineShear</code></a>
-          </td>
-
-          <td><span class="permitted label">permitted</span></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -2914,6 +2904,12 @@ y = topOffset * (1 - height/100)
 
           <p>No two <a data-lt="presented region">presented regions</a> in a given <a>intermediate synchronic document</a> SHALL
           overlap, i.e. the intersection of the sets of coordinates within each <a>presented region</a> is empty.</p>
+
+          <aside class='note'>
+            A <a>Document instance</a> can be validated with respect to the constraints above by computing the coordinate sets from
+            the specified location (<code>tts:origin</code> or <code>tts:position</code>) and size (<code>tts:extent</code>) of
+            each region.
+          </aside>
         </section>
 
         <section>
@@ -2977,6 +2973,23 @@ y = topOffset * (1 - height/100)
         <h4><code>#length-cell</code></h4>
 
         <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
+      </section>
+
+      <section id="length-root-container-relative">
+        <h4><code>#length-root-container-relative</code></h4>
+
+        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute:</p>
+
+        <ul>
+          <li><code>rh</code> units SHALL NOT be used for horizontal length components; and</li>
+
+          <li><code>rw</code> units SHALL NOT be used for vertical length components.</li>
+        </ul>
+
+        <aside class="note">
+          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
+          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
+        </aside>
       </section>
 
       <section id="tickRate">
@@ -4801,10 +4814,6 @@ y = topOffset * (1 - height/100)
 
             <tr>
               <td><code>#length-root-container-relative</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#lineShear</code></td>
             </tr>
 
             <tr>
