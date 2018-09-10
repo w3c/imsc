@@ -16,6 +16,8 @@ From CR (20180726)
 
 * Constrain use of rh/rw units on tts:extent and tts:position (#445)
 
+* Remove support for #lineShear (#455)
+
 
 From CR (20180503)
 ==================
