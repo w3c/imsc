@@ -11,6 +11,11 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
+From CR (20180726)
+==================
+
+* Constrain use of rh/rw units on tts:extent and tts:position (#445)
+
 
 From CR (20180503)
 ==================
