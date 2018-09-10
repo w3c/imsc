@@ -112,7 +112,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   .equation {text-indent: 10%;}
   .example {font-size: small}
   .inline-note {font-size: small}
-  .deprecation {background-color: lavender; border: 3px double; margin: 2px;}
+  .deprecation {background-color: #EBEBFE; border: 3px double; margin: 2px;}
   .deprecation::before {content: "\26A0"; margin:0.2em; font-size:2em; float:left;}
   body {
     font-family: sans-serif;
@@ -2336,7 +2336,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <aside class='example'>
         <p>Region with <code>xml:id="A"</code> in the following document would be positioned 20% from the left edge of an image
         frame with an aspect ratio of 16:9, or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
-        <pre>
+        <pre class="nohighlight">
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
   xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
@@ -2405,13 +2405,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:aspectRatio
   : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
                                    // where int(s) parses string s as a decimal integer.
 
 numerator | denominator
-  : &lt;digit&gt;+                 // no linear white-space is implied or permitted
+  : &lt;digit&gt;+                       // no linear white-space is implied or permitted
                                    // between each &lt;digit&gt; token
 </pre>
                 </div>
@@ -2461,7 +2461,7 @@ numerator | denominator
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:progressivelyDecodable
   : "true"
   | "false"
@@ -2636,7 +2636,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 &lt;ittm:altText
   xml:id = ID
   xml:lang = string
@@ -2687,7 +2687,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:activeArea
   : leftOffset topOffset width height
   
@@ -2710,7 +2710,7 @@ leftOffset | topOffset | width | height
         Container Region</a> and the <a>Active Area</a>.</p>
 
         <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
-        <pre>
+        <pre class="nohighlight">
 x = leftOffset * (1 - width/100)
 y = topOffset * (1 - height/100)
           
@@ -2990,15 +2990,15 @@ y = topOffset * (1 - height/100)
         that uses the <code>t</code> metric.</p>
       </section>
 
-      <section>
-        <h4><code>#timeBase-media</code> (non-normative)</h4>
+      <section class="informative">
+        <h4><code>#timeBase-media</code></h4>
 
         <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not
         specified on <code>tt</code>.</p>
       </section>
 
-      <section>
-        <h4><code>#time-offset-with-frames</code> (non-normative)</h4>
+      <section class="informative">
+        <h4><code>#time-offset-with-frames</code></h4>
 
         <p>As specified in [[!ttml2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M
         according to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
@@ -3022,8 +3022,8 @@ y = topOffset * (1 - height/100)
         <p>The <code>itts:forcedDisplay</code> attribute is used to specify forced content semantics.</p>
       </section>
 
-      <section id="zindex-constraints">
-        <h4><code>#zIndex</code> (non-normative)</h4>
+      <section class="informative" id="zindex-constraints">
+        <h4><code>#zIndex</code></h4>
 
         <p>This feature has no effect since, as specified at <a href='#region-dim-pos'></a>, <a data-lt=
         "presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
@@ -3438,8 +3438,8 @@ y = topOffset * (1 - height/100)
   <section id='hypothetical-render-model'>
     <h2>Hypothetical Render Model</h2>
 
-    <section>
-      <h3>Overview (non-normative)</h3>
+    <section class="informative">
+      <h3>Overview</h3>
 
       <p>This Section specifies the Hypothetical Render Model illustrated in <a href="#fig-hypothetical-render-model"></a>.</p>
 
@@ -4313,8 +4313,8 @@ y = topOffset * (1 - height/100)
     </table>
   </section>
 
-  <section class='appendix' id='forced-content'>
-    <h2>Forced content (non-normative)</h2>
+  <section id='forced-content' class="appendix informative">
+    <h2>Forced content</h2>
 
     <p><a href='#fig-forced-content'></a> below illustrates the use of forced content, i.e. <code>itts:forcedDisplay</code> and
     <code>displayForcedOnlyMode</code>. The content with <code>itts:forcedDisplay="true"</code> is the French translation of the
@@ -4374,16 +4374,16 @@ y = topOffset * (1 - height/100)
       can't use).</p>
     </section>
 
-    <section class='appendix' id='maur-applications'>
-      <h3>MAUR Considerations (non-normative)</h3>
+    <section id='maur-applications' class="appendix informative">
+      <h3>MAUR Considerations</h3>
 
       <p>Authors and implementers are encouraged to consult [[media-accessibility-reqs]], which presents accessibility requirements
       users with disabilities have with respect to audio and video on the web.</p>
     </section>
   </section>
 
-  <section class='appendix' id='sample-instance'>
-    <h2>Sample Document Instance (non-normative)</h2>
+  <section id='sample-instance' class="appendix informative">
+    <h2>Sample Document Instance</h2>
 
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the <a>Text Profile</a> and <a>Image
     Profile</a>, respectively. These samples are for illustration only, and are neither intended to capture current or future
@@ -4496,8 +4496,8 @@ y = topOffset * (1 - height/100)
     </section>
   </section>
 
-  <section class='appendix' id='xml-schemas'>
-    <h2>XML Schema Definitions (non-normative)</h2>
+  <section id='xml-schemas' class="appendix informative">
+    <h2>XML Schema Definitions</h2>
 
     <p>XML Schema definitions (see [[xmlschema-1]]) for extension vocabulary defined by this specification are provided <a href=
     "./xml-schemas/">here</a> for convenience.</p>
@@ -4508,8 +4508,8 @@ y = topOffset * (1 - height/100)
     precedence.</p>
   </section>
 
-  <section class='appendix'>
-    <h2>Extensibility Objectives (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Extensibility Objectives</h2>
 
     <p>This section documents extensibility objectives for this specification.</p>
 
@@ -4530,8 +4530,8 @@ y = topOffset * (1 - height/100)
     </ul>
   </section>
 
-  <section class='appendix' id='interop-examples'>
-    <h2>Compatibility with other TTML-based specifications (non-normative)</h2>
+  <section id='interop-examples' class="appendix informative">
+    <h2>Compatibility with other TTML-based specifications</h2>
 
     <section class='appendix'>
       <h3>Overview</h3>
@@ -4691,7 +4691,7 @@ y = topOffset * (1 - height/100)
         permitted-deprecated in the <a>Image Profile</a>. As such, this example document is susceptible to being incompatible with
         future versions of this specification.
       </aside>
-      <pre>
+      <pre class="nohighlight">
 
 
       
@@ -4699,8 +4699,8 @@ y = topOffset * (1 - height/100)
     </section>
   </section>
 
-  <section class='appendix'>
-    <h2>Acknowledgements (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Acknowledgements</h2>
 
     <p>The editor acknowledges the current and former members of the Timed Text Working Group, the members of other W3C Working
     Groups, and industry experts in other forums who have contributed directly or indirectly to the process or content of this
@@ -4708,14 +4708,14 @@ y = topOffset * (1 - height/100)
 
     <p>The editor wishes to especially acknowledge the following contributions by members: Glenn Adams, Skynav; John Birch, Invited
     expert; Mike Dolan, Invited expert; Nigel Megitt, British Broadcasting Corporation; Thierry Michel, W3C; Andreas Tai, Institut
-    für Rundfunktechnik.</p>
+    für Rundfunktechnik; Stefan Pöschel, Institut für Rundfunktechnik.</p>
 
     <p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial
     document for the Member Submission.</p>
   </section>
 
-  <section class='appendix'>
-    <h2>Privacy and Security Considerations (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Privacy and Security Considerations</h2>
 
     <p>With the exception of the following, the security and privacy considerations of [[!ttml2]] apply:</p>
 
@@ -4726,8 +4726,8 @@ y = topOffset * (1 - height/100)
     </ul>
   </section>
 
-  <section class='appendix' id="substantive-changes-summary">
-    <h2>Summary of substantive changes (non-normative)</h2>
+  <section id="substantive-changes-summary" class="appendix informative">
+    <h2>Summary of substantive changes</h2>
 
     <section class='appendix'>
       <h3>Overview</h3>
