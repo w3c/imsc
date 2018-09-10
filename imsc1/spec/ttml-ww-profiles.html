@@ -106,7 +106,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   .equation {text-indent: 10%;}
   .example {font-size: small}
   .inline-note {font-size: small}
-  .deprecation {background-color: lavender; border: 3px double; margin: 2px;}
+  .deprecation {background-color: #EBEBFE; border: 3px double; margin: 2px;}
   .deprecation::before {content: "\26A0"; margin:0.2em; font-size:2em; float:left;}
   body {
     font-family: sans-serif;
@@ -2330,7 +2330,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <aside class='example'>
         <p>Region with <code>xml:id="A"</code> in the following document would be positioned 20% from the left edge of an image
         frame with an aspect ratio of 16:9, or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
-        <pre>
+        <pre class="nohighlight">
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
   xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
@@ -2399,13 +2399,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:aspectRatio
   : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
                                    // where int(s) parses string s as a decimal integer.
 
 numerator | denominator
-  : &lt;digit&gt;+                 // no linear white-space is implied or permitted
+  : &lt;digit&gt;+                       // no linear white-space is implied or permitted
                                    // between each &lt;digit&gt; token
 </pre>
                 </div>
@@ -2455,7 +2455,7 @@ numerator | denominator
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:progressivelyDecodable
   : "true"
   | "false"
@@ -2630,7 +2630,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 &lt;ittm:altText
   xml:id = ID
   xml:lang = string
@@ -2681,7 +2681,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:activeArea
   : leftOffset topOffset width height
   
@@ -2704,7 +2704,7 @@ leftOffset | topOffset | width | height
         Container Region</a> and the <a>Active Area</a>.</p>
 
         <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
-        <pre>
+        <pre class="nohighlight">
 x = leftOffset * (1 - width/100)
 y = topOffset * (1 - height/100)
           
@@ -4685,7 +4685,7 @@ y = topOffset * (1 - height/100)
         permitted-deprecated in the <a>Image Profile</a>. As such, this example document is susceptible to being incompatible with
         future versions of this specification.
       </aside>
-      <pre>
+      <pre class="nohighlight">
 
 
       
