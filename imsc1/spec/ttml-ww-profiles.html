@@ -82,6 +82,12 @@ var respecConfig = {
                           publisher: "Unicode Consortium",
                           href: "http://cldr.unicode.org",
                           title: "The Common Locale Data Repository Project"
+                          },
+                          "ttml2": {
+                          aliasOf: "ttml2-20180628"
+                          },
+                          "xml": {
+                          aliasOf: "xml-20081126"
                           }
                       }
         };
@@ -106,7 +112,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   .equation {text-indent: 10%;}
   .example {font-size: small}
   .inline-note {font-size: small}
-  .deprecation {background-color: lavender; border: 3px double; margin: 2px;}
+  .deprecation {background-color: #EBEBFE; border: 3px double; margin: 2px;}
   .deprecation::before {content: "\26A0"; margin:0.2em; font-size:2em; float:left;}
   body {
     font-family: sans-serif;
@@ -146,7 +152,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
 <body>
   <section id='abstract'>
-    <p>This specification defines two profiles of [[!ttml2-20180628]]: a text-only profile and an image-only profile. These
+    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These
     profiles are intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying
     interoperability, consistent rendering and conversion to other subtitling and captioning formats.</p>
 
@@ -156,7 +162,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
-    <p>The specification defines extensions to [[!ttml2-20180628]], as well as incorporates extensions specified in
+    <p>The specification defines extensions to [[!ttml2]], as well as incorporates extensions specified in
     [[!SMPTE2052-1]] and [[!EBU-TT-D]].</p>
 
     <p>Both profiles are based on [[SUBM]].</p>
@@ -167,7 +173,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     published 26 July 2018</a>.</p>
 
     <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
-    specification but not already present in either [[ttml2-20180628]] or [[ttml-imsc1.0.1]] need to be documented in the
+    specification but not already present in either [[ttml2]] or [[ttml-imsc1.0.1]] need to be documented in the
     implementation report. The Working Group does not require that implementations are publicly available but encourages them to be
     so.</p>
 
@@ -186,7 +192,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   <section id='scope'>
     <h2>Scope</h2>
 
-    <p>This specification defines two profiles of [[!ttml2-20180628]]: a text-only profile and an image-only profile. These
+    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These
     profiles are intended for subtitle and caption delivery worldwide, including dialog language translation, content description,
     captions for deaf and hard of hearing, etc.</p>
 
@@ -208,7 +214,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       been transformed by a processor defined in [[ttml-imsc1.0.1]]; and
       </li>
 
-      <li>whenever possible, extensions defined in [[ttml-imsc1.0.1]] are (i) replaced by their [[ttml2-20180628]] equivalent and
+      <li>whenever possible, extensions defined in [[ttml-imsc1.0.1]] are (i) replaced by their [[ttml2]] equivalent and
       (ii) deprecated.</li>
     </ul>
 
@@ -219,13 +225,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   <section id='conventions'>
     <h2>Documentation Conventions</h2>
 
-    <p>This specification uses the same conventions as [[!ttml2-20180628]] for the specification of parameter attributes, styling
+    <p>This specification uses the same conventions as [[!ttml2]] for the specification of parameter attributes, styling
     attributes and metadata elements. In particular:</p>
 
     <ul>
-      <li>Section 2.3 of [[!ttml2-20180628]] specifies conventions used in the XML representation of elements; and</li>
+      <li>Section 2.3 of [[!ttml2]] specifies conventions used in the XML representation of elements; and</li>
 
-      <li>Sections 7.2, 10.2 and 10.4 of [[!ttml2-20180628]] specify conventions used when specifying the syntax of attribute
+      <li>Sections 7.2, 10.2 and 10.4 of [[!ttml2]] specify conventions used when specifying the syntax of attribute
       values, such as in <a href="#imsc-extensions"></a>.
       </li>
     </ul>
@@ -235,7 +241,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     non-normative.</p>
 
     <p>This specification uses <a>Feature</a> and <a>Extension</a> designations as defined in Appendices E.1 and F.1 at
-    [[!ttml2-20180628]]:</p>
+    [[!ttml2]]:</p>
 
     <ul>
       <li>when making reference to content conformance, these designations refer to the syntactic expression or the semantic
@@ -255,25 +261,25 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <h2>Terms and Definitions</h2>
 
     <p><dfn data-lt="Character Information Item|Character Information Items">Character Information Item</dfn>. See Section 2.2 at
-    [[!ttml2-20180628]].</p>
+    [[!ttml2]].</p>
 
-    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!ttml2-20180628]].</p>
+    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!ttml2]].</p>
 
-    <p><dfn data-lt="Document Instance|Document Instances">Document Instance</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn data-lt="Document Instance|Document Instances">Document Instance</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Default Processor Profile</dfn>. As defined in [[!ttml2-20180628]].</p>
+    <p><dfn>Default Processor Profile</dfn>. As defined in [[!ttml2]].</p>
 
-    <p><dfn>Extension</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Extension</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Feature</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Feature</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Intermediate Synchronic Document</dfn>. See Section 9.3.2 at [[!ttml2]].</p>
 
-    <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Document Interchange Context</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Document Processing Context</dfn>. As defined in [[!ttml2-20180628]].</p>
+    <p><dfn>Document Processing Context</dfn>. As defined in [[!ttml2]].</p>
 
-    <p><dfn>Effective Processor Profile</dfn>. As defined in [[!ttml2-20180628]].</p>
+    <p><dfn>Effective Processor Profile</dfn>. As defined in [[!ttml2]].</p>
 
     <p><dfn>Image Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Image
     Profile</a>.</p>
@@ -281,25 +287,25 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p><dfn>Image Profile presentation processor</dfn>. A <a>presentation processor</a> that conforms to the <a>Image
     Profile</a>.</p>
 
-    <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!ttml2-20180628]].</p>
+    <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!ttml2]].</p>
 
-    <p><dfn>Override Content Profile</dfn>. As defined in [[!ttml2-20180628]].</p>
+    <p><dfn>Override Content Profile</dfn>. As defined in [[!ttml2]].</p>
 
     <p><dfn data-lt="processor|processors">Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation
     processor</a>.</p>
 
-    <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn data-lt="processor profile|processor profiles">Processor Profile</dfn>. As defined in [[!ttml2-20180628]].</p>
+    <p><dfn data-lt="processor profile|processor profiles">Processor Profile</dfn>. As defined in [[!ttml2]].</p>
 
-    <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Related Media Object</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
     <p><dfn>Related Video Object</dfn>. A <a>Related Media Object</a> that consists of a sequence of image frames, each a
     rectangular array of pixels.</p>
 
-    <p><dfn>Root Container Region</dfn>. See Section 2.2 at [[!ttml2-20180628]].</p>
+    <p><dfn>Root Container Region</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
     <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
@@ -325,14 +331,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       </li>
     </ul>
 
-    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!ttml2-20180628]],
+    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!ttml2]],
     and hence a <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document
     Instance.</p>
 
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
-      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!ttml2-20180628]];</li>
+      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!ttml2]];</li>
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
@@ -350,7 +356,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>A <a>transformation processor</a> that conforms to a profile defined in this specification:</p>
 
     <ul>
-      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!ttml2-20180628]];</li>
+      <li>SHALL satisfy the Generic Processor Conformance requirements at Section 3.2.1 of [[!ttml2]];</li>
 
       <li>SHALL satisfy all normative provisions specified by the profile; and</li>
 
@@ -368,7 +374,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>A <a>Feature</a> or <a>Extension</a> currently designated <em>permitted-deprecated</em> is intended to be designated as
     <em>optional</em> or <em>prohibited</em> in future versions of this specification.</p>
 
-    <p class='note'>[[ttml2-20180628]] makes a distinction between a <a>presentation processor</a>, whose purpose is to present a
+    <p class='note'>[[ttml2]] makes a distinction between a <a>presentation processor</a>, whose purpose is to present a
     <a>Document Instance</a>, and <a>transformation processor</a>, whose purpose is to process a <a>Document Instance</a> without
     presenting it. A renderer embedded in the media pipeline of a mobile device is an example of a <a>presentation processor</a>,
     whereas a validator is an example of a <a>transformation processor</a>.</p>
@@ -378,7 +384,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     processor</a>, <a>Image Profile presentation processor</a>, and <a>Text Profile presentation processor</a> are defined.</p>
 
     <p class='note'>The use of the term <a>presentation processor</a> (<a>transformation processor</a>) within this specification
-    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!ttml2-20180628]]. In
+    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!ttml2]]. In
     other words, it is not considered an error for a <a>presentation processor</a> (<a>transformation processor</a>) to conform to
     a profile defined in this specification without also conforming to the DFXP Presentation Profile (DFXP Transformation
     Profile).</p>
@@ -397,7 +403,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>General</h3>
 
-      <p>This specification defines two profiles of [[ttml2-20180628]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In
+      <p>This specification defines two profiles of [[ttml2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In
       the <a>Text Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed
       text is expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and
       processing complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is
@@ -447,7 +453,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <section>
         <h4>General</h4>
 
-        <p>The Profile Semantics specified in [[!ttml2-20180628]] apply.</p>
+        <p>The Profile Semantics specified in [[!ttml2]] apply.</p>
 
         <p class="note">The default value of prohibited attributes, e.g. <code>ttp:contentProfileCombination</code>, applies.</p>
 
@@ -523,7 +529,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td colspan="3" style="text-align:center"><em>Relative to the TT Feature namespace</em><br>
-          All features specified in [[ttml2-20180628]] are <em>prohibited</em> unless specified otherwise below</td>
+          All features specified in [[ttml2]] are <em>prohibited</em> unless specified otherwise below</td>
         </tr>
 
         <tr>
@@ -2061,10 +2067,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>Document Encoding</h3>
 
-      <p>A <a>Document Instance</a> SHALL be concretely encoded as a well-formed XML 1.0 [[!xml-20081126]] document using the UTF-8
+      <p>A <a>Document Instance</a> SHALL be concretely encoded as a well-formed XML 1.0 [[!xml]] document using the UTF-8
       character encoding as specified in [[!UNICODE]].</p>
 
-      <p>The resulting [[!xml-20081126]] document SHOULD NOT contain any of the following physical structures:</p>
+      <p>The resulting [[!xml]] document SHOULD NOT contain any of the following physical structures:</p>
 
       <ul>
         <li><em>entity declarations</em>; and</li>
@@ -2074,7 +2080,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
 
-      <p class="note">The resulting [[!xml-20081126]] document can contain <em>character references</em>, and <em>entity
+      <p class="note">The resulting [[!xml]] document can contain <em>character references</em>, and <em>entity
       references</em> to <em>predefined entities</em>.</p>
     </section>
 
@@ -2088,9 +2094,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <div class="note">
         <p><a data-lt="Document Instance">Document Instances</a> remain subject to the content conformance requirements specified
-        at Section 3.1 of [[!ttml2-20180628]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in
+        at Section 3.1 of [[!ttml2]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in
         any TT namespace, i.e. in foreign namespaces, since such elements and attributes are pruned by the algorithm at Section 4
-        of [[!ttml2-20180628]] prior to evaluating content conformance.</p>
+        of [[!ttml2]] prior to evaluating content conformance.</p>
       </div>
 
       <div class="note">
@@ -2135,7 +2141,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><code>http://www.w3.org/ns/ttml</code></td>
 
-            <td>[[!ttml2-20180628]]</td>
+            <td>[[!ttml2]]</td>
           </tr>
 
           <tr>
@@ -2145,7 +2151,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><code>http://www.w3.org/ns/ttml#parameter</code></td>
 
-            <td>[[!ttml2-20180628]]</td>
+            <td>[[!ttml2]]</td>
           </tr>
 
           <tr>
@@ -2155,7 +2161,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><code>http://www.w3.org/ns/ttml#styling</code></td>
 
-            <td>[[!ttml2-20180628]]</td>
+            <td>[[!ttml2]]</td>
           </tr>
 
           <tr>
@@ -2165,7 +2171,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
             <td><code>http://www.w3.org/ns/ttml/feature/</code></td>
 
-            <td>[[!ttml2-20180628]]</td>
+            <td>[[!ttml2]]</td>
           </tr>
 
           <tr>
@@ -2273,7 +2279,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <p>A <a>Document Instance</a> SHOULD be authored assuming strict clipping of content that falls out of region areas,
       regardless of the computed value of <code>tts:overflow</code> for the region.</p>
 
-      <p class="note">As specified in [[!ttml2-20180628]], <code>tts:overflow</code> has no effect on the extent of the region, and
+      <p class="note">As specified in [[!ttml2]], <code>tts:overflow</code> has no effect on the extent of the region, and
       hence the total normalized drawing area S(E<sub>n</sub>) at <a href='#paint-regions'></a>.</p>
     </section>
 
@@ -2318,7 +2324,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <ol style="list-style-type: lower-roman;">
         <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the <a>Root
-        Container Region</a> as determined in Appendix H of [[!ttml2-20180628]];
+        Container Region</a> as determined in Appendix H of [[!ttml2]];
         </li>
 
         <li>the center of the rectangular area is collocated with the center of the image frame;</li>
@@ -2331,7 +2337,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <aside class='example'>
         <p>Region with <code>xml:id="A"</code> in the following document would be positioned 20% from the left edge of an image
         frame with an aspect ratio of 16:9, or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
-        <pre>
+        <pre class="nohighlight">
 &lt;tt
   xmlns=&quot;http://www.w3.org/ns/ttml&quot;
   xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot; 
@@ -2400,13 +2406,13 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:aspectRatio
   : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
                                    // where int(s) parses string s as a decimal integer.
 
 numerator | denominator
-  : &lt;digit&gt;+                 // no linear white-space is implied or permitted
+  : &lt;digit&gt;+                       // no linear white-space is implied or permitted
                                    // between each &lt;digit&gt; token
 </pre>
                 </div>
@@ -2420,7 +2426,7 @@ numerator | denominator
 
         <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
         ratio of the <a>Root Container Region</a>. If not specified, then the display aspect ratio of the <a>Root Container
-        Region</a> is determined according to Appendix H of [[!ttml2-20180628]].</p>
+        Region</a> is determined according to Appendix H of [[!ttml2]].</p>
       </section>
 
       <section id='ittp-progressivelyDecodable'>
@@ -2456,7 +2462,7 @@ numerator | denominator
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:progressivelyDecodable
   : "true"
   | "false"
@@ -2494,7 +2500,7 @@ ittp:progressivelyDecodable
 </pre>
 
         <div class='note'>
-          <p>[[!ttml2-20180628]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
+          <p>[[!ttml2]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
           circumstances:</p>
 
           <ul>
@@ -2594,7 +2600,7 @@ ittp:progressivelyDecodable
         <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
 </pre>
 
-        <p class='note'>As specified in [[!ttml2-20180628]], the background of a region can be visible even if the computed value
+        <p class='note'>As specified in [[!ttml2]], the background of a region can be visible even if the computed value
         of <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
         which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
         <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
@@ -2631,7 +2637,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 &lt;ittm:altText
   xml:id = ID
   xml:lang = string
@@ -2682,7 +2688,7 @@ ittp:progressivelyDecodable
             <tr>
               <td>
                 <div class="exampleInner">
-                  <pre>
+                  <pre class="nohighlight">
 ittp:activeArea
   : leftOffset topOffset width height
   
@@ -2705,7 +2711,7 @@ leftOffset | topOffset | width | height
         Container Region</a> and the <a>Active Area</a>.</p>
 
         <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
-        <pre>
+        <pre class="nohighlight">
 x = leftOffset * (1 - width/100)
 y = topOffset * (1 - height/100)
           
@@ -2832,7 +2838,7 @@ y = topOffset * (1 - height/100)
         discussed in <a href="#ebu-tt-d-interop"></a>.</p>
 
         <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
-        other syntax introduced in [[ttml2-20180628]] is not recommended in documents intended to conform to profiles that are
+        other syntax introduced in [[ttml2]] is not recommended in documents intended to conform to profiles that are
         based on [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
 
         <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
@@ -2865,7 +2871,7 @@ y = topOffset * (1 - height/100)
       <h3>Style Resolution</h3>
 
       <p>The following style properties SHALL be subject to the <em>Style Resolution</em> procedures specified at Section 10.4 of
-      [[!ttml2-20180628]]:</p>
+      [[!ttml2]]:</p>
 
       <ul>
         <li><code>itts:fillLineGap</code></li>
@@ -2878,7 +2884,7 @@ y = topOffset * (1 - height/100)
       </ul>
 
       <p class="note">The style properties above can be specified as attributes of the <code>initial</code> element specified at
-      Section 10.1.1 of [[!ttml2-20180628]].</p>
+      Section 10.1.1 of [[!ttml2]].</p>
     </section>
 
     <section>
@@ -2966,8 +2972,8 @@ y = topOffset * (1 - height/100)
       <section id="extent-root">
         <h4><code>#extent-root</code></h4>
 
-        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> expression,
-        <code>tts:extent</code> SHALL be present on the <code>tt</code> element.</p>
+        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> unit, <code>tts:extent</code>
+        SHALL be present on the <code>tt</code> element.</p>
       </section>
 
       <section id="frame-rate-constraints">
@@ -3008,17 +3014,17 @@ y = topOffset * (1 - height/100)
         that uses the <code>t</code> metric.</p>
       </section>
 
-      <section>
-        <h4><code>#timeBase-media</code> (non-normative)</h4>
+      <section class="informative">
+        <h4><code>#timeBase-media</code></h4>
 
-        <p>[[ttml2-20180628]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not
+        <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not
         specified on <code>tt</code>.</p>
       </section>
 
-      <section>
-        <h4><code>#time-offset-with-frames</code> (non-normative)</h4>
+      <section class="informative">
+        <h4><code>#time-offset-with-frames</code></h4>
 
-        <p>As specified in [[!ttml2-20180628]], a <code>#time-offset-with-frames</code> expression is translated to a media time M
+        <p>As specified in [[!ttml2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M
         according to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
         <code>ttp:frameRate</code>)).</p>
       </section>
@@ -3040,8 +3046,8 @@ y = topOffset * (1 - height/100)
         <p>The <code>itts:forcedDisplay</code> attribute is used to specify forced content semantics.</p>
       </section>
 
-      <section id="zindex-constraints">
-        <h4><code>#zIndex</code> (non-normative)</h4>
+      <section class="informative" id="zindex-constraints">
+        <h4><code>#zIndex</code></h4>
 
         <p>This feature has no effect since, as specified at <a href='#region-dim-pos'></a>, <a data-lt=
         "presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
@@ -3118,7 +3124,7 @@ y = topOffset * (1 - height/100)
 
         <p class="note">This is consistent with [[!SMPTE2052-1]].</p>
 
-        <p class="note">The named color <code>green</code> defined in [[!ttml2-20180628]] is equivalent to the RGB color triple
+        <p class="note">The named color <code>green</code> defined in [[!ttml2]] is equivalent to the RGB color triple
         <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB color triple
         <code>#00ff00</code> or the named color <code>lime</code>.</p>
       </section>
@@ -3140,7 +3146,7 @@ y = topOffset * (1 - height/100)
         <p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of
         <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
 
-        <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!ttml2-20180628]].</p>
+        <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[!ttml2]].</p>
       </section>
 
       <section id="text-fontFamily">
@@ -3439,7 +3445,7 @@ y = topOffset * (1 - height/100)
         </section>
 
         <section>
-          <h5><code>smpte:backgroundImageHorizontal</code> and and <code>smpte:backgroundImageVertical</code></h5>
+          <h5><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code></h5>
 
           <p><code>smpte:backgroundImageHorizontal</code> and <code>smpte:backgroundImageVertical</code> SHALL NOT be used.</p>
         </section>
@@ -3456,8 +3462,8 @@ y = topOffset * (1 - height/100)
   <section id='hypothetical-render-model'>
     <h2>Hypothetical Render Model</h2>
 
-    <section>
-      <h3>Overview (non-normative)</h3>
+    <section class="informative">
+      <h3>Overview</h3>
 
       <p>This Section specifies the Hypothetical Render Model illustrated in <a href="#fig-hypothetical-render-model"></a>.</p>
 
@@ -3634,12 +3640,12 @@ y = topOffset * (1 - height/100)
         <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
 
         <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is to
-        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2-20180628]] for more
+        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more
         details on when a content element is followed into a region); or
         </li>
 
         <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be flowed
-        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2-20180628]] for more details
+        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details
         on when a <code>set</code> animation element is applied to content elements).
         </li>
       </ul>
@@ -4331,8 +4337,8 @@ y = topOffset * (1 - height/100)
     </table>
   </section>
 
-  <section class='appendix' id='forced-content'>
-    <h2>Forced content (non-normative)</h2>
+  <section id='forced-content' class="appendix informative">
+    <h2>Forced content</h2>
 
     <p><a href='#fig-forced-content'></a> below illustrates the use of forced content, i.e. <code>itts:forcedDisplay</code> and
     <code>displayForcedOnlyMode</code>. The content with <code>itts:forcedDisplay="true"</code> is the French translation of the
@@ -4392,16 +4398,16 @@ y = topOffset * (1 - height/100)
       can't use).</p>
     </section>
 
-    <section class='appendix' id='maur-applications'>
-      <h3>MAUR Considerations (non-normative)</h3>
+    <section id='maur-applications' class="appendix informative">
+      <h3>MAUR Considerations</h3>
 
       <p>Authors and implementers are encouraged to consult [[media-accessibility-reqs]], which presents accessibility requirements
       users with disabilities have with respect to audio and video on the web.</p>
     </section>
   </section>
 
-  <section class='appendix' id='sample-instance'>
-    <h2>Sample Document Instance (non-normative)</h2>
+  <section id='sample-instance' class="appendix informative">
+    <h2>Sample Document Instance</h2>
 
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the <a>Text Profile</a> and <a>Image
     Profile</a>, respectively. These samples are for illustration only, and are neither intended to capture current or future
@@ -4514,8 +4520,8 @@ y = topOffset * (1 - height/100)
     </section>
   </section>
 
-  <section class='appendix' id='xml-schemas'>
-    <h2>XML Schema Definitions (non-normative)</h2>
+  <section id='xml-schemas' class="appendix informative">
+    <h2>XML Schema Definitions</h2>
 
     <p>XML Schema definitions (see [[xmlschema-1]]) for extension vocabulary defined by this specification are provided <a href=
     "./xml-schemas/">here</a> for convenience.</p>
@@ -4526,8 +4532,8 @@ y = topOffset * (1 - height/100)
     precedence.</p>
   </section>
 
-  <section class='appendix'>
-    <h2>Extensibility Objectives (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Extensibility Objectives</h2>
 
     <p>This section documents extensibility objectives for this specification.</p>
 
@@ -4538,7 +4544,7 @@ y = topOffset * (1 - height/100)
       conforming to <a>Text Profile</a> or <a>Image Profile</a>, in addition to specifying additional extensions;
       </li>
 
-      <li>subject to the structural requirements of [[!ttml2-20180628]], content from external namespaces to be present in a
+      <li>subject to the structural requirements of [[!ttml2]], content from external namespaces to be present in a
       document that conforms to <a>Text Profile</a> or <a>Image Profile</a> (a) without affecting transformation or presentation,
       and (b) to be carried through by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
       </li>
@@ -4548,8 +4554,8 @@ y = topOffset * (1 - height/100)
     </ul>
   </section>
 
-  <section class='appendix' id='interop-examples'>
-    <h2>Compatibility with other TTML-based specifications (non-normative)</h2>
+  <section id='interop-examples' class="appendix informative">
+    <h2>Compatibility with other TTML-based specifications</h2>
 
     <section class='appendix'>
       <h3>Overview</h3>
@@ -4589,7 +4595,7 @@ y = topOffset * (1 - height/100)
         </li>
       </ul>
 
-      <p>The profile vocabulary defined in [[ttml2-20180628]] is prohibited by [[!EBU-TT-D]]. Instead, as specified in
+      <p>The profile vocabulary defined in [[ttml2]] is prohibited by [[!EBU-TT-D]]. Instead, as specified in
       [[EBU-TT-M]], multiple <code>ebuttm:conformsToStandard</code> elements are optionally present in the <code>metadata</code>
       element of the <code>head</code> element, with each <code>ebuttm:conformsToStandard</code> indicating conformance to a
       specification, including other versions of this specification.</p>
@@ -4632,11 +4638,11 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
 
-      <p>[[!SMPTE2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!ttml2-20180628]]) supplemented by a
+      <p>[[!SMPTE2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!ttml2]]) supplemented by a
       number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
 
       <p>This specification defines practical constraints on [[!SMPTE2052-1]], supplemented by extensions defined herein and
-      selected [[ttml2-20180628]] features. These constraints and extensions are intended to reflect industry practice.</p>
+      selected [[ttml2]] features. These constraints and extensions are intended to reflect industry practice.</p>
 
       <p>As a result, particular care is required when creating a document intended to be processed according to [[!SMPTE2052-1]],
       and <a>Text Profile</a> or <a>Image Profile</a>. In particular:</p>
@@ -4651,7 +4657,7 @@ y = topOffset * (1 - height/100)
           extension;
         </li>
 
-        <li>[[!SMPTE2052-1]] does not support many features introduced in [[ttml2-20180628]] and extensions defined by this
+        <li>[[!SMPTE2052-1]] does not support many features introduced in [[ttml2]] and extensions defined by this
         specification.</li>
       </ul>
 
@@ -4709,7 +4715,7 @@ y = topOffset * (1 - height/100)
         permitted-deprecated in the <a>Image Profile</a>. As such, this example document is susceptible to being incompatible with
         future versions of this specification.
       </aside>
-      <pre>
+      <pre class="nohighlight">
 
 
       
@@ -4717,8 +4723,8 @@ y = topOffset * (1 - height/100)
     </section>
   </section>
 
-  <section class='appendix'>
-    <h2>Acknowledgements (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Acknowledgements</h2>
 
     <p>The editor acknowledges the current and former members of the Timed Text Working Group, the members of other W3C Working
     Groups, and industry experts in other forums who have contributed directly or indirectly to the process or content of this
@@ -4726,16 +4732,16 @@ y = topOffset * (1 - height/100)
 
     <p>The editor wishes to especially acknowledge the following contributions by members: Glenn Adams, Skynav; John Birch, Invited
     expert; Mike Dolan, Invited expert; Nigel Megitt, British Broadcasting Corporation; Thierry Michel, W3C; Andreas Tai, Institut
-    für Rundfunktechnik.</p>
+    für Rundfunktechnik; Stefan Pöschel, Institut für Rundfunktechnik.</p>
 
     <p>The editor also wishes to acknowledge Digital Entertainment Content Ecosystem (DECE) for contributing to the initial
     document for the Member Submission.</p>
   </section>
 
-  <section class='appendix'>
-    <h2>Privacy and Security Considerations (non-normative)</h2>
+  <section class="appendix informative">
+    <h2>Privacy and Security Considerations</h2>
 
-    <p>With the exception of the following, the security and privacy considerations of [[!ttml2-20180628]] apply:</p>
+    <p>With the exception of the following, the security and privacy considerations of [[!ttml2]] apply:</p>
 
     <ul>
       <li>Appendix P.7 (Access to Processing State), since the <code>condition</code> attribute is not supported;</li>
@@ -4744,8 +4750,8 @@ y = topOffset * (1 - height/100)
     </ul>
   </section>
 
-  <section class='appendix' id="substantive-changes-summary">
-    <h2>Summary of substantive changes (non-normative)</h2>
+  <section id="substantive-changes-summary" class="appendix informative">
+    <h2>Summary of substantive changes</h2>
 
     <section class='appendix'>
       <h3>Overview</h3>
@@ -4759,13 +4765,13 @@ y = topOffset * (1 - height/100)
       <section class='appendix'>
         <h4>Reference to TTML2</h4>
 
-        <p>Replaced normative references to [[TTML1]] with normative references to [[ttml2-20180628]].</p>
+        <p>Replaced normative references to [[TTML1]] with normative references to [[ttml2]].</p>
       </section>
 
       <section class='appendix'>
         <h4>Profile resolution semantics</h4>
 
-        <p>Section <a href="#profile-resolution"></a> is now based on [[ttml2-20180628]] Profile Semantics.</p>
+        <p>Section <a href="#profile-resolution"></a> is now based on [[ttml2]] Profile Semantics.</p>
       </section>
 
       <section class='appendix'>
@@ -4951,7 +4957,7 @@ y = topOffset * (1 - height/100)
             <tr>
               <td><code>#aspectRatio</code></td>
 
-              <td>This feature is replaced by the <code>#displayAspectRatio</code> feature specified in [[!ttml2-20180628]].</td>
+              <td>This feature is replaced by the <code>#displayAspectRatio</code> feature specified in [[!ttml2]].</td>
             </tr>
 
             <tr>
@@ -4975,7 +4981,7 @@ y = topOffset * (1 - height/100)
             <tr>
               <td><code>#progressivelyDecodable</code><br></td>
 
-              <td>This feature has not found practical uses. See Annex R at [[!ttml2-20180628]] for guidelines for streaming TTML
+              <td>This feature has not found practical uses. See Annex R at [[!ttml2]] for guidelines for streaming TTML
               content.</td>
             </tr>
           </tbody>
