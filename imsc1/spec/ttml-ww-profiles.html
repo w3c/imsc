@@ -3162,14 +3162,15 @@ y = topOffset * (1 - height/100)
         <p>Strictly negative <code>length</code> expressions SHALL NOT be used with attributes other than:</p>
 
         <ul>
-          <li><code>tts:disparity</code>;</li>
-
-          <li><code>tts:shear</code>;</li>
-
-          <li><code>tts:lineShear</code>; and</li>
+          <li><code>tts:disparity</code>; and</li>
 
           <li><code>tts:textShadow</code>.</li>
         </ul>
+
+        <aside class="note">
+          The provision above does not apply to <code>tts:lineShear</code> and <code>tts:shear</code> attributes, whose values are
+          <code>percentage</code> expressions that accept negative values.
+        </aside>
       </section>
 
       <section id="text-lineHeight">
