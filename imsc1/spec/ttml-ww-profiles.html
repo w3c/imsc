@@ -153,9 +153,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
 <body>
   <section id='abstract'>
-    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These
-    profiles are intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying
-    interoperability, consistent rendering and conversion to other subtitling and captioning formats.</p>
+    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These profiles are
+    intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
+    consistent rendering and conversion to other subtitling and captioning formats.</p>
 
     <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with
     [[ttml-imsc1.0.1]] documents. Relative to [[ttml-imsc1.0.1]], any addition or deprecation of features are summarized at
@@ -163,16 +163,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
-    <p>The specification defines extensions to [[!ttml2]], as well as incorporates extensions specified in
-    [[!SMPTE2052-1]] and [[!EBU-TT-D]].</p>
+    <p>The specification defines extensions to [[!ttml2]], as well as incorporates extensions specified in [[!SMPTE2052-1]] and
+    [[!EBU-TT-D]].</p>
 
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
   <section id='sotd'>
-    <p>The implementation report documents that there are at least two independent implementations of all features defined in this specification but not already present in [[ttml-imsc1.0.1]], thereby satisfying the exit criteria
-    specified at [[ttml-imsc1.1-20180726]].</p>
-    
+    <p>The implementation report documents that there are at least two independent implementations of all features defined in this
+    specification but not already present in [[ttml-imsc1.0.1]], thereby satisfying the exit criteria specified at
+    [[ttml-imsc1.1-20180726]].</p>
+
     <p>Support for the following at-risk features underwent substantive changes since publication of [[ttml-imsc1.1-20180726]]:</p>
 
     <ul>
@@ -180,22 +181,20 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <li>support for the <code>#length-root-container-relative</code> feature was constrained.</li>
     </ul>
-    
+
     <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.1-20171017/">initial
     Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>. For convenience, a
-    diff is offered at the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2017%2FWD-ttml-imsc1.1-20171017%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FPR-ttml-imsc1.1-20181004%2F">W3C HTML Diff service</a>.</p>
-
-  </section>
-  
-    
+    diff is offered at the <a href=
+    "https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2017%2FWD-ttml-imsc1.1-20171017%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FPR-ttml-imsc1.1-20181004%2F">
+    W3C HTML Diff service</a>.</p>
   </section>
 
   <section id='scope'>
     <h2>Scope</h2>
 
-    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These
-    profiles are intended for subtitle and caption delivery worldwide, including dialog language translation, content description,
-    captions for deaf and hard of hearing, etc.</p>
+    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These profiles are
+    intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
+    deaf and hard of hearing, etc.</p>
 
     <p>This specification maintains the scope of [[ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
     contemporary practices for worldwide subtitling and captioning delivery.</p>
@@ -215,8 +214,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       been transformed by a processor defined in [[ttml-imsc1.0.1]]; and
       </li>
 
-      <li>whenever possible, extensions defined in [[ttml-imsc1.0.1]] are (i) replaced by their [[ttml2]] equivalent and
-      (ii) deprecated.</li>
+      <li>whenever possible, extensions defined in [[ttml-imsc1.0.1]] are (i) replaced by their [[ttml2]] equivalent and (ii)
+      deprecated.</li>
     </ul>
 
     <p>The <a>Text Profile</a> is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
@@ -226,14 +225,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   <section id='conventions'>
     <h2>Documentation Conventions</h2>
 
-    <p>This specification uses the same conventions as [[!ttml2]] for the specification of parameter attributes, styling
-    attributes and metadata elements. In particular:</p>
+    <p>This specification uses the same conventions as [[!ttml2]] for the specification of parameter attributes, styling attributes
+    and metadata elements. In particular:</p>
 
     <ul>
       <li>Section 2.3 of [[!ttml2]] specifies conventions used in the XML representation of elements; and</li>
 
-      <li>Sections 7.2, 10.2 and 10.4 of [[!ttml2]] specify conventions used when specifying the syntax of attribute
-      values, such as in <a href="#imsc-extensions"></a>.
+      <li>Sections 7.2, 10.2 and 10.4 of [[!ttml2]] specify conventions used when specifying the syntax of attribute values, such
+      as in <a href="#imsc-extensions"></a>.
       </li>
     </ul>
 
@@ -328,9 +327,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       </li>
     </ul>
 
-    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!ttml2]],
-    and hence a <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document
-    Instance.</p>
+    <p class='note'>A <a>Document Instance</a>, by definition, satisfies the requirements of Section 3.1 at [[!ttml2]], and hence a
+    <a>Document Instance</a> that conforms to a profile defined herein is also a conforming TTML1 Document Instance.</p>
 
     <p>A <a>presentation processor</a> that conforms to a profile defined in this specification:</p>
 
@@ -381,9 +379,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     processor</a>, <a>Image Profile presentation processor</a>, and <a>Text Profile presentation processor</a> are defined.</p>
 
     <p class='note'>The use of the term <a>presentation processor</a> (<a>transformation processor</a>) within this specification
-    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!ttml2]]. In
-    other words, it is not considered an error for a <a>presentation processor</a> (<a>transformation processor</a>) to conform to
-    a profile defined in this specification without also conforming to the DFXP Presentation Profile (DFXP Transformation
+    does not imply conformance to the DFXP Presentation Profile (DFXP Transformation Profile) specified in [[!ttml2]]. In other
+    words, it is not considered an error for a <a>presentation processor</a> (<a>transformation processor</a>) to conform to a
+    profile defined in this specification without also conforming to the DFXP Presentation Profile (DFXP Transformation
     Profile).</p>
 
     <p class='note'>This specification does not specify <a>presentation processor</a> or <a>transformation processor</a> behavior
@@ -400,10 +398,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>General</h3>
 
-      <p>This specification defines two profiles of [[ttml2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In
-      the <a>Text Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed
-      text is expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and
-      processing complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is
+      <p>This specification defines two profiles of [[ttml2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In the <a>Text
+      Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed text is
+      expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and processing
+      complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is
       permitted.</p>
 
       <p class='note'>Image-based timed text images can be used in scenarios where the required text rendering functionality is not
@@ -2068,8 +2066,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p class="note">These physical structures are intended to be prohibited in future versions of this specification.</p>
 
-      <p class="note">The resulting [[!xml]] document can contain <em>character references</em>, and <em>entity
-      references</em> to <em>predefined entities</em>.</p>
+      <p class="note">The resulting [[!xml]] document can contain <em>character references</em>, and <em>entity references</em> to
+      <em>predefined entities</em>.</p>
     </section>
 
     <section id='foreign-elements'>
@@ -2082,9 +2080,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <div class="note">
         <p><a data-lt="Document Instance">Document Instances</a> remain subject to the content conformance requirements specified
-        at Section 3.1 of [[!ttml2]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in
-        any TT namespace, i.e. in foreign namespaces, since such elements and attributes are pruned by the algorithm at Section 4
-        of [[!ttml2]] prior to evaluating content conformance.</p>
+        at Section 3.1 of [[!ttml2]]. In particular, a <a>Document Instance</a> can contain elements and attributes not in any TT
+        namespace, i.e. in foreign namespaces, since such elements and attributes are pruned by the algorithm at Section 4 of
+        [[!ttml2]] prior to evaluating content conformance.</p>
       </div>
 
       <div class="note">
@@ -2267,8 +2265,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <p>A <a>Document Instance</a> SHOULD be authored assuming strict clipping of content that falls out of region areas,
       regardless of the computed value of <code>tts:overflow</code> for the region.</p>
 
-      <p class="note">As specified in [[!ttml2]], <code>tts:overflow</code> has no effect on the extent of the region, and
-      hence the total normalized drawing area S(E<sub>n</sub>) at <a href='#paint-regions'></a>.</p>
+      <p class="note">As specified in [[!ttml2]], <code>tts:overflow</code> has no effect on the extent of the region, and hence
+      the total normalized drawing area S(E<sub>n</sub>) at <a href='#paint-regions'></a>.</p>
     </section>
 
     <section>
@@ -2588,8 +2586,8 @@ ittp:progressivelyDecodable
         <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
 </pre>
 
-        <p class='note'>As specified in [[!ttml2]], the background of a region can be visible even if the computed value
-        of <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
+        <p class='note'>As specified in [[!ttml2]], the background of a region can be visible even if the computed value of
+        <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
         which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
         <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
         <code>displayForcedOnlyMode</code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
@@ -2826,8 +2824,8 @@ y = topOffset * (1 - height/100)
         discussed in <a href="#ebu-tt-d-interop"></a>.</p>
 
         <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
-        other syntax introduced in [[ttml2]] is not recommended in documents intended to conform to profiles that are
-        based on [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
+        other syntax introduced in [[ttml2]] is not recommended in documents intended to conform to profiles that are based on
+        [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
 
         <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
         herein, including designators for other versions of this specification.</p>
@@ -3005,15 +3003,15 @@ y = topOffset * (1 - height/100)
       <section class="informative">
         <h4><code>#timeBase-media</code></h4>
 
-        <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not
-        specified on <code>tt</code>.</p>
+        <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not specified on
+        <code>tt</code>.</p>
       </section>
 
       <section class="informative">
         <h4><code>#time-offset-with-frames</code></h4>
 
-        <p>As specified in [[!ttml2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M
-        according to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
+        <p>As specified in [[!ttml2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M according
+        to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
         <code>ttp:frameRate</code>)).</p>
       </section>
 
@@ -3156,8 +3154,8 @@ y = topOffset * (1 - height/100)
         </ul>
 
         <aside class="note">
-          The provision above does not apply to <code>tts:lineShear</code> and <code>tts:shear</code> attributes, whose values are
-          <code>percentage</code> expressions that accept negative values.
+          The provision above does not apply to the <code>tts:shear</code> attribute, whose value is a <code>percentage</code>
+          expression that accepts negative values.
         </aside>
       </section>
 
@@ -3629,13 +3627,13 @@ y = topOffset * (1 - height/100)
         <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
 
         <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is to
-        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more
-        details on when a content element is followed into a region); or
+        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details
+        on when a content element is followed into a region); or
         </li>
 
         <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be flowed
-        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details
-        on when a <code>set</code> animation element is applied to content elements).
+        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details on when a
+        <code>set</code> animation element is applied to content elements).
         </li>
       </ul>
 
@@ -4533,9 +4531,9 @@ y = topOffset * (1 - height/100)
       conforming to <a>Text Profile</a> or <a>Image Profile</a>, in addition to specifying additional extensions;
       </li>
 
-      <li>subject to the structural requirements of [[!ttml2]], content from external namespaces to be present in a
-      document that conforms to <a>Text Profile</a> or <a>Image Profile</a> (a) without affecting transformation or presentation,
-      and (b) to be carried through by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
+      <li>subject to the structural requirements of [[!ttml2]], content from external namespaces to be present in a document that
+      conforms to <a>Text Profile</a> or <a>Image Profile</a> (a) without affecting transformation or presentation, and (b) to be
+      carried through by a <a>transformation processor</a> (see <a href='#foreign-elements'></a>);
       </li>
 
       <li>a document that conforms to <a>Text Profile</a> or <a>Image Profile</a> to be embedded in other XML documents.
@@ -4584,10 +4582,10 @@ y = topOffset * (1 - height/100)
         </li>
       </ul>
 
-      <p>The profile vocabulary defined in [[ttml2]] is prohibited by [[!EBU-TT-D]]. Instead, as specified in
-      [[EBU-TT-M]], multiple <code>ebuttm:conformsToStandard</code> elements are optionally present in the <code>metadata</code>
-      element of the <code>head</code> element, with each <code>ebuttm:conformsToStandard</code> indicating conformance to a
-      specification, including other versions of this specification.</p>
+      <p>The profile vocabulary defined in [[ttml2]] is prohibited by [[!EBU-TT-D]]. Instead, as specified in [[EBU-TT-M]],
+      multiple <code>ebuttm:conformsToStandard</code> elements are optionally present in the <code>metadata</code> element of the
+      <code>head</code> element, with each <code>ebuttm:conformsToStandard</code> indicating conformance to a specification,
+      including other versions of this specification.</p>
 
       <p class="note">Conformance to a [[ttml-imsc1.0.1]] profile can be indicated as defined in [[ttml-imsc1.0.1]], by including
       an additional <code>ebuttm:conformsToStandard</code> element whose value is equal to the designator of the [[ttml-imsc1.0.1]]
@@ -4627,8 +4625,8 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>SMPTE-TT (SMPTE ST 2052-1)</h3>
 
-      <p>[[!SMPTE2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!ttml2]]) supplemented by a
-      number of extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
+      <p>[[!SMPTE2052-1]] specifies the use of the DFXP Full Profile (see Appendix F.3 at [[!ttml2]]) supplemented by a number of
+      extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
 
       <p>This specification defines practical constraints on [[!SMPTE2052-1]], supplemented by extensions defined herein and
       selected [[ttml2]] features. These constraints and extensions are intended to reflect industry practice.</p>
