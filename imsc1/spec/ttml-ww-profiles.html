@@ -14,15 +14,16 @@ figure img {
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "ED"
+                    specStatus:   "PR"
                 ,   processVersion: "2018"
                 ,   previousMaturity: "CR"
-                /*,   publishDate: "2018-07-26"*/
+                ,   publishDate: "2018-10-04"
                 ,   crEnd: "2018-09-06"
+                ,   prEnd: "2018-11-01"
                 /*,   errata: "http://www.w3.org/2016/04/ttml-imsc1-errata.html"*/
                 ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2018-05-03"
+                ,   previousPublishDate: "2018-07-26"
                 ,   shortName:    "ttml-imsc1.1"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
@@ -78,17 +79,63 @@ var respecConfig = {
                           href :"https://tech.ebu.ch/files/live/sites/tech/files/shared/tech/tech3390.pdf",
                           title: "Tech 3390, EBU-TT-M Metadata Definitions 1.0"
                           },
-                          "CLDR": {
-                          publisher: "Unicode Consortium",
-                          href: "http://cldr.unicode.org",
-                          title: "The Common Locale Data Repository Project"
-                          },
                           "ttml2": {
-                          aliasOf: "ttml2-20180628"
+                            "authors":["Glenn Adams","Cyril Concolato"],
+                            "href":"https://www.w3.org/TR/2018/PR-ttml2-20181004/",
+                            "title":"Timed Text Markup Language 2 (TTML2)",
+                            "status":"PR",
+                            "publisher":"W3C",
+                            "deliveredBy":[{"url":"https://www.w3.org/AudioVideo/TT/","shortname":"audiovideo_tt"}],
+                            "edDraft":"https://w3c.github.io/ttml2/index.html",
+                            "repository":"https://github.com/w3c/ttml2",
+                            "id":"ttml2-20181004",
+                            "date":"4 October 2018"
                           },
                           "xml": {
                           aliasOf: "xml-20081126"
-                          }
+                          },
+                          "xml-names": {
+                          aliasOf: "xml-names-20091208"
+                          },
+                          "WCAG20": {
+                          aliasOf: "WCAG20-20081211"
+                          },
+                          "PNG": {
+                          aliasOf: "PNG-20031110"
+                          },
+                          "namespaceState": {
+                          aliasOf: "namespaceState-20060329"
+                          },
+                          "ttml-imsc1": {
+                          aliasOf: "ttml-imsc1-20180626"
+                          },
+                          "ttml-imsc1.0.1": {
+                          aliasOf: "ttml-imsc1.0.1-20180424"
+                          },
+                          "xmlschema-1": {
+                          aliasOf: "xmlschema-1-20041028"
+                          },
+                          "XSL11": {
+                          aliasOf: "XSL11-20061205"
+                          },
+                          "ttml10-sdp-us": {
+                          aliasOf: "ttml10-sdp-us-20130205"
+                          },
+                          "media-accessibility-reqs": {
+                          aliasOf: "media-accessibility-reqs-20151203"
+                          },
+                          "TTML1": {
+                            "authors":["Glenn Adams","Pierre-Anthony Lemieux"],
+                            "href":"https://www.w3.org/TR/2018/PR-ttml1-20181004/",
+                            "title":"Timed Text Markup Language 1 (TTML1) (Third Edition)",
+                            "status":"PR",
+                            "publisher":"W3C",
+                            "deliveredBy":[{"url":"https://www.w3.org/AudioVideo/TT/","shortname":"audiovideo_tt"}],
+                            "edDraft":"https://w3c.github.io/ttml1/index.html",
+                            "repository":"https://github.com/w3c/ttml1",
+                            "id":"ttml1-20181004",
+                            "date":"4 October 2018"
+                          }  
                       }
         };
   </script>
@@ -169,21 +216,23 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   </section>
 
   <section id='sotd'>
-    <p>This Editor's Draft is based on the <a href="https://www.w3.org/TR/2018/CR-ttml-imsc1.1-20180726/">Candidate Recommendation
-    published 26 July 2018</a>.</p>
+    <p>The implementation report documents that there are at least two independent implementations of all features defined in this
+    specification but not already present in either [[ttml2]] or [[ttml-imsc1.0.1]], thereby satisfying the exit criteria specified
+    at [[ttml-imsc1.1-20180726]].</p>
 
-    <p>For this specification to exit the CR stage, at least 2 independent implementations of every feature defined in this
-    specification but not already present in either [[ttml2]] or [[ttml-imsc1.0.1]] need to be documented in the implementation
-    report. The Working Group does not require that implementations are publicly available but encourages them to be so.</p>
-
-    <p>The Working Group has identified the following features "at risk", indicating that one or more may become prohibited prior
-    to advancement to Proposed Recommendation, based on implementation experience:</p>
+    <p>Support for the following at-risk features underwent substantive changes since publication of [[ttml-imsc1.1-20180726]]:</p>
 
     <ul>
-      <li><code>#length-root-container-relative</code></li>
+      <li>support for the <code>#lineShear</code> feature was removed; and</li>
 
-      <li><code>#shear</code></li>
+      <li>support for the <code>#length-root-container-relative</code> feature was constrained.</li>
     </ul>
+
+    <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.1-20171017/">initial
+    Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>. For convenience, a
+    diff is offered at the <a href=
+    "https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2017%2FWD-ttml-imsc1.1-20171017%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FPR-ttml-imsc1.1-20181004%2F">
+    W3C HTML Diff service</a>.</p>
   </section>
 
   <section id='scope'>
