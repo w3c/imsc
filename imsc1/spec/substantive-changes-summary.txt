@@ -11,6 +11,12 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
+From PR (20181004)
+==================
+
+No substantive change made.
+
+
 From CR (20180726)
 ==================
 
