@@ -29,7 +29,7 @@
           <xs:list>
             <xs:simpleType>
               <xs:restriction base="xs:string">
-                <xs:pattern value="\+?(\d*\.\d+|\d+)\%"/>
+                <xs:pattern value="\+?(\d*\.\d+|\d+)%"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:list>
