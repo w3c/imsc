@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>TTML Profiles for Internet Media Subtitles and Captions 1.1</title>
+  <title>TTML Profiles for Internet Media Subtitles and Captions 1.2</title>
   <style>
 figure img {
       height: auto;
@@ -14,15 +14,14 @@ figure img {
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "REC"
-                ,   processVersion: "2018"
-                ,   previousMaturity: "PR"
-                ,   publishDate: "2018-11-08"
-                ,   errata: "http://www.w3.org/2018/11/ttml-imsc1.1-errata.html"
-                ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"
+                    specStatus:   "ED"
+                ,   previousMaturity: "REC"
+                /*,   publishDate: "2018-11-08"*/
+                /*,   errata: "http://www.w3.org/2018/11/ttml-imsc1.1-errata.html"*/
+                /*,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"*/
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2018-10-04"
-                ,   shortName:    "ttml-imsc1.1"
+                ,   previousPublishDate: "2018-11-08"
+                ,   shortName:    "ttml-imsc1.2"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
                           data: [{
@@ -38,7 +37,7 @@ var respecConfig = {
                   ,   wgURI: "https://www.w3.org/AudioVideo/TT/"
                   ,   wgPublicList: "public-tt"
                   ,   wgPatentURI: "https://www.w3.org/2004/01/pp-impl/34314/status"
-                  ,   subjectPrefix: "[imsc1.1]"
+                  ,   subjectPrefix: "[imsc]"
                   ,   edDraftURI: "https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html"
                   ,   github: {
                           repoURL : "https://github.com/w3c/imsc/",
@@ -191,28 +190,24 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
 <body>
   <section id='abstract'>
-    <p>This specification defines two profiles of [[!ttml2]]: a text-only profile and an image-only profile. These profiles are
+    <p>This specification defines two profiles of [[ttml2]]: a text-only profile and an image-only profile. These profiles are
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
     consistent rendering and conversion to other subtitling and captioning formats.</p>
 
-    <p>This specification improves on [[ttml-imsc1.0.1]] by supporting contemporary practices, while retaining compatibility with
-    [[ttml-imsc1.0.1]] documents. Relative to [[ttml-imsc1.0.1]], any addition or deprecation of features are summarized at
+    <p>This specification improves on [[ttml-imsc1.1]] by supporting contemporary practices, while retaining compatibility with
+    [[ttml-imsc1.1]] documents. Relative to [[ttml-imsc1.1]], any addition or deprecation of features are summarized at
     Appendix <a href="#substantive-changes-summary"></a>.</p>
 
     <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
 
-    <p>The specification defines extensions to [[!ttml2]], as well as incorporates extensions specified in [[!SMPTE2052-1]] and
-    [[!EBU-TT-D]].</p>
+    <p>The specification defines extensions to [[ttml2]], as well as incorporates extensions specified in [[SMPTE2052-1]] and
+    [[EBU-TT-D]].</p>
 
     <p>Both profiles are based on [[SUBM]].</p>
   </section>
 
   <section id='sotd'>
-    <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2017/WD-ttml-imsc1.1-20171017/">initial
-    Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>. For convenience, a
-    diff is offered at the <a href=
-    "https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2017%2FWD-ttml-imsc1.1-20171017%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2018%2FREC-ttml-imsc1.1-20181108%2F">
-    W3C HTML Diff service</a>.</p>
+   
   </section>
 
   <section id='scope'>
@@ -222,25 +217,25 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
 
-    <p>This specification maintains the scope of [[ttml-imsc1.0.1]] while adding the minimal set of features necessary to support
+    <p>This specification maintains the scope of [[ttml-imsc1.1]] while adding the minimal set of features necessary to support
     contemporary practices for worldwide subtitling and captioning delivery.</p>
 
     <p>The specification is designed such that:</p>
 
     <ul>
-      <li>a valid Text Profile document as specified in [[ttml-imsc1.0.1]] is a valid <a>Text Profile</a> document as specified
+      <li>a valid Text Profile document as specified in [[ttml-imsc1.1]] is a valid <a>Text Profile</a> document as specified
       herein;
       </li>
 
-      <li>a valid Image Profile document as specified in [[ttml-imsc1.0.1]] is a valid <a>Image Profile</a> document as specified
+      <li>a valid Image Profile document as specified in [[ttml-imsc1.1]] is a valid <a>Image Profile</a> document as specified
       herein;
       </li>
 
-      <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.0.1]] as it would have
-      been transformed by a processor defined in [[ttml-imsc1.0.1]]; and
+      <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.1]] as it would have
+      been transformed by a processor defined in [[ttml-imsc1.1]]; and
       </li>
 
-      <li>whenever possible, extensions defined in [[ttml-imsc1.0.1]] are (i) replaced by their [[ttml2]] equivalent and (ii)
+      <li>whenever possible, extensions defined in [[ttml-imsc1.1]] are (i) replaced by their [[ttml2]] equivalent and (ii)
       deprecated.</li>
     </ul>
 
@@ -488,6 +483,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li>[[EBU-TT-D]]</li>
 
           <li>[[ttml-imsc1.0.1]] Text Profile</li>
+		  
+		  <li>[[ttml-imsc1.1]] Text Profile</li>
         </ul>
 
         <p>The <a>Image Profile</a> <a>processor profile</a> includes all of the features required by each of the following
@@ -495,6 +492,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <ul>
           <li>[[ttml-imsc1.0.1]] Image Profile</li>
+		  
+		  <li>[[ttml-imsc1.1]] Image Profile</li>
         </ul>
 
         <aside class="example">
@@ -516,6 +515,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li>[[ttml-imsc1.0.1]] Text Profile Designator</li>
 
           <li>[[ttml-imsc1.0.1]] Image Profile Designator</li>
+		  
+		  <li>[[ttml-imsc1.1]] Text Profile Designator</li>
+
+          <li>[[ttml-imsc1.1]] Image Profile Designator</li>
 
           <li>
             <a>Image Profile</a> Designator
@@ -2257,7 +2260,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.1 Text Profile Designator</td>
+            <td>IMSC 1.2 Text Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -2267,7 +2270,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.1 Image Profile Designator</td>
+            <td>IMSC 1.2 Image Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -3086,9 +3089,9 @@ y = topOffset * (1 - height/100)
 
         <tbody>
           <tr>
-            <td><dfn>IMSC 1.1 Text</dfn></td>
+            <td><dfn>IMSC 1.2 Text</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.1/text</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.2/text</code></td>
           </tr>
         </tbody>
       </table>
@@ -3316,9 +3319,9 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td><dfn>IMSC 1.1 Image</dfn></td>
+            <td><dfn>IMSC 1.2 Image</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.1/image</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.2/image</code></td>
           </tr>
         </tbody>
       </table>
@@ -4704,16 +4707,16 @@ y = topOffset * (1 - height/100)
     </section>
 
     <section class='appendix' id='imsc-interop'>
-      <h3>IMSC1 and IMSC1.0.1</h3>
+      <h3>Previous versions of IMSC</h3>
 
-      <p>The <a>Text Profile</a> is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Text Profile.</p>
+      <p>The <a>Text Profile</a> is a strict superset of the [[ttml-imsc1]], [[ttml-imsc1.0.1]] and [[ttml-imsc1.1]] Text Profile.</p>
 
-      <p>The <a>Image Profile</a> is a strict superset of the [[ttml-imsc1]] and [[ttml-imsc1.0.1]] Image Profile.</p>
+      <p>The <a>Image Profile</a> is a strict superset of the [[ttml-imsc1]], [[ttml-imsc1.0.1]] and [[ttml-imsc1.1]] Image Profile.</p>
 
-      <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] therefore also conforms to this specification.</p>
+      <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] or [[ttml-imsc1.1]] therefore also conforms to this specification.</p>
 
-      <p>A number of features that were previously permitted in [[ttml-imsc1.0.1]] are designated as permitted-deprecated in the
-      <a>Text Profile</a> and <a>Image Profile</a>. [[ttml-imsc1.0.1]] documents that use such features are therefore susceptible
+      <p>A number of features that were previously permitted in previous versions of IMSC are designated as permitted-deprecated in the
+      <a>Text Profile</a> and <a>Image Profile</a>. Documents that use such features are therefore susceptible
       to being incompatible with future versions of this specification.</p>
 
       <p>The following is an example of a document that conforms to both <a>Image Profile</a> and [[ttml-imsc1.0.1]] Image
@@ -4769,36 +4772,12 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>Overview</h3>
 
-      <p>This appendix summarize changes made from [[ttml-imsc1.0.1]].</p>
+      <p>This appendix summarize changes made from [[ttml-imsc1.1]].</p>
     </section>
 
     <section class='appendix'>
       <h3>Changes</h3>
 
-      <section class='appendix'>
-        <h4>Reference to TTML2</h4>
-
-        <p>Replaced normative references to [[TTML1]] with normative references to [[ttml2]].</p>
-      </section>
-
-      <section class='appendix'>
-        <h4>Profile resolution semantics</h4>
-
-        <p>Section <a href="#profile-resolution"></a> is now based on [[ttml2]] Profile Semantics.</p>
-      </section>
-
-      <section class='appendix'>
-        <h4>Profile signaling</h4>
-
-        <p>Section <a href="#profile-signaling"></a> adds support for signaling of the profiles specified herein.</p>
-      </section>
-
-      <section class='appendix'>
-        <h4>Profile designators</h4>
-
-        <p>Profile designators introduced for each of the profiles specified herein. See Sections <a href=
-        "#text-profile-designator"></a> and <a href="#image-profile-designator"></a>.</p>
-      </section>
 
       <section class='appendix'>
         <h4>Added Features</h4>
@@ -4811,109 +4790,6 @@ y = topOffset * (1 - height/100)
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
 
-            <tr>
-              <td><code>#base</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#contentProfiles</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#disparity</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#displayAspectRatio</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#extent-image</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#initial</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#image</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#image-png</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#length-negative</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#length-root-container-relative</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#luminanceGain</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#metadata-item</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#metadata-version-2</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#position</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#ruby</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#rubyAlign-minimal</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#rubyPosition</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#rubyReserve</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#shear</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#textEmphasis-minimal</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#textCombine</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#textShadow</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#visibility-image</code></td>
-            </tr>
-
-            <tr>
-              <td style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
-            </tr>
-
-            <tr>
-              <td><code>#activeArea</code></td>
-            </tr>
-
-            <tr>
-              <td><code>#fillLineGap</code></td>
-            </tr>
           </tbody>
         </table>
       </section>
@@ -4935,72 +4811,6 @@ y = topOffset * (1 - height/100)
               <td colspan="2" style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
 
-            <tr>
-              <td><code>#writingMode-horizontal-rl</code></td>
-
-              <td>
-                Deprecated in <a>Image Profile</a> only
-              </td>
-            </tr>
-
-            <tr>
-              <td><code>#zIndex</code></td>
-
-              <td>
-                This feature as no effect as described in <a href="#zindex-constraints"></a>.
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="2" style="text-align:center"><em>Relative to the SMPTE-TT Extension namespace</em></td>
-            </tr>
-
-            <tr>
-              <td><code>#image</code></td>
-
-              <td></td>
-            </tr>
-
-            <tr>
-              <td colspan="2" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
-            </tr>
-
-            <tr>
-              <td><code>#altText</code><br></td>
-
-              <td>This feature is replaced by the <code>altText</code> named metadata item.</td>
-            </tr>
-
-            <tr>
-              <td><code>#aspectRatio</code></td>
-
-              <td>This feature is replaced by the <code>#displayAspectRatio</code> feature specified in [[ttml2]].</td>
-            </tr>
-
-            <tr>
-              <td><code>#linePadding</code></td>
-
-              <td>
-                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
-                [[ttml-imsc1.0.1]] Image Profile.
-              </td>
-            </tr>
-
-            <tr>
-              <td><code>#multiRowAlign</code></td>
-
-              <td>
-                Deprecated in <a>Image Profile</a> only. This feature was erroneously designated as permitted in the
-                [[ttml-imsc1.0.1]] Image Profile.
-              </td>
-            </tr>
-
-            <tr>
-              <td><code>#progressivelyDecodable</code><br></td>
-
-              <td>This feature has not found practical uses. See Annex R at [[ttml2]] for guidelines for streaming TTML
-              content.</td>
-            </tr>
           </tbody>
         </table>
       </section>
