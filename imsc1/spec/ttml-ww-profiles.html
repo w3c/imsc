@@ -280,11 +280,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p><dfn data-lt="Character Information Item|Character Information Items">Character Information Item</dfn>. See Section 2.2 at
     [[!ttml2]].</p>
 
-    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!ttml2]].</p>
-
     <p><dfn data-lt="Document Instance|Document Instances">Document Instance</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
     <p><dfn>Default Processor Profile</dfn>. As defined in [[!ttml2]].</p>
+    
+    <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!ttml2]].</p>
 
     <p><dfn>Extension</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
@@ -312,6 +312,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     processor</a>.</p>
 
     <p><dfn>Presentation processor</dfn>. See Section 2.2 at [[!ttml2]].</p>
+    
+    <p><dfn data-lt="specified value|specified values">Specified Value</dfn>. As defined in [[!ttml2]].</p>
 
     <p><dfn>Transformation processor</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
@@ -3147,8 +3149,12 @@ y = topOffset * (1 - height/100)
       <section id="text-extent-region">
         <h4><code>#extent-region</code></h4>
 
-        <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
-        <code>px</code> units, percentage values, or root container relative units.</p>
+        <p>For each <code>region</code> element defined in the <a>Document Instance</a>, the <a>specified value</a> of the <code>tts:extent</code> style
+        property SHALL consist of two length expressions that use pixel (px), percentage (%), or root container relative units.</p>
+        
+        <p class="note">If no <code>region</code> element is defined in the <a>Document Instance</a>, then content flows into the <a>default region</a>; 
+        conversly, if one or more <code>region</code> elements are defined in the <a>Document Instance</a>, the <a>default region</a> is not used.</p>
+        
       </section>
 
       <section id="text-fontFamily-generic">
@@ -3199,8 +3205,8 @@ y = topOffset * (1 - height/100)
 
       <section id="text-origin">
         <h4><code>#origin</code></h4>
-
-        <p>The <code>tts:origin</code> attribute SHALL use <code>px</code> units or percentage values.</p>
+        
+        <p>The value of the <code>tts:extent</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
 
         <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:position</code> attribute is also present.</p>
@@ -3209,8 +3215,8 @@ y = topOffset * (1 - height/100)
       <section id="text-position">
         <h4><code>#position</code></h4>
 
-        <p>The <code>tts:position</code> attribute SHALL use <code>px</code> units, percentage values or root container relative
-        units.</p>
+        <p>The value of the <code>tts:position</code> attribute SHALL consist of two lengths expressions that use pixel (px), percentage (%) or root
+        container relative units.</p>
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
@@ -3341,6 +3347,9 @@ y = topOffset * (1 - height/100)
           <li>that flows into a <a>presented region</a>.
           </li>
         </ul>
+        
+        <p class="note">A <a>presented image</a> is never presented in the <a>default region</a> since, as specified in <a href="#image-ttml-image"></a> and 
+        <a href="#image-smpte-image"></a>, it is always associated with a <code>region</code> defined in the <a>Document Instance</a>.</p>
       </section>
 
       <section>
@@ -3374,15 +3383,16 @@ y = topOffset * (1 - height/100)
       <section>
         <h4><code>#content</code></h4>
 
-        <p>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present. See Section <a href=
-        "#presented-image-constraints"></a> for constraints on <code>div</code> elements.</p>
+        <p>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present.</p>
+        
+        <p>Sections below specify constraints on <code>div</code> elements.</p>
       </section>
 
       <section id="image-extent-region">
         <h4><code>#extent-region</code></h4>
-
-        <p>The <code>tts:extent</code> attribute SHALL be present on all <code>region</code> elements, where it SHALL use
-        <code>px</code> units.</p>
+        
+        <p>The <code>tts:extent</code> attribute SHALL be present on each <code>region</code> element defined in the <a>Document Instance</a>
+        and its value SHALL consist of two length expressions that use pixel (px) units.</p>
       </section>
 
       <section id="image-length-negative">
@@ -3405,6 +3415,9 @@ y = topOffset * (1 - height/100)
         <code>smpte:backgroundImage</code> attribute.</p>
 
         <p>A <code>div</code> element SHALL have zero or one child <code>image</code> element.</p>
+        
+        <p>A <code>div</code> element that has a child <code>image</code> element SHALL be presented in a <code>region</code> element defined in the
+        <a>Document Instance</a>.</p>
 
         <p>A <code>div</code> element that contains a child <code>image</code> element SHOULD contain a <code>metadata</code>
         element containing an <code>altText</code> named metadata item that is a <a>Text Alternative</a> of the image resource
@@ -3418,7 +3431,8 @@ y = topOffset * (1 - height/100)
         <p>An <code>image</code> element SHALL specify a <code>tts:extent</code> attribute, which shall be equal to:</p>
 
         <ul>
-          <li>the <code>tts:extent</code> attribute of the region in which the <code>image</code> element is presented; and</li>
+          <li>the <a>specified value</a> of the <code>tts:extent</code> style property of the <code>region</code> element in which the <code>image</code>
+          element is presented; and</li>
 
           <li>the dimensions (in pixels) of the image resource.</li>
         </ul>
@@ -3436,9 +3450,11 @@ y = topOffset * (1 - height/100)
           <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:</p>
 
           <ul>
-            <li>the width and height (in pixels) of the image source referenced by <code>smpte:backgroundImage</code> SHALL be
-            equal to the width and height (as specified by the <code>tts:extent</code> attribute using <code>px</code> units) of
-            the region in which the <code>div</code> element is presented;</li>
+            <li>the <code>div</code> element SHALL be presented in a <code>region</code> element defined in the <a>Document Instance</a>;</li>
+          
+            <li>the width and height (in pixels) of the image resource referenced by <code>smpte:backgroundImage</code> SHALL be
+            equal to the width and height expressed by the <code>tts:extent</code> attribute of the region in which the <code>div</code>
+            element is presented;</li>
 
             <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
             element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
@@ -4777,8 +4793,14 @@ y = topOffset * (1 - height/100)
 
     <section class='appendix'>
       <h3>Changes</h3>
-
-
+      
+      <section class='appendix'>
+        <h4>Region Extent</h4>
+        
+        <p>As specified at <a href="#text-extent-region"></a>, the <a>specified value</a> of the <code>tts:extent</code> style property a <code>region</code>
+        element can be set using any style association mechanism, e.g. nested styling.</p>
+      </section>
+      
       <section class='appendix'>
         <h4>Added Features</h4>
 
