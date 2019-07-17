@@ -3153,8 +3153,10 @@ y = topOffset * (1 - height/100)
         property SHALL consist of two length expressions that use pixel (px), percentage (%), or root container relative units.</p>
         
         <p class="note">If no <code>region</code> element is defined in the <a>Document Instance</a>, then content flows into the <a>default region</a>; 
-        conversly, if one or more <code>region</code> elements are defined in the <a>Document Instance</a>, the <a>default region</a> is not used.</p>
+        conversely, if one or more <code>region</code> elements are defined in the <a>Document Instance</a>, the <a>default region</a> is not used.</p>
         
+        <p class="note">The requirement above requires the author to explicitly specify the value of <code>tts:extent</code> in the <a>Document Instance</a>,
+        e.g. by specifying the <code>tts:extent</code> attribute for each <code>region</code> element.</p>        
       </section>
 
       <section id="text-fontFamily-generic">
@@ -3206,7 +3208,7 @@ y = topOffset * (1 - height/100)
       <section id="text-origin">
         <h4><code>#origin</code></h4>
         
-        <p>The value of the <code>tts:extent</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
+        <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
 
         <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:position</code> attribute is also present.</p>
@@ -4797,8 +4799,8 @@ y = topOffset * (1 - height/100)
       <section class='appendix'>
         <h4>Region Extent</h4>
         
-        <p>As specified at <a href="#text-extent-region"></a>, the <a>specified value</a> of the <code>tts:extent</code> style property of a
-        <code>region</code> element can be set using any style association mechanism, e.g. nested styling.</p>
+        <p>In the <a>Text Profile</a>, and as specified at <a href="#text-extent-region"></a>, the <a>specified value</a> of the <code>tts:extent</code>
+        style property of a <code>region</code> element can be set using any style association mechanism, e.g. nested styling.</p>
       </section>
       
       <section class='appendix'>
