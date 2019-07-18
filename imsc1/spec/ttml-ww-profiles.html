@@ -91,8 +91,8 @@ var respecConfig = {
                           "xml-names": {
                           aliasOf: "xml-names-20091208"
                           },
-                          "WCAG21": {
-                          aliasOf: "WCAG21-20180605"
+                          "WCAG20": {
+                          aliasOf: "WCAG20-20081211"
                           },
                           "PNG": {
                           aliasOf: "PNG-20031110"
@@ -329,7 +329,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Root Container Region</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG21]].</p>
+    <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG20]].</p>
 
     <p><dfn>Text Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Text
     Profile</a>.</p>
@@ -451,7 +451,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <p class='note'>The <code>altText</code> named metadata item also allows text equivalent string to be associated with an
       image, e.g. to support indexation of the content and also facilitate quality checking of the document during authoring.</p>
 
-      <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG21]]
+      <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG20]]
       guidelines.</p>
     </section>
 
@@ -4407,9 +4407,9 @@ y = topOffset * (1 - height/100)
     <section class='appendix' id='wcag-applications'>
       <h3>WCAG Considerations</h3>
 
-      <p>In order to meet the guidelines in [[!WCAG21]], the following considerations apply.</p>
+      <p>In order to meet the guidelines in [[!WCAG20]], the following considerations apply.</p>
 
-      <p><a data-cite="!WCAG21#text-alternatives">Guideline 1.1</a> of [[!WCAG21]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a>
+      <p>Guideline 1.1 of [[!WCAG20]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a>
       for all non-text content. In the context of this specification, this <a>Text Alternative</a> is intended primarily to support
       users of the subtitles who cannot see images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually
       represent subtitle or caption text, the guidelines for authoring text equivalent strings given at <span class='sec-no'>Images
@@ -4428,13 +4428,11 @@ y = topOffset * (1 - height/100)
       Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
       include this functional information in the rendered text.</p>
 
-      <p><a data-cite="!WCAG21#text-alternatives">Guideline 1.1</a> of [[!WCAG21]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be
+      <p>Guideline 1.1 of [[!WCAG20]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be
       "programmatically determinable." This means that the text must be able to be read and used by the assistive technologies (and
       the accessibility features in browsers) that people with disabilities use. It also means that the user must be able to use
       their assistive technology to find the alternative text (that they can use) when they land on the non-text content (that they
       can't use).</p>
-			
-			<p><a data-cite="!WCAG21#text-spacing">Guideline 1.4.12</a> of [[!WCAG21]] also recommends that no loss of content or functionality occur when spacing of lines, letters, words and paragraphs is modified by a specified amount.</p>
     </section>
 
     <section id='maur-applications' class="appendix informative">
@@ -4800,20 +4798,14 @@ y = topOffset * (1 - height/100)
 
     <section class='appendix'>
       <h3>Changes</h3>
-
+      
       <section class='appendix'>
         <h4>Region Extent</h4>
         
         <p>In the <a>Text Profile</a>, and as specified at <a href="#text-extent-region"></a>, the <a>specified value</a> of the <code>tts:extent</code>
         style property of a <code>region</code> element can be set using any style association mechanism, e.g. nested styling.</p>
       </section>
-			
-      <section class='appendix'>
-        <h4>Reference to WCAG 2.1</h4>
-
-        <p>Replaced normative references to [[WCAG20-20081211]] with normative references to [[WCAG21]].</p>
-      </section>
-
+      
       <section class='appendix'>
         <h4>Added Features</h4>
 
