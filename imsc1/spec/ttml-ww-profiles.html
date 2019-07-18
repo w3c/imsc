@@ -276,6 +276,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
   <section id='terms'>
     <h2>Terms and Definitions</h2>
+    
+    <p><dfn>Associated region</dfn>. The <code>region</code> element associated with an element according to the <em>[associate region]</em>
+    procedure defined in [[!ttml2]].</p>
 
     <p><dfn data-lt="Character Information Item|Character Information Items">Character Information Item</dfn>. See Section 2.2 at
     [[!ttml2]].</p>
@@ -3351,7 +3354,7 @@ y = topOffset * (1 - height/100)
         </ul>
         
         <p class="note">A <a>presented image</a> is never presented in the <a>default region</a> since, as specified in <a href="#image-ttml-image"></a> and 
-        <a href="#image-smpte-image"></a>, it is always associated with a <code>region</code> defined in the <a>Document Instance</a>.</p>
+        <a href="#image-smpte-image"></a>, it is always <a data-lt="associated region">associated</a> with a <code>region</code> defined in the <a>Document Instance</a>.</p>
       </section>
 
       <section>
@@ -3418,8 +3421,8 @@ y = topOffset * (1 - height/100)
 
         <p>A <code>div</code> element SHALL have zero or one child <code>image</code> element.</p>
         
-        <p>A <code>div</code> element that has a child <code>image</code> element SHALL be associated with a <code>region</code> element defined in the
-        <a>Document Instance</a>.</p>
+        <p>A <code>div</code> element that has a child <code>image</code> element SHALL be <a data-lt="associated region">associated</a>
+        with a <code>region</code> element defined in the <a>Document Instance</a>.</p>
 
         <p>A <code>div</code> element that contains a child <code>image</code> element SHOULD contain a <code>metadata</code>
         element containing an <code>altText</code> named metadata item that is a <a>Text Alternative</a> of the image resource
@@ -3452,7 +3455,7 @@ y = topOffset * (1 - height/100)
           <p>If a <code>smpte:backgroundImage</code> attribute is applied to a <code>div</code> element:</p>
 
           <ul>
-            <li>the <code>div</code> element SHALL be associated with a <code>region</code> element defined in the <a>Document Instance</a>;</li>
+            <li>the <code>div</code> element SHALL be <a data-lt="associated region">associated</a> with a <code>region</code> element defined in the <a>Document Instance</a>;</li>
           
             <li>the width and height (in pixels) of the image resource referenced by <code>smpte:backgroundImage</code> SHALL be
             equal to the width and height expressed by the <code>tts:extent</code> attribute of the region in which the <code>div</code>
