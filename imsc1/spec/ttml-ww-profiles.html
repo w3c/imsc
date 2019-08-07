@@ -290,6 +290,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p><dfn>Default Region</dfn>. See Section 9.3.1 at [[!ttml2]].</p>
 
     <p><dfn>Extension</dfn>. See Section 2.2 at [[!ttml2]].</p>
+    
+    <p><dfn>External Data Resource</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
     <p><dfn>Feature</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
@@ -818,6 +820,56 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-audio"><code>#embedded-audio</code></a>
+          </td>
+
+          <td>Partially supported via <code>#embedded-data</code>.</td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-content"><code>#embedded-content</code></a>
+          </td>
+
+          <td>Partially supported via <code>#embedded-audio</code>, <code>#embedded-font</code>, and <code>#embedded-image</code>.</td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-data"><code>#embedded-data</code></a>
+          </td>
+
+          <td>Partially supported via <code>#resources</code> and <code>#source</code>.</td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-font"><code>#embedded-font</code></a>
+          </td>
+
+          <td>Partially supported via <code>#embedded-data</code> and <code>#font</code>.</td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-font"><code>#embedded-image</code></a>
+          </td>
+
+          <td>Partially supported via <code>#embedded-data</code>.</td>
+
+          <td>Partially supported via <code>#image</code>.</td>
+        </tr>
+
+        <tr>
+          <td>
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent"><code>#extent</code></a>
           </td>
 
@@ -911,6 +963,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td>Partially supported via <code>#extent</code>, <code>#extent-image</code>, and
           <code>#extent-region-version-2</code>.</td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-font"><code>#font</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-font"></a> specifies additional constraints.</small></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
         </tr>
 
         <tr>
@@ -1440,6 +1503,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td colspan="2"><span class="permitted label">permitted</span></td>
         </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-resources"><code>#resources</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#resources-constraints"></a> specify additional constraints.</small></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
 
         <tr>
           <td>
@@ -1527,6 +1601,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </td>
 
           <td colspan="2"><span class="permitted label">permitted</span></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-source"><code>#source</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-font"></a> specify additional constraints.</small></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
         </tr>
 
         <tr>
@@ -3161,6 +3246,32 @@ y = topOffset * (1 - height/100)
         <p class="note">The requirement above requires the author to explicitly specify the value of <code>tts:extent</code> in the <a>Document Instance</a>,
         e.g. by specifying the <code>tts:extent</code> attribute for each <code>region</code> element.</p>        
       </section>
+      
+      <section id="text-font">
+        <h4><code>#font</code></h4>
+
+        <p>A <code>font</code> element in the <a>Document Instance</a> SHALL not specify a <code>src</code> attribute.
+ 
+        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a> that conforms to [[!iso14496-22]].</p>
+        
+        <aside class='example'>
+        <p>A <code>font</code> element referencing an <a>external data resource</a>.</p>
+        <pre class="nohighlight">
+...
+&lt;head&gt;
+  &lt;resources&gt;
+    &lt;font family=&quot;example_font&quot; range=&quot;u+20-7f,u+90-9f&quot;&gt;
+      &lt;source src=&quot;http://example.com/fonts/myfont.otf&quot; type=&quot;font/otf&quot;/&gt;
+    &lt;/font&gt;
+  &lt;/resources&gt;
+&lt;/head&gt;
+...
+&lt;p tts:fontFamily=&quot;example_font&quot;&gt;Text using the font referenced by an external data resource.&lt;/p&gt;
+...
+</pre>
+      </aside>
+
+      </section>
 
       <section id="text-fontFamily-generic">
         <h4><code>#fontFamily-generic</code></h4>
@@ -3225,6 +3336,18 @@ y = topOffset * (1 - height/100)
 
         <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
         <code>tts:origin</code> attribute is also present.</p>
+      </section>
+      
+      <section id="resources-constraints">
+        <h4><code>#resources</code></h4>
+
+        <p>The <code>resources</code> element SHALL not contain any of the following children elements:</p>
+        
+        <ul>
+          <li><code>audio</code>;</li>
+          <li><code>data</code>; and</li>
+          <li><code>image</code>.</li>
+        </ul>
       </section>
 
       <section id="text-rubyAlign">
@@ -4823,6 +4946,18 @@ y = topOffset * (1 - height/100)
           <tbody>
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+            
+            <tr>
+              <td><code>#font</code></td>
+            </tr>
+            
+            <tr>
+              <td><code>#resources</code></td>
+            </tr>
+            
+            <tr>
+              <td><code>#source</code></td>
             </tr>
 
           </tbody>
