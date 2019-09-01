@@ -823,9 +823,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-audio"><code>#embedded-audio</code></a>
           </td>
 
-          <td>Partially supported via <code>#embedded-data</code>.</td>
+          <td><span class="prohibited label">prohibited</span><br>
+            <small><code>#embedded-data</code> is however <a href="#embedded-data-feature">partially supported</a>.</small></td>
 
-          <td><span class="prohibited label">prohibited</span></td>
+          <td><span class="prohibited label">prohibited</span>.</td>
         </tr>
         
         <tr>
@@ -833,12 +834,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-content"><code>#embedded-content</code></a>
           </td>
 
-          <td>Partially supported via <code>#embedded-audio</code>, <code>#embedded-font</code>, and <code>#embedded-image</code>.</td>
+          <td>Partially supported via <code>#embedded-font</code> and <code>#embedded-image</code>.</td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
         
-        <tr>
+        <tr id="embedded-data-feature">
           <td>
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#embedded-data"><code>#embedded-data</code></a>
           </td>
@@ -971,7 +972,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </td>
 
           <td><span class="permitted label">permitted</span><br>
-          <small>Section <a href="#text-font"></a> specifies additional constraints.</small></td>
+          <small>Section <a href="#text-font-source"></a> specifies additional constraints.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -1609,7 +1610,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </td>
 
           <td><span class="permitted label">permitted</span><br>
-          <small>Section <a href="#text-font"></a> specify additional constraints.</small></td>
+          <small>Section <a href="#text-font-source"></a> specify additional constraints.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -3247,12 +3248,16 @@ y = topOffset * (1 - height/100)
         e.g. by specifying the <code>tts:extent</code> attribute for each <code>region</code> element.</p>        
       </section>
       
-      <section id="text-font">
-        <h4><code>#font</code></h4>
+      <section id="text-font-source">
+        <h4><code>#font</code> and <code>#source</code></h4>
 
         <p>A <code>font</code> element in the <a>Document Instance</a> SHALL not specify a <code>src</code> attribute.
  
-        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a> that conforms to [[!iso14496-22]].</p>
+        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>
+        of content type <code>font/otf</code> as defined in [[!iso14496-22]].</p>
+
+        <aside class="note">As specified in [[TTML2]], a <code>font</code> element specifies one or more child source elements if it does not
+        specify a <code>src</code> attribute.</aside>
         
         <aside class='example'>
         <p>A <code>font</code> element referencing an <a>external data resource</a>.</p>
