@@ -303,6 +303,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Effective Processor Profile</dfn>. As defined in [[!ttml2]].</p>
 
+    <p><dfn>Font Resource</dfn>. As defined in [[!ttml2]].</p>
+
     <p><dfn>Image Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Image
     Profile</a>.</p>
 
@@ -3221,6 +3223,17 @@ y = topOffset * (1 - height/100)
       equal metrics can have a different appearance, but flow identically.</p>
     </section>
 
+    <section id="section-font-resources">
+      <h3>Font Resources</h3>
+
+      <p>A <a>Presentation Processor</a> SHALL support <a>font resources</a> of the following content types:</p>
+      
+      <ul>
+        <li><code>font/otf</code> with TrueType or CFF glyph data; or</li>
+        <li><code>font/woff</code> with TrueType or CFF glyph data.</li>
+      </ul>
+    </section>
+
     <section>
       <h3>Constraints</h3>
 
@@ -3254,8 +3267,11 @@ y = topOffset * (1 - height/100)
 
         <p>A <code>font</code> element in the <a>Document Instance</a> SHALL not specify a <code>src</code> attribute.
  
-        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>
-        of content type <code>font/otf</code> as defined in [[!iso14496-22]].</p>
+        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>.</p>
+
+        <aside class="note">A <a>font resource</a> can reference an <a>external data resource</a> with a type not supported at
+        <a href="#section-font-resources"></a>, in which case a sibling <a>external data resources</a> with a supported type can also be specified
+        for fallback processing.</aside>
 
         <aside class="note">As specified in [[TTML2]], a <code>font</code> element specifies one or more child source elements if it does not
         specify a <code>src</code> attribute.</aside>
@@ -3732,6 +3748,8 @@ y = topOffset * (1 - height/100)
       <p>It SHALL be an error for the Presentation Compositor to fail to complete painting pixels for E<sub>n</sub> before the
       presentation time of E<sub>n</sub>.</p>
 
+      <p>It SHALL be an error if the <a>total loaded font size</a> exceeds 10 MiB.</p>
+
       <p>Unless specified otherwise, the following table SHALL specify values for IPD and BDraw.</p>
 
       <table class='simple'>
@@ -3946,6 +3964,10 @@ y = topOffset * (1 - height/100)
       E<sub>n</sub>, the Presentation Compositor SHALL:</p>
 
       <ul>
+        <li>if the font associated with the character, as determined using the <a data-cite="!css-fonts-3/#font-matching-algorithm">
+          Font Matching Algorithm</a>, corresponds to an <a>external data resource</a> that was not previously loaded, load the resource
+          and add its size (in bytes) to <dfn>total loaded font size</dfn>; and</li>
+
         <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n</sub>, copy the <a>glyph</a> from Glyph Buffer
         G<sub>n</sub> to the Presentation Buffer P<sub>n</sub> using the Glyph Copier; or
         </li>
