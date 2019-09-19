@@ -3346,8 +3346,8 @@ y = topOffset * (1 - height/100)
         
         <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
 
-        <p>The <code>tts:origin</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>tts:position</code> attribute is also present.</p>
+        <p>If the <code>tts:position</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:origin</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
       </section>
 
       <section id="text-position">
@@ -3356,8 +3356,8 @@ y = topOffset * (1 - height/100)
         <p>All <code>length</code> components of the value of a <code>tts:position</code> attribute SHALL use pixel (px), percentage (%) or root
         container relative units.</p>
 
-        <p>The <code>tts:position</code> attribute SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>tts:origin</code> attribute is also present.</p>
+        <p>If the <code>tts:origin</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:position</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
       </section>
       
       <section id="resources-constraints">
