@@ -3748,7 +3748,7 @@ y = topOffset * (1 - height/100)
       <p>It SHALL be an error for the Presentation Compositor to fail to complete painting pixels for E<sub>n</sub> before the
       presentation time of E<sub>n</sub>.</p>
 
-      <p>It SHALL be an error if the <a>total loaded font size</a> exceeds 10 MiB.</p>
+      <p>It SHALL be an error if the <a>total retrieved font size</a> exceeds 10 MiB.</p>
 
       <p>Unless specified otherwise, the following table SHALL specify values for IPD and BDraw.</p>
 
@@ -3965,8 +3965,8 @@ y = topOffset * (1 - height/100)
 
       <ul>
         <li>if the font associated with the character, as determined using the <a data-cite="!css-fonts-3/#font-matching-algorithm">
-          Font Matching Algorithm</a>, corresponds to an <a>external data resource</a> that was not previously loaded, load the resource
-          and add its size (in bytes) to <dfn>total loaded font size</dfn>; and</li>
+          Font Matching Algorithm</a>, corresponds to an <a>external data resource</a> that was not previously retrieved, retrieve the 
+          <a>external data resource</a> and add its size (in bytes) to <dfn>total retrieved font size</dfn>; and</li>
 
         <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n</sub>, copy the <a>glyph</a> from Glyph Buffer
         G<sub>n</sub> to the Presentation Buffer P<sub>n</sub> using the Glyph Copier; or
@@ -3981,6 +3981,9 @@ y = topOffset * (1 - height/100)
         G<sub>n</sub>.
         </li>
       </ul>
+
+      <p class='note'>In the case of <a>external data resource</a> retrieved using [[HTTP]], the size in bytes of the <a>external data resource</a>
+      is the <code>entity-length</code> of the message.</p>
 
       <figure>
         <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering">
