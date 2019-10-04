@@ -3226,12 +3226,16 @@ y = topOffset * (1 - height/100)
     <section id="section-font-resources">
       <h3>Font Resources</h3>
 
-      <p>A <a>Presentation Processor</a> SHALL support <a>font resources</a> of the following content types:</p>
+      <p>A <a>Presentation Processor</a> SHALL support <a>font resources</a> of the following media types,
+      as defined in [[!IANA-MEDIA-TYPES]]:</p>
       
       <ul>
-        <li><code>font/otf</code> with TrueType or CFF glyph data; or</li>
-        <li><code>font/woff</code> with TrueType or CFF glyph data.</li>
+        <li><a href="https://www.iana.org/assignments/media-types/font/otf"><code>font/otf</code></a> with TrueType or CFF glyph data; or</li>
+        <li><a href="https://www.iana.org/assignments/media-types/font/woff"><code>font/woff</code></a> with TrueType or CFF glyph data.</li>
       </ul>
+
+      <p class="note">[[IANA-MEDIA-TYPES]] specifies that the media type <a href="https://www.iana.org/assignments/media-types/font/otf">
+      <code>font/otf</code></a> includes file extensions <code>.ttf</code> and <code>.otf</code>.</p>
     </section>
 
     <section>
