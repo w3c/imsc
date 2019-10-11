@@ -690,7 +690,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-content"><code>#content</code></a>
           </td>
 
-          <td colspan="2"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
+
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#image-profile-content-constraints"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -3534,7 +3537,7 @@ y = topOffset * (1 - height/100)
     <section>
       <h3>Constraints</h3>
 
-      <section>
+      <section id="image-profile-content-constraints">
         <h4><code>#content</code></h4>
 
         <p>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present.</p>
