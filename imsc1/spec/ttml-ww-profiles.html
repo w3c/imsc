@@ -399,6 +399,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>A <a>Feature</a> or <a>Extension</a> currently designated <em>permitted-deprecated</em> is intended to be designated as
     <em>optional</em> or <em>prohibited</em> in future versions of this specification.</p>
 
+    <p>A <a>Feature</a> or <a>Extension</a> designated as <em>partially supported</em> is neither completely <em>prohibited</em> nor
+    completely <em>permitted</em>. Instead, the disposition of each of its subset <a>Feature</a> or <a>Extension</a> is specified
+    individually.</p>
+
     <p class='note'>[[ttml2]] makes a distinction between a <a>presentation processor</a>, whose purpose is to present a
     <a>Document Instance</a>, and <a>transformation processor</a>, whose purpose is to process a <a>Document Instance</a> without
     presenting it. A renderer embedded in the media pipeline of a mobile device is an example of a <a>presentation processor</a>,
@@ -653,7 +657,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span></td>
 
-          <td><span class="prohibited label">prohibited</span></td>
+          <td>Partially supported via <code>#writingMode-horizontal</code>.</td>
         </tr>
 
         <tr>
@@ -690,7 +694,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-content"><code>#content</code></a>
           </td>
 
-          <td colspan="2"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
+
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#image-profile-content-constraints"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -3534,7 +3541,7 @@ y = topOffset * (1 - height/100)
     <section>
       <h3>Constraints</h3>
 
-      <section>
+      <section id="image-profile-content-constraints">
         <h4><code>#content</code></h4>
 
         <p>The <code>p</code>, <code>span</code> and <code>br</code> elements SHALL NOT be present.</p>
@@ -4941,9 +4948,7 @@ y = topOffset * (1 - height/100)
     <p>With the exception of the following, the security and privacy considerations of [[ttml2]] apply:</p>
 
     <ul>
-      <li>Appendix P.7 (Access to Processing State), since the <code>condition</code> attribute is not supported;</li>
-
-      <li>Appendix P.8 (Hyperlinking Mechanisms), since the <code>xlink</code> linking mechanism is not supported.</li>
+      <li>Appendix P.7 (Access to Processing State), since the <code>condition</code> attribute is not supported.</li>
     </ul>
   </section>
 
