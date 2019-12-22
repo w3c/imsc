@@ -126,7 +126,7 @@ var respecConfig = {
                             "publisher":"W3C",
                             "id":"ttml1-20181108",
                             "date":"8 November 2018"
-                          }  
+                          }
                       }
         };
   </script>
@@ -1056,7 +1056,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-fontStyle-italic"><code>#fontStyle-italic</code></a>
           </td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-italic-shear-oblique"></a> provides additional information.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -1066,7 +1067,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-fontStyle-oblique"><code>#fontStyle-oblique</code></a>
           </td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-italic-shear-oblique"></a> provides additional information.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -1601,7 +1603,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-shear"><code>#shear</code></a>
           </td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#text-italic-shear-oblique"></a> provides additional information.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -3466,6 +3469,15 @@ y = topOffset * (1 - height/100)
         <p class='note'>In contrast to this specification, [[EBU-TT-D]] specifies that the attribute
         <code>ebutts:multiRowAlign</code> is allowed only on the <code>style</code> element.</p>
       </section>
+
+      <section id="text-italic-shear-oblique" class="informative">
+          <h4>Slanted Japanese-language text</h4>
+  
+          <p>Since (a) Japanese-language fonts typically do not include <em>italic</em> or <em>oblique</em> faces, and 
+          (b) Japanese-language slanted vertical text consists of characters slanted in the vertical direction (and not 
+          in the horizontal direction), it is recommended that <code>tts:shear</code> be specified to slant Japanese-language text
+          – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
+        </section>
     </section>
   </section>
 
@@ -3486,15 +3498,14 @@ y = topOffset * (1 - height/100)
           </tr>
 
           <tr>
-            <td><dfn>IMSC 1.2 Image</dfn></td>
+            <td><dfn>IMSC 1.1 Image</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.2/image</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.1/image</code></td>
           </tr>
         </tbody>
       </table>
 
-      <p class="ednote"><a href="https://github.com/w3c/imsc/issues/509">Issue #509</a> suggests
-        that the Image Profile Designator should remain unchanged.</p>
+      <p class="note">This profile designator remains unchanged from [[ttml-imsc1.1]] since this specification makes no substantive changes to the Image Profile.</p>
     </section>
 
     <section>
@@ -4986,15 +4997,6 @@ y = topOffset * (1 - height/100)
         <p>Revised the <a href="#text-profile-designator">Text Profile designator</a>.</p>
       </section>
       
-      <section class='appendix'>
-        <h4>Image Profile Designator</h4>
-        
-        <p>Revised the <a href="#image-profile-designator">Image Profile designator</a>.</p>
-
-        <p class="ednote"><a href="https://github.com/w3c/imsc/issues/509">Issue #509</a> suggests
-          that the Image Profile Designator should remain unchanged.</p>
-      </section>
-
       <section class='appendix'>
         <h4>Added Features</h4>
 
