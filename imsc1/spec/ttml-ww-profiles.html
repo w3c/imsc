@@ -3362,14 +3362,15 @@ y = topOffset * (1 - height/100)
       </aside>
 
       <aside class="note">
-        The [[TTML2]] semantic for selecting the font for
-        rendering any given set of code points is based on [[XSL11]] §7.9.3's
-        <code>auto</code> semantic, which is implementation dependent.
-        It is possible that the implemented font selection algorithm uses a
+        When the computed value of <code>tts:fontSelectionStrategy</code> is
+        <code>"auto"</code> as required by this specification,
+        the algorithm for associating a font with a run of text
+        is implementation dependent.
+        The implemented font selection algorithm can therefore use a
         different font for presentation than [[TTML2]]'s line height computation
-        algorithm would select, which could lead to unexpected results.
+        algorithm selects, which could lead to unexpected results.
         It is possible to implement authoring tools that check the metrics of
-        referenced font resoures and highlight any potential mismatches in
+        referenced font resources and highlight any potential mismatches in
         line height.
       </aside>
       </section>
