@@ -3286,6 +3286,57 @@ y = topOffset * (1 - height/100)
  
         <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>.</p>
 
+        <p><a>Processors</a> MAY use the [[css-fonts-3]] §5 font
+          matching algorithm for associating a font with a run of text.</p>
+
+        <p>Fonts MAY be mapped to <a>font resources</a> using
+          the [[css-fonts-3]] §4.1 <code>@font-face</code> rule, where the 
+          attributes of the <code>font</code> element or its descendents
+          are mapped, with appropriate value translation,
+          to CSS descriptors according to
+          the following table:</p>
+
+          <table class="simple">
+            <thead>
+              <tr></tr>
+              <th>TTML2 <code>font</code> element</th>
+                <th>CSS descriptor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>family</code> attribute</td>
+  
+                <td><code>font-family</code></td>
+              </tr>
+
+              <tr>
+                <td><code>source</code> child element <code>src</code> attribute</td>
+                <td><code>src</code></td>
+              </tr>
+
+              <tr>
+                <td><code>range</code> attribute</td>
+
+                <td><code>unicode-range</code></td>
+              </tr>
+  
+              <tr>
+                <td><code>style</code> attribute</td>
+
+                <td><code>font-style</code></td>
+              </tr>
+
+              <tr>
+                <td><code>weight</code> attribute</td>
+
+                <td><code>font-weight</code></td>
+              </tr>
+
+            </tbody>
+          </table>
+  
+
         <aside class="note">A <a>font resource</a> can reference an <a>external data resource</a> with a type not supported at
         <a href="#section-font-resources"></a>, in which case a sibling <a>external data resources</a> with a supported type can also be specified
         for fallback processing.</aside>
@@ -3310,6 +3361,17 @@ y = topOffset * (1 - height/100)
 </pre>
       </aside>
 
+      <aside class="note">
+        The [[TTML2]] semantic for selecting the font for
+        rendering any given set of code points is based on [[XSL11]] §7.9.3's
+        <code>auto</code> semantic, which is implementation dependent.
+        It is possible that the implemented font selection algorithm uses a
+        different font for presentation than [[TTML2]]'s line height computation
+        algorithm would select, which could lead to unexpected results.
+        It is possible to implement authoring tools that check the metrics of
+        referenced font resoures and highlight any potential mismatches in
+        line height.
+      </aside>
       </section>
 
       <section id="text-fontFamily-generic">
