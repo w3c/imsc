@@ -3286,11 +3286,11 @@ y = topOffset * (1 - height/100)
  
         <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>.</p>
 
-        <p><a>Processors</a> MAY use the [[css-fonts-3]] §5 font
+        <p>A <a>Processor</a> MAY use the [[css-fonts-3]] §5 font
           matching algorithm for associating a font with a run of text.</p>
 
-        <p>Fonts MAY be mapped to <a>font resources</a> using
-          the [[css-fonts-3]] §4.1 <code>@font-face</code> rule, where the 
+        <p>A <a>Processor</a> MAY use the
+          [[css-fonts-3]] §4.1 <code>@font-face</code> rule to map fonts to <a>font resources</a>, where the 
           attributes of the <code>font</code> element or its descendents
           are mapped, with appropriate value translation,
           to CSS descriptors according to
