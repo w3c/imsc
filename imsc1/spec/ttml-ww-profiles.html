@@ -3317,7 +3317,20 @@ y = topOffset * (1 - height/100)
 </pre>
       </aside>
 
-      </section>
+      <p>A <a>Processor</a> MAY use the [[css-fonts-3]] §5 font
+        matching algorithm for associating a font with a run of text.</p>
+
+      <aside class="note">
+        When the computed value of <code>tts:fontSelectionStrategy</code> is
+        <code>"auto"</code> as required by this specification,
+        the algorithm for associating a font with a run of text
+        is implementation dependent.
+        The implemented font selection algorithm can therefore use a
+        different font for presentation than [[TTML2]]'s line height computation
+        algorithm selects, which could lead to unexpected results.
+      </aside>
+
+    </section>
 
       <section id="text-fontFamily-generic">
         <h4><code>#fontFamily-generic</code></h4>
