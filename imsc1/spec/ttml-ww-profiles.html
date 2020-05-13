@@ -15,12 +15,12 @@ figure img {
   <script class='remove'>
 var respecConfig = {
                     specStatus:   "ED"
-                ,   previousMaturity: "FPWD"
+                ,   previousMaturity: "CR"
                 /*,   publishDate: "2019-11-28"*/
                 /*,   errata: "http://www.w3.org/2018/11/ttml-imsc1.1-errata.html"*/
-                /*,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_1_Implementation_Report"*/
+                ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_2_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2019-11-28"
+                ,   previousPublishDate: "2020-03-24"
                 ,   shortName:    "ttml-imsc1.2"
                 ,   otherLinks: [{
                           key: 'Latest IMSC1 recommendation',
@@ -129,6 +129,9 @@ var respecConfig = {
                           },
                           "SMPTE2052-1": {
                           aliasOf: "SMPTE2052-1-2010"
+                          },
+                          "ttml2": {
+                          aliasOf: "ttml2-20200128"
                           }
                       }
         };
@@ -459,15 +462,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       processor profile Y, and (b) profiles X and Y are semantically
       incompatible.</p>
 
-      <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form, two
-      distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other
-      conforming to the <a>Image Profile</a>, SHOULD be offered. In addition, the <a>Text Profile</a> <a>Document Instance</a>
-      SHOULD be associated with the <a>Image Profile</a> <a>Document Instance</a> such that, when image content is encountered,
-      assistive technologies have access to its corresponding text form. The method by which this association is made is left to
-      each application.</p>
+      <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form to the
+      consumer, two distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and
+      the other conforming to the <a>Image Profile</a>, SHOULD be offered to the timed text consumer. In addition, the <a>Text
+      Profile</a> <a>Document Instance</a> SHOULD be associated with the <a>Image Profile</a> <a>Document Instance</a> such that,
+      when image content is encountered, assistive technologies have access to its corresponding text form. The method by which this
+      association is made is left to each application.</p>
 
-      <p class='note'>The <code>altText</code> named metadata item also allows text equivalent string to be associated with an
-      image, e.g. to support indexation of the content and also facilitate quality checking of the document during authoring.</p>
+      <p class='note'>The <code>altText</code> named metadata item also allows a text equivalent string to be associated with an
+      image. This allows, for example, indexation of the content, matching actual image contents to intended contents during quality
+      checking of the document, and making the image in the document accessible to timed text authors with (visual) disabilities.</p>
 
       <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG21]]
       guidelines.</p>
@@ -2787,7 +2791,7 @@ ittp:progressivelyDecodable
         <pre class='example' data-include='examples/altText-example.xml' data-include-format='text'>
 </pre>
 
-        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML5]], the <code>ittm:altText</code>
+        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
         attribute content is not intended to be displayed in place of the element if the element is not loaded. The
         <code>ittm:altText</code> attribute content can however be read and used by assistive technologies.</p>
       </section>
@@ -3307,7 +3311,7 @@ y = topOffset * (1 - height/100)
 &lt;head&gt;
   &lt;resources&gt;
     &lt;font family=&quot;example_font&quot; range=&quot;u+20-7f,u+90-9f&quot;&gt;
-      &lt;source src=&quot;http://example.com/fonts/myfont.otf&quot; type=&quot;font/otf&quot;/&gt;
+      &lt;source src=&quot;https://example.com/fonts/myfont.otf&quot; type=&quot;font/otf&quot;/&gt;
     &lt;/font&gt;
   &lt;/resources&gt;
 &lt;/head&gt;
@@ -4615,7 +4619,7 @@ y = topOffset * (1 - height/100)
       for all non-text content. In the context of this specification, this <a>Text Alternative</a> is intended primarily to support
       users of the subtitles who cannot see images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually
       represent subtitle or caption text, the guidelines for authoring text equivalent strings given at <span class='sec-no'>Images
-      of text</span> of [[HTML5]] are appropriate.</p>
+      of text</span> of [[HTML]] are appropriate.</p>
 
       <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
       Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same
@@ -4992,6 +4996,11 @@ support might be able to request that all captions are displayed in the lower th
     <ul>
       <li>Appendix P.7 (Access to Processing State), since the <code>condition</code> attribute is not supported.</li>
     </ul>
+
+    <aside class="ednote"><a href="https://github.com/w3c/imsc/issues/530">Issue 530</a> explores whether the font-based
+    fingerprinting attacks and mitigation strategies <a href="https://github.com/w3c/csswg-drafts/issues/4055">discussed</a> in the
+    context of [[css-fonts-3]] are applicable to this specification, which makes use of the <a
+    data-cite="!css-fonts-3/#font-matching-algorithm">Font Matching Algorithm</a>.</aside>
   </section>
 
   <section id="substantive-changes-summary" class="appendix informative">
