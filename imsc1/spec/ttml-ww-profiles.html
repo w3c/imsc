@@ -462,15 +462,16 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       processor profile Y, and (b) profiles X and Y are semantically
       incompatible.</p>
 
-      <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form, two
-      distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other
-      conforming to the <a>Image Profile</a>, SHOULD be offered. In addition, the <a>Text Profile</a> <a>Document Instance</a>
-      SHOULD be associated with the <a>Image Profile</a> <a>Document Instance</a> such that, when image content is encountered,
-      assistive technologies have access to its corresponding text form. The method by which this association is made is left to
-      each application.</p>
+      <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form to the
+      consumer, two distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and
+      the other conforming to the <a>Image Profile</a>, SHOULD be offered to the timed text consumer. In addition, the <a>Text
+      Profile</a> <a>Document Instance</a> SHOULD be associated with the <a>Image Profile</a> <a>Document Instance</a> such that,
+      when image content is encountered, assistive technologies have access to its corresponding text form. The method by which this
+      association is made is left to each application.</p>
 
-      <p class='note'>The <code>altText</code> named metadata item also allows text equivalent string to be associated with an
-      image, e.g. to support indexation of the content and also facilitate quality checking of the document during authoring.</p>
+      <p class='note'>The <code>altText</code> named metadata item also allows a text equivalent string to be associated with an
+      image. This allows, for example, indexation of the content, matching actual image contents to intended contents during quality
+      checking of the document, and making the image in the document accessible to timed text authors with (visual) disabilities.</p>
 
       <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG21]]
       guidelines.</p>
