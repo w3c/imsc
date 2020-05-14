@@ -319,6 +319,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Linear White-Space</dfn>. See Section 2.3 at [[!ttml2]].</p>
 
+    <p><dfn>non-text content</dfn>. As defined in [[!WCAG21]].</p>
+
     <p><dfn>Override Content Profile</dfn>. As defined in [[!ttml2]].</p>
 
     <p><dfn data-lt="processor|processors">Processor</dfn>. Either a <a>Presentation processor</a> or a <a>Transformation
@@ -339,7 +341,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p><dfn>Root Container Region</dfn>. See Section 2.2 at [[!ttml2]].</p>
 
-    <p><dfn>Text Alternative</dfn>. As defined in [[!WCAG21]].</p>
+    <p><dfn>text alternative</dfn>. As defined in [[!WCAG21]].</p>
 
     <p><dfn>Text Profile transformation processor</dfn>. A <a>transformation processor</a> that conforms to the <a>Text
     Profile</a>.</p>
@@ -3622,7 +3624,7 @@ y = topOffset * (1 - height/100)
         with a <code>region</code> element defined in the <a>Document Instance</a>.</p>
 
         <p>A <code>div</code> element that contains a child <code>image</code> element SHOULD contain a <code>metadata</code>
-        element containing an <code>altText</code> named metadata item that is a <a>Text Alternative</a> of the image resource
+        element containing an <code>altText</code> named metadata item that is a <a>text alternative</a> of the image resource
         referenced by the <code>image</code> element.</p>
 
         <p>An <code>image</code> element SHALL specify a <code>src</code> attribute, which references an image resource that
@@ -3659,7 +3661,7 @@ y = topOffset * (1 - height/100)
             element is presented;</li>
 
             <li>the <code>div</code> element SHOULD contain a <code>metadata</code> element containing an <code>ittm:altText</code>
-            element that is a <a>Text Alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
+            element that is a <a>text alternative</a> of the image referenced by the <code>smpte:backgroundImage</code> attribute;
             </li>
 
             <li>The <code>smpte:backgroundImage</code> attribute SHALL reference an image resource that conforms to <a href=
@@ -4613,34 +4615,62 @@ y = topOffset * (1 - height/100)
     <section class='appendix' id='wcag-applications'>
       <h3>WCAG Considerations</h3>
 
-      <p>In order to meet the guidelines in [[!WCAG21]], the following considerations apply.</p>
+      <section class='appendix' id='wcag-criterion-1-1-1'>
+        <h4>Success Criterion 1.1.1 Non-text Content</h4>
 
-      <p><a data-cite="!WCAG21#text-alternatives">Guideline 1.1</a> of [[!WCAG21]] recommends that an implementation provide <a data-lt="Text Alternative">Text Alternatives</a>
-      for all non-text content. In the context of this specification, this <a>Text Alternative</a> is intended primarily to support
-      users of the subtitles who cannot see images. Since the images of an <a>Image Profile</a> <a>Document Instance</a> usually
-      represent subtitle or caption text, the guidelines for authoring text equivalent strings given at <span class='sec-no'>Images
-      of text</span> of [[HTML]] are appropriate.</p>
+        <p><a data-cite="!WCAG21#non-text-content">Success Criterion 1.1.1</a> at [[!WCAG21]] specifies that, with some exceptions,
+        all <a>non-text content</a> that is presented to the user has a <a>text alternative</a> that serves the equivalent
+        purpose.</p>
 
-      <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
-      Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same
-      function as the corresponding subtitle image. In the context of subtitling and captioning, this content will be (as a
-      minimum) the verbatim equivalent of the image without précis or summarization. However, the author MAY include extra
-      information to the text equivalent string in cases where styling is applied to the text image with a deliberate connotation,
-      as a <em>functional</em> replacement for the applied style.</p>
+        <p>In the context of this specification, <a>text alternative</a> is intended primarily to support users of the subtitles who
+        cannot see images (the <a>non-text content</a>). Since the images of an <a>Image Profile</a> <a>Document Instance</a>
+        usually represent subtitle or caption text, the guidelines of 
+        <a data-cite="HTML5#text-that-has-been-rendered-to-a-graphic-for-typographical-effect">Text that has been rendered 
+        to a graphic for typographical effect</a> at [[!HTML]] are appropriate.</p>
 
-      <p>For instance, in subtitling and captioning, italics can be used to indicate an off screen speaker context (for example a
-      voice from a radio). An author can choose to include this functional information in the text equivalent; for example, by
-      including the word "Radio: " before the image equivalent text. Note that images in an <a>Image Profile</a> <a>Document
-      Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing audience, might already
-      include this functional information in the rendered text.</p>
+        <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
+        Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same
+        function as the corresponding subtitle image. In the context of subtitling and captioning, this content will be (as a
+        minimum) the verbatim equivalent of the image without précis or summarization. However, the author MAY include extra
+        information to the text equivalent string in cases where styling is applied to the text image with a deliberate connotation,
+        as a <em>functional</em> replacement for the applied style.</p>
 
-      <p><a data-cite="!WCAG21#text-alternatives">Guideline 1.1</a> of [[!WCAG21]] also recommends that accessible <a data-lt="Text Alternative">Text Alternatives</a> must be
-      "programmatically determinable." This means that the text must be able to be read and used by the assistive technologies (and
-      the accessibility features in browsers) that people with disabilities use. It also means that the user must be able to use
-      their assistive technology to find the alternative text (that they can use) when they land on the non-text content (that they
-      can't use).</p>
+        <aside class="example">Considering a subtitling and captioning practice where italics are used to indicate an off screen
+        speaker context (for example a voice from a radio), an author can choose to include this functional information in the text
+        equivalent; for example, by including the word "Radio: " before the image equivalent text. Note that images in an <a>Image
+        Profile</a> <a>Document Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing
+        audience, might already include this functional information in the rendered text.</aside>
+      </section>
+
+      <section class='appendix' id='wcag-criterion-contrast'>
+        <h4>Success Criterion 1.4.3 Contrast (Minimum)</h4>
+      
+        <p><a data-cite="!WCAG21#contrast-minimum">Success Criterion 1.4.3</a> at [[!WCAG21]] specifies that, with some exceptions,
+        the visual presentation of text and images of text has a contrast ratio of at least 4.5:1.</p>
+
+        <p>In the context of <a>Text Profile</a>, this is achieved by specifying appropriate foreground and background colors.</p>
+      </section>
+
+      <section class='appendix' id='wcag-criterion-text=spacing'>
+        <h4>Success Criterion 1.4.12 Text Spacing</h4>
 			
-			<p><a data-cite="!WCAG21#text-spacing">Guideline 1.4.12</a> of [[!WCAG21]] also recommends that no loss of content or functionality occur when spacing of lines, letters, words and paragraphs is modified by a specified amount.</p>
+        <p><a data-cite="!WCAG21#text-spacing">Success Criterion 1.4.12</a> at [[!WCAG21]] specifies that no loss of content or
+          functionality occur when spacing of lines, letters, words and paragraphs is modified by a specified amount.</p>
+
+        <p>In the context of this specification, this is achieved by specifying an appropriate combination of style properties to 
+        achieve the desired line height, font size, region extent, etc.</p>
+      </section>
+
+      <section class='appendix' id='wcag-criterion-language'>
+        <h4>Success Criteria 3.1.1 Language of Page and 3.1.2 Language of Parts</h4>
+			
+        <p>Success Criteria <a data-cite="!WCAG21#language-of-page">3.1.1</a> and
+        <a data-cite="!WCAG21#language-of-parts">3.1.2</a> at [[!WCAG21]] specify that the human language of each passage or
+        phrase in the content can be programmatically determined.</p>
+
+        <p>In the context of this specification, this is achieved by specifying <a data-cite="TTML2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
+      </section>
+
     </section>
 
     <section id='maur-applications' class="appendix informative">
