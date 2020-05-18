@@ -242,22 +242,22 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     [[ttml10-sdp-us]] and the <a>Text Profile</a>.</p>
   </section>
 
-  <section id='introduction'>
+  <section class='informative' id='introduction'>
     <h2>Introduction</h2>
 
-    <p>This specification defines two profiles of [[ttml2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. These profiles
-    are intended to be used across subtitle and caption delivery applications worldwide. It defines extensions to [[ttml2]], as well
-    as incorporates extensions specified in [[SMPTE2052-1]] and [[EBU-TT-D]].</p>
+    <p>This specification defines a document exchange format and associated validation and presentation requirements for subtitle
+    and caption delivery worldwide. It is based on [[ttml2]] and includes extensions specified in [[SMPTE2052-1]] and
+    [[EBU-TT-D]].</p>
 
-    <p>In the <a>Text Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>,
-    timed text is expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and
-    processing complexity. For example, it allows systems to unambiguously specify whether timed text in text and/or image form is
-    permitted.</p>
+    <p>Two profiles are defined: in the <a>Text Profile</a>, timed text is expressed exclusively using text encoded according to
+    [[[Unicode]]], whereas, in the <a>Image Profile</a>, timed text is expressed exclusively using bitmap images. The clear
+    distinction between the two profiles reduces authoring and processing complexity. For example, it allows systems to
+    unambiguously specify whether timed text in text and/or image form is permitted.</p>
 
-    <p>Timed text in image form is used in scenarios where the required text rendering functionality is not available, for example
-    if the required fonts can not be distributed, or if the receiving processor has insufficient computing resources to present text
-    while displaying video. They can also be used to achieve a visual effect that is beyond the capabilities of this specification,
-    e.g. illuminated letters.</p>
+    <p>Timed text in image form can be used in scenarios where the required text rendering functionality is not available, for
+    example if the required fonts can not be distributed, or if the receiving processor has insufficient computing resources to
+    present text while displaying video. They can also be used to achieve a visual effect that is beyond the capabilities of this
+    specification, e.g. illuminated letters.</p>
 
     <p>As detailed in <a href='#wcag-criterion-1-1-1'></a>, two distinct mechanisms are used to associate <a>text alternative</a>
     with timed text in image form:</p>
@@ -271,9 +271,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       can be used to associate a simple text string with each image.</li>
     </ul>
     
-    <p>As detailed in detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is
-    designed to be compatible with other TTML-based timed text formats, including [[ttml-imsc1]], [[ttml-imsc1.0.1]],
-    [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
+    <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
+    compatible with other TTML-based timed text formats, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[SMPTE2052-1]],
+    [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
   
     <p>To improve rendering fidelity, <a href='#reference-fonts'></a> defines reference fonts and requires <a>Processors</a> to
     support one or more fonts with similar font metrics as these reference fonts. Similarly, in order to increase the confidence
@@ -4667,9 +4667,9 @@ y = topOffset * (1 - height/100)
         used to associate a simple text string with an image to, for example:</p>
         <ul>
           <li>support indexing of the content;</li>
-          <li>facilitate quality; and</li>
-          <li>checking of the document during authoring and make a <a>Image Profile</a> <a>Document Instance</a> accessible to timed
-          text authors with (visual) disabilities in absence of a corresponding <a>Image Profile</a> <a>Document Instance</a>.</li>
+          <li>facilitate quality checking (QC); and</li>
+          <li>make a <a>Image Profile</a> <a>Document Instance</a> accessible to timed text authors with (visual) disabilities in
+          absence of a corresponding <a>Image Profile</a> <a>Document Instance</a>.</li>
         </ul>
 
       </section>
