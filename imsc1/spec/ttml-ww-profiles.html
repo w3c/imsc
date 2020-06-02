@@ -202,14 +202,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>This specification improves on [[ttml-imsc1.1]] by supporting contemporary practices, while retaining compatibility with
     [[ttml-imsc1.1]] documents. Relative to [[ttml-imsc1.1]], any addition or deprecation of features are summarized at
-    Appendix <a href="#substantive-changes-summary"></a>.</p>
-
-    <p>It is feasible to create documents that simultaneously conform to both [[ttml10-sdp-us]] and the text-only profile.</p>
-
-    <p>The specification defines extensions to [[ttml2]], as well as incorporates extensions specified in [[SMPTE2052-1]] and
-    [[EBU-TT-D]].</p>
-
-    <p>Both profiles are based on [[SUBM]].</p>
+    <a href="#substantive-changes-summary"></a>.</p>
   </section>
 
   <section id='sotd'>
@@ -247,6 +240,52 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>The <a>Text Profile</a> is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
     [[ttml10-sdp-us]] and the <a>Text Profile</a>.</p>
+  </section>
+
+  <section class='informative' id='introduction'>
+    <h2>Introduction</h2>
+
+    <p>This specification defines a document exchange format and associated validation and presentation requirements for subtitle
+    and caption delivery worldwide, including dialog language translation, content description, captions for deaf and hard of
+    hearing, etc. It is based on [[ttml2]] and includes extensions specified in [[SMPTE2052-1]] and [[EBU-TT-D]].</p>
+
+    <p>Two profiles are defined: in the <a>Text Profile</a>, timed text is expressed exclusively using code points defined in
+    [[[Unicode]]], whereas, in the <a>Image Profile</a>, timed text is expressed exclusively using bitmap images. The clear
+    distinction between the two profiles reduces authoring and processing complexity. For example, it allows systems to
+    unambiguously specify whether timed text in text and/or image form is permitted.</p>
+
+    <p>Timed text in image form can be used in scenarios where the required text rendering functionality is not available, for
+    example if the required fonts can not be distributed, or if the receiving processor has insufficient computing resources to
+    present text while displaying video. They can also be used to achieve a visual effect that is beyond the capabilities of this
+    specification, e.g. illuminated letters.</p>
+
+    <p>As detailed in <a href='#wcag-criterion-1-1-1'></a>, two distinct mechanisms are used to associate <a>text alternative</a>
+    with timed text in image form:</p>
+    <ul>
+      <li>When timed text in image and text form are simultaneously made available for presentation to the consumer, two distinct <a
+      data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and the other conforming to the
+      <a>Image Profile</a>, are offered such that assistive technologies have access to a text form when image content is
+      encountered.</li>
+        
+      <li>For authoring purposes, the <a data-cite="ttml2#metadata-value-named-item"><code>altText</code> named metadata item</a>
+      can be used to associate a simple text string with each image.</li>
+    </ul>
+    
+    <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
+    compatible with other TTML-based timed text formats, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[SMPTE2052-1]],
+    [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
+  
+    <p>To improve rendering fidelity, <a href='#reference-fonts'></a> defines reference fonts and requires <a>Processors</a> to
+    support one or more fonts with similar font metrics as these reference fonts. Similarly, in order to increase the confidence
+    that text will be presented correctly by <a>Processors</a> targeting specific languages, <a
+    href='#recommended-unicode-code-points-per-language'></a> defines common character sets that authors are encouraged to use.</p>
+
+    <p>To assist implementers in developing <a>Processors</a> that can render all <a data-lt="Document Instance">Document
+    Instances</a>, <a href='#hypothetical-render-model'></a> specifies an hypothetical rendering model that is used to  measure and
+    limiting <a>Document Instance</a> complexity. </p>
+
+    <p>Both <a>Text Profile</a> and the <a>Image Profile</a> were based on [[SUBM]].</p>
+
   </section>
 
   <section id='conventions'>
@@ -440,43 +479,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <section>
       <h3>General</h3>
 
-      <p>This specification defines two profiles of [[ttml2]]: the <a>Text Profile</a> and the <a>Image Profile</a>. In the <a>Text
-      Profile</a>, timed text is expressed using Unicode text exclusively, whereas, in the <a>Image Profile</a>, timed text is
-      expressed using bitmap images exclusively. The clear distinction between the two profiles reduces authoring and processing
-      complexity. For example, it allows systems to unambiguously specify whether text- and/or image-based timed text is
-      permitted.</p>
-
-      <p class='note'>Image-based timed text images can be used in scenarios where the required text rendering functionality is not
-      available, for example if the required fonts can not be distributed, or if the receiving processor has insufficient computing
-      resources to present text while displaying video. They can also be used to achieve a visual effect that is beyond the
-      capabilities of TTML, e.g. illuminated letters.</p>
-
       <p>Notwithstanding special cases, e.g. a <a>Document Instance</a> that contains no <code>p</code>, <code>span</code>,
       <code>br</code>, <code>image</code> element and no <code>smpte:backgroundImage</code> attribute, it is generally not possible
       to construct a <a>Document Instance</a> that conforms to the <a>Text Profile</a> and <a>Image Profile</a> simultaneously, and
       it is not possible to construct a <a>Document Instance</a> that results in the presentation of both text data and image
       data.</p>
-
-      <p class='note'>Authors can use TTML content verification tools to detect
-      and warn about overly constrained uses of content and processor profile
-      attribute vocabulary, e.g. warn if (a) a document simultaneously (i)
-      specifies conformance to content profile X and (ii) requires use of
-      processor profile Y, and (b) profiles X and Y are semantically
-      incompatible.</p>
-
-      <p>In applications that require subtitle/caption content in image form to be simultaneously available in text form to the
-      consumer, two distinct <a data-lt="Document Instance">Document Instances</a>, one conforming to the <a>Text Profile</a> and
-      the other conforming to the <a>Image Profile</a>, SHOULD be offered to the timed text consumer. In addition, the <a>Text
-      Profile</a> <a>Document Instance</a> SHOULD be associated with the <a>Image Profile</a> <a>Document Instance</a> such that,
-      when image content is encountered, assistive technologies have access to its corresponding text form. The method by which this
-      association is made is left to each application.</p>
-
-      <p class='note'>The <code>altText</code> named metadata item also allows a text equivalent string to be associated with an
-      image. This allows, for example, indexation of the content, matching actual image contents to intended contents during quality
-      checking of the document, and making the image in the document accessible to timed text authors with (visual) disabilities.</p>
-
-      <p>Annex <a href='#wcag-applications'></a> specifically discusses this specification in the context of the [[WCAG21]]
-      guidelines.</p>
     </section>
 
     <section>
@@ -513,7 +520,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <li>[[ttml-imsc1.0.1]] Text Profile</li>
 		  
-		  <li>[[ttml-imsc1.1]] Text Profile</li>
+		      <li>[[ttml-imsc1.1]] Text Profile</li>
         </ul>
 
         <p>The <a>Image Profile</a> <a>processor profile</a> includes all of the features required by each of the following
@@ -522,7 +529,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         <ul>
           <li>[[ttml-imsc1.0.1]] Image Profile</li>
 		  
-		  <li>[[ttml-imsc1.1]] Image Profile</li>
+		      <li>[[ttml-imsc1.1]] Image Profile</li>
         </ul>
 
         <aside class="example">
@@ -531,6 +538,15 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           Manifest is part of the <a>document interchange context</a>, and the <a>default processor profile</a> is extracted from
           the <code>codecs</code> attribute and dereferenced via the [[ttml-profile-registry]].
         </aside>
+
+        <p class='note'>Authors can use TTML content verification tools to detect
+          and warn about overly constrained uses of content and processor profile
+          attribute vocabulary, e.g. warn if (a) a document simultaneously (i)
+          specifies conformance to content profile X and (ii) requires use of
+          processor profile Y, and (b) profiles X and Y are semantically
+          incompatible.
+        </p>
+        
       </section>
 
       <section>
@@ -2762,8 +2778,9 @@ ittp:progressivelyDecodable
         defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
 
         <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, typically an image. This
-        text equivalent MAY be used to support indexing of the content and also facilitate quality checking of the document during
-        authoring.</p>
+        <a>text alternative</a> MAY be used to support indexing of the content, facilitate quality checking of the document during
+        authoring and make a <a>Image Profile</a> <a>Document Instance</a> accessible to timed text authors with (visual)
+        disabilities in absence of a corresponding <a>Text Profile</a> <a>Document Instance</a>.</p>
 
         <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
 
@@ -4622,24 +4639,39 @@ y = topOffset * (1 - height/100)
         all <a>non-text content</a> that is presented to the user has a <a>text alternative</a> that serves the equivalent
         purpose.</p>
 
+        <p>As such, when an <a>Image Profile</a> <a>Document Instance</a> is made available to a consumer, a corresponding
+        <a>Text Profile</a> <a>Document Instance</a> SHOULD simultaneously be offered and associated with the <a>Image Profile</a>
+        <a>Document Instance</a> such that, when image content is encountered, assistive technologies have access to its
+        <a>text alternative</a>. The method by which this association is made is left to each application.</p>
+
         <p>In the context of this specification, <a>text alternative</a> is intended primarily to support users of the subtitles who
         cannot see images (the <a>non-text content</a>). Since the images of an <a>Image Profile</a> <a>Document Instance</a>
         usually represent subtitle or caption text, the guidelines of 
-        <a data-cite="HTML5#text-that-has-been-rendered-to-a-graphic-for-typographical-effect">Text that has been rendered 
-        to a graphic for typographical effect</a> at [[!HTML]] are appropriate.</p>
+        <a data-cite="HTML5#text-that-has-been-rendered-to-a-graphic-for-typographical-effect">Text that has been rendered to a
+        graphic for typographical effect</a> at [[!HTML]] are appropriate.</p>
 
-        <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, a text equivalent content in a <a>Text
+        <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, <a>text alternative</a> content in a <a>Text
         Profile</a> <a>Document Instance</a> SHOULD be written so that it conveys all essential content and fulfills the same
         function as the corresponding subtitle image. In the context of subtitling and captioning, this content will be (as a
         minimum) the verbatim equivalent of the image without précis or summarization. However, the author MAY include extra
-        information to the text equivalent string in cases where styling is applied to the text image with a deliberate connotation,
-        as a <em>functional</em> replacement for the applied style.</p>
+        information to the <a>text alternative</a> in cases where styling is applied to the text image with a deliberate
+        connotation, as a <em>functional</em> replacement for the applied style.</p>
 
         <aside class="example">Considering a subtitling and captioning practice where italics are used to indicate an off screen
-        speaker context (for example a voice from a radio), an author can choose to include this functional information in the text
-        equivalent; for example, by including the word "Radio: " before the image equivalent text. Note that images in an <a>Image
-        Profile</a> <a>Document Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing
-        audience, might already include this functional information in the rendered text.</aside>
+          speaker context (for example a voice from a radio), an author can choose to include this functional information in the text
+          equivalent; for example, by including the word "Radio: " before the image equivalent text. Note that images in an <a>Image
+          Profile</a> <a>Document Instance</a> that are intended for use as <em>captions</em>, i.e. intended for a hard of hearing
+          audience, might already include this functional information in the rendered text.</aside>
+
+        <p>During authoring, the <a data-cite="ttml2#metadata-value-named-item"><code>altText</code> named metadata item</a> can be
+        used to associate a simple text string with an image to, for example:</p>
+        <ul>
+          <li>support indexing of the content;</li>
+          <li>facilitate quality checking (QC); and</li>
+          <li>make a <a>Image Profile</a> <a>Document Instance</a> accessible to timed text authors with (visual) disabilities in
+          absence of a corresponding <a>Text Profile</a> <a>Document Instance</a>.</li>
+        </ul>
+
       </section>
 
       <section class='appendix' id='wcag-criterion-contrast'>
