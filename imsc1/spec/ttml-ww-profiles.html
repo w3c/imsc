@@ -15,12 +15,14 @@ figure img {
   <script class='remove'>
 var respecConfig = {
                     specStatus:   "ED"
-                ,   previousMaturity: "CR"
-                /*,   publishDate: "2019-11-28"*/
+                ,   previousMaturity: "PR"
+                /*,   crEnd: "2020-05-05"
+                ,   prEnd: "2020-07-14"
+                ,   publishDate: "2020-06-16"*/
                 /*,   errata: "http://www.w3.org/2018/11/ttml-imsc1.1-errata.html"*/
                 ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_2_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2020-03-24"
+                ,   previousPublishDate: "2020-06-16"
                 ,   shortName:    "ttml-imsc1.2"
                 ,   otherLinks: [{
                           key: 'Latest IMSC recommendation',
@@ -75,15 +77,6 @@ var respecConfig = {
                           publisher: "European Broadcasting Union (EBU)",
                           href :"https://tech.ebu.ch/files/live/sites/tech/files/shared/tech/tech3390.pdf",
                           title: "Tech 3390, EBU-TT-M Metadata Definitions 1.0"
-                          },
-                          "ttml2": {
-                            "authors":["Glenn Adams","Cyril Concolato"],
-                            "href":"https://www.w3.org/TR/2018/REC-ttml2-20181108/",
-                            "title":"Timed Text Markup Language 2 (TTML2)",
-                            "status":"REC",
-                            "publisher":"W3C",
-                            "id":"ttml2-20181108",
-                            "date":"8 November 2018"
                           },
                           "xml": {
                           aliasOf: "xml-20081126"
@@ -4215,7 +4208,7 @@ y = topOffset * (1 - height/100)
 
           <td>
             <a href="https://docs.microsoft.com/en-us/typography/font-list/courier-new">Courier New</a> or <a href=
-            "https://fedorahosted.org/liberation-fonts/">Liberation Mono</a>
+            "https://github.com/liberationfonts/liberation-fonts">Liberation Mono</a>
           </td>
         </tr>
 
@@ -4230,7 +4223,7 @@ y = topOffset * (1 - height/100)
           <td>
             <a href="https://docs.microsoft.com/en-us/typography/font-list/arial">Arial</a> or <a href=
             "https://www.linotype.com/1308886/helvetica-family.html">Helvetica</a> or <a href=
-            "https://fedorahosted.org/liberation-fonts/">Liberation Sans</a>
+            "https://github.com/liberationfonts/liberation-fonts">Liberation Sans</a>
           </td>
         </tr>
       </tbody>
@@ -4647,7 +4640,7 @@ y = topOffset * (1 - height/100)
         <p>In the context of this specification, <a>text alternative</a> is intended primarily to support users of the subtitles who
         cannot see images (the <a>non-text content</a>). Since the images of an <a>Image Profile</a> <a>Document Instance</a>
         usually represent subtitle or caption text, the guidelines of 
-        <a data-cite="HTML5#text-that-has-been-rendered-to-a-graphic-for-typographical-effect">Text that has been rendered to a
+        <a data-cite="HTML#text-that-has-been-rendered-to-a-graphic-for-typographical-effect">Text that has been rendered to a
         graphic for typographical effect</a> at [[!HTML]] are appropriate.</p>
 
         <p>Thus, for each subtitle in an <a>Image Profile</a> <a>Document Instance</a>, <a>text alternative</a> content in a <a>Text
@@ -4700,7 +4693,8 @@ y = topOffset * (1 - height/100)
         <a data-cite="!WCAG21#language-of-parts">3.1.2</a> at [[!WCAG21]] specify that the human language of each passage or
         phrase in the content can be programmatically determined.</p>
 
-        <p>In the context of this specification, this is achieved by specifying <a data-cite="TTML2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
+        <p>In the context of this specification, this is achieved by specifying
+        <a data-cite="TTML2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
       </section>
 
     </section>
@@ -4712,11 +4706,9 @@ y = topOffset * (1 - height/100)
       users with disabilities have with respect to audio and video on the web.</p>
 
       <aside class="note">Implementations can provide facilities that allow users to influence the <a>Document Processing Context</a>
-      to modify the actual presentation in order to
-      meet the guidelines of [[media-accessibility-reqs]].
-      For example, a user with vision impairment who also requires caption support might be able to request
-      that all captions are displayed in the lower third of the screen with a large font,
-      altering in the process the layout and styling specified by the author.</p>
+      to modify the actual presentation in order to meet the guidelines of [[media-accessibility-reqs]]. For example, a user with
+      vision impairment who also requires caption support might be able to request that all captions are displayed in the lower
+      third of the screen with a large font, altering in the process the layout and styling specified by the author.</p>
     </section>
   </section>
 
