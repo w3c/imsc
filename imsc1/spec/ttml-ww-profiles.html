@@ -3645,28 +3645,19 @@ y = topOffset * (1 - height/100)
         <code>tts:extent="1920px 1080px"</code>, NSIZE(R<sub>i</sub>) ≈ 0.00603.
       </aside>
 
-      <p>NBG(R<sub>i</sub>) SHALL be the total number of <code>tts:backgroundColor</code> attributes associated with the given
-      region R<sub>i</sub> in the <a>intermediate synchronic document</a>. A <code>tts:backgroundColor</code> attribute is
-      associated with a region when it is explicitly specified (either as an attribute in the element, or by reference to a
-      declared style) in the following circumstances:</p>
+      <p>NBG(R<sub>i</sub>) SHALL be the total number of elements within the tree rooted at region R<sub>i</sub> that satisfy the following criteria:</p>
 
       <ul>
-        <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
+        <li>the element is either a <code>region</code>, <code>body</code>, <code>div</code>, <code>p</code> or
+           <code>span</code> for which the <code>tts:ruby</code> attribute is not <code>"none"</code>;</li>
 
-        <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is to
-        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details
-        on when a content element is followed into a region); or
-        </li>
+        <li><code>tts:backgroundColor</code> applies to the element; and</li>
 
-        <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be flowed
-        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details on when a
-        <code>set</code> animation element is applied to content elements).
-        </li>
+        <li>the opacity of the computed value of <code>tts:backgroundColor</code> is not <code>0</code>.</li>
       </ul>
 
-      <p>Even if a specified <code>tts:backgroundColor</code> is the same as specified on the nearest ancestor content element or
-      animation element, specifying any <code>tts:backgroundColor</code> SHALL require an additional fill operation for all region
-      pixels.</p>
+      <p class="note">An element and its parent that satisfy the criteria above and share identical computed values 
+        of <code>tts:backgroundColor</code> are counted as two distinct elements for the purpose of computing NBG(R<sub>i</sub>).</p>
     </section>
 
     <section id='paint-images'>
