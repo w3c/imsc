@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>TTML Profiles for Internet Media Subtitles and Captions 1.2</title>
+  <title>TTML Profiles for Internet Media Subtitles and Captions 1.3</title>
   <style>
 figure img {
       height: auto;
@@ -14,16 +14,16 @@ figure img {
 </script>
   <script class='remove'>
 var respecConfig = {
-                    specStatus:   "REC"
-                ,   previousMaturity: "PR"
+                    specStatus:   "ED"
+                ,   previousMaturity: "REC"
                 /*,   crEnd: "2020-05-05"
-                ,   prEnd: "2020-07-14"*/
+                ,   prEnd: "2020-07-14"
                 ,   publishDate: "2020-08-04"
-                ,   errata: "http://www.w3.org/2020/08/ttml-imsc1.2-errata.html"
+                /*,   errata: "http://www.w3.org/2020/08/ttml-imsc1.2-errata.html"
                 ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_2_Implementation_Report"
-                ,   sotdAfterWGinfo: "true"
-                ,   previousPublishDate: "2020-06-16"
-                ,   shortName:    "ttml-imsc1.2"
+                ,   sotdAfterWGinfo: "true"*/
+                ,   previousPublishDate: "2020-08-04"
+                ,   shortName:    "ttml-imsc1.3"
                 ,   otherLinks: [{
                           key: 'Latest IMSC recommendation',
                           data: [{
@@ -191,14 +191,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     intended to be used across subtitle and caption delivery applications worldwide, thereby simplifying interoperability,
     consistent rendering and conversion to other subtitling and captioning formats.</p>
 
-    <p>This specification improves on [[ttml-imsc1.1]] by supporting contemporary practices, while retaining compatibility with
-    [[ttml-imsc1.1]] documents. Relative to [[ttml-imsc1.1]], any addition or deprecation of features are summarized at
+    <p>This specification improves on [[ttml-imsc1.2]] by supporting contemporary practices, while retaining compatibility with
+    [[ttml-imsc1.2]] documents. Relative to [[ttml-imsc1.2]], any addition or deprecation of features are summarized at
     <a href="#substantive-changes-summary"></a>.</p>
   </section>
 
   <section id='sotd'>
-    <p>A list of the substantive changes applied since the <a href="https://www.w3.org/TR/2019/WD-ttml-imsc1.2-20191128/">initial
-    Working Draft</a> is found at <a href="substantive-changes-summary.txt">substantive-changes-summary.txt</a>.</p>
   </section>
 
   <section id='scope'>
@@ -208,25 +206,25 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     intended for subtitle and caption delivery worldwide, including dialog language translation, content description, captions for
     deaf and hard of hearing, etc.</p>
 
-    <p>This specification maintains the scope of [[ttml-imsc1.1]] while adding the minimal set of features necessary to support
+    <p>This specification maintains the scope of [[ttml-imsc1.2]] while adding the minimal set of features necessary to support
     contemporary practices for worldwide subtitling and captioning delivery.</p>
 
     <p>The specification is designed such that:</p>
 
     <ul>
-      <li>a valid Text Profile document as specified in [[ttml-imsc1.1]] is a valid <a>Text Profile</a> document as specified
+      <li>a valid Text Profile document as specified in [[ttml-imsc1.2]] is a valid <a>Text Profile</a> document as specified
       herein;
       </li>
 
-      <li>a valid Image Profile document as specified in [[ttml-imsc1.1]] is a valid <a>Image Profile</a> document as specified
+      <li>a valid Image Profile document as specified in [[ttml-imsc1.2]] is a valid <a>Image Profile</a> document as specified
       herein;
       </li>
 
-      <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.1]] as it would have
-      been transformed by a processor defined in [[ttml-imsc1.1]]; and
+      <li>a <a>processor</a> defined herein transforms a Document Instance as specified in [[!ttml-imsc1.2]] as it would have
+      been transformed by a processor defined in [[ttml-imsc1.2]]; and
       </li>
 
-      <li>whenever possible, extensions defined in [[ttml-imsc1.1]] are (i) replaced by their [[ttml2]] equivalent and (ii)
+      <li>whenever possible, extensions defined in [[ttml-imsc1.2]] are (i) replaced by their [[ttml2]] equivalent and (ii)
       deprecated.</li>
     </ul>
 
@@ -513,6 +511,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li>[[ttml-imsc1.0.1]] Text Profile</li>
 		  
 		      <li>[[ttml-imsc1.1]] Text Profile</li>
+
+          <li>[[ttml-imsc1.2]] Text Profile</li>
         </ul>
 
         <p>The <a>Image Profile</a> <a>processor profile</a> includes all of the features required by each of the following
@@ -522,6 +522,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           <li>[[ttml-imsc1.0.1]] Image Profile</li>
 		  
 		      <li>[[ttml-imsc1.1]] Image Profile</li>
+
         </ul>
 
         <aside class="example">
@@ -553,9 +554,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <li>[[ttml-imsc1.0.1]] Image Profile Designator</li>
 		  
-		  <li>[[ttml-imsc1.1]] Text Profile Designator</li>
+		      <li>[[ttml-imsc1.1]] Text Profile Designator</li>
 
           <li>[[ttml-imsc1.1]] Image Profile Designator</li>
+
+		      <li>[[ttml-imsc1.2]] Text Profile Designator</li>
 
           <li>
             <a>Image Profile</a> Designator
@@ -2388,7 +2391,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.2 Text Profile Designator</td>
+            <td>IMSC 1.3 Text Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -2398,7 +2401,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
           </tr>
 
           <tr>
-            <td>IMSC 1.2 Image Profile Designator</td>
+            <td>IMSC 1.3 Image Profile Designator</td>
 
             <td><em>none</em></td>
 
@@ -3218,9 +3221,9 @@ y = topOffset * (1 - height/100)
 
         <tbody>
           <tr>
-            <td><dfn>IMSC 1.2 Text</dfn></td>
+            <td><dfn>IMSC 1.3 Text</dfn></td>
 
-            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.2/text</code></td>
+            <td><code>http://www.w3.org/ns/ttml/profile/imsc1.3/text</code></td>
           </tr>
         </tbody>
       </table>
@@ -5064,31 +5067,12 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>Overview</h3>
 
-      <p>This appendix summarizes changes made from [[ttml-imsc1.1]].</p>
+      <p>This appendix summarizes changes made from [[ttml-imsc1.2]].</p>
     </section>
 
     <section class='appendix'>
       <h3>Changes</h3>
-      
-      <section class='appendix'>
-        <h4>Reference to WCAG 2.1</h4>
 
-        <p>Replaced normative references to [[WCAG20-20081211]] with normative references to [[WCAG21]].</p>
-      </section>
-      
-      <section class='appendix'>
-        <h4>Region Extent</h4>
-
-        <p>In the <a>Text Profile</a>, and as specified at <a href="#text-extent-region"></a>, the <a>specified value</a> of the <code>tts:extent</code>
-        style property of a <code>region</code> element can be set using any style association mechanism, e.g. nested styling.</p>
-      </section>
-
-      <section class='appendix'>
-        <h4>Text Profile Designator</h4>
-
-        <p>Revised the <a href="#text-profile-designator">Text Profile designator</a>.</p>
-      </section>
-      
       <section class='appendix'>
         <h4>Added Features</h4>
 
@@ -5099,19 +5083,6 @@ y = topOffset * (1 - height/100)
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
             </tr>
-            
-            <tr>
-              <td><code>#font</code></td>
-            </tr>
-            
-            <tr>
-              <td><code>#resources</code></td>
-            </tr>
-            
-            <tr>
-              <td><code>#source</code></td>
-            </tr>
-
           </tbody>
         </table>
       </section>
