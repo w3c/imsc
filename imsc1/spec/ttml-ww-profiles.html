@@ -270,9 +270,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     that text will be presented correctly by <a>Processors</a> targeting specific languages, <a
     href='#recommended-unicode-code-points-per-language'></a> defines common character sets that authors are encouraged to use.</p>
 
-    <p>To assist implementers in developing <a>Processors</a> that can render all <a data-lt="Document Instance">Document
-    Instances</a>, <a href='#hypothetical-render-model'></a> specifies an hypothetical rendering model that is used to  measure and
-    limiting <a>Document Instance</a> complexity. </p>
+    <p>An Hypothetical Render Model is specified separately at [[!imsc-hrm]]. The Hypothetical Render Model allows subtitle and
+    caption authors and providers to verify that the <a>Text Profile</a> documents they supply do not exceed defined complexity
+    levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
 
     <p>Both <a>Text Profile</a> and the <a>Image Profile</a> were based on [[SUBM]].</p>
 
@@ -3510,9 +3510,12 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section>
-        <h4>Hypothetical Render Model</h4>
+        <h4>Document complexity</h4>
 
-        <p><a>Document Instance</a> SHALL conform to the Hypothetical Render Model specified at [[!imsc-hrm]].</p>
+        <p>A <a>Text Profile</a> document SHOULD conform to the Hypothetical Render Model specified at [[!imsc-hrm]].</p>
+
+        <p class="note">This limits the complexity of the <a>Text Profile</a> document, so that playback systems can render the
+        content synchronized with the author-specified display times.</p>
       </section>
     </section>
   </section>
