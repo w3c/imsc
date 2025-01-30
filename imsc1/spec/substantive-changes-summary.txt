@@ -1,6 +1,7 @@
 **********************************
 *                                *
 * Summary of substantive changes *
+*           IMSC 1.3             *
 *                                *
 **********************************
 
@@ -11,47 +12,4 @@ http://services.w3.org/htmldiff across published versions of the specification.
 
 NOTE 2: Issues and their dispositions are documented at https://github.com/w3c/imsc/issues
 
-
-From PR (20200616)
-==================
-
-No substantive change made.
-
-
-From CR (20200324)
-==================
-
-* Update TTML2 ref to point to TTML2 2ED (#531)
-
-* Improve note regarding the use of altText for content authors (#521)
-
-* Add a note that the user can influence the document processing context (#523)
-
-* Clarify WCAG considerations (#519 and #520)
-
-
-From WD (20191128)	
-==================
-
-* Clarify the disposition of #content in Image Profile (#494)
-
-* Correct the disposition of #bidi (#491)
-
-* Clarify the semantics of partially supported disposition (#488)
-
-* Update security and privacy considerations (#503)
-
-* Correct profile signaling in examples (#505)
-
-* Revert Image Profile designator version to 1.1 (#509)
-
-* Add note on using shear instead of italic or oblique for Japanese text (#495)
-
-* Changed SMPTE-TT reference to 2010 edition (#511)
-
-* Clarify use of validator to warn about overly constrained profiles (#506)
-
-* Permit CSS font matching algorithm (#516)
-
-* Replaced HTML5 reference with WHATWG HTML reference (#525)
 
