@@ -39,6 +39,7 @@ See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 
 ### IMSC 1.0
 
+* [publication history](https://www.w3.org/standards/history/ttml-imsc1/)
 * [branch](https://github.com/w3c/imsc/tree/imsc1)
 * Retired. Use IMSC 1.0.1 instead.
 
