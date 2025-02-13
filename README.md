@@ -2,7 +2,12 @@
 
 ## Introduction
 
-This repository covers the IMSC family of specifications.
+This repository covers the TTML Profiles for Internet Media Subtitles 
+and Captions (IMSC) family of specifications. The latter is intended 
+to be augmented with additional versions over time. Each version will 
+potentially correct errors, add non-substantive information, introduce
+minor features or make significant changes. This document lists each 
+member of this family of specifications.
 
 ## Published IMSC Specifications
 
