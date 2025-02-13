@@ -40,7 +40,7 @@ See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 ### IMSC 1.0
 
 * [branch](https://github.com/w3c/imsc/tree/imsc1)
-* Superseded. Use IMSC 1.0.1 instead.
+* Retired. Use IMSC 1.0.1 instead.
 
 ## Issues
 
