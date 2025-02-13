@@ -123,7 +123,12 @@ var respecConfig = {
                           },
                           "ttml2": {
                           aliasOf: "ttml2-20200128"
-                          }
+                          },
+                          "ARIB-STD-B62": {
+                          publisher: "ARIB",
+                          href:"https://www.arib.or.jp/english/std_tr/broadcasting/std-b62.html",
+                          title: "STD-B62, Multimedia Coding Specification For Digital Broadcasting (Second Generation), Version 2.2 (Fascicle 1)"
+                          },
                       }
         };
   </script>
@@ -3180,9 +3185,9 @@ y = topOffset * (1 - height/100)
       </section>
 
       <section class="informative">
-        <h4><code>#time-offset-with-frames</code></h4>
+        <h4><code>#time-clock-with-frames</code></h4>
 
-        <p>As specified in [[ttml2]], a <code>#time-offset-with-frames</code> expression is translated to a media time M according
+        <p>As specified in [[ttml2]], a <code>#time-clock-with-frames</code> expression is translated to a media time M according
         to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
         <code>ttp:frameRate</code>)).</p>
       </section>
@@ -4612,6 +4617,28 @@ y = topOffset * (1 - height/100)
           U+2052<br>
           (Miscellaneous Mathematical Symbols-A)<br>
           U+27E8–U+27E9</td>
+        </tr>
+
+        <tr>
+          <td>ja</td>
+
+          <td>
+          (Basic Japanese Collection)<br>
+          Collection 285 at [[ISO10646]]<br>
+          (Japanese Non Ideographic Extension)<br>
+          Collection 286 at [[ISO10646]]<br>
+          (JIS2004 Ideographics Extension)<br>
+          Collection 371 at [[ISO10646]]<br>
+          (Fullwidth ASCII variants)<br>
+          U+FF01 – U+FF5E<br>
+          (Fullwidth Symbol variants)<br>
+          U+FFE3, U+FFE5<br>
+          (Halfwidth Katakana variants)<br>
+          U+FF65 – U+FF9F<br>
+          (Halfwidth CJK punctuation)<br>
+          U+FF61 – U+FF64<br>
+          (Additional symbols and characters (Part 1))<br>
+          Table 5-2 at [[ARIB-STD-B62]]
         </tr>
       </tbody>
     </table>
