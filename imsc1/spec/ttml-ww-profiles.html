@@ -1107,6 +1107,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-fontVariant"><code>#fontVariant</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span><br>
+            <small>Section <a href="#font-variant-constraints"></a> specifies additional constraints.</small></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+
+        <tr>
+          <td>
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-fontWeight"><code>#fontWeight</code></a>
           </td>
 
@@ -3514,6 +3525,18 @@ y = topOffset * (1 - height/100)
           – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
       </section>
 
+      <section id="font-variant-constraints">
+        <h4><code>#fontVariant</code></h4>
+
+        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
+        following:</p>
+        <ul class="short-list">
+          <li><code>normal</code>;</li>
+          <li><code>sub</code>; or</li>
+          <li><code>super</code>.</li>
+        </ul>
+      </section>
+
       <section>
         <h4>Document complexity</h4>
 
@@ -3522,6 +3545,7 @@ y = topOffset * (1 - height/100)
         <p class="note">This limits the complexity of the <a>Text Profile</a> document, so that playback systems can render the
         content synchronized with the author-specified display times.</p>
       </section>
+
     </section>
   </section>
 
@@ -4635,6 +4659,10 @@ y = topOffset * (1 - height/100)
           <tbody>
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+            <tr>
+            <tr>
+              <td><code>#fontVariant</code></td>
             </tr>
           </tbody>
         </table>
