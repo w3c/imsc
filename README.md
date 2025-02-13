@@ -31,6 +31,7 @@ See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 
 ### IMSC 1.0.1
 
+* [publication history](https://www.w3.org/standards/history/ttml-imsc1.0.1/)
 * [release](https://github.com/w3c/imsc/releases/tag/imsc1.0.1-REC-2020-04-27)
 * [issues](https://github.com/w3c/imsc/labels/imsc1.0.1)
 * [errata](http://www.w3.org/ttwg/ttml-imsc1.0.1-errata.html)
