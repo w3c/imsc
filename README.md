@@ -8,7 +8,7 @@ This repository covers the IMSC family of specifications.
 
 See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 
-## Editions
+## Versions
 
 ### IMSC 1.3 (in development)
 
