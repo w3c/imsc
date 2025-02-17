@@ -275,9 +275,9 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     that text will be presented correctly by <a>Processors</a> targeting specific languages, <a
     href='#recommended-unicode-code-points-per-language'></a> defines common character sets that authors are encouraged to use.</p>
 
-    <p>To assist implementers in developing <a>Processors</a> that can render all <a data-lt="Document Instance">Document
-    Instances</a>, <a href='#hypothetical-render-model'></a> specifies an hypothetical rendering model that is used to  measure and
-    limiting <a>Document Instance</a> complexity. </p>
+    <p>An Hypothetical Render Model is specified separately at [[!imsc-hrm]]. The Hypothetical Render Model allows subtitle and
+    caption authors and providers to verify that the <a>Text Profile</a> documents they supply do not exceed defined complexity
+    levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
 
     <p>Both <a>Text Profile</a> and the <a>Image Profile</a> were based on [[SUBM]].</p>
 
@@ -1101,6 +1101,17 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#text-italic-shear-oblique"></a> provides additional information.</small></td>
+
+          <td><span class="prohibited label">prohibited</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-fontVariant"><code>#fontVariant</code></a>
+          </td>
+
+          <td><span class="permitted label">permitted</span><br>
+            <small>Section <a href="#font-variant-constraints"></a> specifies additional constraints.</small></td>
 
           <td><span class="prohibited label">prohibited</span></td>
         </tr>
@@ -2429,9 +2440,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p>A <a>Document Instance</a> SHOULD be authored assuming strict clipping of content that falls out of region areas,
       regardless of the computed value of <code>tts:overflow</code> for the region.</p>
-
-      <p class="note">As specified in [[ttml2]], <code>tts:overflow</code> has no effect on the extent of the region, and hence the
-      total normalized drawing area S(E<sub>n</sub>) at <a href='#paint-regions'></a>.</p>
     </section>
 
     <section>
@@ -3010,14 +3018,6 @@ y = topOffset * (1 - height/100)
       </section>
     </section>
 
-    <section>
-      <h3>Hypothetical Render Model</h3>
-
-      <p>It SHALL be possible to apply the Hypothetical Render Model specified in Section <a href="#hypothetical-render-model"></a>
-      to any sequence of consecutive <a data-lt="intermediate synchronic document">intermediate synchronic documents</a> without
-      error as defined in Section <a href="#hypothetical-render-model-general"></a>.</p>
-    </section>
-
     <section id='style-resolution-procedure'>
       <h3>Style Resolution</h3>
 
@@ -3522,7 +3522,29 @@ y = topOffset * (1 - height/100)
           (b) Japanese-language slanted vertical text consists of characters slanted in the vertical direction (and not
           in the horizontal direction), it is recommended that <code>tts:shear</code> be specified to slant Japanese-language text
           – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
-        </section>
+      </section>
+
+      <section id="font-variant-constraints">
+        <h4><code>#fontVariant</code></h4>
+
+        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
+        following:</p>
+        <ul class="short-list">
+          <li><code>normal</code>;</li>
+          <li><code>sub</code>; or</li>
+          <li><code>super</code>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Document complexity</h4>
+
+        <p>A <a>Text Profile</a> document SHOULD conform to the Hypothetical Render Model specified at [[!imsc-hrm]].</p>
+
+        <p class="note">This limits the complexity of the <a>Text Profile</a> document, so that playback systems can render the
+        content synchronized with the author-specified display times.</p>
+      </section>
+
     </section>
   </section>
 
@@ -3708,485 +3730,6 @@ y = topOffset * (1 - height/100)
           <p><code>smpte:image</code> SHALL NOT be used.</p>
         </section>
       </section>
-    </section>
-  </section>
-
-  <section id='hypothetical-render-model'>
-    <h2>Hypothetical Render Model</h2>
-
-    <section class="informative">
-      <h3>Overview</h3>
-
-      <p>This Section specifies the Hypothetical Render Model illustrated in <a href="#fig-hypothetical-render-model"></a>.</p>
-
-      <p>The purpose of the model is to limit <a>Document Instance</a> complexity. It is not intended as a specification of the
-      processing requirements for implementations. For instance, while the model defines a glyph buffer for the purpose of limiting
-      the number of glyphs displayed at any given point in time, it neither requires the implementation of such a buffer, nor
-      models the sub-pixel character positioning and anti-aliased glyph rendering that can be used to produce text output.</p>
-
-      <figure id='fig-hypothetical-render-model'>
-        <img src="figures/hypothetical-render-figure-1.png" alt="Hypothetical Render Model">
-
-        <figcaption>
-          Hypothetical Render Model
-        </figcaption>
-      </figure>
-
-      <p>The model operates on successive <a data-lt="intermediate synchronic document">intermediate synchronic documents</a>
-      obtained from an input <a>Document Instance</a>, and uses a simple double buffering model: while an <a>intermediate
-      synchronic document</a> E<sub>n</sub> is being painted into Presentation Buffer P<sub>n</sub> (the "front buffer" of the
-      model), the previous <a>intermediate synchronic document</a> E<sub>n-1</sub> is available for display in Presentation Buffer
-      P<sub>n-1</sub> (the "back buffer" of the model).</p>
-
-      <p>The model specifies an (hypothetical) time required for completely painting an <a>intermediate synchronic document</a> as
-      a proxy for complexity. Painting includes drawing region backgrounds, rendering and copying glyphs, and decoding and copying
-      images. Complexity is then limited by requiring that painting of <a>intermediate synchronic document</a> E<sub>n</sub>
-      completes before the end of <a>intermediate synchronic document</a> E<sub>n-1</sub>.</p>
-
-      <p>Whenever applicable, constraints are specified relative to <a>Root Container Region</a> dimensions, allowing subtitle
-      sequences to be authored independently of <a>Related Video Object</a> resolution.</p>
-
-      <p>To enable scenarios where the same glyphs are used in multiple successive <a data-lt=
-      "intermediate synchronic document">intermediate synchronic documents</a>, e.g. to convey a CEA-608/708-style roll-up (see
-      [[CEA-608]] and [[CEA-708]]), the Glyph Buffers G<sub>n</sub> and G<sub>n-1</sub> store rendered glyphs across <a data-lt=
-      "intermediate synchronic document">intermediate synchronic documents</a>, allowing glyphs to be copied into the Presentation
-      Buffer instead of rendered, a more costly operation.</p>
-
-      <p>Similarly, Decoded Image Buffers D<sub>n</sub> and D<sub>n-1</sub> store decoded images across <a data-lt=
-      "intermediate synchronic document">intermediate synchronic documents</a>, allowing images to be copied into the Presentation
-      Buffer instead of decoded.</p>
-    </section>
-
-    <section id='hypothetical-render-model-general'>
-      <h3>General</h3>
-
-      <p>The Presentation Compositor SHALL render in Presentation Buffer P<sub>n</sub> each successive <a>intermediate synchronic
-      document</a> E<sub>n</sub> using the following steps in order:</p>
-
-      <ol>
-        <li>clear the pixels, except for the first <a>intermediate synchronic document</a> E<sub>0</sub> for the which the pixels
-        of P<sub>0</sub> SHALL be assumed to have been cleared;
-        </li>
-
-        <li>paint, according to stacking order, all background pixels for each region;</li>
-
-        <li>paint all pixels for background colors associated with text or image subtitle content; and</li>
-
-        <li>paint the text or image subtitle content.</li>
-      </ol>
-
-      <p>The Presentation Compositor SHALL start rendering E<sub>n</sub>:</p>
-
-      <ul>
-        <li>at the presentation time of E<sub>0</sub> minus Initial Painting Delay (IPD), if n = 0; or</li>
-
-        <li>at the presentation time of E<sub>n-1</sub>, if n &gt; 0.</li>
-      </ul>
-
-      <p>The duration DUR(E<sub>n</sub>) for painting an <a>intermediate synchronic document</a> E<sub>n</sub> in the Presentation
-      Buffer P<sub>n</sub> SHALL be:</p>
-
-      <p class="equation">DUR(E<sub>n</sub>) = S(E<sub>n</sub>) / BDraw + DUR<sub>T</sub>(E<sub>n</sub>) +
-      DUR<sub>I</sub>(E<sub>n</sub>)</p>
-
-      <p>where</p>
-
-      <ul>
-        <li>S(E<sub>n</sub>) is the total normalized drawing area for <a>intermediate synchronic document</a> E<sub>n</sub>, as
-        specified in <a href="#paint-regions"></a>;
-        </li>
-
-        <li>BDraw is the normalized background drawing performance factor;</li>
-
-        <li>DUR<sub>T</sub>(E<sub>n</sub>) is the duration, in seconds, for painting the text subtitle content for <a>intermediate
-        synchronic document</a> E<sub>n</sub>, as specified in Section <a href="#paint-text"></a>; and
-        </li>
-
-        <li>DUR<sub>I</sub>(E<sub>n</sub>) is the duration, in seconds, for painting the image subtitle content for <a>intermediate
-        synchronic document</a> E<sub>n</sub>, as specified in Section <a href="#paint-images">.</a>
-        </li>
-      </ul>
-
-      <p>The contents of the Presentation Buffer P<sub>n</sub> SHALL be transferred instantaneously to Presentation Buffer
-      P<sub>n-1</sub> at the presentation time of <a>intermediate synchronic document</a> E<sub>n</sub>, making the latter
-      available for display.</p>
-
-      <p class='note'>It is possible for the contents of Presentation Buffer P<sub>n-1</sub> to never be displayed. This can happen
-      if Presentation Buffer P<sub>n</sub> is copied twice to Presentation Buffer P<sub>n-1</sub> between two consecutive video
-      frame boundaries of the <a>Related Video Object</a>.</p>
-
-      <p>It SHALL be an error for the Presentation Compositor to fail to complete painting pixels for E<sub>n</sub> before the
-      presentation time of E<sub>n</sub>.</p>
-
-      <p>It SHALL be an error if the <a>total retrieved font size</a> exceeds 10 MiB.</p>
-
-      <p>Unless specified otherwise, the following table SHALL specify values for IPD and BDraw.</p>
-
-      <table class='simple'>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-
-            <th>Initial value</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Initial Painting Delay (IPD)</td>
-
-            <td>1 s</td>
-          </tr>
-
-          <tr>
-            <td>Normalized background drawing performance factor (BDraw)</td>
-
-            <td>12 s<sup>-1</sup></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class='note'>BDraw effectively sets a limit on fillings regions - for example, assuming that the <a>Root Container
-      Region</a> is ultimately rendered at 1920×1080 resolution, a BDraw of 12 s<sup>-1</sup> would correspond to a fill rate of
-      1920×1080×12/s=23.7×2<sup>20</sup>pixels s<sup>-1</sup>.</p>
-
-      <p class='note'>IPD effectively sets a limit on the complexity of any given <a>intermediate synchronic document</a>.</p>
-    </section>
-
-    <section id='paint-regions'>
-      <h3>Paint Regions</h3>
-
-      <p>The total normalized drawing area S(E<sub>n</sub>) for <a>intermediate synchronic document</a> E<sub>n</sub> SHALL be</p>
-
-      <p class="equation">S(E<sub>n</sub>) = CLEAR(E<sub>n</sub>) + PAINT(E<sub>n</sub> )</p>
-
-      <p>where CLEAR(E<sub>0</sub>) = 0 and CLEAR(E<sub>n | n &gt; 0</sub>) = 1, i.e. the <a>Root Container Region</a> in its
-      entirety.</p>
-
-      <p class='note'>To ensure consistency of the Presentation Buffer, a new <a>intermediate synchronic document</a> requires
-      clearing of the <a>Root Container Region</a>.</p>
-
-      <p>PAINT(E<sub>n</sub>) SHALL be the normalized area to be painted for all regions that are used in <a>intermediate
-      synchronic document</a> E<sub>n</sub> according to:</p>
-
-      <p class="equation">PAINT(E<sub>n</sub>) = ∑<sub>R<sub>i</sub>∈R<sub>p</sub></sub> NSIZE(R<sub>i</sub>) ∙
-      NBG(R<sub>i</sub>)</p>
-
-      <p>where R_p SHALL be the set of <a data-lt="presented region">presented regions</a> in the <a>intermediate synchronic
-      document</a> E<sub>n</sub>.</p>
-
-      <p>NSIZE(R<sub>i</sub>) SHALL be given by:</p>
-
-      <p class="equation">NSIZE(R<sub>i</sub>) = (width of R<sub>i</sub> ∙ height of R<sub>i</sub> ) ÷ (<a>Root Container
-      Region</a> height ∙ <a>Root Container Region</a> width)</p>
-
-      <aside class='example'>
-        For a region R<sub>i</sub> in with <code>tts:extent="250px 50px"</code> within a <a>Root Container Region</a> with
-        <code>tts:extent="1920px 1080px"</code>, NSIZE(R<sub>i</sub>) ≈ 0.00603.
-      </aside>
-
-      <p>NBG(R<sub>i</sub>) SHALL be the total number of <code>tts:backgroundColor</code> attributes associated with the given
-      region R<sub>i</sub> in the <a>intermediate synchronic document</a>. A <code>tts:backgroundColor</code> attribute is
-      associated with a region when it is explicitly specified (either as an attribute in the element, or by reference to a
-      declared style) in the following circumstances:</p>
-
-      <ul>
-        <li>it is specified on the <code>region</code> layout element that defines the region; or</li>
-
-        <li>it is specified on a <code>div</code>, <code>p</code>, <code>span</code> or <code>br</code> content element that is to
-        be flowed into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details
-        on when a content element is followed into a region); or
-        </li>
-
-        <li>it is specified on a <code>set</code> animation element that is to be applied to content elements that are to be flowed
-        into the region for presentation in the <a>intermediate synchronic document</a> (see [[!ttml2]] for more details on when a
-        <code>set</code> animation element is applied to content elements).
-        </li>
-      </ul>
-
-      <p>Even if a specified <code>tts:backgroundColor</code> is the same as specified on the nearest ancestor content element or
-      animation element, specifying any <code>tts:backgroundColor</code> SHALL require an additional fill operation for all region
-      pixels.</p>
-    </section>
-
-    <section id='paint-images'>
-      <h3>Paint Images</h3>
-
-      <p>The Presentation Compositor SHALL paint into the Presentation Buffer P<sub>n</sub> all visible pixels of presented images
-      of <a>intermediate synchronic document</a> E<sub>n</sub>.</p>
-
-      <p>For each <a>presented image</a>, the Presentation Compositor SHALL either:</p>
-
-      <ul>
-        <li>if an identical image is present in Decoded Image Buffer D<sub>n</sub>, copy the image from Decoded Image Buffer
-        D<sub>n</sub> to the Presentation Buffer P<sub>n</sub> using the Image Copier; or</li>
-
-        <li>if an identical image is present in Decoded Image Buffer D<sub>n-1</sub>, i.e. an identical image was present in
-        <a>intermediate synchronic document</a> E<sub>n-1</sub>, copy using the Image Copier the image from Decoded Image Buffer
-        D<sub>n-1</sub> to both the Decoded Image Buffer D<sub>n</sub> and the Presentation Buffer P<sub>n</sub>; or
-        </li>
-
-        <li>otherwise, decode the image using the Image Decoder the image into the Presentation Buffer P<sub>n</sub> and Decoded
-        Image Buffer D<sub>n</sub>.</li>
-      </ul>
-
-      <p>Two images SHALL be identical if and only if they reference the same encoded image source.</p>
-
-      <p>The duration DUR<sub>I</sub>(E<sub>n</sub>) for painting images of an <a>intermediate synchronic document</a>
-      E<sub>n</sub> in the Presentation Buffer SHALL be as follows:</p>
-
-      <p class="equation">DUR<sub>I</sub>(E<sub>n</sub>) = ∑<sub>I<sub>i</sub> ∈ I<sub>c</sub></sub> NRGA(I<sub>i</sub>) / ICpy
-      + ∑<sub>I<sub>j</sub> ∈ I<sub>d</sub></sub> NSIZ(I<sub>j</sub>) / IDec</p>
-
-      <p>where</p>
-
-      <ul>
-        <li>I<sub>c</sub> is the set of images copied when painting <a>intermediate synchronic document</a> E<sub>n</sub>;
-        </li>
-
-        <li>I<sub>d</sub> is the set of images decoded when painting <a>intermediate synchronic document</a> E<sub>n</sub>;
-        </li>
-
-        <li>IDec is the image decoding rate; and</li>
-
-        <li>ICpy is the normalized image copy performance factor.</li>
-      </ul>
-
-      <p>NRGA(I<sub>i</sub>) is the Normalized Image Area of <a>presented image</a> I<sub>i</sub> and SHALL be equal to:</p>
-
-      <p class="equation">NRGA(I<sub>i</sub>)= (width of I<sub>i</sub> ∙ height of I<sub>i</sub> ) ÷ ( <a>Root Container
-      Region</a> height ∙ <a>Root Container Region</a> width )</p>
-
-      <p>NSIZ(I<sub>i</sub>) SHALL be the number of pixels of <a>presented image</a> I<sub>i</sub>.</p>
-
-      <p>The contents of the Decoded Image Buffer D<sub>n</sub> SHALL be transferred instantaneously to Decoded Image Buffer
-      D<sub>n-1</sub> at the presentation time of <a>intermediate synchronic document</a> E<sub>n</sub>.</p>
-
-      <p>The total size occupied by images stored in Decoded Image Buffers D<sub>n</sub> or D<sub>n-1</sub> SHALL be the sum of
-      their Normalized Image Area.</p>
-
-      <p>The size of Decoded Image Buffers D<sub>n</sub> or D<sub>n-1</sub> SHALL be the Normalized Decoded Image Buffer Size
-      (NDIBS).</p>
-
-      <p>Unless specified otherwise, the following table SHALL specify ICpy, IDec, and NDBIS.</p>
-
-      <table class='simple'>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-
-            <th>Initial value</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Normalized image copy performance factor (ICpy)</td>
-
-            <td>6</td>
-          </tr>
-
-          <tr>
-            <td>Image Decoding rate (IDec)</td>
-
-            <td>1 × 2<sup>20</sup> pixels s<sup>-1</sup></td>
-          </tr>
-
-          <tr>
-            <td>Normalized Decoded Image Buffer Size (NDIBS)</td>
-
-            <td>0.9885</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id='paint-text'>
-      <h3>Paint Text</h3>
-
-      <p>In the context of this section, a <dfn>glyph</dfn> is a tuple consisting of (i) one character and (ii) the computed values
-      of the following style properties:</p>
-
-      <ul>
-        <li><code>tts:color</code></li>
-
-        <li><code>tts:fontFamily</code></li>
-
-        <li><code>tts:fontSize</code></li>
-
-        <li><code>tts:fontStyle</code></li>
-
-        <li><code>tts:fontWeight</code></li>
-
-        <li><code>tts:textDecoration</code></li>
-
-        <li><code>tts:textOutline</code></li>
-
-        <li><code>tts:textShadow</code></li>
-      </ul>
-
-      <p class='note'>While one-to-one mapping between characters and typographical glyphs is generally the rule in some scripts,
-      e.g. latin script, it is the exception in others. For instance, in arabic script, a character can yield multiple glyphs
-      depending on its position in a word. The Hypothetical Render Model always assumes a one-to-one mapping, but reduces the
-      performance of the glyph buffer for scripts where one-to-one mapping is not the general rule (see GCpy below).</p>
-
-      <p>For each <a>glyph</a> associated with a character in a <a>presented region</a> of <a>intermediate synchronic document</a>
-      E<sub>n</sub>, the Presentation Compositor SHALL:</p>
-
-      <ul>
-        <li>if the font associated with the character, as determined using the <a data-cite="!css-fonts-3/#font-matching-algorithm">
-          Font Matching Algorithm</a>, corresponds to an <a>external data resource</a> that was not previously retrieved, retrieve the
-          <a>external data resource</a> and add its size (in bytes) to <dfn>total retrieved font size</dfn>; and</li>
-
-        <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n</sub>, copy the <a>glyph</a> from Glyph Buffer
-        G<sub>n</sub> to the Presentation Buffer P<sub>n</sub> using the Glyph Copier; or
-        </li>
-
-        <li>if an identical <a>glyph</a> is present in Glyph Buffer G<sub>n-1</sub>, i.e. an identical <a>glyph</a> was present in
-        <a>intermediate synchronic document</a> E<sub>n-1</sub>, copy using the Glyph Copier the <a>glyph</a> from Glyph Buffer
-        G<sub>n-1</sub> to both the Glyph Buffer G<sub>n</sub> and the Presentation Buffer P<sub>n</sub>; or
-        </li>
-
-        <li>otherwise render using the Glyph Renderer the <a>glyph</a> into the Presentation Buffer P<sub>n</sub> and Glyph Buffer
-        G<sub>n</sub>.
-        </li>
-      </ul>
-
-      <p class='note'>In the case of <a>external data resource</a> retrieved using [[HTTP11]], the size in bytes of the <a>external data resource</a>
-      is the <code>entity-length</code> of the message.</p>
-
-      <figure>
-        <img src="figures/text-render-example-figure-2.png" alt="Example of Presentation Compositor Behavior for Text Rendering">
-
-        <figcaption>
-          Example of Presentation Compositor Behavior for Text Rendering
-        </figcaption>
-      </figure>
-
-      <p>The duration DUR<sub>T</sub>(E<sub>n</sub>) for rendering the text of an <a>intermediate synchronic document</a>
-      E<sub>n</sub> in the Presentation Buffer is as follows:</p>
-
-      <p class="equation">DUR<sub>T</sub>(E<sub>n</sub>) = ∑<sub>g<sub>i</sub> ∈ &#x393;<sub>r</sub></sub> NRGA(g<sub>i</sub>)
-      / Ren(g<sub>i</sub>) + ∑<sub>g<sub>j</sub> ∈ &#x393;<sub>c</sub></sub> NRGA(g<sub>j</sub>) / GCpy</p>
-
-      <p>where</p>
-
-      <ul>
-        <li>&#x393;<sub>r</sub> is the set of <a data-lt="glyph">glyphs</a> rendered into the Presentation Buffer P<sub>n</sub>
-        using the Glyph Renderer in <a>intermediate synchronic document</a> E<sub>n</sub>;
-        </li>
-
-        <li>&#x393;<sub>c</sub> is the set of <a data-lt="glyph">glyphs</a> copied to the Presentation Buffer P<sub>n</sub> using
-        the Glyph Copier in <a>intermediate synchronic document</a> E<sub>n</sub>;
-        </li>
-
-        <li>Ren(g<sub>i</sub>) is the text rendering performance factor for <a>glyph</a> g<sub>i</sub>; and
-        </li>
-
-        <li>GCpy is the normalized glyph copy performance factor.</li>
-      </ul>
-
-      <p>The Normalized Rendered Glyph Area NRGA(g<sub>i</sub>) of a <a>glyph</a> g<sub>i</sub> SHALL be equal to:</p>
-
-      <p class="equation">NRGA(g<sub>i</sub>) = (fontSize of g<sub>i</sub> as percentage of <a>Root Container Region</a>
-      height)<sup>2</sup></p>
-
-      <p class='note'>NRGA(G<sub>i</sub>) does not take into account decorations (e.g. underline), effects (e.g. outline) or actual
-      typographical glyph aspect ratio. An implementation can determine an actual buffer size needs based on worst-case glyph size
-      complexity.</p>
-
-      <p>The contents of the Glyph Buffer G<sub>n</sub> SHALL be copied instantaneously to Glyph Buffer G<sub>n-1</sub> at the
-      presentation time of <a>intermediate synchronic document</a> E<sub>n</sub>.</p>
-
-      <p>It SHALL be an error for the sum of NRGA(g<sub>i</sub>) over all <a data-lt="glyph">glyphs</a> Glyph Buffer G<sub>n</sub>
-      to be larger than the Normalized Glyph Buffer Size (NGBS).</p>
-
-      <p>Unless specified otherwise, the following table specifies values of GCpy, Ren and NGBS.</p>
-
-      <table class='simple'>
-        <tbody>
-          <tr>
-            <th colspan="2">Normalized glyph copy performance factor (GCpy)</th>
-          </tr>
-
-          <tr>
-            <td style="text-align: center;"><em>Script property (see Standard Annex #24 at [[!UNICODE]]) for the character of
-            g<sub>i</sub></em></td>
-
-            <td style="text-align: center;"><em>GCpy</em></td>
-          </tr>
-
-          <tr>
-            <td>latin, greek, cyrillic, hebrew or base</td>
-
-            <td style="text-align: center;">12</td>
-          </tr>
-
-          <tr>
-            <td><i>any other value</i></td>
-
-            <td style="text-align: center;">3</td>
-          </tr>
-
-          <tr>
-            <th colspan="2">Text rendering performance factor Ren(G<sub>i</sub>)</th>
-          </tr>
-
-          <tr>
-            <td style="text-align: center;"><em>Block property (see [[!UNICODE]]) for the character of g<sub>i</sub></em></td>
-
-            <td style="text-align: center;"><em>Ren(G<sub>i</sub>)</em></td>
-          </tr>
-
-          <tr>
-            <td>CJK Unified Ideograph</td>
-
-            <td style="text-align: center;">0.6</td>
-          </tr>
-
-          <tr>
-            <td><i>any other value</i></td>
-
-            <td style="text-align: center;">1.2</td>
-          </tr>
-
-          <tr>
-            <th colspan="2">Normalized Glyph Buffer Size (NGBS)</th>
-          </tr>
-
-          <tr>
-            <td colspan="2" style="text-align: center;">1</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class='note'>The choice of font by the presentation processor can increase rendering complexity. For instance, a cursive
-      font can generally result in a given character yielding different typographical glyphs depending on context, even if latin
-      script is used.</p>
-
-      <aside class='example'>
-        Setting a Normalized Glyph Buffer Size effectively sets a limit on the total number of distinct <a data-lt=
-        "glyph">glyphs</a> present in any given <a>intermediate synchronic document</a> E<sub>n</sub>. For example, assuming a
-        maximum Normalized Glyph Buffer Size of 1 and the default tts:fontSize of 1c are used, the font size relative to the
-        <a>Root Container Region</a> height is 1/15 , and the maximum number of distinct glyphs that can be buffered is
-        1÷(1÷15)<sup>2</sup>=225 glyphs.
-      </aside>
-
-      <aside class='example'>
-        GCpy effectively sets a limit on animating text. For example, assuming that the <a>Root Container Region</a> is ultimately
-        rendered at 1920×1080 resolution and no regions need to have background color painted (so only a CLEAR(E<sub>n</sub>)
-        operation is required for the normalized drawing area for the <a>intermediate synchronic document</a>), a GCpy and BDraw of
-        12 s<sup>-1</sup> would mean that a group of 160 <a data-lt="glyph">glyphs</a> with a tts:fontSize equal to 5% of the
-        <a>Root Container Region</a> height could be moved at most approximately 12 s<sup>-1</sup> ÷ (1 + ( 160 ×
-        0.05<sup>2</sup> )) = 8.6 times per second.
-      </aside>
-
-      <aside class='example'>
-        Ren(G<sub>i</sub>) effectively sets a limit on the text rendering rate. For example, assuming that the <a>Root Container
-        Region</a> is ultimately rendered at a 1920×1080 resolution, a Ren(G<sub>i</sub>) of 1.2 s<sup>-1</sup> would mean that at
-        most 120 <a data-lt="glyph">glyphs</a> with a fontSize of 108 px (10% of 1080 px and NRGA(G<sub>i</sub>) = 0.01) could be
-        rendered every second.
-      </aside>
     </section>
   </section>
 
@@ -4920,7 +4463,7 @@ y = topOffset * (1 - height/100)
       exceptions, including:</p>
 
       <ul>
-        <li>[[EBU-TT-D]] does not constrain document complexity using an HRM;</li>
+        <li>[[EBU-TT-D]] does not constrain document complexity using an Hypothetical Render Model;</li>
 
         <li>[[EBU-TT-D]] recommends use of UTF-8 encoding but allows alternate encodings; and</li>
 
@@ -4959,7 +4502,7 @@ y = topOffset * (1 - height/100)
       exceptions, including:</p>
 
       <ul>
-        <li>[[ttml10-sdp-us]] does not constrain document complexity using an HRM.</li>
+        <li>[[ttml10-sdp-us]] does not constrain document complexity using an Hypothetical Render Model.</li>
       </ul>
 
       <p>It is not possible for a document that conforms to [[ttml10-sdp-us]] to also conform to <a>Image Profile</a>, and
@@ -5013,7 +4556,7 @@ y = topOffset * (1 - height/100)
         <li>the <code>forcedDisplayMode</code> attribute in [[CFF]] is renamed to <code>forcedDisplay</code> in this
         specification;</li>
 
-        <li>the [[CFF]] HRM does not specify GCpy as a function of script;</li>
+        <li>the [[CFF]] Hypothetical Render Model does not specify GCpy as a function of script;</li>
 
         <li>in [[CFF]], the attribute <code>ttp:frameRate</code> is not subject to the requirements specified at Section <a href=
         '#frame-rate-constraints'></a>; and
@@ -5100,6 +4643,20 @@ y = topOffset * (1 - height/100)
       <h3>Changes</h3>
 
       <section class='appendix'>
+        <h4>Japanese character set</h4>
+
+        <p>Added Japanese (<em>ja</em>) set to the Supplementary Character Sets at <a
+        href="#recommended-unicode-code-points-per-language"></a>.</p>
+      </section>
+
+      <section class='appendix'>
+        <h4>Hypothetical Render Model</h4>
+
+        <p>The definition of the Hypothetical Render Model is removed from this document and replaced with a reference to
+        [[imsc-hrm]].</p>
+      </section>
+
+      <section class='appendix'>
         <h4>Added Features</h4>
 
         <p>Added support (partial or complete) for the following features.</p>
@@ -5108,6 +4665,10 @@ y = topOffset * (1 - height/100)
           <tbody>
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
+            </tr>
+            <tr>
+            <tr>
+              <td><code>#fontVariant</code></td>
             </tr>
           </tbody>
         </table>
