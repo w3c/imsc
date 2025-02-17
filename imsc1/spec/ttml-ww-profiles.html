@@ -2679,6 +2679,14 @@ ittp:progressivelyDecodable
       <section id='itts-forcedDisplay'>
         <h4>itts:forcedDisplay</h4>
 
+        <p>The <code>itts:forcedDisplay</code> attribute can be used to hide content when the processor has been configured to do so
+        via the application parameter <code><a>displayForcedOnlyMode</a></code>.</p>
+
+        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
+        single document contains both hard of hearing captions and translated foreign language subtitles, using
+        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
+        captions are displayed or hidden.</p>
+
         <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
 
         <table class="simple">
@@ -2726,23 +2734,18 @@ ittp:progressivelyDecodable
           </tbody>
         </table>
 
-        <p>If and only if the value of <code>displayForcedOnlyMode</code> is <code>"true"</code>, a content element with a
+        <p>If and only if the value of <code><dfn>displayForcedOnlyMode</dfn></code> is <code>"true"</code>, a content element with a
         <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
         of the computed value of <code>tts:visibility</code>.</p>
-
-        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
-        single document contains both hard of hearing captions and translated foreign language subtitles, using
-        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
-        captions are displayed or hidden.</p>
 
         <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
         whether composed content is visible or not.</p>
 
-        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code>displayForcedOnlyMode</code>,
+        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code><a>displayForcedOnlyMode</a></code>,
         whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
-        <code>displayForcedOnlyMode</code> SHALL be assumed to be equal to <code>"false"</code>.</p>
+        <code><a>displayForcedOnlyMode</a></code> SHALL be assumed to be equal to <code>"false"</code>.</p>
 
-        <p>The algorithm for setting the <code>displayForcedOnlyMode</code> parameter based on the circumstances under which the
+        <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter based on the circumstances under which the
         <a>Document Instance</a> is presented is left to the application.</p>
         <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
 </pre>
@@ -2751,7 +2754,7 @@ ittp:progressivelyDecodable
         <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
         which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
         <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
-        <code>displayForcedOnlyMode</code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
+        <code><a>displayForcedOnlyMode</a></code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
         that content elements and the regions that they are flowed into always have the same value of
         <code>itts:forcedDisplay</code>.</p>
 
@@ -4621,7 +4624,7 @@ y = topOffset * (1 - height/100)
     <h2>Forced content</h2>
 
     <p><a href='#fig-forced-content'></a> below illustrates the use of forced content, i.e. <code>itts:forcedDisplay</code> and
-    <code>displayForcedOnlyMode</code>. The content with <code>itts:forcedDisplay="true"</code> is the French translation of the
+    <code><a>displayForcedOnlyMode</a></code>. The content with <code>itts:forcedDisplay="true"</code> is the French translation of the
     "High School" sign. The content with <code>itts:forcedDisplay="false"</code> are French subtitles capturing a voiceover.</p>
 
     <figure id='fig-forced-content'>
@@ -4633,14 +4636,14 @@ y = topOffset * (1 - height/100)
     </figure>
 
     <p>When the user selects French as the playback language but does not select French subtitles,
-    <code>displayForcedOnlyMode</code> is set to <code>"true"</code>, causing the display of the sign translation, which is useful
+    <code><a>displayForcedOnlyMode</a></code> is set to <code>"true"</code>, causing the display of the sign translation, which is useful
     to any French speaker, but hiding the voiceover subtitles as the voiceover is heard in French.</p>
 
     <p>If the user selects French as the playback language and also selects French subtitles, e.g. if the user is hard-of-hearing,
-    <code>displayForcedOnlyMode</code> is set to <code>"false"</code>, causing the display of both the sign translation and the
+    <code><a>displayForcedOnlyMode</a></code> is set to <code>"false"</code>, causing the display of both the sign translation and the
     voiceover subtitles.</p>
 
-    <p>The algorithm for setting the <code>displayForcedOnlyMode</code> parameter and selecting the appropriate combination of
+    <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter and selecting the appropriate combination of
     subtitle and audio tracks depends on the application.</p>
   </section>
 
