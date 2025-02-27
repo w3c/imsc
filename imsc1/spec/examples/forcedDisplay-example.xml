@@ -10,8 +10,8 @@
     
     <head>
         <layout>
-            <region xml:id="r1" tts:showBackground="whenActive" tts:origin="10% 2%" tts:extent="80% 10%" tts:color="white" itts:forcedDisplay="true" tts:backgroundColor="black"/>
-            <region xml:id="r2" tts:showBackground="whenActive" tts:origin="10% 80%" tts:extent="80% 10%" tts:color="white" tts:backgroundColor="black"/>
+            <region xml:id="r1" itts:forcedDisplay="true" tts:origin="10% 2%" tts:extent="80% 10%" tts:color="white" tts:backgroundColor="black" tts:showBackground="whenActive"/>
+            <region xml:id="r2" tts:origin="10% 80%" tts:extent="80% 10%" tts:color="white" tts:backgroundColor="black" tts:showBackground="whenActive"/>
         </layout>
     </head>
     <body>
