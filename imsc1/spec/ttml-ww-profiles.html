@@ -1170,7 +1170,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-metadata-item"><code>#metadata-item</code></a>
           </td>
 
-          <td><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span><br>
+          <small>Section <a href="#altText"></a> specifies additional constraints.</small></td>
         </tr>
 
         <tr>
@@ -1871,6 +1872,14 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <tr>
           <td>
+            <a href="#feature-altText"><code>#altText</code></a>
+          </td>
+
+          <td colspan="1"><span class="permitted-deprecated label">permitted-deprecated</span></td>
+        </tr>
+
+        <tr>
+          <td>
             <a href="#feature-aspectRatio"><code>#aspectRatio</code></a>
           </td>
 
@@ -2555,6 +2564,46 @@ ittp:progressivelyDecodable
         with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
       </section>
 
+      <section id='ittm-altText'>
+        <h4>ittm:altText</h4>
+
+        <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+        defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+        <p class="note">The <code>#altText</code> is primarily useful in providing a text alternative to image-based subtitles and
+        captions, which are not supported by the <a>Text Profile</a>.</p>
+
+        <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
+        support indexing of the content, facilitate quality checking of the document.</p>
+
+        <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+&lt;ittm:altText
+  xml:id = ID
+  xml:lang = string
+  xml:space = (default|preserve)
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
+  Content: #PCDATA
+&lt;/ittm:altText&gt;
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
+
+        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
+        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
+      </section>
+
       <section id='ittp-activeArea'>
         <h4>ittp:activeArea</h4>
 
@@ -3024,6 +3073,23 @@ y = topOffset * (1 - height/100)
           <li><code>sub</code>; or</li>
           <li><code>super</code>.</li>
         </ul>
+      </section>
+
+      <section id="altText">
+        <h4><code>altText</code> named metadata item</h4>
+
+        <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>ittm:altText</code> element is also present.</p>
+      </section>
+
+      <section id="itm-altText">
+        <h4><code>#altText</code></h4>
+
+        <p>The <code>ittm:altText</code> element SHOULD NOT be present unless compatibility with [[ttml-imsc1.0.1]] processors is
+        desired.</p>
+
+        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
+        metadata item element is also present.</p>
       </section>
 
       <section id="aspectRatio">
@@ -3693,6 +3759,19 @@ y = topOffset * (1 - height/100)
 
       <p>A <a>presentation processor</a> supports the <code>#forcedDisplay</code> feature if it implements presentation semantic
       support for values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
+    </section>
+
+    <section class='appendix' id='feature-altText'>
+      <h3>#altText</h3>
+
+      <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+      defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+      <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
+      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix' id='feature-linePadding'>
