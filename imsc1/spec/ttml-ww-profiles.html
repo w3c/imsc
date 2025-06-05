@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>TTML Profiles for Internet Media Subtitles and Captions 1.3</title>
+  <title>IMSC Text Profile 1.3</title>
   <style>
 figure img {
       height: auto;
@@ -192,11 +192,10 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
 <body>
   <section id='abstract'>
-    <p>This specification defines a text-only profile of [[ttml2]] intended to be used across subtitle and caption delivery
-    applications worldwide, thereby simplifying interoperability, consistent rendering and conversion to other subtitling and
-    captioning formats.</p>
+    <p>This specification defines a text-only profile of [[ttml2]] intended for subtitle and caption delivery
+    applications worldwide.</p>
 
-    <p>Additions or deprecations of features relative to [[ttml-imsc1.2]] are summarized at <a
+    <p>It improves over the Text Profile specified at at [[ttml-imsc1.2]], with the improvements summarized at <a
     href="#substantive-changes-summary"></a>.</p>
   </section>
 
@@ -206,8 +205,8 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   <section id='scope'>
     <h2>Scope</h2>
 
-    <p>This specification defines a text-only profile of [[ttml2]]. This profile is intended for subtitle and caption delivery
-    worldwide, including dialog language translation, content description, captions for deaf and hard of hearing, etc.</p>
+    <p>This specification defines a text-only profile of [[ttml2]], which is intended for subtitle and caption delivery worldwide,
+    including dialog language translation, content description, captions for deaf and hard of hearing, etc.</p>
 
     <p>The specification is designed such that:</p>
 
@@ -229,10 +228,12 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
     <p>This specification defines a document exchange format and associated validation and presentation requirements for subtitle
     and caption delivery worldwide, including dialog language translation, content description, captions for deaf and hard of
-    hearing, etc. It is based on [[ttml2]] and includes extensions specified in [[SMPTE2052-1]] and [[EBU-TT-D]].</p>
+    hearing, etc.</p>
 
-    <p>The document exchange format is specified as a text-only profile of [[ttml2]]: timed text is expressed exclusively using code
-    points defined in [[[Unicode]]].</p>
+    <p>The format is primarily a profile of [[ttml2]], called the <a>Text Profile</a>, but also includes features specified in
+    [[EBU-TT-D]], e.g., <a href="#feature-multiRowAlign"></a>, and defines new features, e.g., <a href="#feature-fillLineGap"></a>.
+    The <a>Text Profile</a> is text-only: the timed text that comprise the subtitles and captions is expressed exclusively using
+    code points defined in [[[Unicode]]].</p>
 
     <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
     compatible with other TTML-based timed text formats, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[SMPTE2052-1]],
@@ -248,7 +249,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
 
     <p>This specification was initially based on [[SUBM]].</p>
-
   </section>
 
   <section id='conventions'>
@@ -437,7 +437,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p>This <a>Text Profile</a> is associated with the following profile designator:</p>
 
-      <table class='simple'>
+      <table class="data">
         <thead>
           <tr>
             <th>Profile Name</th>
@@ -548,7 +548,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-animation"><code>#animation</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -557,7 +557,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-animation-version-2"><code>#animation-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#animation</code>.</td>
+          <td>Partially supported via <code>#animation</code>.</td>
         </tr>
 
         <tr>
@@ -565,7 +565,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-background"><code>#background</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#backgroundColor</code>.</td>
+          <td>Partially supported via <code>#backgroundColor</code>.</td>
         </tr>
 
         <tr>
@@ -583,7 +583,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-backgroundColor-block"><code>#backgroundColor-block</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -602,7 +602,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-backgroundColor-region"><code>#backgroundColor-region</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -610,7 +610,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-base"><code>#base</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -618,7 +618,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-base-version-2"><code>#base-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#base</code>.</td>
+          <td>Partially supported via <code>#base</code>.</td>
         </tr>
 
         <tr>
@@ -642,7 +642,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-cellResolution"><code>#cellResolution</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -667,7 +667,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-contentProfiles"><code>#contentProfiles</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -675,7 +675,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-core"><code>#core</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -691,7 +691,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-disparity"><code>#disparity</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -699,7 +699,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-display"><code>#display</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -707,7 +707,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-display-block"><code>#display-block</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -715,7 +715,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-display-inline"><code>#display-inline</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -723,7 +723,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-display-region"><code>#display-region</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -731,7 +731,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-display-version-2"><code>#display-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#display</code>, <code>#display-block</code>, <code>#display-inline</code>,
+          <td>Partially supported via <code>#display</code>, <code>#display-block</code>, <code>#display-inline</code>,
           and <code>#display-region</code>.</td>
         </tr>
 
@@ -775,7 +775,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-displayAspectRatio"><code>#displayAspectRatio</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#displayAspectRatio"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -826,7 +826,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent"><code>#extent</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -835,7 +835,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent-full-version-2"><code>#extent-full-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#extent-version-2</code>.</td>
+          <td>Partially supported via <code>#extent-version-2</code>.</td>
         </tr>
 
         <tr>
@@ -843,7 +843,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent-length"><code>#extent-length</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -870,7 +870,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent-region-version-2"><code>#extent-region-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#extent-region</code>.</td>
+          <td>Partially supported via <code>#extent-region</code>.</td>
         </tr>
 
         <tr>
@@ -878,7 +878,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent-root"><code>#extent-root</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#extent-length</code>.<br>
+          <td>Partially supported via <code>#extent-length</code>.<br>
           <small>Section <a href="#extent-root"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -888,7 +888,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-extent-root-version-2"><code>#extent-root-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#extent-root</code>.</td>
+          <td>Partially supported via <code>#extent-root</code>.</td>
         </tr>
 
         <tr>
@@ -1008,7 +1008,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-frameRate"><code>#frameRate</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#frame-rate-constraints"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1018,7 +1018,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-frameRateMultiplier"><code>#frameRateMultiplier</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1034,7 +1034,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-layout"><code>#layout</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#region"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1051,7 +1051,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-cell"><code>#length-cell</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#length-cell"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1068,7 +1068,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-integer"><code>#length-integer</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1085,7 +1085,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-percentage"><code>#length-percentage</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1093,7 +1093,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-pixel"><code>#length-pixel</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1101,7 +1101,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-positive"><code>#length-positive</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1109,7 +1109,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-length-real"><code>#length-real</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1154,7 +1154,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-luminanceGain"><code>#luminanceGain</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1162,7 +1162,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-metadata"><code>#metadata</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1170,7 +1170,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-metadata-item"><code>#metadata-item</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1178,7 +1178,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-metadata-version-2"><code>#metadata-version-2</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1202,7 +1202,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-opacity"><code>#opacity</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1210,7 +1210,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-opacity-region"><code>#opacity-region</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1218,7 +1218,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-opacity-version-2"><code>#opacity-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#opacity</code>.</td>
+          <td>Partially supported via <code>#opacity</code>.</td>
         </tr>
 
         <tr>
@@ -1235,7 +1235,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-overflow"><code>#overflow</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1243,7 +1243,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-overflow-visible"><code>#overflow-visible</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1317,7 +1317,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-presentation"><code>#presentation</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1326,7 +1326,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-presentation-version-2"><code>#presentation-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#presentation</code> and <code>#profile-version-2</code></td>
+          <td>Partially supported via <code>#presentation</code> and <code>#profile-version-2</code></td>
         </tr>
 
         <tr>
@@ -1334,7 +1334,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-profile"><code>#profile</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1343,7 +1343,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-profile-full-version-2"><code>#profile-full-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#contentProfiles</code>, <code>#profile</code>, and
+          <td>Partially supported via <code>#contentProfiles</code>, <code>#profile</code>, and
           <code>#profile-version-2</code>.</td>
         </tr>
 
@@ -1352,7 +1352,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-profile-version-2"><code>#profile-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#contentProfiles</code>, and <code>#profile</code>.</td>
+          <td>Partially supported via <code>#contentProfiles</code>, and <code>#profile</code>.</td>
         </tr>
 
         <tr>
@@ -1360,7 +1360,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-region-timing"><code>#region-timing</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1427,7 +1427,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-set"><code>#set</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1444,7 +1444,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-showBackground"><code>#showBackground</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1462,7 +1462,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-structure"><code>#structure</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1470,7 +1470,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling"><code>#styling</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1478,7 +1478,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-chained"><code>#styling-chained</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1487,7 +1487,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-inheritance-content"><code>#styling-inheritance-content</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1496,7 +1496,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-inheritance-region"><code>#styling-inheritance-region</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1504,7 +1504,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-inline"><code>#styling-inline</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1512,7 +1512,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-nested"><code>#styling-nested</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1521,7 +1521,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-styling-referential"><code>#styling-referential</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1650,7 +1650,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-tickRate"><code>#tickRate</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#tickRate"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1659,7 +1659,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-timeBase-media"><code>#timeBase-media</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1667,7 +1667,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-timeContainer"><code>#timeContainer</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1675,7 +1675,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-time-clock"><code>#time-clock</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1684,7 +1684,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-time-clock-with-frames"><code>#time-clock-with-frames</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1692,7 +1692,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-time-offset"><code>#time-offset</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1701,7 +1701,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-time-offset-with-frames"><code>#time-offset-with-frames</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1710,7 +1710,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-time-offset-with-ticks"><code>#time-offset-with-ticks</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1718,7 +1718,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-timing"><code>#timing</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span><br>
+          <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#timing"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1727,7 +1727,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-transformation"><code>#transformation</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1736,7 +1736,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-transformation-version-2"><code>#transformation-version-2</code></a>
           </td>
 
-          <td colspan="1">Partially supported via <code>#transformation</code> and <code>#profile-version-2</code>.</td>
+          <td>Partially supported via <code>#transformation</code> and <code>#profile-version-2</code>.</td>
         </tr>
 
         <tr>
@@ -1769,7 +1769,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-visibility-block"><code>#visibility-block</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1785,7 +1785,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-visibility-region"><code>#visibility-region</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1828,7 +1828,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             "https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-writingMode-horizontal-lr"><code>#writingMode-horizontal-lr</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1854,7 +1854,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/#feature-zIndex"><code>#zIndex</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted-deprecated label">permitted-deprecated</span></td>
+          <td><span class="permitted-deprecated label">permitted-deprecated</span></td>
         </tr>
 
         <tr>
@@ -1870,7 +1870,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="#feature-activeArea"><code>#activeArea</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1878,7 +1878,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="#feature-aspectRatio"><code>#aspectRatio</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted-deprecated label">permitted-deprecated</span><br>
+          <td><span class="permitted-deprecated label">permitted-deprecated</span><br>
           <small>Section <a href="#aspectRatio"></a> specifies additional constraints.</small></td>
         </tr>
 
@@ -1895,7 +1895,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="#feature-forcedDisplay"><code>#forcedDisplay</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted label">permitted</span></td>
+          <td><span class="permitted label">permitted</span></td>
         </tr>
 
         <tr>
@@ -1914,8 +1914,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
           <td><span class="permitted label">permitted</span><br>
           <small>Section <a href="#text-multiRowAlign"></a> specifies additional constraints.</small></td>
-
-          <td><span class="permitted-deprecated label">permitted-deprecated</span></td>
         </tr>
 
         <tr>
@@ -1923,7 +1921,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
             <a href="#feature-progressivelyDecodable"><code>#progressivelyDecodable</code></a>
           </td>
 
-          <td colspan="1"><span class="permitted-deprecated label">permitted-deprecated</span></td>
+          <td><span class="permitted-deprecated label">permitted-deprecated</span></td>
         </tr>
       </tbody>
     </table>
@@ -2026,7 +2024,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
       <p>The following namespaces (see [[!xml-names]]) are used in this specification:</p>
 
-      <table class='simple'>
+      <table class='data'>
         <thead>
           <tr>
             <th>Name</th>
@@ -3148,7 +3146,7 @@ y = topOffset * (1 - height/100)
   <section class='appendix' id="reference-fonts">
     <h2>Reference Fonts</h2>
 
-    <table class='simple'>
+    <table class='data'>
       <thead>
         <tr>
           <th>Computed Font Family</th>
@@ -3230,7 +3228,7 @@ y = topOffset * (1 - height/100)
     <p>Table 1 captures the set of characters intended to be always available to authors. The terms used in the table are defined
     in [[!UNICODE]].</p>
 
-    <table class='simple'>
+    <table class='data'>
       <caption>
         Table 1. Base Character Set.
       </caption>
@@ -3435,7 +3433,7 @@ y = topOffset * (1 - height/100)
     <p>Table 2 specifies supplementary character set that have proven useful in captioning and subtitling applications for a number
     of selected languages. Table 2 is non-exhaustive, and will be extended as needs arise.</p>
 
-    <table class='simple'>
+    <table class='data'>
       <caption>
         Table 2. Supplementary Character Sets.
       </caption>
@@ -3985,7 +3983,7 @@ y = topOffset * (1 - height/100)
 
         <p>Added support (partial or complete) for the following features.</p>
 
-        <table class='simple'>
+        <table class='data'>
           <tbody>
             <tr>
               <td style="text-align:center"><em>Relative to the TT Feature namespace</em></td>
