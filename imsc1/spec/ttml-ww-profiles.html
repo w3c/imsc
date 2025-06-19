@@ -2582,12 +2582,15 @@ ittp:progressivelyDecodable
         <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
         defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
 
-        <p class="note">The <code>#altText</code> is primarily useful in providing a text alternative to image-based subtitles and
-        captions, which are not supported by the <a>Text Profile</a>.</p>
-
         <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
-        support indexing of the content, or facilitate quality checking of the document.</p>
+        support indexing of the content, or facilitate quality checking of the document. It can also be used by assistive
+        technologies.</p>
 
+        <p class="note">The <code>#altText</code> feature is primarily useful in providing a text alternative to image-based
+        subtitles and captions, which are not supported by the <a>Text Profile</a>.</p>
+
+        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
+        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
 
         <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
 
@@ -2613,8 +2616,6 @@ ittp:progressivelyDecodable
 
         <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
 
-        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
-        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
       </section>
 
       <section id='ittp-activeArea'>
@@ -3091,6 +3092,9 @@ y = topOffset * (1 - height/100)
       <section id="altText">
         <h4><code>altText</code> named metadata item</h4>
 
+        <p>The <code>altText</code> named metadata item SHOULD NOT be present since
+        no image-based timed text information is used in a <a>Text Profile</a> <a>Document Instance</a>.</p>
+
         <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
         <code>ittm:altText</code> element is also present.</p>
       </section>
@@ -3098,8 +3102,8 @@ y = topOffset * (1 - height/100)
       <section id="itm-altText">
         <h4><code>#altText</code></h4>
 
-        <p>The <code>ittm:altText</code> element SHOULD NOT be present unless compatibility with [[ttml-imsc1.0.1]] processors is
-        desired.</p>
+        <p>The <code>ittm:altText</code> element SHOULD NOT be present since no image-based timed text information is used in a
+        <a>Text Profile</a> <a>Document Instance</a>.</p>
 
         <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
         metadata item element is also present.</p>
