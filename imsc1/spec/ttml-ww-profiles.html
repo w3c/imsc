@@ -218,9 +218,6 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
       <li>a <a>processor</a> defined herein transforms a Text Profile Document Instance as specified in [[!ttml-imsc1.2]] as it
       would have been transformed by a processor defined in [[ttml-imsc1.2]].</li>
     </ul>
-
-    <p>The <a>Text Profile</a> is a syntactic superset of [[ttml10-sdp-us]], and a document can simultaneously conform to both
-    [[ttml10-sdp-us]] and the <a>Text Profile</a>.</p>
   </section>
 
   <section class='informative' id='introduction'>
@@ -236,8 +233,11 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     code points defined in [[[Unicode]]].</p>
 
     <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
-    compatible with other TTML-based timed text formats, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[SMPTE2052-1]],
-    [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
+    compatible with other text-only profiles of TTML, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[ttml-imsc1.1]],
+    [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
+
+    <p>Earlier versions of this specification specify an image-only profile, called the Image Profile, which is no longer specified
+    herein. <a href="#imsc-interop"></a> discusses the relationship between this and earlier versions of the specification.</p>
 
     <p>To improve rendering fidelity, <a href='#reference-fonts'></a> defines reference fonts and requires <a>Processors</a> to
     support one or more fonts with similar font metrics as these reference fonts. Similarly, in order to increase the confidence
@@ -478,8 +478,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
 		      <li>[[ttml-imsc1.1]] Text Profile</li>
 
-          <li>[[ttml-imsc1.3]] Text Profile</li>
-
+          <li>[[ttml-imsc1.2]] Text Profile</li>
         </ul>
 
         <aside class="example">
@@ -3931,7 +3930,7 @@ y = topOffset * (1 - height/100)
       extensions, including <code>http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt#image</code>.</p>
 
       <p>The <a>Text Profile</a> applies a set of practical set constraints and extensions to [[SMPTE2052-1]] for text-only
-      subtitles and captions. This set of practical set constraints and extensions reflect industry practice and experience.</p>
+      subtitles and captions. These constraints and extensions reflect industry practice and experience.</p>
 
       <p>Care is required when creating a document intended to be processed according to [[SMPTE2052-1]], and <a>Text Profile
       presentation processor</a>. In particular:</p>
@@ -3954,9 +3953,9 @@ y = topOffset * (1 - height/100)
     <section class='appendix'>
       <h3>CFF-TT</h3>
 
-      <p>This specification was derived from the text profile specified in Section 6 at [[CFF]], and is intended to be a
-      superset in terms of capabilities. Additional processing is however generally necessary to convert a document from [[CFF]] to
-      this specification. In particular:</p>
+      <p>This specification was derived from the text profile specified in Section 6 at [[CFF]], and is intended to be a superset of
+      it in terms of capabilities. Additional processing is however generally necessary to convert a [[CFF]] Text Profile document
+      to a <a>Document Instance</a> that conforms to the <a>Text Profile</a> specification. In particular:</p>
 
       <ul>
         <li>the namespace of the <code>progressivelyDecodable</code> attribute is different;</li>
@@ -3973,19 +3972,35 @@ y = topOffset * (1 - height/100)
         <li>[[CFF]] mandates a value for the <code>use</code> attribute of the <code>ttp:profile</code>. This value signals a
         processor profile that is not compatible with the processor profiles specified in this specification.</li>
       </ul>
+
+      <p>It is not possible to convert a [[CFF]] Image Profile document to a document that conforms to the <a>Text Profile</a>
+      specification.</p>
     </section>
 
+    <div id="image-profile-constraints"></div>
+    <div id="image-profile-designator"></div>
+    <div id="presented-image-constraints"></div>
+    <div id="image-resource"></div>
+    <div id="image-profile-content-constraints"></div>
+    <div id="image-length-negative"></div>
+    <div id="image-ttml-image"></div>
+    <div id="image-smpte-image"></div>
+    <div id="smpte-bg-constraints"></div>
+    <div id="wcag-criterion-1-1-1"></div>
     <section class='appendix' id='imsc-interop'>
       <h3>Previous versions of IMSC</h3>
 
-      <p>The <a>Text Profile</a> is a strict superset of the [[ttml-imsc1]], [[ttml-imsc1.0.1]] and [[ttml-imsc1.1]] Text Profile.</p>
-
-      <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] or [[ttml-imsc1.1]] therefore also conforms to this specification.</p>
+      <p>A document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] or [[ttml-imsc1.1]] or [[ttml-imsc1.2]] Text Profile
+      therefore also conforms to this specification.</p>
 
       <p>A number of features that were previously permitted in previous versions of IMSC are designated as permitted-deprecated in the
       <a>Text Profile</a>. Documents that use such features are therefore susceptible to being incompatible with future versions of
       this specification.</p>
 
+      <p>Earlier versions of this specification specify an image-only profile, called the Image Profile, which is no longer
+      specified herein. As a result, a document that conforms to [[ttml-imsc1]] or [[ttml-imsc1.0.1]] or [[ttml-imsc1.1]] or
+      [[ttml-imsc1.2]] Image Profile does not conform to this specification. Applications that require such an image-only profile
+      can consider referencing [[ttml-imsc1.2]].</p>
      </section>
   </section>
 
@@ -4043,6 +4058,12 @@ y = topOffset * (1 - height/100)
 
         <p>The definition of the Hypothetical Render Model is removed from this document and replaced with a reference to
         [[imsc-hrm]].</p>
+      </section>
+
+      <section class='appendix'>
+        <h4>Image Profile</h4>
+
+        <p>The Image Profile specified in earlier versions of this specification is removed.</p>
       </section>
 
       <section class='appendix'>
