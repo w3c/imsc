@@ -133,12 +133,22 @@ var respecConfig = {
         };
   </script>
   <style>
-table.coldividers td + td { border-left:1px solid gray; text-align: center;}
+  table.coldividers td + td { border-left:1px solid gray; text-align: center;}
   table.syntax { border: 0px solid black; width: 85%; border-collapse: collapse }
   table.syntax caption { font-weight: bold; text-align: left; padding-bottom: 0.5em }
   table.syntax th { border: 0px solid black; text-align: left }
   table.syntax td { border: 0px solid black }
   table.syntax div { background-color: #ffffc8 }
+
+  /* data tables */
+  table.data tr:nth-child(even) {
+    background: #f0f6ff;
+  }
+
+  #tab-features-and-extensions td:nth-child(2) {
+    text-align: center;
+  }
+
   div.exampleInner { background-color: #d5dee3;
                    border-top-width: 4px;
                    border-top-style: double;
@@ -531,17 +541,18 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
     <p>See <a href="#conformance"></a> for a definition of <em>permitted</em>, <em>prohibited</em>, <em>optional</em> and
     <em>permitted-deprecated</em>.</p>
 
-    <table class='simple coldividers'>
-      <tbody>
+    <table class='data' id="tab-features-and-extensions">
+      <thead>
         <tr>
           <th style="text-align:center">Feature or Extension</th>
 
           <th style="text-align:center">Text Profile Disposition</th>
         </tr>
-
+      </thead>
+      <tbody>
         <tr>
-          <td colspan="2" style="text-align:center"><em>Relative to the TT Feature namespace</em><br>
-          All features specified in [[ttml2]] are <em>prohibited</em> unless specified otherwise below</td>
+          <th colspan="2"><em>Relative to the TT Feature namespace</em><br>
+          All features specified in [[ttml2]] are <em>prohibited</em> unless specified otherwise below</th>
         </tr>
 
         <tr>
@@ -1860,7 +1871,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
         </tr>
 
         <tr>
-          <td colspan="2" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></td>
+          <th colspan="2" style="text-align:center"><em>Relative to the <a>IMSC Extension</a> namespace</em></th>
         </tr>
 
         <tr>
