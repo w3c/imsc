@@ -1,0 +1,32 @@
+name: Build, and publish spec to GitHub Pages and /TR/
+
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+    paths:
+      - 'imsc1/spec/ttml-ww-profiles.html'
+      - 'imsc1/spec/substantive-changes-summary.txt'
+      - 'imsc1/spec/examples/**.xml'
+      - 'imsc1/spec/figures/**.png'
+      - 'imsc1/spec/xml-schemas/**.xsd'
+      - 'imsc1/spec/xml-schemas/index.html'
+
+jobs:
+  main:
+    name: Build, Validate and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: respec
+          SOURCE: imsc1/spec/ttml-ww-profiles.html
+          DESTINATION: Overview.html
+          W3C_ECHIDNA_TOKEN: ${{ secrets.W3C_TR_TOKEN }}
+          W3C_WG_DECISION_URL: https://www.w3.org/2025/07/17-tt-minutes.html#d940
+          W3C_BUILD_OVERRIDE: |
+            specStatus: WD
+
+# not set 'warning' to BUILD_FAIL_ON (not to cause error by bikeshed warning?)
+
