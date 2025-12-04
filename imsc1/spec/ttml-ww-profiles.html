@@ -2820,6 +2820,19 @@ y = topOffset * (1 - height/100)
         <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
         of this section.</p>
       </section>
+
+      <section id="dapt-signaling">
+        <h4>Signaling conformance to DAPT</h4>
+
+        <p>A document conforming to this specification and to [[dapt]]
+          signals its conformance to both by
+          including in the <code>ttp:contentProfiles</code> attribute
+          both the designators for <a>Text Profile</a> and [=DAPT 1.0 Content Profile=],
+          in addition to any other profiles to which the document conforms.
+        </p>
+
+        <p class="note">See also <a href="#dapt-interop"></a>.</p>
+      </section>
     </section>
 
     <section id='style-resolution-procedure'>
@@ -3898,9 +3911,10 @@ y = topOffset * (1 - height/100)
       <h3>Overview</h3>
 
       <p>This specification is designed to be compatible with [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[ttml-imsc1.1]],
-      [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]] and [[ttml10-sdp-us]]. Specifically, by selecting a subset of the features and
+      [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]]
+      and [[dapt]]. Specifically, by selecting a subset of the features and
       extensions defined in this specification, it is possible to create a document that:conforms to one or more of [[ttml-imsc1]],
-      [[ttml-imsc1.0.1]], [[ttml-imsc1.1]], [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]] or [[ttml10-sdp-us]], and also conforms
+      [[ttml-imsc1.0.1]], [[ttml-imsc1.1]], [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]] or [[dapt]], and also conforms
       to <a>Text Profile</a>.</p>
 
       <p>This specification is also intended to allow straightforward conversion of a document that conforms to the text profile of
@@ -4012,6 +4026,61 @@ y = topOffset * (1 - height/100)
       <p>It is not possible to transform a [[CFF]] Image Profile document to a document that conforms to the <a>Text Profile</a>
       specification without additional complex processing
       such as extracting text content from images.</p>
+    </section>
+
+    <section class='appendix' id="dapt-interop">
+      <h3>DAPT</h3>
+
+      <p>It is possible for a <a>Document Instance</a> also to be a
+        [=DAPT Document=] document by meeting the conformance requirements of
+        both.</p>
+
+      <p>The DAPT [=DAPT#serialization=] feature
+        is effectively a superset of the <a href="#document-encoding"></a>
+        constraints.
+      </p>
+
+      <p><a href="#foreign-elements"></a> allows
+        vocabulary defined by other profiles, including [[dapt]],
+        for example metadata, to be present within a <a>Document Instance</a>;
+        similarly, [[dapt]] allows vocabulary defined herein
+        to be present within a [=DAPT Document=].
+      </p>
+
+      <p><a href="#resources-constraints"></a> prohibits embedded audio
+        within <a>Document Instances</a>.
+        A [=DAPT Document=] that uses this feature can therefore
+        not be a conformant <a>Document Instance</a>.</p>
+
+      <section>
+        <h4>Using DAPT metadata in subtitle and caption workflows</h4>
+
+        <p>Subtitle and caption authoring workflows that begin with a
+          [[dapt]] transcription stage, and optional translation stages,
+          can use the DAPT metadata to direct the
+          production or presentation of IMSC Text profile documents.
+          For example:</p>
+
+        <ul>
+          <li>speaker data can be used to apply styling or to insert content 
+            that indicates changes of speaker, such as prefixing text with
+            commonly used change of speaker symbols, or with the
+            name of the speaker.</li>
+          <li>representation data (i.e. metadata that describes what content in
+            the <a>Related Video Object</a> the text content represents) can be
+            used to filter or select sub-sets of the text content, for example
+            to include or exclude non-dialogue sound captions.</li>
+          <li>language and source language metadata can be used to generate
+            translation subtitle documents including text translated into the
+            desired language.</li>
+          <li>language and source language metadata can be used to identify
+            subtitles that are translated, either to flag as
+            <a href="#forced-content">forced content</a> or to trigger
+            text to speech for subtitles that are translated, where appropriate
+            to meet the user's preferences, a practice known as
+            "spoken subtitles".</li>
+        </ul>
+      </section>
     </section>
 
     <!-- Preserves links to document fragments made to previous versions of IMSC through IMSC's undated URL, e.g.,
