@@ -4032,11 +4032,11 @@ y = topOffset * (1 - height/100)
       <h3>DAPT</h3>
 
       <p>It is possible for a <a>Document Instance</a> also to be a
-        [=DAPT Document=] document by meeting the conformance requirements of
+        <a data-cite="dapt#dfn-dapt-document">DAPT document</a> by meeting the conformance requirements of
         both.</p>
 
-      <p>The DAPT [=DAPT#serialization=] feature
-        is effectively a superset of the <a href="#document-encoding"></a>
+      <p>The DAPT <a data-cite="dapt#extension-serialization"><code>#serialization</code></a>
+        feature is effectively a superset of the <a href="#document-encoding"></a>
         constraints.
       </p>
 
@@ -4044,13 +4044,13 @@ y = topOffset * (1 - height/100)
         vocabulary defined by other profiles, including [[dapt]],
         for example metadata, to be present within a <a>Document Instance</a>;
         similarly, [[dapt]] allows vocabulary defined herein
-        to be present within a [=DAPT Document=].
+        to be present within a <a data-cite="dapt#dfn-dapt-document">DAPT document</a>.
       </p>
 
       <p><a href="#resources-constraints"></a> prohibits embedded audio
         within <a>Document Instances</a>.
-        A [=DAPT Document=] that uses this feature can therefore
-        not be a conformant <a>Document Instance</a>.</p>
+        A <a data-cite="dapt#dfn-dapt-document">DAPT document</a> that uses this feature
+        can therefore not be a conformant <a>Document Instance</a>.</p>
 
       <section>
         <h4>Using DAPT metadata in subtitle and caption workflows</h4>
@@ -4062,19 +4062,24 @@ y = topOffset * (1 - height/100)
           For example:</p>
 
         <ul>
-          <li>speaker data can be used to apply styling or to insert content 
+          <li>speaker (<a data-cite="dapt#dfn-character">Character</a>)
+            data can be used to apply styling or to insert content 
             that indicates changes of speaker, such as prefixing text with
             commonly used change of speaker symbols, or with the
             name of the speaker.</li>
-          <li>representation data (i.e. metadata that describes what content in
+          <li>representation data (i.e. metadata that
+            <a data-cite="dapt#dfn-content-descriptor">describes what content</a> in
             the <a>Related Video Object</a> the text content represents) can be
             used to filter or select sub-sets of the text content, for example
             to include or exclude non-dialogue sound captions.</li>
-          <li>language and source language metadata can be used to generate
-            translation subtitle documents including text translated into the
-            desired language.</li>
-          <li>language and source language metadata can be used to identify
-            subtitles that are translated, either to flag as
+          <li>language and <a data-cite="dapt#dfn-text-language-source">Text language source</a>
+            metadata can be used to generate
+            translation subtitle documents including <a data-cite="dapt#dfn-text">Text</a>
+            that has been translated into the desired language.</li>
+          <li>language and <a data-cite="dapt#dfn-text-language-source">Text language source</a>
+            metadata can be used to identify
+            subtitles that are <a data-cite="dapt#dfn-translation">Translations</a>,
+            either to flag as
             <a href="#forced-content">forced content</a> or to trigger
             text to speech for subtitles that are translated, where appropriate
             to meet the user's preferences, a practice known as
