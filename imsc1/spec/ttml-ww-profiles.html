@@ -3675,7 +3675,7 @@ y = topOffset * (1 - height/100)
   </section>
 
   <section class='appendix' id='wcag-maur-applications'>
-    <h2>WCAG and MAUR Considerations</h2>
+    <h2>Accessibility Considerations</h2>
 
     <section class='appendix' id='wcag-applications'>
       <h3>WCAG Considerations</h3>
@@ -3710,6 +3710,20 @@ y = topOffset * (1 - height/100)
         <a data-cite="TTML2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
       </section>
 
+      <section id='mapping-to-html' class="appendix informative">
+        <h4>Success Criterion 1.3.1 Info and Relationships</h4>
+
+        <p>Success Criterion <a data-cite="!WCAG22#linfo-and-relationships">1.3.1</a> at [[!WCAG22]] is intended to ensure that
+        information and relationships that are implied by visual or auditory formatting are preserved when the presentation format
+        changes.</p>
+
+        <p>As an example in the context of this specification, implementations should, when rendering a <a>Document Instance</a>
+        to [[HTML]], ensure that the resultant [[HTML]] document can be understood by assistive technologies even when a user style
+        sheet is substituted for the style sheet provided by the author. For instance, when rendering <code>tts:fontVariant</code>,
+        the use of CSS <code>vertical-align</code> property alone might not be sufficient for assistive technology to identify that
+        the glyphs concerned are superscript or subscript.</p>
+      </section>
+
     </section>
 
     <section id='maur-applications' class="appendix informative">
@@ -3723,6 +3737,7 @@ y = topOffset * (1 - height/100)
       vision impairment who also requires caption support might be able to request that all captions are displayed in the lower
       third of the screen with a large font, altering in the process the layout and styling specified by the author.</p>
     </section>
+
   </section>
 
   <section id='sample-instance' class="appendix informative">
