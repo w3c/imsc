@@ -2821,18 +2821,6 @@ y = topOffset * (1 - height/100)
         of this section.</p>
       </section>
 
-      <section id="dapt-signaling">
-        <h4>Signaling conformance to DAPT</h4>
-
-        <p>A document conforming to this specification and to [[dapt]]
-          signals its conformance to both by
-          including in the <code>ttp:contentProfiles</code> attribute
-          both the designators for <a>Text Profile</a> and [=DAPT 1.0 Content Profile=],
-          in addition to any other profiles to which the document conforms.
-        </p>
-
-        <p class="note">See also <a href="#dapt-interop"></a>.</p>
-      </section>
     </section>
 
     <section id='style-resolution-procedure'>
@@ -4028,7 +4016,7 @@ y = topOffset * (1 - height/100)
       such as extracting text content from images.</p>
     </section>
 
-    <section class='appendix' id="dapt-interop">
+    <section class="appendix" id="dapt-interop">
       <h3>DAPT</h3>
 
       <p>It is possible for a <a>Document Instance</a> also to be a
@@ -4051,6 +4039,17 @@ y = topOffset * (1 - height/100)
         within <a>Document Instances</a>.
         A <a data-cite="dapt#dfn-dapt-document">DAPT document</a> that uses this feature
         can therefore not be a conformant <a>Document Instance</a>.</p>
+
+      <section id="dapt-signaling">
+        <h4>Signaling conformance to DAPT</h4>
+
+        <p>A document conforming to this specification and to [[dapt]]
+          signals its conformance to both by
+          including in the <code>ttp:contentProfiles</code> attribute
+          both the designators for <a>Text Profile</a> and [=DAPT 1.0 Content Profile=],
+          in addition to any other profiles to which the document conforms.
+        </p>
+      </section>
 
       <section>
         <h4>Using DAPT metadata in subtitle and caption workflows</h4>
