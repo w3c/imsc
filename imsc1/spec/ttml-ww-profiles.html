@@ -15,12 +15,12 @@ figure img {
   <script class='remove'>
 var respecConfig = {
                     specStatus:   "ED"
-                //,   previousMaturity: "REC"
-                /*,   crEnd: "2020-05-05"
-                ,   prEnd: "2020-07-14"
-                ,   publishDate: "2020-08-04"
+                ,   previousMaturity: "CR"
+                ,   crEnd: "2026-01-15"
+                ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_3_Implementation_Report"
+                //,   prEnd: "2020-07-14"
+                //,   publishDate: "2025-12-18"
                 /*,   errata: "http://www.w3.org/2020/08/ttml-imsc1.2-errata.html"
-                ,   implementationReportURI: "https://www.w3.org/wiki/TimedText/IMSC1_2_Implementation_Report"
                 ,   sotdAfterWGinfo: "true"*/
                 //,   previousPublishDate: "2020-08-04"
                 ,   shortName:    "ttml-imsc1.3"
@@ -122,7 +122,11 @@ var respecConfig = {
                           aliasOf: "SMPTE2052-1-2010"
                           },
                           "ttml2": {
-                          aliasOf: "ttml2-20200128"
+                            title: "Timed Text Markup Language 2 (ttml2) (2nd Edition)",
+                            publisher: "W3C",
+                            status: "Candidate Recommendation Snapshot",
+                            date: "9 March 2021",
+                            href: "https://www.w3.org/TR/2021/CR-ttml2-20210309"
                           },
                           "ARIB-STD-B62": {
                           publisher: "ARIB",
@@ -2877,7 +2881,7 @@ y = topOffset * (1 - height/100)
         <a href="#section-font-resources"></a>, in which case a sibling <a>external data resources</a> with a supported type can also be specified
         for fallback processing.</aside>
 
-        <aside class="note">As specified in [[TTML2]], a <code>font</code> element specifies one or more child source elements if it does not
+        <aside class="note">As specified in [[ttml2]], a <code>font</code> element specifies one or more child source elements if it does not
         specify a <code>src</code> attribute.</aside>
 
         <aside class='example'>
@@ -2906,7 +2910,7 @@ y = topOffset * (1 - height/100)
         the algorithm for associating a font with a run of text
         is implementation dependent.
         The implemented font selection algorithm can therefore use a
-        different font for presentation than [[TTML2]]'s line height computation
+        different font for presentation than [[ttml2]]'s line height computation
         algorithm selects, which could lead to unexpected results.
       </aside>
 
@@ -3707,7 +3711,7 @@ y = topOffset * (1 - height/100)
         phrase in the content can be programmatically determined.</p>
 
         <p>In the context of this specification, this is achieved by specifying
-        <a data-cite="TTML2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
+        <a data-cite="ttml2#content-attribute-xml-lang"><code>xml:lang</code></a>.</p>
       </section>
 
       <section id='mapping-to-html' class="appendix informative">
@@ -4121,3 +4125,5 @@ y = topOffset * (1 - height/100)
   </section>
 </body>
 </html>
+
+
