@@ -269,6 +269,23 @@ var respecConfig = {
     levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
 
     <p>This specification was initially based on [[SUBM]].</p>
+
+    <section id="example-documents">
+      <h3>Example Documents</h3>
+
+      <p>This specification includes some example documents and relevant
+        renderings at relevant locations.
+        <a href="#sample-instance"></a> provides a simple Text Profile
+        example containing text in a single region.
+        <a href="#ebu-tt-d-interop"></a> provides a more complex example
+        of a Text Profile document that is also EBU-TT-D conformant,
+        using multiple regions and alignment and more styling features.
+      </p>
+      <section>
+        <h4>Basic Document Structure</h4>
+        <p>TODO: description of basic document structure</p>
+        </section>
+    </section>
   </section>
 
   <section id='conventions'>
@@ -3750,8 +3767,43 @@ y = topOffset * (1 - height/100)
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the <a>Text Profile</a>. This sample
     are for illustration only, and are neither intended to capture current or future practice, nor exercise all normative prose
     contained in this specification.</p>
-    <pre class='example' data-include='examples/text-example.xml' data-include-format='text'>
-</pre>
+    <pre class='example' data-include='examples/text-example.xml' data-include-format='text'></pre>
+    <p>The above sample specifies two <a>Intermediate Synchronic Documents</a>,
+      one from 0 seconds to 6 seconds, that renders as <a href="#fig-text-example-1"></a>,
+      and the other from 6 seconds onwards, that renders as <a href="#fig-text-example-2"></a>.
+    </p>
+    <figure id='fig-text-example-1'>
+      <img src="figures/text-example-render-0.png" alt="Text Profile example rendering 1, 0s to 6s">
+      <figcaption>
+        Illustrative rendition of the example immediately above,
+        for the <a>Intermediate Synchronic Document</a> beginning
+        at 0s and ending at 6s,
+        showing a black rectangular region positioned so that its
+        upper left corner is 10% down from the top of the rendering area
+        and 10% right of the left edge of the rendering area,
+        and whose width is 80% of the rendering area
+        and whose height is 10% of the rendering area.
+        The region contains the text &quot;Lorem ipsum dolor.&quot; in red
+        using the default font, at the default size, which is 1/15th the
+        height of the rendering area.
+      </figcaption>
+    </figure>
+
+    <figure id='fig-text-example-2'>
+      <img src="figures/text-example-render-6.png" alt="Text Profile example rendering 1, 6s onwards">
+      <figcaption>
+        Illustrative rendition of the example immediately above,
+        for the <a>Intermediate Synchronic Document</a> beginning
+        at 6s,
+        showing a black rectangular region positioned so that its
+        upper left corner is 10% down from the top of the rendering area
+        and 10% right of the left edge of the rendering area,
+        and whose width is 80% of the rendering area
+        and whose height is 10% of the rendering area.
+        The region is empty aside from the black background.
+      </figcaption>
+    </figure>
+
   </section>
 
   <section class='appendix' id='features-and-extensions'>
@@ -3938,9 +3990,60 @@ y = topOffset * (1 - height/100)
       <p>The following is an example of a document that conforms to <a>Text Profile</a>, [[ttml-imsc1.0.1]] Text Profile and
       [[EBU-TT-D]]. Note the presence of multiple <code>ebuttm:conformsToStandard</code> elements, one of which equals the <a>Text
       Profile</a> designator:</p>
-      <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'>
+      <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'></pre>
+      <p>The above sample specifies three <a>Intermediate Synchronic Documents</a>,
+        one from 0 seconds to 1 second, that renders as <a href="#fig-text-ebuttd-example-1"></a>,
+        the next from 1 second to 9 seconds, that renders as <a href="#fig-text-ebuttd-example-2"></a>,
+        and the last from 9 seconds onwards, that renders as <a href="#fig-text-ebuttd-example-3"></a>.
+      </p>
+      <figure id='fig-text-ebuttd-example-1'>
+        <img src="figures/text-and-ebuttd-example-render-0.png" alt="Text Profile and EBU-TT-D example rendering 1, 0s to 1s">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for the <a>Intermediate Synchronic Document</a> beginning
+          at 0s and ending at 1s,
+          showing no pixels being generated from the document during
+          this interval.
+        </figcaption>
+      </figure>
 
-</pre>
+      <figure id='fig-text-ebuttd-example-2'>
+        <img src="figures/text-and-ebuttd-example-render-1.png" alt="Text Profile and EBU-TT-D example rendering 2, 1s to 9s">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for the <a>Intermediate Synchronic Document</a> beginning
+          at 1s and ending at 9s,
+          showing a lime green and a black rectangular region.
+          The green region is positioned in the upper part of the rendering
+          area and the black region is positioned in the lower part,
+          according to the <code>tts:origin</code> and <code>tts:extent</code>
+          attribute values. The text in the green region is black, and
+          in the black region is white. In both cases it is in a generic
+          sans-serif font, and the text is vertically centred within the
+          region, according to the <code>tts:displayAlign</code> attribute
+          value specified on each region.
+          The horizontal alignment of each line of text
+          demonstrates the combined application of the
+          <a href="#text-multiRowAlign"><code>ebutts:multiRowAlign</code></a> and
+          <code>tts:textAlign</code> attributes.
+          The start (left, in this case) aligned text in the green region
+          is offset slightly from the region edge due to the application of
+          the <a href="#text-linePadding"><code>ebutts:linePadding</code></a> style attribute on the
+          <code>&lt;div&gt;</code> element.
+        </figcaption>
+      </figure>
+
+      <figure id='fig-text-ebuttd-example-3'>
+        <img src="figures/text-and-ebuttd-example-render-9.png" alt="Text Profile and EBU-TT-D example rendering 3, 9s onwards">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for the <a>Intermediate Synchronic Document</a> beginning
+          at 9s,
+          showing no pixels being generated from the document during
+          this interval.
+        </figcaption>
+      </figure>
+
     </section>
 
     <section class='appendix' id='sdp-us-interop'>
