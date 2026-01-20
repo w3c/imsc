@@ -7,7 +7,7 @@
     xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter"
     ittp:activeArea="50% 50% 80% 80%"
     tts:extent="640px 480px"
-    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.2/text">
+    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.3/text">
     
     <head>
         <layout>
