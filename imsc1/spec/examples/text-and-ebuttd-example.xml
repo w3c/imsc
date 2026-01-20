@@ -9,6 +9,7 @@
             <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1/text</ebuttm:conformsToStandard>
             <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1.1/text</ebuttm:conformsToStandard>
             <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1.2/text</ebuttm:conformsToStandard>
+            <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1.3/text</ebuttm:conformsToStandard>
         </metadata>
         <styling>
             <style xml:id="baseStyle" tts:color="#FFFFFF" tts:lineHeight="100%" tts:fontFamily="sansSerif" ebutts:linePadding="0.5c"/>

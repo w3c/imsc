@@ -5,7 +5,7 @@
     xmlns:tts="http://www.w3.org/ns/ttml#styling"
     xmlns:ttp="http://www.w3.org/ns/ttml#parameter" 
     ttp:displayAspectRatio="4 3"
-    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.2/text">
+    ttp:contentProfiles="http://www.w3.org/ns/ttml/profile/imsc1.3/text">
     
     <head>
         <layout>
