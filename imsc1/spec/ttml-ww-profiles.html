@@ -3800,7 +3800,11 @@ y = topOffset * (1 - height/100)
         and 10% right of the left edge of the rendering area,
         and whose width is 80% of the rendering area
         and whose height is 10% of the rendering area.
-        The region is empty aside from the black background.
+        The region is empty aside from the black background,
+        which is visible even though it is empty
+        because the <code>tts:showBackground</code>
+        attribute is missing from the <code>&lt;region&gt;</code>
+        element, so its default value <code>always</code> applies.
       </figcaption>
     </figure>
 
