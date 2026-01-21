@@ -3776,37 +3776,37 @@ y = topOffset * (1 - height/100)
       <img src="figures/text-example-render-0.png" alt="Text Profile example rendering 1, 0s to 6s">
       <figcaption>
         Illustrative rendition of the example immediately above,
-        for the <a>Intermediate Synchronic Document</a> beginning
-        at 0s and ending at 6s,
-        showing a black rectangular region positioned so that its
-        upper left corner is 10% down from the top of the rendering area
-        and 10% right of the left edge of the rendering area,
-        and whose width is 80% of the rendering area
-        and whose height is 10% of the rendering area.
-        The region contains the text &quot;Lorem ipsum dolor.&quot; in red
-        using the default font, at the default size, which is 1/15th the
-        height of the rendering area.
+        for the period between 0s and 6s.
       </figcaption>
     </figure>
+
+    <p><a href="#fig-text-example-1"></a> shows a
+      black rectangular region positioned so that its
+      upper left corner is 10% down from the top of the rendering area
+      and 10% right of the left edge of the rendering area,
+      and whose width is 80% of the rendering area
+      and whose height is 10% of the rendering area.
+      The region contains the text &quot;Lorem ipsum dolor.&quot; in red
+      using the default font, at the default size, which is 1/15th the
+      height of the rendering area.</p>
 
     <figure id='fig-text-example-2'>
       <img src="figures/text-example-render-6.png" alt="Text Profile example rendering 1, 6s onwards">
       <figcaption>
         Illustrative rendition of the example immediately above,
-        for the <a>Intermediate Synchronic Document</a> beginning
-        at 6s,
-        showing a black rectangular region positioned so that its
-        upper left corner is 10% down from the top of the rendering area
-        and 10% right of the left edge of the rendering area,
-        and whose width is 80% of the rendering area
-        and whose height is 10% of the rendering area.
-        The region is empty aside from the black background,
-        which is visible even though it is empty
-        because the <code>tts:showBackground</code>
-        attribute is missing from the <code>&lt;region&gt;</code>
-        element, so its default value <code>always</code> applies.
+        for the period from 6s onwards.
       </figcaption>
     </figure>
+
+    <p>
+      <a href="#fig-text-example-2"></a> shows the same
+      black rectangular region in the same position.
+      The region is empty aside from the black background,
+      which is nevertheless visible
+      because the <code>tts:showBackground</code>
+      attribute is missing from the <code>&lt;region&gt;</code>
+      element, so its default value <code>always</code> applies.
+    </p>
 
   </section>
 
@@ -4004,49 +4004,55 @@ y = topOffset * (1 - height/100)
         <img src="figures/text-and-ebuttd-example-render-0.png" alt="Text Profile and EBU-TT-D example rendering 1, 0s to 1s">
         <figcaption>
           Illustrative rendition of the example immediately above,
-          for the <a>Intermediate Synchronic Document</a> beginning
-          at 0s and ending at 1s,
-          showing no pixels being generated from the document during
-          this interval.
+          for period 0s to 1s.
         </figcaption>
       </figure>
+
+      <p><a href="#fig-text-ebuttd-example-1"></a> shows
+        no pixels being generated from the document in the
+        period 0s to 1s.
+      </p>
 
       <figure id='fig-text-ebuttd-example-2'>
         <img src="figures/text-and-ebuttd-example-render-1.png" alt="Text Profile and EBU-TT-D example rendering 2, 1s to 9s">
         <figcaption>
           Illustrative rendition of the example immediately above,
-          for the <a>Intermediate Synchronic Document</a> beginning
-          at 1s and ending at 9s,
-          showing a lime green and a black rectangular region.
-          The green region is positioned in the upper part of the rendering
-          area and the black region is positioned in the lower part,
-          according to the <code>tts:origin</code> and <code>tts:extent</code>
-          attribute values. The text in the green region is black, and
-          in the black region is white. In both cases it is in a generic
-          sans-serif font, and the text is vertically centred within the
-          region, according to the <code>tts:displayAlign</code> attribute
-          value specified on each region.
-          The horizontal alignment of each line of text
-          demonstrates the combined application of the
-          <a href="#text-multiRowAlign"><code>ebutts:multiRowAlign</code></a> and
-          <code>tts:textAlign</code> attributes.
-          The start (left, in this case) aligned text in the green region
-          is offset slightly from the region edge due to the application of
-          the <a href="#text-linePadding"><code>ebutts:linePadding</code></a> style attribute on the
-          <code>&lt;div&gt;</code> element.
+          for the period 1s to 9s.
         </figcaption>
       </figure>
+
+      <p><a href="#fig-text-ebuttd-example-2"></a> shows
+        a lime green and a black rectangular region.
+        The green region is positioned in the upper part of the rendering
+        area and the black region is positioned in the lower part,
+        according to the <code>tts:origin</code> and <code>tts:extent</code>
+        attribute values. The text is black in the green region and
+        white in the black region. In both cases it is in a generic
+        sans-serif font, and the text is vertically centred within the
+        region, according to the <code>tts:displayAlign</code> attribute
+        value specified on each region.
+        The horizontal alignment of each line of text
+        demonstrates the combined application of the
+        <a href="#text-multiRowAlign"><code>ebutts:multiRowAlign</code></a> and
+        <code>tts:textAlign</code> attributes.
+        The start (left, in this case) aligned text in the green region
+        is offset slightly from the region edge due to the application of
+        the <a href="#text-linePadding"><code>ebutts:linePadding</code></a> style attribute on the
+        <code>&lt;div&gt;</code> element.
+      </p>
 
       <figure id='fig-text-ebuttd-example-3'>
         <img src="figures/text-and-ebuttd-example-render-9.png" alt="Text Profile and EBU-TT-D example rendering 3, 9s onwards">
         <figcaption>
           Illustrative rendition of the example immediately above,
-          for the <a>Intermediate Synchronic Document</a> beginning
-          at 9s,
-          showing no pixels being generated from the document during
-          this interval.
+          for the period from 9s onwards.
         </figcaption>
       </figure>
+
+      <p><a href="#fig-text-ebuttd-example-3"></a> shows
+        no pixels being generated from the document in
+        the period from 9s onwards.
+      </p>
 
     </section>
 
