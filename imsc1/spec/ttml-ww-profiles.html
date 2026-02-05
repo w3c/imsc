@@ -137,6 +137,11 @@ var respecConfig = {
                             publisher: "International Organization for Standardization",
                             href: "https://www.iso.org/standard/76835.html",
                             title: " ISO/IEC 10646:2020 Information technology — Universal coded character set (UCS)/"
+                          },
+                          "BBC-SUB": {
+                            publisher: "BBC",
+                            href: "https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/",
+                            title: "BBC Subtitle Guidelines"
                           }
                       }
         };
@@ -271,20 +276,36 @@ var respecConfig = {
     <p>This specification was initially based on [[SUBM]].</p>
 
     <section id="example-documents">
-      <h3>Example Documents</h3>
+      <h3>Example Document</h3>
 
-      <p>This specification includes some example documents and relevant
-        renderings at relevant locations.
-        <a href="#sample-instance"></a> provides a simple Text Profile
-        example containing text in a single region.
-        <a href="#ebu-tt-d-interop"></a> provides a more complex example
-        of a Text Profile document that is also EBU-TT-D conformant,
-        using multiple regions and alignment and more styling features.
-      </p>
-      <section>
-        <h4>Basic Document Structure</h4>
-        <p>TODO: description of basic document structure</p>
-        </section>
+      <p>The following example, derived with permission from [[BBC-SUB]],
+        demonstrates a syntactically
+        valid <a>Text Profile</a> and [[EBU-TT-D]] document instance
+        and how it would be rendered.
+        It is not intended to be used as a template for a subtitle file.</p>
+      <p>The example is arranged such that there is no white space added to the
+        text within the <code class="language-xml">&lt;p&gt;</code> element;
+        such white space can cause unexpected formatting, if present.</p>
+      <pre class='example' data-include='examples/bbc-ebu-tt-d_example.xml' data-include-format='text'>
+</pre>
+
+      <p>The illustrative renders below show how the document above is
+        interpreted (only the subtitle text and the black background will be
+        displayed). Note that the underlying grid is virtual and that
+        elements don't necessarily align to it; it is a graphical
+        representation of the <code>ttp:cellResolution</code> parameter.</p>
+      <figure>
+        <img 
+            src="figures/bbc_EBU-TT-D_illustration1.png"
+            alt="Image showing rendering of example, with text 'Beware the Jubjub bird' etc in lower region of image, on a 32x15 cell grid.">
+        <figcaption>Displayed between 00:00:10 and 00:00:20</figcaption>
+      </figure>
+      <figure>
+          <img
+              src="figures/bbc_EBU-TT-D_illustration2.png"
+              alt="Image showing rendering of example, with text 'This subtitle is in the top region' etc in upper region of image, on a 32x15 cell grid. The word 'yellow' is coloured yellow; the other words are white.">
+          <figcaption>Displayed between 00:00:30 and 00:00:31</figcaption>
+      </figure>
     </section>
   </section>
 
