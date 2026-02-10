@@ -137,6 +137,11 @@ var respecConfig = {
                             publisher: "International Organization for Standardization",
                             href: "https://www.iso.org/standard/76835.html",
                             title: " ISO/IEC 10646:2020 Information technology — Universal coded character set (UCS)/"
+                          },
+                          "BBC-SUB": {
+                            publisher: "BBC",
+                            href: "https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/",
+                            title: "BBC Subtitle Guidelines"
                           }
                       }
         };
@@ -242,33 +247,70 @@ var respecConfig = {
   <section class='informative' id='introduction'>
     <h2>Introduction</h2>
 
-    <p>This specification defines a document exchange format and associated validation and presentation requirements for subtitle
-    and caption delivery worldwide, including dialog language translation, content description, captions for deaf and hard of
-    hearing, etc.</p>
+    <section>
+      <h3>Overview</h3>
+        <p>This specification defines a document exchange format and associated validation and presentation requirements for subtitle
+        and caption delivery worldwide, including dialog language translation, content description, captions for deaf and hard of
+        hearing, etc.</p>
 
-    <p>The format is a profile of [[ttml2]], called the <a>Text Profile</a>, consisting of a subset of the features of [[ttml2]] alongside additional features specified in
+        <p>The format is a profile of [[ttml2]], called the <a>Text Profile</a>, consisting of a subset of the features of [[ttml2]] alongside additional features specified in
 
-    [[EBU-TT-D]], e.g., <a href="#feature-multiRowAlign"></a>, and defines new features, e.g., <a href="#feature-fillLineGap"></a>.
-    The <a>Text Profile</a> is text-only: the timed text that comprise the subtitles and captions is expressed exclusively using
-    code points defined in [[[Unicode]]].</p>
+        [[EBU-TT-D]], e.g., <a href="#feature-multiRowAlign"></a>, and defines new features, e.g., <a href="#feature-fillLineGap"></a>.
+        The <a>Text Profile</a> is text-only: the timed text that comprise the subtitles and captions is expressed exclusively using
+        code points defined in [[[Unicode]]].</p>
 
-    <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
-    compatible with other text-only profiles of TTML, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[ttml-imsc1.1]],
-    [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
+        <p>As detailed in <a href='#profile-resolution'></a> and <a href='#interop-examples'></a>, this specification is designed to be
+        compatible with other text-only profiles of TTML, including [[ttml-imsc1]], [[ttml-imsc1.0.1]], [[ttml-imsc1.1]],
+        [[ttml-imsc1.2]], [[SMPTE2052-1]], [[EBU-TT-D]], [[ttml10-sdp-us]] and [[CFF]].</p>
 
-    <p>Earlier versions of this specification specify an image-only profile, called the Image Profile, which is no longer specified
-    herein. <a href="#imsc-interop"></a> discusses the relationship between this and earlier versions of the specification.</p>
+        <p>Earlier versions of this specification specify an image-only profile, called the Image Profile, which is no longer specified
+        herein. <a href="#imsc-interop"></a> discusses the relationship between this and earlier versions of the specification.</p>
 
-    <p>To improve rendering fidelity, <a href='#reference-fonts'></a> defines reference fonts and requires <a>Processors</a> to
-    support one or more fonts with similar font metrics as these reference fonts. Similarly, in order to increase the confidence
-    that text will be presented correctly by <a>Processors</a> targeting specific languages, <a
-    href='#recommended-unicode-code-points-per-language'></a> defines common character sets that authors are encouraged to use.</p>
+        <p>To improve rendering fidelity, <a href='#reference-fonts'></a> defines reference fonts and requires <a>Processors</a> to
+        support one or more fonts with similar font metrics as these reference fonts. Similarly, in order to increase the confidence
+        that text will be presented correctly by <a>Processors</a> targeting specific languages, <a
+        href='#recommended-unicode-code-points-per-language'></a> defines common character sets that authors are encouraged to use.</p>
 
-    <p>An Hypothetical Render Model is specified separately at [[imsc-hrm]]. The Hypothetical Render Model allows subtitle and
-    caption authors and providers to verify that the <a>Text Profile</a> documents they supply do not exceed defined complexity
-    levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
+        <p>An Hypothetical Render Model is specified separately at [[imsc-hrm]]. The Hypothetical Render Model allows subtitle and
+        caption authors and providers to verify that the <a>Text Profile</a> documents they supply do not exceed defined complexity
+        levels, so that playback systems can render the content synchronized with the author-specified display times.</p>
 
-    <p>This specification was initially based on [[SUBM]].</p>
+        <p>This specification was initially based on [[SUBM]].</p>
+    </section>
+
+    <section id="example-documents">
+      <h3>Example Document</h3>
+
+      <p>The following example
+        demonstrates a syntactically
+        valid <a>Text Profile</a> and [[EBU-TT-D]] document instance
+        and how it would be rendered.
+        It is not intended to be used as a template for a subtitle file.</p>
+      <p>The example is arranged such that there is no white space added to the
+        text within the <code class="language-xml">p</code> element;
+        such white space can cause unexpected formatting, if present.</p>
+      <pre class='example' data-include='examples/bbc-ebu-tt-d_example.xml' data-include-format='text'>
+</pre>
+
+      <p>The illustrative renders below show how the document above is
+        interpreted (only the subtitle text and the black background will be
+        displayed). Note that the underlying grid is virtual and that
+        elements don't necessarily align to it; it is a graphical
+        representation of the <code>ttp:cellResolution</code> parameter.</p>
+      <figure>
+        <img 
+            src="figures/bbc_EBU-TT-D_illustration1.png"
+            alt="Image showing rendering of example, with text 'Beware the Jubjub bird' etc in lower region of image, on a 32x15 cell grid.">
+        <figcaption>Displayed between 00:00:10 and 00:00:20</figcaption>
+      </figure>
+      <figure>
+          <img
+              src="figures/bbc_EBU-TT-D_illustration2.png"
+              alt="Image showing rendering of example, with text 'This subtitle is in the top region' etc in upper region of image, on a 32x15 cell grid. The word 'yellow' is coloured yellow; the other words are white.">
+          <figcaption>Displayed between 00:00:30 and 00:00:31</figcaption>
+      </figure>
+      <p>This example is based on [[BBC-SUB]].</p>
+    </section>
   </section>
 
   <section id='conventions'>
@@ -3750,8 +3792,50 @@ y = topOffset * (1 - height/100)
     <p>The following sample <a data-lt='Document Instance'>Document Instances</a> conforms to the <a>Text Profile</a>. This sample
     are for illustration only, and are neither intended to capture current or future practice, nor exercise all normative prose
     contained in this specification.</p>
-    <pre class='example' data-include='examples/text-example.xml' data-include-format='text'>
-</pre>
+    <pre class='example' data-include='examples/text-example.xml' data-include-format='text'></pre>
+    <p>The above sample specifies two <a>Intermediate Synchronic Documents</a>,
+      one from 0 seconds to 6 seconds, that renders as <a href="#fig-text-example-1"></a>,
+      and the other from 6 seconds onwards, that renders as <a href="#fig-text-example-2"></a>.
+    </p>
+    <figure id='fig-text-example-1'>
+      <img src="figures/text-example-render-0.png" alt="Text Profile example rendering 1, 0s to 6s">
+      <figcaption>
+        Illustrative rendition of the example immediately above,
+        for the period between 0s and 6s.
+      </figcaption>
+    </figure>
+
+    <p><a href="#fig-text-example-1"></a> shows a
+      black rectangular region positioned so that its
+      upper left corner is 10% down from the top of the rendering area
+      and 10% right of the left edge of the rendering area,
+      and whose width is 80% of the rendering area
+      and whose height is 10% of the rendering area.
+      The region contains the text &quot;Lorem ipsum dolor.&quot; in red
+      using the default font, at the default size; that size is 1/15th the
+      height of the rendering area, and is computed from the default values of the
+      <code>ttp:cellResolution</code> parameter (<code>"32 15"</code>)
+      and the <code>ttp:fontSize</code> (<code>"100%"</code>) style attribute,
+      which are used because both are omitted from this document.</p>
+
+    <figure id='fig-text-example-2'>
+      <img src="figures/text-example-render-6.png" alt="Text Profile example rendering 1, 6s onwards">
+      <figcaption>
+        Illustrative rendition of the example immediately above,
+        for the period from 6s onwards.
+      </figcaption>
+    </figure>
+
+    <p>
+      <a href="#fig-text-example-2"></a> shows the same
+      black rectangular region in the same position.
+      The region is empty aside from the black background,
+      which is nevertheless visible
+      because the <code>tts:showBackground</code>
+      attribute is missing from the <code>region</code>
+      element, so its default value <code>always</code> applies.
+    </p>
+
   </section>
 
   <section class='appendix' id='features-and-extensions'>
@@ -3938,9 +4022,66 @@ y = topOffset * (1 - height/100)
       <p>The following is an example of a document that conforms to <a>Text Profile</a>, [[ttml-imsc1.0.1]] Text Profile and
       [[EBU-TT-D]]. Note the presence of multiple <code>ebuttm:conformsToStandard</code> elements, one of which equals the <a>Text
       Profile</a> designator:</p>
-      <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'>
+      <pre class='example' data-include='examples/text-and-ebuttd-example.xml' data-include-format='text'></pre>
+      <p>The above sample results in three <a>Intermediate Synchronic Documents</a>,
+        one from 0 seconds to 1 second, that renders as <a href="#fig-text-ebuttd-example-1"></a>,
+        the next from 1 second to 9 seconds, that renders as <a href="#fig-text-ebuttd-example-2"></a>,
+        and the last from 9 seconds onwards, that renders as <a href="#fig-text-ebuttd-example-3"></a>.
+      </p>
+      <figure id='fig-text-ebuttd-example-1'>
+        <img src="figures/text-and-ebuttd-example-render-0.png" alt="Text Profile and EBU-TT-D example rendering 1, 0s to 1s">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for period 0s to 1s.
+        </figcaption>
+      </figure>
 
-</pre>
+      <p><a href="#fig-text-ebuttd-example-1"></a> shows
+        no pixels being generated from the document in the
+        period 0s to 1s.
+      </p>
+
+      <figure id='fig-text-ebuttd-example-2'>
+        <img src="figures/text-and-ebuttd-example-render-1.png" alt="Text Profile and EBU-TT-D example rendering 2, 1s to 9s">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for the period 1s to 9s.
+        </figcaption>
+      </figure>
+
+      <p><a href="#fig-text-ebuttd-example-2"></a> shows
+        a lime green and a black rectangular region.
+        The green region is positioned in the upper part of the rendering
+        area and the black region is positioned in the lower part,
+        according to the <code>tts:origin</code> and <code>tts:extent</code>
+        attribute values. The text is black in the green region and
+        white in the black region. In both cases it is in a generic
+        sans-serif font, and the text is vertically centred within the
+        region, according to the <code>tts:displayAlign</code> attribute
+        value specified on each region.
+        The horizontal alignment of each line of text
+        demonstrates the combined application of the
+        <a href="#text-multiRowAlign"><code>ebutts:multiRowAlign</code></a> and
+        <code>tts:textAlign</code> attributes.
+        The start (left, in this case) aligned text in the green region
+        is offset slightly from the region edge due to the application of
+        the <a href="#text-linePadding"><code>ebutts:linePadding</code></a> style attribute on the
+        <code>div</code> element.
+      </p>
+
+      <figure id='fig-text-ebuttd-example-3'>
+        <img src="figures/text-and-ebuttd-example-render-9.png" alt="Text Profile and EBU-TT-D example rendering 3, 9s onwards">
+        <figcaption>
+          Illustrative rendition of the example immediately above,
+          for the period from 9s onwards.
+        </figcaption>
+      </figure>
+
+      <p><a href="#fig-text-ebuttd-example-3"></a> shows
+        no pixels being generated from the document in
+        the period from 9s onwards.
+      </p>
+
     </section>
 
     <section class='appendix' id='sdp-us-interop'>
