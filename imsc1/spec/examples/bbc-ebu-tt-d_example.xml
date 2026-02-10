@@ -12,6 +12,9 @@
     <head>
         <metadata>
             <ebuttm:documentMetadata>
+                <!-- EBU-TT-D defines its own conformance signalling mechanism,
+                     since, being based on TTML1, the ttp:contentProfiles parameter
+                     is not available; it was introduced in TTML2. -->
                 <ebuttm:conformsToStandard>urn:ebu:tt:distribution:2018-04</ebuttm:conformsToStandard>
                 <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1/text</ebuttm:conformsToStandard>
                 <ebuttm:conformsToStandard>http://www.w3.org/ns/ttml/profile/imsc1.2/text</ebuttm:conformsToStandard>
