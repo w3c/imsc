@@ -2002,6 +2002,36 @@ var respecConfig = {
     <section id="constraints-features-extensions">
       <h3>Constraints on Features and Extensions</h3>
 
+      <section id="altText">
+        <h4><code>altText</code> named metadata item</h4>
+
+        <p>The <code>altText</code> named metadata item SHOULD NOT be present since
+        no image-based timed text information is used in a <a>Text Profile</a> <a>Document Instance</a>.</p>
+
+        <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>ittm:altText</code> element is also present.</p>
+      </section>
+
+      <section id="itm-altText">
+        <h4><code>#altText</code></h4>
+
+        <p>The <code>ittm:altText</code> element SHOULD NOT be present since no image-based timed text information is used in a
+        <a>Text Profile</a> <a>Document Instance</a>.</p>
+
+        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
+        metadata item element is also present.</p>
+      </section>
+
+      <section id="aspectRatio">
+        <h4><code>#aspectRatio</code></h4>
+
+        <p>The <code>ittp:aspectRatio</code> attribute SHOULD NOT be present in a <a>Document Instance</a> unless compatibility
+        with [[ttml-imsc1.0.1]] processors is desired.</p>
+
+        <p>The <code>ittp:aspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
+        <code>ttp:displayAspectRatio</code> attribute is also present.</p>
+      </section>
+
       <section id="text-color">
         <h4><code>#color</code></h4>
 
@@ -2012,6 +2042,20 @@ var respecConfig = {
         <p class="note">The named color <code>green</code> defined in [[ttml2]] is equivalent to the RGB color triple
         <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB color triple
         <code>#00ff00</code> or the named color <code>lime</code>.</p>
+      </section>
+
+      <section id="displayAspectRatio">
+        <h4><code>#displayAspectRatio</code></h4>
+
+        <p>The <code>ttp:displayAspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
+        <code>ittp:aspectRatio</code> attribute is also present.</p>
+      </section>
+
+      <section id="extent-root">
+        <h4><code>#extent-root</code></h4>
+
+        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> unit, <code>tts:extent</code>
+        SHALL be present on the <code>tt</code> element.</p>
       </section>
 
       <section id="text-extent-region">
@@ -2093,6 +2137,32 @@ var respecConfig = {
         <code>tts:fontFamily</code>.</p>
       </section>
 
+      <section id="font-variant-constraints">
+        <h4><code>#fontVariant</code></h4>
+
+        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
+        following:</p>
+        <ul class="short-list">
+          <li><code>normal</code>;</li>
+          <li><code>sub</code>; or</li>
+          <li><code>super</code>.</li>
+        </ul>
+      </section>
+
+      <section id="frame-rate-constraints">
+        <h4><code>#frameRate</code></h4>
+
+        <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
+        time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present on the
+        <code>tt</code> element.</p>
+      </section>
+
+      <section id="length-cell">
+        <h4><code>#length-cell</code></h4>
+
+        <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
+      </section>
+
       <section id="text-length-negative">
         <h4><code>#length-negative</code></h4>
 
@@ -2110,6 +2180,23 @@ var respecConfig = {
         </aside>
       </section>
 
+      <section id="length-root-container-relative">
+        <h4><code>#length-root-container-relative</code></h4>
+
+        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute:</p>
+
+        <ul>
+          <li><code>rh</code> units SHALL NOT be used for horizontal length components; and</li>
+
+          <li><code>rw</code> units SHALL NOT be used for vertical length components.</li>
+        </ul>
+
+        <aside class="note">
+          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
+          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
+        </aside>
+      </section>
+
       <section id="text-lineHeight">
         <h4><code>#lineHeight</code></h4>
 
@@ -2117,59 +2204,6 @@ var respecConfig = {
         <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not <code>normal</code>.</p>
 
         <p class="note">Implementation of the <code>normal</code> value is not uniform at the time of this writing.</p>
-      </section>
-
-      <section id="text-origin">
-        <h4><code>#origin</code></h4>
-
-        <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
-
-        <p>If the <code>tts:position</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
-        <code>tts:origin</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
-      </section>
-
-      <section id="text-position">
-        <h4><code>#position</code></h4>
-
-        <p>All <code>length</code> components of the value of a <code>tts:position</code> attribute SHALL use pixel (px), percentage (%) or root
-        container relative units.</p>
-
-        <p>If the <code>tts:origin</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
-        <code>tts:position</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
-      </section>
-
-      <section id="resources-constraints">
-        <h4><code>#resources</code></h4>
-
-        <p>The <code>resources</code> element SHALL not contain any of the following children elements:</p>
-
-        <ul>
-          <li><code>audio</code>;</li>
-          <li><code>data</code>; and</li>
-          <li><code>image</code>.</li>
-        </ul>
-      </section>
-
-      <section id="text-rubyAlign">
-        <h4><code>#rubyAlign</code></h4>
-
-        <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
-        <code>center</code> or <code>spaceAround</code>.</p>
-      </section>
-
-      <section id="text-textOutline-unblurred">
-        <h4><code>#textOutline-unblurred</code></h4>
-
-        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
-        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same
-        element.</p>
-      </section>
-
-      <section id="text-textShadow">
-        <h4><code>#textShadow</code></h4>
-
-        <p>The specified value of the <code>tts:textShadow</code> attribute SHALL NOT have more than 4 <code>&lt;shadow&gt;</code>
-        values.</p>
       </section>
 
       <section id="text-linePadding">
@@ -2234,6 +2268,44 @@ var respecConfig = {
         <code>ebutts:multiRowAlign</code> is allowed only on the <code>style</code> element.</p>
       </section>
 
+      <section id="text-origin">
+        <h4><code>#origin</code></h4>
+
+        <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
+
+        <p>If the <code>tts:position</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:origin</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
+      </section>
+
+      <section id="text-position">
+        <h4><code>#position</code></h4>
+
+        <p>All <code>length</code> components of the value of a <code>tts:position</code> attribute SHALL use pixel (px), percentage (%) or root
+        container relative units.</p>
+
+        <p>If the <code>tts:origin</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:position</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
+      </section>
+
+      <section id="resources-constraints">
+        <h4><code>#resources</code></h4>
+
+        <p>The <code>resources</code> element SHALL not contain any of the following children elements:</p>
+
+        <ul>
+          <li><code>audio</code>;</li>
+          <li><code>data</code>; and</li>
+          <li><code>image</code>.</li>
+        </ul>
+      </section>
+
+      <section id="text-rubyAlign">
+        <h4><code>#rubyAlign</code></h4>
+
+        <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
+        <code>center</code> or <code>spaceAround</code>.</p>
+      </section>
+
       <section id="text-italic-shear-oblique" class="informative">
           <h4>Slanted Japanese-language text</h4>
 
@@ -2243,91 +2315,19 @@ var respecConfig = {
           – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
       </section>
 
-      <section id="font-variant-constraints">
-        <h4><code>#fontVariant</code></h4>
+      <section id="text-textOutline-unblurred">
+        <h4><code>#textOutline-unblurred</code></h4>
 
-        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
-        following:</p>
-        <ul class="short-list">
-          <li><code>normal</code>;</li>
-          <li><code>sub</code>; or</li>
-          <li><code>super</code>.</li>
-        </ul>
+        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
+        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same
+        element.</p>
       </section>
 
-      <section id="altText">
-        <h4><code>altText</code> named metadata item</h4>
+      <section id="text-textShadow">
+        <h4><code>#textShadow</code></h4>
 
-        <p>The <code>altText</code> named metadata item SHOULD NOT be present since
-        no image-based timed text information is used in a <a>Text Profile</a> <a>Document Instance</a>.</p>
-
-        <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>ittm:altText</code> element is also present.</p>
-      </section>
-
-      <section id="itm-altText">
-        <h4><code>#altText</code></h4>
-
-        <p>The <code>ittm:altText</code> element SHOULD NOT be present since no image-based timed text information is used in a
-        <a>Text Profile</a> <a>Document Instance</a>.</p>
-
-        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
-        metadata item element is also present.</p>
-      </section>
-
-      <section id="aspectRatio">
-        <h4><code>#aspectRatio</code></h4>
-
-        <p>The <code>ittp:aspectRatio</code> attribute SHOULD NOT be present in a <a>Document Instance</a> unless compatibility
-        with [[ttml-imsc1.0.1]] processors is desired.</p>
-
-        <p>The <code>ittp:aspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
-        <code>ttp:displayAspectRatio</code> attribute is also present.</p>
-      </section>
-
-      <section id="displayAspectRatio">
-        <h4><code>#displayAspectRatio</code></h4>
-
-        <p>The <code>ttp:displayAspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
-        <code>ittp:aspectRatio</code> attribute is also present.</p>
-      </section>
-
-      <section id="extent-root">
-        <h4><code>#extent-root</code></h4>
-
-        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> unit, <code>tts:extent</code>
-        SHALL be present on the <code>tt</code> element.</p>
-      </section>
-
-      <section id="frame-rate-constraints">
-        <h4><code>#frameRate</code></h4>
-
-        <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
-        time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present on the
-        <code>tt</code> element.</p>
-      </section>
-
-      <section id="length-cell">
-        <h4><code>#length-cell</code></h4>
-
-        <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
-      </section>
-
-      <section id="length-root-container-relative">
-        <h4><code>#length-root-container-relative</code></h4>
-
-        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute:</p>
-
-        <ul>
-          <li><code>rh</code> units SHALL NOT be used for horizontal length components; and</li>
-
-          <li><code>rw</code> units SHALL NOT be used for vertical length components.</li>
-        </ul>
-
-        <aside class="note">
-          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
-          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
-        </aside>
+        <p>The specified value of the <code>tts:textShadow</code> attribute SHALL NOT have more than 4 <code>&lt;shadow&gt;</code>
+        values.</p>
       </section>
 
       <section id="tickRate">
@@ -2360,7 +2360,7 @@ var respecConfig = {
         of its ancestors.</p>
       </section>
 
-      <section class="informative">
+      <section class="informative" id="usesForced-named-metadata">
         <h4><code>usesForced</code> named metadata item</h4>
 
         <p>The <code>usesForced</code> named metadata item does not apply since the <code>condition</code> attribute is
@@ -2409,6 +2409,121 @@ var respecConfig = {
     <section id='imsc-extensions'>
       <h3>Extension Vocabulary</h3>
 
+      <section id='ittp-activeArea'>
+        <h4>ittp:activeArea</h4>
+
+        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the <a>Root Container Region</a> that the
+        author intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions
+        within the <a>Document Instance</a>.</p>
+
+        <div class='note'>
+          <p>Under normal circumstances, the entirety of the <a>Root Container Region</a> is presented. However, under special
+          circumstances, such as when the <a>related video object</a> is cropped, a system can, for instance, use the
+          <code>ittp:activeArea</code> parameter to avoid cropping areas of the <a>Root Container Region</a> that are intended to
+          be visible to the viewer. The specific behavior of the system is however left undefined intentionally: the system can
+          select a presentation mode appropriate to the display shape, user preferences, etc. The <code>ittp:activeArea</code> is
+          analogous to the Active Format Description (AFD) metadata commonly used in broadcast applications.</p>
+        </div>
+
+        <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
+
+        <p>If present, the <code>ittp:activeArea</code> attribute SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+ittp:activeArea
+  : leftOffset topOffset width height
+
+leftOffset | topOffset | width | height
+  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The <code>width</code> percentage value is relative to the width of the <a>Root Container Region</a>.</p>
+
+        <p>The <code>height</code> percentage value is relative to the height of the <a>Root Container Region</a>.</p>
+
+        <p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
+
+        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the <a>Root
+        Container Region</a> and the <a>Active Area</a>.</p>
+
+        <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
+        <pre class="nohighlight">
+x = leftOffset * (1 - width/100)
+y = topOffset * (1 - height/100)
+
+</pre>
+
+        <div class='note'>
+          <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code>
+          property where a two percentage value position is used.</p>
+        </div>
+
+        <div class='note'>
+          <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
+          <a>Root Container Region</a> in any dimension.</p>
+        </div>
+
+        <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
+        element.</p>
+
+        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the <a>Root Container
+        Region</a>.</p>
+        <pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'>
+</pre>
+      </section>
+
+      <section id='ittm-altText'>
+        <h4>ittm:altText</h4>
+
+        <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+        defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+        <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
+        support indexing of the content, or facilitate quality checking of the document. It can also be used by assistive
+        technologies.</p>
+
+        <p class="note">The <code>#altText</code> feature is primarily useful in providing a text alternative to image-based
+        subtitles and captions, which are not supported by the <a>Text Profile</a>.</p>
+
+        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
+        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
+
+        <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+&lt;ittm:altText
+  xml:id = ID
+  xml:lang = string
+  xml:space = (default|preserve)
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
+  Content: #PCDATA
+&lt;/ittm:altText&gt;
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
+
+      </section>
+
       <section id='ittp-aspectRatio'>
         <h4>ittp:aspectRatio</h4>
 
@@ -2446,6 +2561,182 @@ numerator | denominator
         <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
         ratio of the <a>Root Container Region</a>. If not specified, then the display aspect ratio of the <a>Root Container
         Region</a> is determined according to Appendix H of [[!ttml2]].</p>
+      </section>
+
+      <section id='itts-fillLineGap'>
+        <h4>itts:fillLineGap</h4>
+
+        <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background between
+        successive line areas.</p>
+
+        <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated by descendant spans of the
+        <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area
+        (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
+
+        <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
+
+        <table class="simple">
+          <colgroup>
+            <col style="width:25%" span="1">
+            <col span="1">
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <td><em>Values:</em></td>
+
+              <td><code>false | true</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Initial:</em></td>
+
+              <td><code>false</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Applies to:</em></td>
+
+              <td><code>p</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Inherited:</em></td>
+
+              <td>yes</td>
+            </tr>
+
+            <tr>
+              <td><em>Percentages:</em></td>
+
+              <td>N/A</td>
+            </tr>
+
+            <tr>
+              <td><em>Animatable:</em></td>
+
+              <td>discrete</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap
+        exists between its lines.</p>
+        <pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'>
+</pre>
+
+        <figure id='fig-fillLineGap'>
+          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+
+          <figcaption>
+            Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
+            preserved (right). Blue lines have been added to show the <em>before-edge</em> and <em>after-edge</em> of each line
+            area, which are coincident for successive line areas.
+          </figcaption>
+        </figure>
+
+        <p>Also, as illustrated in the following example, because the line areas of successive <code>p</code> elements are
+        contiguous, no gap exists between two successive <code>p</code> elements where <code>itts:fillLineGap="true"</code>.</p>
+        <pre class='example' data-include='examples/fillLineGap-example-2.xml' data-include-format='text'>
+</pre>
+
+        <figure id='fig-fillLineGap-2'>
+          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+
+          <figcaption>
+            Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
+            paragraphs of the top region, <code>itts:fillLineGap="false"</code> on the two paragraphs of the bottom region.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id='itts-forcedDisplay'>
+        <h4>itts:forcedDisplay</h4>
+
+        <p>The <code>itts:forcedDisplay</code> attribute can be used to hide content when the processor has been configured to do so
+        via the application parameter <code><a>displayForcedOnlyMode</a></code>.</p>
+
+        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
+        single document contains both hard of hearing captions and translated foreign language subtitles, using
+        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
+        captions are displayed or hidden.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
+
+        <table class="simple">
+          <colgroup>
+            <col style="width:25%" span="1">
+            <col span="1">
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <td><em>Values:</em></td>
+
+              <td><code>false | true</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Initial:</em></td>
+
+              <td><code>false</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Applies to:</em></td>
+
+              <td><code>body</code>, <code>div</code>, <code>p</code>, <code>region</code>, <code>span</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Inherited:</em></td>
+
+              <td>yes</td>
+            </tr>
+
+            <tr>
+              <td><em>Percentages:</em></td>
+
+              <td>N/A</td>
+            </tr>
+
+            <tr>
+              <td><em>Animatable:</em></td>
+
+              <td>discrete</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>If and only if the value of <code><a>displayForcedOnlyMode</a></code> is <code>"true"</code>, a content element with a
+        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
+        of the computed value of <code>tts:visibility</code>.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
+        whether composed content is visible or not.</p>
+
+        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code><dfn>displayForcedOnlyMode</dfn></code>,
+        whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
+        <code><a>displayForcedOnlyMode</a></code> SHALL be assumed to be equal to <code>"false"</code>.</p>
+
+        <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter based on the circumstances under which the
+        <a>Document Instance</a> is presented is left to the application.</p>
+        <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
+</pre>
+
+        <p class='note'>As specified in [[ttml2]], the background of a region can be visible even if the computed value of
+        <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
+        which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
+        <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
+        <code><a>displayForcedOnlyMode</a></code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
+        that content elements and the regions that they are flowed into always have the same value of
+        <code>itts:forcedDisplay</code>.</p>
+
+        <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
+        style construct in a future revision of this specification.</p>
+
+        <p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be compatible
+        with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
       </section>
 
       <section id='ittp-progressivelyDecodable'>
@@ -2544,296 +2835,6 @@ ittp:progressivelyDecodable
         </div>
       </section>
 
-      <section id='itts-forcedDisplay'>
-        <h4>itts:forcedDisplay</h4>
-
-        <p>The <code>itts:forcedDisplay</code> attribute can be used to hide content when the processor has been configured to do so
-        via the application parameter <code><a>displayForcedOnlyMode</a></code>.</p>
-
-        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
-        single document contains both hard of hearing captions and translated foreign language subtitles, using
-        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
-        captions are displayed or hidden.</p>
-
-        <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
-
-        <table class="simple">
-          <colgroup>
-            <col style="width:25%" span="1">
-            <col span="1">
-          </colgroup>
-
-          <tbody>
-            <tr>
-              <td><em>Values:</em></td>
-
-              <td><code>false | true</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Initial:</em></td>
-
-              <td><code>false</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Applies to:</em></td>
-
-              <td><code>body</code>, <code>div</code>, <code>p</code>, <code>region</code>, <code>span</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Inherited:</em></td>
-
-              <td>yes</td>
-            </tr>
-
-            <tr>
-              <td><em>Percentages:</em></td>
-
-              <td>N/A</td>
-            </tr>
-
-            <tr>
-              <td><em>Animatable:</em></td>
-
-              <td>discrete</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>If and only if the value of <code><a>displayForcedOnlyMode</a></code> is <code>"true"</code>, a content element with a
-        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
-        of the computed value of <code>tts:visibility</code>.</p>
-
-        <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
-        whether composed content is visible or not.</p>
-
-        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code><dfn>displayForcedOnlyMode</dfn></code>,
-        whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
-        <code><a>displayForcedOnlyMode</a></code> SHALL be assumed to be equal to <code>"false"</code>.</p>
-
-        <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter based on the circumstances under which the
-        <a>Document Instance</a> is presented is left to the application.</p>
-        <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
-</pre>
-
-        <p class='note'>As specified in [[ttml2]], the background of a region can be visible even if the computed value of
-        <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
-        which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
-        <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
-        <code><a>displayForcedOnlyMode</a></code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
-        that content elements and the regions that they are flowed into always have the same value of
-        <code>itts:forcedDisplay</code>.</p>
-
-        <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
-        style construct in a future revision of this specification.</p>
-
-        <p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be compatible
-        with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
-      </section>
-
-      <section id='ittm-altText'>
-        <h4>ittm:altText</h4>
-
-        <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
-        defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
-
-        <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
-        support indexing of the content, or facilitate quality checking of the document. It can also be used by assistive
-        technologies.</p>
-
-        <p class="note">The <code>#altText</code> feature is primarily useful in providing a text alternative to image-based
-        subtitles and captions, which are not supported by the <a>Text Profile</a>.</p>
-
-        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
-        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
-
-        <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-&lt;ittm:altText
-  xml:id = ID
-  xml:lang = string
-  xml:space = (default|preserve)
-  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
-  Content: #PCDATA
-&lt;/ittm:altText&gt;
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
-
-      </section>
-
-      <section id='ittp-activeArea'>
-        <h4>ittp:activeArea</h4>
-
-        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the <a>Root Container Region</a> that the
-        author intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions
-        within the <a>Document Instance</a>.</p>
-
-        <div class='note'>
-          <p>Under normal circumstances, the entirety of the <a>Root Container Region</a> is presented. However, under special
-          circumstances, such as when the <a>related video object</a> is cropped, a system can, for instance, use the
-          <code>ittp:activeArea</code> parameter to avoid cropping areas of the <a>Root Container Region</a> that are intended to
-          be visible to the viewer. The specific behavior of the system is however left undefined intentionally: the system can
-          select a presentation mode appropriate to the display shape, user preferences, etc. The <code>ittp:activeArea</code> is
-          analogous to the Active Format Description (AFD) metadata commonly used in broadcast applications.</p>
-        </div>
-
-        <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
-
-        <p>If present, the <code>ittp:activeArea</code> attribute SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-ittp:activeArea
-  : leftOffset topOffset width height
-
-leftOffset | topOffset | width | height
-  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>The <code>width</code> percentage value is relative to the width of the <a>Root Container Region</a>.</p>
-
-        <p>The <code>height</code> percentage value is relative to the height of the <a>Root Container Region</a>.</p>
-
-        <p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
-
-        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the <a>Root
-        Container Region</a> and the <a>Active Area</a>.</p>
-
-        <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
-        <pre class="nohighlight">
-x = leftOffset * (1 - width/100)
-y = topOffset * (1 - height/100)
-
-</pre>
-
-        <div class='note'>
-          <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code>
-          property where a two percentage value position is used.</p>
-        </div>
-
-        <div class='note'>
-          <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
-          <a>Root Container Region</a> in any dimension.</p>
-        </div>
-
-        <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
-        element.</p>
-
-        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the <a>Root Container
-        Region</a>.</p>
-        <pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'>
-</pre>
-      </section>
-
-      <section id='itts-fillLineGap'>
-        <h4>itts:fillLineGap</h4>
-
-        <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background between
-        successive line areas.</p>
-
-        <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated by descendant spans of the
-        <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area
-        (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
-
-        <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
-
-        <table class="simple">
-          <colgroup>
-            <col style="width:25%" span="1">
-            <col span="1">
-          </colgroup>
-
-          <tbody>
-            <tr>
-              <td><em>Values:</em></td>
-
-              <td><code>false | true</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Initial:</em></td>
-
-              <td><code>false</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Applies to:</em></td>
-
-              <td><code>p</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Inherited:</em></td>
-
-              <td>yes</td>
-            </tr>
-
-            <tr>
-              <td><em>Percentages:</em></td>
-
-              <td>N/A</td>
-            </tr>
-
-            <tr>
-              <td><em>Animatable:</em></td>
-
-              <td>discrete</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap
-        exists between its lines.</p>
-        <pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'>
-</pre>
-
-        <figure id='fig-fillLineGap'>
-          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
-
-          <figcaption>
-            Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
-            preserved (right). Blue lines have been added to show the <em>before-edge</em> and <em>after-edge</em> of each line
-            area, which are coincident for successive line areas.
-          </figcaption>
-        </figure>
-
-        <p>Also, as illustrated in the following example, because the line areas of successive <code>p</code> elements are
-        contiguous, no gap exists between two successive <code>p</code> elements where <code>itts:fillLineGap="true"</code>.</p>
-        <pre class='example' data-include='examples/fillLineGap-example-2.xml' data-include-format='text'>
-</pre>
-
-        <figure id='fig-fillLineGap-2'>
-          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
-
-          <figcaption>
-            Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
-            paragraphs of the top region, <code>itts:fillLineGap="false"</code> on the two paragraphs of the bottom region.
-          </figcaption>
-        </figure>
-      </section>
     </section>
 
     <section id="section-font-resources">
@@ -2871,8 +2872,6 @@ y = topOffset * (1 - height/100)
         and attributes used within a <a data-lt="Document Instance">Document Instance</a>.
       </div>
     </section>
-
-
 
     <section id="mapping-root-related-video">
       <h3>Mapping the <a>Root Container Region</a> to the <a>Related Video Object</a></h3>
