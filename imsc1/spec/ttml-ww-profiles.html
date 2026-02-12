@@ -3850,19 +3850,28 @@ ittp:progressivelyDecodable
       <a>IMSC Extension</a> Namespace base URI.</p>
     </section>
 
-    <section class='appendix' id='feature-progressivelyDecodable'>
-      <h3>#progressivelyDecodable</h3>
 
-      <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in the
-      profiles defined by this specification.</p>
+    <section class='appendix' id='feature-activeArea'>
+      <h3>#activeArea</h3>
 
-      <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
-      capable of transforming values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
-      attribute.</p>
+      <p>A <a>transformation processor</a> supports the <code>#activeArea</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
 
-      <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
-      semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
-      attribute.</p>
+      <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic
+      support for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
+    </section>
+
+    <section class='appendix' id='feature-altText'>
+      <h3>#altText</h3>
+
+      <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+      defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+      <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
+      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix' id='feature-aspectRatio'>
@@ -3878,6 +3887,16 @@ ittp:progressivelyDecodable
       support for values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
     </section>
 
+    <section class='appendix' id='feature-fillLineGap'>
+      <h3>#fillLineGap</h3>
+
+      <p>A <a>transformation processor</a> supports the <code>#fillLineGap</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic
+      support for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+    </section>
+
     <section class='appendix' id='feature-forcedDisplay'>
       <h3>#forcedDisplay</h3>
 
@@ -3886,19 +3905,6 @@ ittp:progressivelyDecodable
 
       <p>A <a>presentation processor</a> supports the <code>#forcedDisplay</code> feature if it implements presentation semantic
       support for values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
-    </section>
-
-    <section class='appendix' id='feature-altText'>
-      <h3>#altText</h3>
-
-      <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
-      defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
-
-      <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
-
-      <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
-      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix' id='feature-linePadding'>
@@ -3921,24 +3927,19 @@ ittp:progressivelyDecodable
       support for values of the <code>ebutts:multiRowAlign</code> attribute specified in [[!EBU-TT-D]].</p>
     </section>
 
-    <section class='appendix' id='feature-activeArea'>
-      <h3>#activeArea</h3>
+    <section class='appendix' id='feature-progressivelyDecodable'>
+      <h3>#progressivelyDecodable</h3>
 
-      <p>A <a>transformation processor</a> supports the <code>#activeArea</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
+      <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in the
+      profiles defined by this specification.</p>
 
-      <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic
-      support for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
-    </section>
+      <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
+      capable of transforming values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      attribute.</p>
 
-    <section class='appendix' id='feature-fillLineGap'>
-      <h3>#fillLineGap</h3>
-
-      <p>A <a>transformation processor</a> supports the <code>#fillLineGap</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
-
-      <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic
-      support for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+      <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
+      semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      attribute.</p>
     </section>
   </section>
 
