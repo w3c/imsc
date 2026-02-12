@@ -1999,54 +1999,394 @@ var respecConfig = {
   <section id='common-constraints'>
     <h2>Additional Provisions</h2>
 
-    <section id='recommended-char-sets'>
-      <h3>Recommended Character Sets</h3>
+    <section id="constraints-features-extensions">
+      <h3>Constraints on Features and Extensions</h3>
 
-      <p>A <a>Document Instance</a> SHOULD be authored using characters selected from the sets specified in <a href=
-      "#recommended-unicode-code-points-per-language"></a>.</p>
+      <section id="altText">
+        <h4><code>altText</code> named metadata item</h4>
+
+        <p>The <code>altText</code> named metadata item SHOULD NOT be present since
+        no image-based timed text information is used in a <a>Text Profile</a> <a>Document Instance</a>.</p>
+
+        <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
+        <code>ittm:altText</code> element is also present.</p>
+      </section>
+
+      <section id="itm-altText">
+        <h4><code>#altText</code></h4>
+
+        <p>The <code>ittm:altText</code> element SHOULD NOT be present since no image-based timed text information is used in a
+        <a>Text Profile</a> <a>Document Instance</a>.</p>
+
+        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
+        metadata item element is also present.</p>
+      </section>
+
+      <section id="aspectRatio">
+        <h4><code>#aspectRatio</code></h4>
+
+        <p>The <code>ittp:aspectRatio</code> attribute SHOULD NOT be present in a <a>Document Instance</a> unless compatibility
+        with [[ttml-imsc1.0.1]] processors is desired.</p>
+
+        <p>The <code>ittp:aspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
+        <code>ttp:displayAspectRatio</code> attribute is also present.</p>
+      </section>
+
+      <section id="text-color">
+        <h4><code>#color</code></h4>
+
+        <p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
+
+        <p class="note">This is consistent with [[SMPTE2052-1]].</p>
+
+        <p class="note">The named color <code>green</code> defined in [[ttml2]] is equivalent to the RGB color triple
+        <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB color triple
+        <code>#00ff00</code> or the named color <code>lime</code>.</p>
+      </section>
+
+      <section id="displayAspectRatio">
+        <h4><code>#displayAspectRatio</code></h4>
+
+        <p>The <code>ttp:displayAspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
+        <code>ittp:aspectRatio</code> attribute is also present.</p>
+      </section>
+
+      <section id="extent-root">
+        <h4><code>#extent-root</code></h4>
+
+        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> unit, <code>tts:extent</code>
+        SHALL be present on the <code>tt</code> element.</p>
+      </section>
+
+      <section id="text-extent-region">
+        <h4><code>#extent-region</code></h4>
+
+        <p>For each <code>region</code> element defined in the <a>Document Instance</a>, the <a>specified value</a> of the <code>tts:extent</code> style
+        property SHALL consist of two length expressions that use pixel (px), percentage (%), or root container relative units.</p>
+
+        <p class="note">If no <code>region</code> element is defined in the <a>Document Instance</a>, then content flows into the <a>default region</a>;
+        conversely, if one or more <code>region</code> elements are defined in the <a>Document Instance</a>, the <a>default region</a> is not used.</p>
+
+        <p class="note">The requirement above requires the author to explicitly specify the value of <code>tts:extent</code> in the <a>Document Instance</a>,
+        e.g. by specifying the <code>tts:extent</code> attribute for each <code>region</code> element.</p>
+      </section>
+
+      <section id="text-font-source">
+        <h4><code>#font</code> and <code>#source</code></h4>
+
+        <p>A <code>font</code> element in the <a>Document Instance</a> SHALL not specify a <code>src</code> attribute.
+
+        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>.</p>
+
+        <aside class="note">A <a>font resource</a> can reference an <a>external data resource</a> with a type not supported at
+        <a href="#section-font-resources"></a>, in which case a sibling <a>external data resources</a> with a supported type can also be specified
+        for fallback processing.</aside>
+
+        <aside class="note">As specified in [[ttml2]], a <code>font</code> element specifies one or more child source elements if it does not
+        specify a <code>src</code> attribute.</aside>
+
+        <aside class='example'>
+        <p>A <code>font</code> element referencing an <a>external data resource</a>.</p>
+        <pre class="nohighlight">
+...
+&lt;head&gt;
+  &lt;resources&gt;
+    &lt;font family=&quot;example_font&quot; range=&quot;u+20-7f,u+90-9f&quot;&gt;
+      &lt;source src=&quot;https://example.com/fonts/myfont.otf&quot; type=&quot;font/otf&quot;/&gt;
+    &lt;/font&gt;
+  &lt;/resources&gt;
+&lt;/head&gt;
+...
+&lt;p tts:fontFamily=&quot;example_font&quot;&gt;Text using the font referenced by an external data resource.&lt;/p&gt;
+...
+</pre>
+      </aside>
+
+      <p>A <a>Processor</a> MAY use the [[css-fonts-3]] §5 font
+        matching algorithm for associating a font with a run of text.</p>
+
+      <aside class="note">
+        When the computed value of <code>tts:fontSelectionStrategy</code> is
+        <code>"auto"</code> as required by this specification,
+        the algorithm for associating a font with a run of text
+        is implementation dependent.
+        The implemented font selection algorithm can therefore use a
+        different font for presentation than [[ttml2]]'s line height computation
+        algorithm selects, which could lead to unexpected results.
+      </aside>
+
     </section>
 
-    <section>
-      <h3>Reference Fonts</h3>
+      <section id="text-fontFamily-generic">
+        <h4><code>#fontFamily-generic</code></h4>
 
-      <p>When rendering codepoints matching one of the combinations of computed font family and codepoints listed in <a href=
-      "#reference-fonts"></a>, a processor SHALL use a font that generates a glyph sequence whose dimension is substantially
-      identical to the glyph sequence that would have been generated by one of the specified reference fonts.</p>
+        <p>In absence of specific instructions on the choice of font families, and in order to enhance reproducibility of line
+        fitting, authors are encouraged to use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code> generic font
+        families, for which reference font metrics are defined at <a href="#reference-fonts"></a>.</p>
 
-      <p class="note">This clause only applies to codepoints supported by the processor. See <a href="#recommended-char-sets"></a>
-      for codepoints that a processor is likely to encounter for various languages.</p>
+        <p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of
+        <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
 
-      <p class="note">When a content author sets a bounding box for a subtitle, they want to maximize the likelihood that the text
-      will fit within it when displayed by the processor. If the processor doesn't use the specific font the content author had in
-      mind, the font actually used might cause the text to grow in size so that it no longer fits in the bounding box. This is
-      further compounded by differences in the way text wraps when a font has bigger glyphs, which might increase the number of
-      lines used, and increased line spacing, which might also push some of the text outside the bounding box.<br>
-      To help ensure that things such as text size, line breaking, and line height behave as expected relative to the size of the
-      bounding box set by the content author, the author can use one of the reference fonts defined by this specification. This
-      specification requires processors to support one or more fonts with similar font metrics as reference fonts. Note that,
-      however, the reference fonts as currently defined only cover characters used for a few writing systems – in particular, a
-      subset of those based on Latin, Greek, Cyrillic, Hebrew, and Arabic scripts.</p>
+        <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[ttml2]].</p>
+      </section>
 
-      <p class="note">Implementations can use fonts other than those specified in <a href="#reference-fonts"></a>. Two fonts with
-      equal metrics can have a different appearance, but flow identically.</p>
+      <section id="text-fontFamily">
+        <h4><code>#fontFamily</code></h4>
+
+        <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
+        <code>tts:fontFamily</code>.</p>
+      </section>
+
+      <section id="font-variant-constraints">
+        <h4><code>#fontVariant</code></h4>
+
+        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
+        following:</p>
+        <ul class="short-list">
+          <li><code>normal</code>;</li>
+          <li><code>sub</code>; or</li>
+          <li><code>super</code>.</li>
+        </ul>
+      </section>
+
+      <section id="frame-rate-constraints">
+        <h4><code>#frameRate</code></h4>
+
+        <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
+        time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present on the
+        <code>tt</code> element.</p>
+      </section>
+
+      <section id="length-cell">
+        <h4><code>#length-cell</code></h4>
+
+        <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
+      </section>
+
+      <section id="text-length-negative">
+        <h4><code>#length-negative</code></h4>
+
+        <p>Strictly negative <code>length</code> expressions SHALL NOT be used with attributes other than:</p>
+
+        <ul>
+          <li><code>tts:disparity</code>; and</li>
+
+          <li><code>tts:textShadow</code>.</li>
+        </ul>
+
+        <aside class="note">
+          The provision above does not apply to the <code>tts:shear</code> attribute, whose value is a <code>percentage</code>
+          expression that accepts negative values.
+        </aside>
+      </section>
+
+      <section id="length-root-container-relative">
+        <h4><code>#length-root-container-relative</code></h4>
+
+        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute:</p>
+
+        <ul>
+          <li><code>rh</code> units SHALL NOT be used for horizontal length components; and</li>
+
+          <li><code>rw</code> units SHALL NOT be used for vertical length components.</li>
+        </ul>
+
+        <aside class="note">
+          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
+          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
+        </aside>
+      </section>
+
+      <section id="text-lineHeight">
+        <h4><code>#lineHeight</code></h4>
+
+        <p>The specified value of the <code>tts:lineHeight</code> attribute SHOULD be such that specified style set of each
+        <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not <code>normal</code>.</p>
+
+        <p class="note">Implementation of the <code>normal</code> value is not uniform at the time of this writing.</p>
+      </section>
+
+      <section id="text-linePadding">
+        <h4><code>ebutts:linePadding</code></h4>
+
+        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:linePadding</code> MAY be specified on the
+        following elements:</p>
+
+        <ul>
+          <li><code>region</code></li>
+
+          <li><code>body</code></li>
+
+          <li><code>div</code></li>
+
+          <li><code>p</code></li>
+
+          <li><code>initial</code></li>
+        </ul>
+
+        <p>The <a>processor</a>:</p>
+
+        <ul class="short-list">
+          <li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
+
+          <li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
+        </ul>
+
+        <p class="note">The <code>ebutts:linePadding</code> attribute only supports <code>c</code> length units.</p>
+
+        <p class='note'>In contrast to this specification, [[EBU-TT-D]] specifies that the attribute
+        <code>ebutts:linePadding</code> is allowed only on the <code>style</code> element.</p>
+      </section>
+
+      <section id="text-multiRowAlign">
+        <h4><code>ebutts:multiRowAlign</code></h4>
+
+        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on the
+        following elements:</p>
+
+        <ul>
+          <li><code>region</code></li>
+
+          <li><code>body</code></li>
+
+          <li><code>div</code></li>
+
+          <li><code>p</code></li>
+
+          <li><code>initial</code></li>
+        </ul>
+
+        <p>The <a>processor</a>:</p>
+
+        <ul class="short-list">
+          <li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
+
+          <li>SHALL treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
+        </ul>
+
+        <p class='note'>In contrast to this specification, [[EBU-TT-D]] specifies that the attribute
+        <code>ebutts:multiRowAlign</code> is allowed only on the <code>style</code> element.</p>
+      </section>
+
+      <section id="text-origin">
+        <h4><code>#origin</code></h4>
+
+        <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
+
+        <p>If the <code>tts:position</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:origin</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
+      </section>
+
+      <section id="text-position">
+        <h4><code>#position</code></h4>
+
+        <p>All <code>length</code> components of the value of a <code>tts:position</code> attribute SHALL use pixel (px), percentage (%) or root
+        container relative units.</p>
+
+        <p>If the <code>tts:origin</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
+        <code>tts:position</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
+      </section>
+
+      <section id="resources-constraints">
+        <h4><code>#resources</code></h4>
+
+        <p>The <code>resources</code> element SHALL not contain any of the following children elements:</p>
+
+        <ul>
+          <li><code>audio</code>;</li>
+          <li><code>data</code>; and</li>
+          <li><code>image</code>.</li>
+        </ul>
+      </section>
+
+      <section id="text-rubyAlign">
+        <h4><code>#rubyAlign</code></h4>
+
+        <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
+        <code>center</code> or <code>spaceAround</code>.</p>
+      </section>
+
+      <section id="text-italic-shear-oblique" class="informative">
+          <h4>Slanted Japanese-language text</h4>
+
+          <p>Since (a) Japanese-language fonts typically do not include <em>italic</em> or <em>oblique</em> faces, and
+          (b) Japanese-language slanted vertical text consists of characters slanted in the vertical direction (and not
+          in the horizontal direction), it is recommended that <code>tts:shear</code> be specified to slant Japanese-language text
+          – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
+      </section>
+
+      <section id="text-textOutline-unblurred">
+        <h4><code>#textOutline-unblurred</code></h4>
+
+        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
+        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same
+        element.</p>
+      </section>
+
+      <section id="text-textShadow">
+        <h4><code>#textShadow</code></h4>
+
+        <p>The specified value of the <code>tts:textShadow</code> attribute SHALL NOT have more than 4 <code>&lt;shadow&gt;</code>
+        values.</p>
+      </section>
+
+      <section id="tickRate">
+        <h4><code>#tickRate</code></h4>
+
+        <p><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the document contains any time expression
+        that uses the <code>t</code> metric.</p>
+      </section>
+
+      <section class="informative">
+        <h4><code>#timeBase-media</code></h4>
+
+        <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not specified on
+        <code>tt</code>.</p>
+      </section>
+
+      <section class="informative">
+        <h4><code>#time-clock-with-frames</code></h4>
+
+        <p>As specified in [[ttml2]], a <code>#time-clock-with-frames</code> expression is translated to a media time M according
+        to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
+        <code>ttp:frameRate</code>)).</p>
+      </section>
+
+      <section id="timing">
+        <h4><code>#timing</code></h4>
+
+        <p>For any content element that contains <code>br</code> elements or text nodes, both the <code>begin</code> attribute and
+        one of either the <code>end</code> or <code>dur</code> attributes SHOULD be specified on the content element or at least one
+        of its ancestors.</p>
+      </section>
+
+      <section class="informative" id="usesForced-named-metadata">
+        <h4><code>usesForced</code> named metadata item</h4>
+
+        <p>The <code>usesForced</code> named metadata item does not apply since the <code>condition</code> attribute is
+        prohibited.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute is used to specify forced content semantics.</p>
+      </section>
+
+      <section class="informative" id="zindex-constraints">
+        <h4><code>#zIndex</code></h4>
+
+        <p>This feature has no effect since, as specified at <a href='#region-dim-pos'></a>, <a data-lt=
+        "presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
+      </section>
     </section>
 
-    <section id="section-font-resources">
-      <h3>Font Resources</h3>
+    <section id="document-complexity">
+      <h3>Document Complexity</h3>
 
-      <p>A <a>Presentation Processor</a> SHALL support <a>font resources</a> of the following media types,
-      as defined in [[!IANA-MEDIA-TYPES]]:</p>
+      <p>A <a>Text Profile</a> document SHOULD conform to the Hypothetical Render Model specified at [[!imsc-hrm]].</p>
 
-      <ul>
-        <li><a href="https://www.iana.org/assignments/media-types/font/otf"><code>font/otf</code></a> with TrueType or CFF glyph data; or</li>
-        <li><a href="https://www.iana.org/assignments/media-types/font/woff"><code>font/woff</code></a> with TrueType or CFF glyph data.</li>
-      </ul>
-
-      <p class="note">[[IANA-MEDIA-TYPES]] specifies that the media type <a href="https://www.iana.org/assignments/media-types/font/otf">
-      <code>font/otf</code></a> includes file extensions <code>.ttf</code> and <code>.otf</code>.</p>
+      <p class="note">This limits the complexity of the <a>Text Profile</a> document, so that playback systems can render the
+      content synchronized with the author-specified display times.</p>
     </section>
 
-    <section>
+    <section id="document-encoding">
       <h3>Document Encoding</h3>
 
       <p>A <a>Document Instance</a> SHALL be concretely encoded as a well-formed XML 1.0 [[!xml]] document using the UTF-8
@@ -2064,6 +2404,452 @@ var respecConfig = {
 
       <p class="note">The resulting [[xml]] document can contain <em>character references</em>, and <em>entity references</em> to
       <em>predefined entities</em>.</p>
+    </section>
+
+    <section id='imsc-extensions'>
+      <h3>Extension Vocabulary</h3>
+
+      <section id='ittp-activeArea'>
+        <h4>ittp:activeArea</h4>
+
+        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the <a>Root Container Region</a> that the
+        author intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions
+        within the <a>Document Instance</a>.</p>
+
+        <div class='note'>
+          <p>Under normal circumstances, the entirety of the <a>Root Container Region</a> is presented. However, under special
+          circumstances, such as when the <a>related video object</a> is cropped, a system can, for instance, use the
+          <code>ittp:activeArea</code> parameter to avoid cropping areas of the <a>Root Container Region</a> that are intended to
+          be visible to the viewer. The specific behavior of the system is however left undefined intentionally: the system can
+          select a presentation mode appropriate to the display shape, user preferences, etc. The <code>ittp:activeArea</code> is
+          analogous to the Active Format Description (AFD) metadata commonly used in broadcast applications.</p>
+        </div>
+
+        <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
+
+        <p>If present, the <code>ittp:activeArea</code> attribute SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+ittp:activeArea
+  : leftOffset topOffset width height
+
+leftOffset | topOffset | width | height
+  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The <code>width</code> percentage value is relative to the width of the <a>Root Container Region</a>.</p>
+
+        <p>The <code>height</code> percentage value is relative to the height of the <a>Root Container Region</a>.</p>
+
+        <p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
+
+        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the <a>Root
+        Container Region</a> and the <a>Active Area</a>.</p>
+
+        <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
+        <pre class="nohighlight">
+x = leftOffset * (1 - width/100)
+y = topOffset * (1 - height/100)
+
+</pre>
+
+        <div class='note'>
+          <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code>
+          property where a two percentage value position is used.</p>
+        </div>
+
+        <div class='note'>
+          <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
+          <a>Root Container Region</a> in any dimension.</p>
+        </div>
+
+        <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
+        element.</p>
+
+        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the <a>Root Container
+        Region</a>.</p>
+        <pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'>
+</pre>
+      </section>
+
+      <section id='ittm-altText'>
+        <h4>ittm:altText</h4>
+
+        <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+        defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+        <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
+        support indexing of the content, or facilitate quality checking of the document. It can also be used by assistive
+        technologies.</p>
+
+        <p class="note">The <code>#altText</code> feature is primarily useful in providing a text alternative to image-based
+        subtitles and captions, which are not supported by the <a>Text Profile</a>.</p>
+
+        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
+        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
+
+        <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+&lt;ittm:altText
+  xml:id = ID
+  xml:lang = string
+  xml:space = (default|preserve)
+  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
+  Content: #PCDATA
+&lt;/ittm:altText&gt;
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
+
+      </section>
+
+      <section id='ittp-aspectRatio'>
+        <h4>ittp:aspectRatio</h4>
+
+        <p class="deprecation">The <code>#aspectRatio</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+        defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
+
+        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the <a>Root Container Region</a>
+        of a <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
+
+        <p>If present, the <code>ittp:aspectRatio</code> attribute SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+ittp:aspectRatio
+  : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
+                                   // where int(s) parses string s as a decimal integer.
+
+numerator | denominator
+  : &lt;digit&gt;+                       // no linear white-space is implied or permitted
+                                   // between each &lt;digit&gt; token
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>An <code>ittp:aspectRatio</code> attribute is considered to be significant only when specified on the <code>tt</code>
+        element.</p>
+
+        <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
+        ratio of the <a>Root Container Region</a>. If not specified, then the display aspect ratio of the <a>Root Container
+        Region</a> is determined according to Appendix H of [[!ttml2]].</p>
+      </section>
+
+      <section id='itts-fillLineGap'>
+        <h4>itts:fillLineGap</h4>
+
+        <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background between
+        successive line areas.</p>
+
+        <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated by descendant spans of the
+        <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area
+        (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
+
+        <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
+
+        <table class="simple">
+          <colgroup>
+            <col style="width:25%" span="1">
+            <col span="1">
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <td><em>Values:</em></td>
+
+              <td><code>false | true</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Initial:</em></td>
+
+              <td><code>false</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Applies to:</em></td>
+
+              <td><code>p</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Inherited:</em></td>
+
+              <td>yes</td>
+            </tr>
+
+            <tr>
+              <td><em>Percentages:</em></td>
+
+              <td>N/A</td>
+            </tr>
+
+            <tr>
+              <td><em>Animatable:</em></td>
+
+              <td>discrete</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap
+        exists between its lines.</p>
+        <pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'>
+</pre>
+
+        <figure id='fig-fillLineGap'>
+          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
+
+          <figcaption>
+            Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
+            preserved (right). Blue lines have been added to show the <em>before-edge</em> and <em>after-edge</em> of each line
+            area, which are coincident for successive line areas.
+          </figcaption>
+        </figure>
+
+        <p>Also, as illustrated in the following example, because the line areas of successive <code>p</code> elements are
+        contiguous, no gap exists between two successive <code>p</code> elements where <code>itts:fillLineGap="true"</code>.</p>
+        <pre class='example' data-include='examples/fillLineGap-example-2.xml' data-include-format='text'>
+</pre>
+
+        <figure id='fig-fillLineGap-2'>
+          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
+
+          <figcaption>
+            Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
+            paragraphs of the top region, <code>itts:fillLineGap="false"</code> on the two paragraphs of the bottom region.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id='itts-forcedDisplay'>
+        <h4>itts:forcedDisplay</h4>
+
+        <p>The <code>itts:forcedDisplay</code> attribute can be used to hide content when the processor has been configured to do so
+        via the application parameter <code><a>displayForcedOnlyMode</a></code>.</p>
+
+        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
+        single document contains both hard of hearing captions and translated foreign language subtitles, using
+        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
+        captions are displayed or hidden.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
+
+        <table class="simple">
+          <colgroup>
+            <col style="width:25%" span="1">
+            <col span="1">
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <td><em>Values:</em></td>
+
+              <td><code>false | true</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Initial:</em></td>
+
+              <td><code>false</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Applies to:</em></td>
+
+              <td><code>body</code>, <code>div</code>, <code>p</code>, <code>region</code>, <code>span</code></td>
+            </tr>
+
+            <tr>
+              <td><em>Inherited:</em></td>
+
+              <td>yes</td>
+            </tr>
+
+            <tr>
+              <td><em>Percentages:</em></td>
+
+              <td>N/A</td>
+            </tr>
+
+            <tr>
+              <td><em>Animatable:</em></td>
+
+              <td>discrete</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>If and only if the value of <code><a>displayForcedOnlyMode</a></code> is <code>"true"</code>, a content element with a
+        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
+        of the computed value of <code>tts:visibility</code>.</p>
+
+        <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
+        whether composed content is visible or not.</p>
+
+        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code><dfn>displayForcedOnlyMode</dfn></code>,
+        whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
+        <code><a>displayForcedOnlyMode</a></code> SHALL be assumed to be equal to <code>"false"</code>.</p>
+
+        <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter based on the circumstances under which the
+        <a>Document Instance</a> is presented is left to the application.</p>
+        <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
+</pre>
+
+        <p class='note'>As specified in [[ttml2]], the background of a region can be visible even if the computed value of
+        <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
+        which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
+        <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
+        <code><a>displayForcedOnlyMode</a></code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
+        that content elements and the regions that they are flowed into always have the same value of
+        <code>itts:forcedDisplay</code>.</p>
+
+        <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
+        style construct in a future revision of this specification.</p>
+
+        <p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be compatible
+        with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
+      </section>
+
+      <section id='ittp-progressivelyDecodable'>
+        <h4>ittp:progressivelyDecodable</h4>
+
+        <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in
+        the profiles defined by this specification.</p>
+
+        <p>A <a>progressively decodable Document Instance</a> is structured to facilitate presentation before the document is
+        received in its entirety, and can be identified using <code>ittp:progressivelyDecodable</code> attribute.</p>
+
+        <p>A <dfn>progressively decodable Document Instance</dfn> is a <a>Document Instance</a> that conforms to the following:</p>
+
+        <ol>
+          <li>no attribute or element of the TTML timing vocabulary is present within the <code>head</code> element;</li>
+
+          <li>given two <a data-lt="intermediate synchronic document">intermediate synchronic documents</a> <em>A</em> and
+          <em>B</em> of the <a>Document Instance</a>, with start times <em>TA</em> and <em>TB</em>, respectively, <em>TA</em> is
+          not greater than <em>TB</em> if <em>A</em> includes a <code>p</code> element that lexically precedes any <code>p</code>
+          element that <em>B</em> includes;
+          </li>
+
+          <li>no attribute of the TTML timing vocabulary is present on a descendant element of <code>p</code>; and</li>
+
+          <li>no element <em>E1</em> explicitly references another element <em>E2</em> where the opening tag of <em>E2</em> is
+          lexically subsequent to the opening tag of <em>E1</em>.</li>
+        </ol>
+
+        <p>If present, the <code>ittp:progressivelyDecodable</code> attribute SHALL conform to the following syntax:</p>
+
+        <table class="syntax">
+          <tbody>
+            <tr>
+              <td>
+                <div class="exampleInner">
+                  <pre class="nohighlight">
+ittp:progressivelyDecodable
+  : "true"
+  | "false"
+</pre>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>An <code>ittp:progressivelyDecodable</code> attribute is considered to be significant only when specified on the
+        <code>tt</code> element.</p>
+
+        <p>If not specified, the value of <code>ittp:progressivelyDecodable</code> SHALL be considered to be equal to
+        <code>"false"</code>.</p>
+
+        <p>A <a>Document Instance</a> for which the computed value of <code>ittp:progressivelyDecodable</code> is
+        <code>"true"</code> SHALL be a <a>progressively decodable Document Instance</a>.</p>
+
+        <p>A <a>Document Instance</a> for which the computed value of <code>ittp:progressivelyDecodable</code> is
+        <code>"false"</code> is neither asserted to be a <a>progressively decodable Document Instance</a> nor asserted not to be a
+        progressively decodable <a>Document Instance</a>.</p>
+        <pre class='example'>
+&lt;tt
+  xmlns=&quot;http://www.w3.org/ns/ttml&quot;
+  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
+  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
+  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
+  xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
+  ittp:progressivelyDecodable=&quot;true&quot;
+  ttp:profile=&quot;...&quot;
+ &gt;
+ ...
+&lt;/tt&gt;
+</pre>
+
+        <div class='note'>
+          <p>[[ttml2]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
+          circumstances:</p>
+
+          <ul>
+            <li>an element in <code>body</code> referencing <code>region</code> elements. In this case, Requirement 4 above is
+            always satisfied.</li>
+
+            <li>an element in <code>body</code> referencing <code>style</code> elements. In this case, Requirement 4 above is
+            always satisfied.</li>
+
+            <li>a <code>region</code> element referencing <code>style</code> elements. In this case, Requirement 4 above is always
+            satisfied.</li>
+
+            <li>a <code>style</code> element referencing other <code>style</code> elements. In this case, Requirement 4 provides an
+            optimization of <code>style</code> element ordering within the <code>head</code> element.</li>
+
+            <li>a <code>ttm:actor</code> element referencing a <code>ttm:agent</code> element. In this case, Requirement 4 provides
+            optimization of metadata elements ordering within the document.</li>
+
+            <li>a content element referencing <code>ttm:agent</code> elements using the <code>ttm:agent</code> attribute. In this
+            case, Requirement 4 provides optimization of metadata elements ordering within the document.</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+    <section id="section-font-resources">
+      <h3>Font Resources</h3>
+
+      <p>A <a>Presentation Processor</a> SHALL support <a>font resources</a> of the following media types,
+      as defined in [[!IANA-MEDIA-TYPES]]:</p>
+
+      <ul>
+        <li><a href="https://www.iana.org/assignments/media-types/font/otf"><code>font/otf</code></a> with TrueType or CFF glyph data; or</li>
+        <li><a href="https://www.iana.org/assignments/media-types/font/woff"><code>font/woff</code></a> with TrueType or CFF glyph data.</li>
+      </ul>
+
+      <p class="note">[[IANA-MEDIA-TYPES]] specifies that the media type <a href="https://www.iana.org/assignments/media-types/font/otf">
+      <code>font/otf</code></a> includes file extensions <code>.ttf</code> and <code>.otf</code>.</p>
     </section>
 
     <section id='foreign-elements'>
@@ -2084,6 +2870,77 @@ var respecConfig = {
       <div class="note">
         For validation purposes it is good practice to define and use a content specification for all foreign namespace elements
         and attributes used within a <a data-lt="Document Instance">Document Instance</a>.
+      </div>
+    </section>
+
+    <section id="mapping-root-related-video">
+      <h3>Mapping the <a>Root Container Region</a> to the <a>Related Video Object</a></h3>
+
+      <p>The <a>Root Container Region</a> of a <a>Document Instance</a> SHALL be mapped to a rectangular area within each image
+      frame of the <a>Related Video Object</a> according to the following:</p>
+
+      <ol style="list-style-type: lower-roman;">
+        <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the <a>Root
+        Container Region</a> as determined in Appendix H of [[!ttml2]];
+        </li>
+
+        <li>the center of the rectangular area is collocated with the center of the image frame;</li>
+
+        <li>the rectangular area is entirely within the image frame; and</li>
+
+        <li>the rectangular area has a height or width equal to that of the image frame.</li>
+      </ol>
+
+      <aside class='example'>
+        <p>Region with <code>xml:id="A"</code> in the following document would be positioned 20% from the left edge of an image
+        frame with an aspect ratio of 16:9, or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
+        <pre class="nohighlight">
+&lt;tt
+  xmlns=&quot;http://www.w3.org/ns/ttml&quot;
+  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
+  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
+  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
+  xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
+  ttp:displayAspectRatio=&quot;4 3&quot;
+  tts:extent=&quot;400px 300px&quot;
+  ttp:contentProfiles=&quot;...&quot;
+ &gt;
+ ...
+ &lt;region xml:id=&quot;A&quot; tts:origin=&quot;40px 10px&quot; tts:extent=&quot;320px 10px&quot;&gt;
+ ...
+&lt;/tt&gt;
+</pre>
+      </aside>
+
+      <div class="note">
+        The mapping algorithm above allows the author to precisely control caption/subtitle position relative to elements within
+        each frame of the video program, e.g. to match the position of actors. This mapping algorithm does not however specify the
+        presentation of either the video frame or <a>Root Container Region</a> on the ultimate display device. This presentation
+        depends on many factors, including user input, and can involve displaying only parts of the content. Authors are therefore
+        encouraged to follow best practices for the intended target applications. Below are selected examples:
+
+        <ul style="list-style-type:lower-alpha">
+          <li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut.
+          Accordingly subtitle/captions are authored using <code>ttp:displayAspectRatio="4 3"</code>, allowing the combination to
+          be displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative
+          position of caption/subtitles with video elements.</li>
+
+          <li>A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The
+          system elects to scale the <a>Root Container Region</a> to fit vertically within the display (maintaining its aspect
+          ratio as authored), at the cost of losing relative positioning between caption/subtitles and video elements.
+          </li>
+
+          <li>The system described in (b) instead elects to map the <a>Root Container Region</a> to the video frame, maintaining
+          relative positioning between caption/subtitles and video elements but at the risk of clipping subtitles/captions.
+          </li>
+
+          <li>Subtitle/captions are authored using <code>ttp:displayAspectRatio="16 9"</code> to match the 16:9 video, but
+          <code>ittp:activeArea</code> indicates that the <a>Active Area</a> is smaller than the <a>Root Container Region</a>. The
+          system, which uses a 4:3 display, elects to scale the video and the <a>Root Container Region</a> such that all of the
+          subtitle/caption content within the <a>Active Area</a> is visible, with positional alignment maintained, at the cost of
+          clipping some of the video.
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -2235,124 +3092,77 @@ var respecConfig = {
       reserved for future standardization by the W3C.</p>
     </section>
 
-    <section>
+    <section id="overflow">
       <h3>Overflow</h3>
 
       <p>A <a>Document Instance</a> SHOULD be authored assuming strict clipping of content that falls out of region areas,
       regardless of the computed value of <code>tts:overflow</code> for the region.</p>
     </section>
 
-    <section>
-      <h3>Related Video Object</h3>
+    <section id='profile-signaling'>
+      <h3>Profile Signaling</h3>
 
-      <p>A <a>Document Instance</a> MAY be associated with a <a>Related Video Object</a>.</p>
+      <section>
+        <h4>General</h4>
 
-      <p class="note">While this specification contains specific provisions when a <a>Document Instance</a> is associated with a
-      <a>Related Video Object</a>, it does not prevent the use of a <a>Document Instance</a> with other kinds of <a>Related Media
-      Object</a>, e.g. an audio object.</p>
+        <p>The <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element, with exactly one of its
+        values equal to the designator <a>Text Profile</a>.</p>
+
+        <p class="note">The <code>ttp:contentProfiles</code> attribute is prohibited in some profiles, e.g. [[EBU-TT-D]] as
+        discussed in <a href="#ebu-tt-d-interop"></a>.</p>
+
+        <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
+        other syntax introduced in [[ttml2]] is not recommended in documents intended to conform to profiles that are based on
+        [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
+
+        <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
+        herein, including designators for other versions of this specification.</p>
+
+        <p class="note"><a href="#profile-resolution"></a> specifies the process by which the <a>effective processor profile</a>
+        associated with the <a>Document Instance</a> is determined.</p>
+      </section>
+
+      <section id="ebu-tt-signaling">
+        <h4>Signaling conformance using EBU-TT metadata</h4>
+
+        <p>When using the <code>ebuttm:conformsToStandard</code> element specified in [[!EBU-TT-M]], the designators of the <a>Text
+        Profile</a> SHALL be used when indicating conformance to the corresponding profile.</p>
+
+        <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
+        of this section.</p>
+      </section>
     </section>
 
-    <section>
-      <h3>Synchronization</h3>
+    <section id='recommended-char-sets'>
+      <h3>Recommended Character Sets</h3>
 
-      <p>Each <a>intermediate synchronic document</a> of the <a>Document Instance</a> is intended to be displayed on a specific
-      frame and removed on a specific frame of the <a>Related Video Object</a>.</p>
-
-      <p>When mapping a media time expression M to a frame F of a <a>Related Video Object</a>, e.g. for the purpose of rendering a
-      <a>Document Instance</a> onto the <a>Related Video Object</a>, the <a>presentation processor</a> SHALL map M to the frame F
-      with the presentation time that is the closest to, but not less, than M.</p>
-
-      <aside class="example">
-        A media time expression of 00:00:05.1 corresponds to frame ceiling( 5.1 × ( 1000 / 1001 × 30) ) = 153 of a related video
-        object with a frame rate of 1000 / 1001 × 30 ≈ 29.97.
-      </aside>
-
-      <p class="note">In typical scenario, the same video program (the <a>Related Video Object</a>) will be used for <a>Document
-      Instance</a> authoring, delivery and user playback. The mapping from media time expression to <a>Related Video Object</a>
-      above allows the author to precisely associate subtitle video content with video frames, e.g. around scene transitions. In
-      circumstances where the video program is downsampled during delivery, the application can specify that, at playback, the
-      relative video object be considered the delivered video program upsampled to is original rate, thereby allowing subtitle
-      content to be rendered at the same temporal locations it was authored.</p>
+      <p>A <a>Document Instance</a> SHOULD be authored using characters selected from the sets specified in <a href=
+      "#recommended-unicode-code-points-per-language"></a>.</p>
     </section>
 
-    <section>
-      <h3>Mapping the <a>Root Container Region</a> to the <a>Related Video Object</a></h3>
+    <section id="reference-fonts-constraints">
+      <h3>Reference Fonts</h3>
 
-      <p>The <a>Root Container Region</a> of a <a>Document Instance</a> SHALL be mapped to a rectangular area within each image
-      frame of the <a>Related Video Object</a> according to the following:</p>
+      <p>When rendering codepoints matching one of the combinations of computed font family and codepoints listed in <a href=
+      "#reference-fonts"></a>, a processor SHALL use a font that generates a glyph sequence whose dimension is substantially
+      identical to the glyph sequence that would have been generated by one of the specified reference fonts.</p>
 
-      <ol style="list-style-type: lower-roman;">
-        <li>the ratio of the width to the height of the rectangular area is equal to the display aspect ratio of the <a>Root
-        Container Region</a> as determined in Appendix H of [[!ttml2]];
-        </li>
+      <p class="note">This clause only applies to codepoints supported by the processor. See <a href="#recommended-char-sets"></a>
+      for codepoints that a processor is likely to encounter for various languages.</p>
 
-        <li>the center of the rectangular area is collocated with the center of the image frame;</li>
+      <p class="note">When a content author sets a bounding box for a subtitle, they want to maximize the likelihood that the text
+      will fit within it when displayed by the processor. If the processor doesn't use the specific font the content author had in
+      mind, the font actually used might cause the text to grow in size so that it no longer fits in the bounding box. This is
+      further compounded by differences in the way text wraps when a font has bigger glyphs, which might increase the number of
+      lines used, and increased line spacing, which might also push some of the text outside the bounding box.<br>
+      To help ensure that things such as text size, line breaking, and line height behave as expected relative to the size of the
+      bounding box set by the content author, the author can use one of the reference fonts defined by this specification. This
+      specification requires processors to support one or more fonts with similar font metrics as reference fonts. Note that,
+      however, the reference fonts as currently defined only cover characters used for a few writing systems – in particular, a
+      subset of those based on Latin, Greek, Cyrillic, Hebrew, and Arabic scripts.</p>
 
-        <li>the rectangular area is entirely within the image frame; and</li>
-
-        <li>the rectangular area has a height or width equal to that of the image frame.</li>
-      </ol>
-
-      <aside class='example'>
-        <p>Region with <code>xml:id="A"</code> in the following document would be positioned 20% from the left edge of an image
-        frame with an aspect ratio of 16:9, or 10% from the left edge of an image frame with an aspect ratio of 4:3.</p>
-        <pre class="nohighlight">
-&lt;tt
-  xmlns=&quot;http://www.w3.org/ns/ttml&quot;
-  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
-  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
-  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
-  xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
-  ttp:displayAspectRatio=&quot;4 3&quot;
-  tts:extent=&quot;400px 300px&quot;
-  ttp:contentProfiles=&quot;...&quot;
- &gt;
- ...
- &lt;region xml:id=&quot;A&quot; tts:origin=&quot;40px 10px&quot; tts:extent=&quot;320px 10px&quot;&gt;
- ...
-&lt;/tt&gt;
-</pre>
-      </aside>
-
-      <div class="note">
-        The mapping algorithm above allows the author to precisely control caption/subtitle position relative to elements within
-        each frame of the video program, e.g. to match the position of actors. This mapping algorithm does not however specify the
-        presentation of either the video frame or <a>Root Container Region</a> on the ultimate display device. This presentation
-        depends on many factors, including user input, and can involve displaying only parts of the content. Authors are therefore
-        encouraged to follow best practices for the intended target applications. Below are selected examples:
-
-        <ul style="list-style-type:lower-alpha">
-          <li>A 16:9 video program is authored to ensure adequate presentation on 4:3 display devices using a center-cut.
-          Accordingly subtitle/captions are authored using <code>ttp:displayAspectRatio="4 3"</code>, allowing the combination to
-          be displayed on both 4:3 and 16:9 display devices while preserving both caption/subtitles content and the relative
-          position of caption/subtitles with video elements.</li>
-
-          <li>A playback system zooms the content of example (a) to fill a 21:9 display, perhaps as instructed by the user. The
-          system elects to scale the <a>Root Container Region</a> to fit vertically within the display (maintaining its aspect
-          ratio as authored), at the cost of losing relative positioning between caption/subtitles and video elements.
-          </li>
-
-          <li>The system described in (b) instead elects to map the <a>Root Container Region</a> to the video frame, maintaining
-          relative positioning between caption/subtitles and video elements but at the risk of clipping subtitles/captions.
-          </li>
-
-          <li>Subtitle/captions are authored using <code>ttp:displayAspectRatio="16 9"</code> to match the 16:9 video, but
-          <code>ittp:activeArea</code> indicates that the <a>Active Area</a> is smaller than the <a>Root Container Region</a>. The
-          system, which uses a 4:3 display, elects to scale the video and the <a>Root Container Region</a> such that all of the
-          subtitle/caption content within the <a>Active Area</a> is visible, with positional alignment maintained, at the cost of
-          clipping some of the video.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h3>Document complexity</h3>
-
-      <p>A <a>Text Profile</a> document SHOULD conform to the Hypothetical Render Model specified at [[!imsc-hrm]].</p>
-
-      <p class="note">This limits the complexity of the <a>Text Profile</a> document, so that playback systems can render the
-      content synchronized with the author-specified display times.</p>
+      <p class="note">Implementations can use fonts other than those specified in <a href="#reference-fonts"></a>. Two fonts with
+      equal metrics can have a different appearance, but flow identically.</p>
     </section>
 
     <section id="region">
@@ -2400,468 +3210,14 @@ var respecConfig = {
       </section>
     </section>
 
-    <section id='imsc-extensions'>
-      <h3>Extension Vocabulary</h3>
+    <section id="related-video-object">
+      <h3>Related Video Object</h3>
 
-      <section id='ittp-aspectRatio'>
-        <h4>ittp:aspectRatio</h4>
+      <p>A <a>Document Instance</a> MAY be associated with a <a>Related Video Object</a>.</p>
 
-        <p class="deprecation">The <code>#aspectRatio</code> feature is designated as <em>permitted-deprecated</em> in the profiles
-        defined by this specification. The <code>#displayAspectRatio</code> feature provides equivalent semantics.</p>
-
-        <p>The <code>ittp:aspectRatio</code> attributes allows authorial control of the mapping of the <a>Root Container Region</a>
-        of a <a>Document Instance</a> to each image frame of the <a>Related Video Object</a>.</p>
-
-        <p>If present, the <code>ittp:aspectRatio</code> attribute SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-ittp:aspectRatio
-  : numerator denominator          // with int(numerator) != 0 and int(denominator) != 0
-                                   // where int(s) parses string s as a decimal integer.
-
-numerator | denominator
-  : &lt;digit&gt;+                       // no linear white-space is implied or permitted
-                                   // between each &lt;digit&gt; token
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>An <code>ittp:aspectRatio</code> attribute is considered to be significant only when specified on the <code>tt</code>
-        element.</p>
-
-        <p>If specified on the <code>tt</code> element, the <code>ittp:aspectRatio</code> attribute specifies the display aspect
-        ratio of the <a>Root Container Region</a>. If not specified, then the display aspect ratio of the <a>Root Container
-        Region</a> is determined according to Appendix H of [[!ttml2]].</p>
-      </section>
-
-      <section id='ittp-progressivelyDecodable'>
-        <h4>ittp:progressivelyDecodable</h4>
-
-        <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in
-        the profiles defined by this specification.</p>
-
-        <p>A <a>progressively decodable Document Instance</a> is structured to facilitate presentation before the document is
-        received in its entirety, and can be identified using <code>ittp:progressivelyDecodable</code> attribute.</p>
-
-        <p>A <dfn>progressively decodable Document Instance</dfn> is a <a>Document Instance</a> that conforms to the following:</p>
-
-        <ol>
-          <li>no attribute or element of the TTML timing vocabulary is present within the <code>head</code> element;</li>
-
-          <li>given two <a data-lt="intermediate synchronic document">intermediate synchronic documents</a> <em>A</em> and
-          <em>B</em> of the <a>Document Instance</a>, with start times <em>TA</em> and <em>TB</em>, respectively, <em>TA</em> is
-          not greater than <em>TB</em> if <em>A</em> includes a <code>p</code> element that lexically precedes any <code>p</code>
-          element that <em>B</em> includes;
-          </li>
-
-          <li>no attribute of the TTML timing vocabulary is present on a descendant element of <code>p</code>; and</li>
-
-          <li>no element <em>E1</em> explicitly references another element <em>E2</em> where the opening tag of <em>E2</em> is
-          lexically subsequent to the opening tag of <em>E1</em>.</li>
-        </ol>
-
-        <p>If present, the <code>ittp:progressivelyDecodable</code> attribute SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-ittp:progressivelyDecodable
-  : "true"
-  | "false"
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>An <code>ittp:progressivelyDecodable</code> attribute is considered to be significant only when specified on the
-        <code>tt</code> element.</p>
-
-        <p>If not specified, the value of <code>ittp:progressivelyDecodable</code> SHALL be considered to be equal to
-        <code>"false"</code>.</p>
-
-        <p>A <a>Document Instance</a> for which the computed value of <code>ittp:progressivelyDecodable</code> is
-        <code>"true"</code> SHALL be a <a>progressively decodable Document Instance</a>.</p>
-
-        <p>A <a>Document Instance</a> for which the computed value of <code>ittp:progressivelyDecodable</code> is
-        <code>"false"</code> is neither asserted to be a <a>progressively decodable Document Instance</a> nor asserted not to be a
-        progressively decodable <a>Document Instance</a>.</p>
-        <pre class='example'>
-&lt;tt
-  xmlns=&quot;http://www.w3.org/ns/ttml&quot;
-  xmlns:ttm=&quot;http://www.w3.org/ns/ttml#metadata&quot;
-  xmlns:tts=&quot;http://www.w3.org/ns/ttml#styling&quot;
-  xmlns:ttp=&quot;http://www.w3.org/ns/ttml#parameter&quot;
-  xmlns:ittp=&quot;http://www.w3.org/ns/ttml/profile/imsc1#parameter&quot;
-  ittp:progressivelyDecodable=&quot;true&quot;
-  ttp:profile=&quot;...&quot;
- &gt;
- ...
-&lt;/tt&gt;
-</pre>
-
-        <div class='note'>
-          <p>[[ttml2]] specifies explicitly referencing of elements identified using <code>xml:id</code> in the following
-          circumstances:</p>
-
-          <ul>
-            <li>an element in <code>body</code> referencing <code>region</code> elements. In this case, Requirement 4 above is
-            always satisfied.</li>
-
-            <li>an element in <code>body</code> referencing <code>style</code> elements. In this case, Requirement 4 above is
-            always satisfied.</li>
-
-            <li>a <code>region</code> element referencing <code>style</code> elements. In this case, Requirement 4 above is always
-            satisfied.</li>
-
-            <li>a <code>style</code> element referencing other <code>style</code> elements. In this case, Requirement 4 provides an
-            optimization of <code>style</code> element ordering within the <code>head</code> element.</li>
-
-            <li>a <code>ttm:actor</code> element referencing a <code>ttm:agent</code> element. In this case, Requirement 4 provides
-            optimization of metadata elements ordering within the document.</li>
-
-            <li>a content element referencing <code>ttm:agent</code> elements using the <code>ttm:agent</code> attribute. In this
-            case, Requirement 4 provides optimization of metadata elements ordering within the document.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id='itts-forcedDisplay'>
-        <h4>itts:forcedDisplay</h4>
-
-        <p>The <code>itts:forcedDisplay</code> attribute can be used to hide content when the processor has been configured to do so
-        via the application parameter <code><a>displayForcedOnlyMode</a></code>.</p>
-
-        <p>Annex <a href='#forced-content'></a> illustrates the use of <code>itts:forcedDisplay</code> in an application in which a
-        single document contains both hard of hearing captions and translated foreign language subtitles, using
-        <code>itts:forcedDisplay</code> to display translation subtitles always, independently of whether the hard of hearing
-        captions are displayed or hidden.</p>
-
-        <p>The <code>itts:forcedDisplay</code> attribute SHALL conform to the following:</p>
-
-        <table class="simple">
-          <colgroup>
-            <col style="width:25%" span="1">
-            <col span="1">
-          </colgroup>
-
-          <tbody>
-            <tr>
-              <td><em>Values:</em></td>
-
-              <td><code>false | true</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Initial:</em></td>
-
-              <td><code>false</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Applies to:</em></td>
-
-              <td><code>body</code>, <code>div</code>, <code>p</code>, <code>region</code>, <code>span</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Inherited:</em></td>
-
-              <td>yes</td>
-            </tr>
-
-            <tr>
-              <td><em>Percentages:</em></td>
-
-              <td>N/A</td>
-            </tr>
-
-            <tr>
-              <td><em>Animatable:</em></td>
-
-              <td>discrete</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>If and only if the value of <code><a>displayForcedOnlyMode</a></code> is <code>"true"</code>, a content element with a
-        <code>itts:forcedDisplay</code> computed value of <code>"false"</code> SHALL NOT produce any visible rendering, regardless
-        of the computed value of <code>tts:visibility</code>.</p>
-
-        <p>The <code>itts:forcedDisplay</code> attribute has no effect on content layout or composition, but merely determines
-        whether composed content is visible or not.</p>
-
-        <p>The <a>presentation processor</a> SHALL accept an optional boolean parameter called <code><dfn>displayForcedOnlyMode</dfn></code>,
-        whose value MAY be set by a context external to the <a>presentation processor</a>. If not set, the value of
-        <code><a>displayForcedOnlyMode</a></code> SHALL be assumed to be equal to <code>"false"</code>.</p>
-
-        <p>The algorithm for setting the <code><a>displayForcedOnlyMode</a></code> parameter based on the circumstances under which the
-        <a>Document Instance</a> is presented is left to the application.</p>
-        <pre class='example' data-include='examples/forcedDisplay-example.xml' data-include-format='text'>
-</pre>
-
-        <p class='note'>As specified in [[ttml2]], the background of a region can be visible even if the computed value of
-        <code>tts:visibility</code> equals <code>"hidden"</code> for all active content within. The background of a region for
-        which <code>itts:forcedDisplay</code> equals <code>"true"</code> can therefore remain visible even if
-        <code>itts:forcedDisplay</code> equals <code>"false"</code> for all active content elements within the region and
-        <code><a>displayForcedOnlyMode</a></code> equals <code>"true"</code>. Authors can avoid this situation, for instance, by ensuring
-        that content elements and the regions that they are flowed into always have the same value of
-        <code>itts:forcedDisplay</code>.</p>
-
-        <p class='note'>It is expected that the functionality of <code>itts:forcedDisplay</code> will be mapped to a conditional
-        style construct in a future revision of this specification.</p>
-
-        <p class='note'>The presentation semantics associated with <code>itts:forcedDisplay</code> are intended to be compatible
-        with those associated with the <code>forcedDisplayMode</code> attribute defined in [[CFF]].</p>
-      </section>
-
-      <section id='ittm-altText'>
-        <h4>ittm:altText</h4>
-
-        <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
-        defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
-
-        <p><code>ittm:altText</code> allows an author to provide a text string equivalent for an element, which MAY be used to
-        support indexing of the content, or facilitate quality checking of the document. It can also be used by assistive
-        technologies.</p>
-
-        <p class="note">The <code>#altText</code> feature is primarily useful in providing a text alternative to image-based
-        subtitles and captions, which are not supported by the <a>Text Profile</a>.</p>
-
-        <p class='note'>In contrast to the common use of <code>alt</code> attributes in [[HTML]], the <code>ittm:altText</code>
-        attribute content is not intended to be displayed in place of the element if the element is not loaded.</p>
-
-        <p>The <code>ittm:altText</code> element SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-&lt;ittm:altText
-  xml:id = ID
-  xml:lang = string
-  xml:space = (default|preserve)
-  {any attribute not in the default namespace, any TT namespace or any IMSC namespace}&gt;
-  Content: #PCDATA
-&lt;/ittm:altText&gt;
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>The <code>ittm:altText</code> element SHALL be a child of the <code>metadata</code> element.</p>
-
-      </section>
-
-      <section id='ittp-activeArea'>
-        <h4>ittp:activeArea</h4>
-
-        <p>The <dfn>Active Area</dfn> of a <a>Document Instance</a> is the area within the <a>Root Container Region</a> that the
-        author intends to be minimally visible to the viewer. This area typically fully contains all of the referenced regions
-        within the <a>Document Instance</a>.</p>
-
-        <div class='note'>
-          <p>Under normal circumstances, the entirety of the <a>Root Container Region</a> is presented. However, under special
-          circumstances, such as when the <a>related video object</a> is cropped, a system can, for instance, use the
-          <code>ittp:activeArea</code> parameter to avoid cropping areas of the <a>Root Container Region</a> that are intended to
-          be visible to the viewer. The specific behavior of the system is however left undefined intentionally: the system can
-          select a presentation mode appropriate to the display shape, user preferences, etc. The <code>ittp:activeArea</code> is
-          analogous to the Active Format Description (AFD) metadata commonly used in broadcast applications.</p>
-        </div>
-
-        <p>The <a>Active Area</a> is specified using the <code>ittp:activeArea</code> attribute.</p>
-
-        <p>If present, the <code>ittp:activeArea</code> attribute SHALL conform to the following syntax:</p>
-
-        <table class="syntax">
-          <tbody>
-            <tr>
-              <td>
-                <div class="exampleInner">
-                  <pre class="nohighlight">
-ittp:activeArea
-  : leftOffset topOffset width height
-
-leftOffset | topOffset | width | height
-  : &lt;percentage&gt;                // where &lt;percentage&gt; is non-negative and not greater than 100%.
-</pre>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>The <code>width</code> percentage value is relative to the width of the <a>Root Container Region</a>.</p>
-
-        <p>The <code>height</code> percentage value is relative to the height of the <a>Root Container Region</a>.</p>
-
-        <p>The <code>width</code> and <code>height</code> percentage values are the width and height of the <a>Active Area</a>.</p>
-
-        <p>The <code>leftOffset</code> and <code>topOffset</code> percentage values specify an alignment point between the <a>Root
-        Container Region</a> and the <a>Active Area</a>.</p>
-
-        <p>The origin top left {x, y} percentage coordinates of the <a>Active Area</a> SHALL be calculated as follows:</p>
-        <pre class="nohighlight">
-x = leftOffset * (1 - width/100)
-y = topOffset * (1 - height/100)
-
-</pre>
-
-        <div class='note'>
-          <p>The use of left and top offset positions is co-incident with the [[css3-background]] <code>background-position</code>
-          property where a two percentage value position is used.</p>
-        </div>
-
-        <div class='note'>
-          <p>The syntax of the <code>ittp:activeArea</code> parameter is such that the <a>Active Area</a> cannot extend outside the
-          <a>Root Container Region</a> in any dimension.</p>
-        </div>
-
-        <p>The <code>ittp:activeArea</code> attribute is considered to be significant only when specified on the <code>tt</code>
-        element.</p>
-
-        <p>If the <code>ittp:activeArea</code> attribute is not specified, the <a>Active Area</a> SHALL be the <a>Root Container
-        Region</a>.</p>
-        <pre class='example' data-include='examples/activeArea-example.xml' data-include-format='text'>
-</pre>
-      </section>
-
-      <section id='itts-fillLineGap'>
-        <h4>itts:fillLineGap</h4>
-
-        <p>The <code>itts:fillLineGap</code> attribute allows the author to control the application of background between
-        successive line areas.</p>
-
-        <p>If <code>itts:fillLineGap="true"</code> then the background of each inline area generated by descendant spans of the
-        <code>p</code> element SHALL extend to the <em>before-edge</em> and <em>after-edge</em> of its containing line area
-        (<em>before-edge</em> and <em>after-edge</em> are defined at Section 4.2.3 of [[XSL11]]).</p>
-
-        <p>The <code>itts:fillLineGap</code> attribute SHALL conform to the following:</p>
-
-        <table class="simple">
-          <colgroup>
-            <col style="width:25%" span="1">
-            <col span="1">
-          </colgroup>
-
-          <tbody>
-            <tr>
-              <td><em>Values:</em></td>
-
-              <td><code>false | true</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Initial:</em></td>
-
-              <td><code>false</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Applies to:</em></td>
-
-              <td><code>p</code></td>
-            </tr>
-
-            <tr>
-              <td><em>Inherited:</em></td>
-
-              <td>yes</td>
-            </tr>
-
-            <tr>
-              <td><em>Percentages:</em></td>
-
-              <td>N/A</td>
-            </tr>
-
-            <tr>
-              <td><em>Animatable:</em></td>
-
-              <td>discrete</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>In the following example, the <code>p</code> specifies <code>itts:fillLineGap="true"</code>, and, as a result, no gap
-        exists between its lines.</p>
-        <pre class='example' data-include='examples/fillLineGap-example.xml' data-include-format='text'>
-</pre>
-
-        <figure id='fig-fillLineGap'>
-          <img src="figures/fillLineGap-example-figure-1.png" alt="itts:fillLineGap rendering example 1">
-
-          <figcaption>
-            Illustrative rendition of the example immediately above with <code>itts:fillLineGap="true"</code> removed (left) or
-            preserved (right). Blue lines have been added to show the <em>before-edge</em> and <em>after-edge</em> of each line
-            area, which are coincident for successive line areas.
-          </figcaption>
-        </figure>
-
-        <p>Also, as illustrated in the following example, because the line areas of successive <code>p</code> elements are
-        contiguous, no gap exists between two successive <code>p</code> elements where <code>itts:fillLineGap="true"</code>.</p>
-        <pre class='example' data-include='examples/fillLineGap-example-2.xml' data-include-format='text'>
-</pre>
-
-        <figure id='fig-fillLineGap-2'>
-          <img src="figures/fillLineGap-example-figure-2.png" alt="itts:fillLineGap rendering example 2">
-
-          <figcaption>
-            Illustrative rendition of the example immediately above, where <code>itts:fillLineGap="true"</code> on the two
-            paragraphs of the top region, <code>itts:fillLineGap="false"</code> on the two paragraphs of the bottom region.
-          </figcaption>
-        </figure>
-      </section>
-    </section>
-
-    <section id='profile-signaling'>
-      <h3>Profile Signaling</h3>
-
-      <section>
-        <h4>General</h4>
-
-        <p>The <code>ttp:contentProfiles</code> attribute SHOULD be present on the <code>tt</code> element, with exactly one of its
-        values equal to the designator <a>Text Profile</a>.</p>
-
-        <p class="note">The <code>ttp:contentProfiles</code> attribute is prohibited in some profiles, e.g. [[EBU-TT-D]] as
-        discussed in <a href="#ebu-tt-d-interop"></a>.</p>
-
-        <p class="note">To minimize the risk of incompatibility, the use of the <code>ttp:contentProfiles</code> attribute and
-        other syntax introduced in [[ttml2]] is not recommended in documents intended to conform to profiles that are based on
-        [[TTML1]], e.g. [[SMPTE2052-1]], [[ttml-imsc1]] , [[ttml-imsc1.0.1]] , or [[ttml10-sdp-us]].</p>
-
-        <p class="note">The <code>ttp:contentProfiles</code> attribute can include additional designators, beyond those specified
-        herein, including designators for other versions of this specification.</p>
-
-        <p class="note"><a href="#profile-resolution"></a> specifies the process by which the <a>effective processor profile</a>
-        associated with the <a>Document Instance</a> is determined.</p>
-      </section>
-
-      <section id="ebu-tt-signaling">
-        <h4>Signaling conformance using EBU-TT metadata</h4>
-
-        <p>When using the <code>ebuttm:conformsToStandard</code> element specified in [[!EBU-TT-M]], the designators of the <a>Text
-        Profile</a> SHALL be used when indicating conformance to the corresponding profile.</p>
-
-        <p class="note">See <a href="#ebu-tt-d-interop"></a> for a sample <a>Document Instance</a> that follows the recommendations
-        of this section.</p>
-      </section>
+      <p class="note">While this specification contains specific provisions when a <a>Document Instance</a> is associated with a
+      <a>Related Video Object</a>, it does not prevent the use of a <a>Document Instance</a> with other kinds of <a>Related Media
+      Object</a>, e.g. an audio object.</p>
     </section>
 
     <section id='style-resolution-procedure'>
@@ -2884,383 +3240,29 @@ y = topOffset * (1 - height/100)
       Section 10.1.1 of [[ttml2]].</p>
     </section>
 
-    <section>
-      <h3>Constraints on Features and Extensions</h3>
+    <section id="sync-related-video-object">
+      <h3>Synchronization</h3>
 
-      <section id="text-color">
-        <h4><code>#color</code></h4>
+      <p>Each <a>intermediate synchronic document</a> of the <a>Document Instance</a> is intended to be displayed on a specific
+      frame and removed on a specific frame of the <a>Related Video Object</a>.</p>
 
-        <p>The initial value of <code>tts:color</code> SHALL be <code>"white"</code>.</p>
+      <p>When mapping a media time expression M to a frame F of a <a>Related Video Object</a>, e.g. for the purpose of rendering a
+      <a>Document Instance</a> onto the <a>Related Video Object</a>, the <a>presentation processor</a> SHALL map M to the frame F
+      with the presentation time that is the closest to, but not less, than M.</p>
 
-        <p class="note">This is consistent with [[SMPTE2052-1]].</p>
-
-        <p class="note">The named color <code>green</code> defined in [[ttml2]] is equivalent to the RGB color triple
-        <code>#008000</code> and is not full luminance. For full luminance green, an author can specify the RGB color triple
-        <code>#00ff00</code> or the named color <code>lime</code>.</p>
-      </section>
-
-      <section id="text-extent-region">
-        <h4><code>#extent-region</code></h4>
-
-        <p>For each <code>region</code> element defined in the <a>Document Instance</a>, the <a>specified value</a> of the <code>tts:extent</code> style
-        property SHALL consist of two length expressions that use pixel (px), percentage (%), or root container relative units.</p>
-
-        <p class="note">If no <code>region</code> element is defined in the <a>Document Instance</a>, then content flows into the <a>default region</a>;
-        conversely, if one or more <code>region</code> elements are defined in the <a>Document Instance</a>, the <a>default region</a> is not used.</p>
-
-        <p class="note">The requirement above requires the author to explicitly specify the value of <code>tts:extent</code> in the <a>Document Instance</a>,
-        e.g. by specifying the <code>tts:extent</code> attribute for each <code>region</code> element.</p>
-      </section>
-
-      <section id="text-font-source">
-        <h4><code>#font</code> and <code>#source</code></h4>
-
-        <p>A <code>font</code> element in the <a>Document Instance</a> SHALL not specify a <code>src</code> attribute.
-
-        <p>All <code>source</code> elements that are children of a <code>font</code> element SHALL reference an <a>external data resource</a>.</p>
-
-        <aside class="note">A <a>font resource</a> can reference an <a>external data resource</a> with a type not supported at
-        <a href="#section-font-resources"></a>, in which case a sibling <a>external data resources</a> with a supported type can also be specified
-        for fallback processing.</aside>
-
-        <aside class="note">As specified in [[ttml2]], a <code>font</code> element specifies one or more child source elements if it does not
-        specify a <code>src</code> attribute.</aside>
-
-        <aside class='example'>
-        <p>A <code>font</code> element referencing an <a>external data resource</a>.</p>
-        <pre class="nohighlight">
-...
-&lt;head&gt;
-  &lt;resources&gt;
-    &lt;font family=&quot;example_font&quot; range=&quot;u+20-7f,u+90-9f&quot;&gt;
-      &lt;source src=&quot;https://example.com/fonts/myfont.otf&quot; type=&quot;font/otf&quot;/&gt;
-    &lt;/font&gt;
-  &lt;/resources&gt;
-&lt;/head&gt;
-...
-&lt;p tts:fontFamily=&quot;example_font&quot;&gt;Text using the font referenced by an external data resource.&lt;/p&gt;
-...
-</pre>
+      <aside class="example">
+        A media time expression of 00:00:05.1 corresponds to frame ceiling( 5.1 × ( 1000 / 1001 × 30) ) = 153 of a related video
+        object with a frame rate of 1000 / 1001 × 30 ≈ 29.97.
       </aside>
 
-      <p>A <a>Processor</a> MAY use the [[css-fonts-3]] §5 font
-        matching algorithm for associating a font with a run of text.</p>
-
-      <aside class="note">
-        When the computed value of <code>tts:fontSelectionStrategy</code> is
-        <code>"auto"</code> as required by this specification,
-        the algorithm for associating a font with a run of text
-        is implementation dependent.
-        The implemented font selection algorithm can therefore use a
-        different font for presentation than [[ttml2]]'s line height computation
-        algorithm selects, which could lead to unexpected results.
-      </aside>
-
+      <p class="note">In typical scenario, the same video program (the <a>Related Video Object</a>) will be used for <a>Document
+      Instance</a> authoring, delivery and user playback. The mapping from media time expression to <a>Related Video Object</a>
+      above allows the author to precisely associate subtitle video content with video frames, e.g. around scene transitions. In
+      circumstances where the video program is downsampled during delivery, the application can specify that, at playback, the
+      relative video object be considered the delivered video program upsampled to is original rate, thereby allowing subtitle
+      content to be rendered at the same temporal locations it was authored.</p>
     </section>
 
-      <section id="text-fontFamily-generic">
-        <h4><code>#fontFamily-generic</code></h4>
-
-        <p>In absence of specific instructions on the choice of font families, and in order to enhance reproducibility of line
-        fitting, authors are encouraged to use the <code>monospaceSerif</code> or <code>proportionalSansSerif</code> generic font
-        families, for which reference font metrics are defined at <a href="#reference-fonts"></a>.</p>
-
-        <p>If the computed value of <code>tts:fontFamily</code> is <code>"default"</code>, then the used value of
-        <code>tts:fontFamily</code> SHALL be <code>"monospaceSerif"</code>.</p>
-
-        <p class="note">The term <em>used value</em> is defined in CSS 2.1, as normatively referenced by [[ttml2]].</p>
-      </section>
-
-      <section id="text-fontFamily">
-        <h4><code>#fontFamily</code></h4>
-
-        <p><a>Linear white-space</a> SHOULD NOT appear between components of the specified value of
-        <code>tts:fontFamily</code>.</p>
-      </section>
-
-      <section id="text-length-negative">
-        <h4><code>#length-negative</code></h4>
-
-        <p>Strictly negative <code>length</code> expressions SHALL NOT be used with attributes other than:</p>
-
-        <ul>
-          <li><code>tts:disparity</code>; and</li>
-
-          <li><code>tts:textShadow</code>.</li>
-        </ul>
-
-        <aside class="note">
-          The provision above does not apply to the <code>tts:shear</code> attribute, whose value is a <code>percentage</code>
-          expression that accepts negative values.
-        </aside>
-      </section>
-
-      <section id="text-lineHeight">
-        <h4><code>#lineHeight</code></h4>
-
-        <p>The specified value of the <code>tts:lineHeight</code> attribute SHOULD be such that specified style set of each
-        <code>p</code> element contains a <code>tts:lineHeight</code> property whose value is not <code>normal</code>.</p>
-
-        <p class="note">Implementation of the <code>normal</code> value is not uniform at the time of this writing.</p>
-      </section>
-
-      <section id="text-origin">
-        <h4><code>#origin</code></h4>
-
-        <p>The value of the <code>tts:origin</code> attribute SHALL consist of two length expressions that use pixel (px) or percentage (%) units.</p>
-
-        <p>If the <code>tts:position</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
-        <code>tts:origin</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
-      </section>
-
-      <section id="text-position">
-        <h4><code>#position</code></h4>
-
-        <p>All <code>length</code> components of the value of a <code>tts:position</code> attribute SHALL use pixel (px), percentage (%) or root
-        container relative units.</p>
-
-        <p>If the <code>tts:origin</code> attribute is specified anywhere in a <a>Document Instance</a>, then the
-        <code>tts:position</code> attribute SHALL NOT be specified anywhere in that <a>Document Instance</a>.</p>
-      </section>
-
-      <section id="resources-constraints">
-        <h4><code>#resources</code></h4>
-
-        <p>The <code>resources</code> element SHALL not contain any of the following children elements:</p>
-
-        <ul>
-          <li><code>audio</code>;</li>
-          <li><code>data</code>; and</li>
-          <li><code>image</code>.</li>
-        </ul>
-      </section>
-
-      <section id="text-rubyAlign">
-        <h4><code>#rubyAlign</code></h4>
-
-        <p>The specified value of the <code>tts:rubyAlign</code> attribute SHALL be such that its computed value is
-        <code>center</code> or <code>spaceAround</code>.</p>
-      </section>
-
-      <section id="text-textOutline-unblurred">
-        <h4><code>#textOutline-unblurred</code></h4>
-
-        <p>The specified value of the <code>tts:textOutline</code> attribute SHALL be such that its computed value on any
-        <code>span</code> element is 10% or less than the computed value of <code>tts:fontSize</code> attribute on the same
-        element.</p>
-      </section>
-
-      <section id="text-textShadow">
-        <h4><code>#textShadow</code></h4>
-
-        <p>The specified value of the <code>tts:textShadow</code> attribute SHALL NOT have more than 4 <code>&lt;shadow&gt;</code>
-        values.</p>
-      </section>
-
-      <section id="text-linePadding">
-        <h4><code>ebutts:linePadding</code></h4>
-
-        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:linePadding</code> MAY be specified on the
-        following elements:</p>
-
-        <ul>
-          <li><code>region</code></li>
-
-          <li><code>body</code></li>
-
-          <li><code>div</code></li>
-
-          <li><code>p</code></li>
-
-          <li><code>initial</code></li>
-        </ul>
-
-        <p>The <a>processor</a>:</p>
-
-        <ul class="short-list">
-          <li>SHALL apply <code>ebutts:linePadding</code> to <code>p</code> only; and</li>
-
-          <li>SHALL treat <code>ebutts:linePadding</code> as inheritable.</li>
-        </ul>
-
-        <p class="note">The <code>ebutts:linePadding</code> attribute only supports <code>c</code> length units.</p>
-
-        <p class='note'>In contrast to this specification, [[EBU-TT-D]] specifies that the attribute
-        <code>ebutts:linePadding</code> is allowed only on the <code>style</code> element.</p>
-      </section>
-
-      <section id="text-multiRowAlign">
-        <h4><code>ebutts:multiRowAlign</code></h4>
-
-        <p>In addition to the <code>style</code> element, the attribute <code>ebutts:multiRowAlign</code> MAY be specified on the
-        following elements:</p>
-
-        <ul>
-          <li><code>region</code></li>
-
-          <li><code>body</code></li>
-
-          <li><code>div</code></li>
-
-          <li><code>p</code></li>
-
-          <li><code>initial</code></li>
-        </ul>
-
-        <p>The <a>processor</a>:</p>
-
-        <ul class="short-list">
-          <li>SHALL apply <code>ebutts:multiRowAlign</code> to <code>p</code> only; and</li>
-
-          <li>SHALL treat <code>ebutts:multiRowAlign</code> as inheritable.</li>
-        </ul>
-
-        <p class='note'>In contrast to this specification, [[EBU-TT-D]] specifies that the attribute
-        <code>ebutts:multiRowAlign</code> is allowed only on the <code>style</code> element.</p>
-      </section>
-
-      <section id="text-italic-shear-oblique" class="informative">
-          <h4>Slanted Japanese-language text</h4>
-
-          <p>Since (a) Japanese-language fonts typically do not include <em>italic</em> or <em>oblique</em> faces, and
-          (b) Japanese-language slanted vertical text consists of characters slanted in the vertical direction (and not
-          in the horizontal direction), it is recommended that <code>tts:shear</code> be specified to slant Japanese-language text
-          – instead of specifying <code>tts:fontStyle="italic"</code> or <code>tts:fontStyle="oblique"</code>.</p>
-      </section>
-
-      <section id="font-variant-constraints">
-        <h4><code>#fontVariant</code></h4>
-
-        <p>The computed value of the <code>tts:fontVariant</code> attribute SHALL be one of the
-        following:</p>
-        <ul class="short-list">
-          <li><code>normal</code>;</li>
-          <li><code>sub</code>; or</li>
-          <li><code>super</code>.</li>
-        </ul>
-      </section>
-
-      <section id="altText">
-        <h4><code>altText</code> named metadata item</h4>
-
-        <p>The <code>altText</code> named metadata item SHOULD NOT be present since
-        no image-based timed text information is used in a <a>Text Profile</a> <a>Document Instance</a>.</p>
-
-        <p>A <code>altText</code> named metadata item SHALL NOT be present in a <a>Document Instance</a> if any
-        <code>ittm:altText</code> element is also present.</p>
-      </section>
-
-      <section id="itm-altText">
-        <h4><code>#altText</code></h4>
-
-        <p>The <code>ittm:altText</code> element SHOULD NOT be present since no image-based timed text information is used in a
-        <a>Text Profile</a> <a>Document Instance</a>.</p>
-
-        <p>A <code>ittm:altText</code> element SHALL NOT be present in a <a>Document Instance</a> if any <code>altText</code> named
-        metadata item element is also present.</p>
-      </section>
-
-      <section id="aspectRatio">
-        <h4><code>#aspectRatio</code></h4>
-
-        <p>The <code>ittp:aspectRatio</code> attribute SHOULD NOT be present in a <a>Document Instance</a> unless compatibility
-        with [[ttml-imsc1.0.1]] processors is desired.</p>
-
-        <p>The <code>ittp:aspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
-        <code>ttp:displayAspectRatio</code> attribute is also present.</p>
-      </section>
-
-      <section id="displayAspectRatio">
-        <h4><code>#displayAspectRatio</code></h4>
-
-        <p>The <code>ttp:displayAspectRatio</code> attribute SHALL not be present in a <a>Document Instance</a> if any
-        <code>ittp:aspectRatio</code> attribute is also present.</p>
-      </section>
-
-      <section id="extent-root">
-        <h4><code>#extent-root</code></h4>
-
-        <p>If the <a>Document Instance</a> includes any length value that uses the <code>px</code> unit, <code>tts:extent</code>
-        SHALL be present on the <code>tt</code> element.</p>
-      </section>
-
-      <section id="frame-rate-constraints">
-        <h4><code>#frameRate</code></h4>
-
-        <p>If the <a>Document Instance</a> includes any clock time expression that uses the <code>frames</code> term or any offset
-        time expression that uses the <code>f</code> metric, the <code>ttp:frameRate</code> attribute SHALL be present on the
-        <code>tt</code> element.</p>
-      </section>
-
-      <section id="length-cell">
-        <h4><code>#length-cell</code></h4>
-
-        <p><code>c</code> units SHALL NOT be present outside of the value of <code>ebutts:linePadding</code>.</p>
-      </section>
-
-      <section id="length-root-container-relative">
-        <h4><code>#length-root-container-relative</code></h4>
-
-        <p>When specified on a <code>tts:extent</code> or <code>tts:position</code> attribute:</p>
-
-        <ul>
-          <li><code>rh</code> units SHALL NOT be used for horizontal length components; and</li>
-
-          <li><code>rw</code> units SHALL NOT be used for vertical length components.</li>
-        </ul>
-
-        <aside class="note">
-          The constraint above allows the dimensions and positions of regions to be validated according to <a href=
-          "#region-dim-pos"></a> without regard to the aspect ratio of the <a>Root Container Region</a>.
-        </aside>
-      </section>
-
-      <section id="tickRate">
-        <h4><code>#tickRate</code></h4>
-
-        <p><code>ttp:tickRate</code> SHALL be present on the <code>tt</code> element if the document contains any time expression
-        that uses the <code>t</code> metric.</p>
-      </section>
-
-      <section class="informative">
-        <h4><code>#timeBase-media</code></h4>
-
-        <p>[[ttml2]] specifies that the default timebase is <code>"media"</code> if <code>ttp:timeBase</code> is not specified on
-        <code>tt</code>.</p>
-      </section>
-
-      <section class="informative">
-        <h4><code>#time-clock-with-frames</code></h4>
-
-        <p>As specified in [[ttml2]], a <code>#time-clock-with-frames</code> expression is translated to a media time M according
-        to M = 3600 · hours + 60 · minutes + seconds + (frames ÷ (<code>ttp:frameRateMultiplier</code> ·
-        <code>ttp:frameRate</code>)).</p>
-      </section>
-
-      <section id="timing">
-        <h4><code>#timing</code></h4>
-
-        <p>For any content element that contains <code>br</code> elements or text nodes, both the <code>begin</code> attribute and
-        one of either the <code>end</code> or <code>dur</code> attributes SHOULD be specified on the content element or at least one
-        of its ancestors.</p>
-      </section>
-
-      <section class="informative">
-        <h4><code>usesForced</code> named metadata item</h4>
-
-        <p>The <code>usesForced</code> named metadata item does not apply since the <code>condition</code> attribute is
-        prohibited.</p>
-
-        <p>The <code>itts:forcedDisplay</code> attribute is used to specify forced content semantics.</p>
-      </section>
-
-      <section class="informative" id="zindex-constraints">
-        <h4><code>#zIndex</code></h4>
-
-        <p>This feature has no effect since, as specified at <a href='#region-dim-pos'></a>, <a data-lt=
-        "presented region">presented regions</a> do not overlap in a <a>Document Instance</a>.</p>
-      </section>
-    </section>
   </section>
 
   <section class='appendix' id="reference-fonts">
@@ -3848,19 +3850,28 @@ y = topOffset * (1 - height/100)
       <a>IMSC Extension</a> Namespace base URI.</p>
     </section>
 
-    <section class='appendix' id='feature-progressivelyDecodable'>
-      <h3>#progressivelyDecodable</h3>
 
-      <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in the
-      profiles defined by this specification.</p>
+    <section class='appendix' id='feature-activeArea'>
+      <h3>#activeArea</h3>
 
-      <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
-      capable of transforming values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
-      attribute.</p>
+      <p>A <a>transformation processor</a> supports the <code>#activeArea</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
 
-      <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
-      semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
-      attribute.</p>
+      <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic
+      support for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
+    </section>
+
+    <section class='appendix' id='feature-altText'>
+      <h3>#altText</h3>
+
+      <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
+      defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
+
+      <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
+      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix' id='feature-aspectRatio'>
@@ -3876,6 +3887,16 @@ y = topOffset * (1 - height/100)
       support for values of the <a href="#ittp-aspectRatio"><code>ittp:aspectRatio</code></a> attribute.</p>
     </section>
 
+    <section class='appendix' id='feature-fillLineGap'>
+      <h3>#fillLineGap</h3>
+
+      <p>A <a>transformation processor</a> supports the <code>#fillLineGap</code> feature if it recognizes and is capable of
+      transforming values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+
+      <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic
+      support for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+    </section>
+
     <section class='appendix' id='feature-forcedDisplay'>
       <h3>#forcedDisplay</h3>
 
@@ -3884,19 +3905,6 @@ y = topOffset * (1 - height/100)
 
       <p>A <a>presentation processor</a> supports the <code>#forcedDisplay</code> feature if it implements presentation semantic
       support for values of the <a href="#itts-forcedDisplay"><code>itts:forcedDisplay</code></a> attribute.</p>
-    </section>
-
-    <section class='appendix' id='feature-altText'>
-      <h3>#altText</h3>
-
-      <p class="deprecation">The <code>#altText</code> feature is designated as <em>permitted-deprecated</em> in the profiles
-      defined by this specification. The <code>altText</code> named metadata item provides equivalent semantics.</p>
-
-      <p>A <a>transformation processor</a> supports the <code>#altText</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
-
-      <p>A <a>presentation processor</a> supports the <code>#altText</code> feature if it implements presentation semantic support
-      for values of the <a href="#ittm-altText"><code>ittm:altText</code></a> element.</p>
     </section>
 
     <section class='appendix' id='feature-linePadding'>
@@ -3919,24 +3927,19 @@ y = topOffset * (1 - height/100)
       support for values of the <code>ebutts:multiRowAlign</code> attribute specified in [[!EBU-TT-D]].</p>
     </section>
 
-    <section class='appendix' id='feature-activeArea'>
-      <h3>#activeArea</h3>
+    <section class='appendix' id='feature-progressivelyDecodable'>
+      <h3>#progressivelyDecodable</h3>
 
-      <p>A <a>transformation processor</a> supports the <code>#activeArea</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
+      <p class="deprecation">The <code>#progressivelyDecodable</code> feature is designated as <em>permitted-deprecated</em> in the
+      profiles defined by this specification.</p>
 
-      <p>A <a>presentation processor</a> supports the <code>#activeArea</code> feature if it implements presentation semantic
-      support for values of the <a href="#ittp-activeArea"><code>ittp:activeArea</code></a> attribute.</p>
-    </section>
+      <p>A <a>transformation processor</a> supports the <code>#progressivelyDecodable</code> feature if it recognizes and is
+      capable of transforming values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      attribute.</p>
 
-    <section class='appendix' id='feature-fillLineGap'>
-      <h3>#fillLineGap</h3>
-
-      <p>A <a>transformation processor</a> supports the <code>#fillLineGap</code> feature if it recognizes and is capable of
-      transforming values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
-
-      <p>A <a>presentation processor</a> supports the <code>#fillLineGap</code> feature if it implements presentation semantic
-      support for values of the <a href="#itts-fillLineGap"><code>itts:fillLineGap</code></a> attribute.</p>
+      <p>A <a>presentation processor</a> supports the <code>#progressivelyDecodable</code> feature if it implements presentation
+      semantic support for values of the <a href="#ittp-progressivelyDecodable"><code>ittp:progressivelyDecodable</code></a>
+      attribute.</p>
     </section>
   </section>
 
