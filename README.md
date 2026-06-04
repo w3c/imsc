@@ -15,11 +15,11 @@ See the [ttml-imsc cover page](https://www.w3.org/TR/ttml-imsc/all).
 
 ## Versions
 
-### IMSC 1.3 (in development)
+### IMSC 1.3
 
 * [publication history](https://www.w3.org/standards/history/ttml-imsc1.3/)
-* [draft](https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html)
-* [issues](https://github.com/w3c/imsc/labels/imsc1.3)
+* [release](https://www.w3.org/TR/2026/REC-ttml-imsc1.3-20260521/)
+* [changelog](https://www.w3.org/TR/2026/REC-ttml-imsc1.3-20260521/#substantive-changes-summary)
 
 ### IMSC 1.2
 
