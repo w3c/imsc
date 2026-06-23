@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head data-githubrepo="w3c/imsc">
+    <meta charset="UTF-8">
+    <title>Open Errata for IMSC 1.1</title>
+    <link rel="stylesheet" type="text/css" href="errata.css"/>
+  <!--
+    The data-githubrepo attribute provides the owner/repo name on github. For W3C repositories most of those are of the
+    form 'w3c/XXX', although there are groups that have their own owner for their repository.
+  -->
+  <!--
+    This page was originally  built with JS and github API, removing all script tags to turn into static page after IMSC 1.3 release.
+  -->
+
+    <style type="text/css">
+      .todo {
+        background-color: yellow
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="banner"><a accesskey="W" href="/"><img width="72" height="48" alt="W3C" src="https://www.w3.org/Icons/w3c_home" /></a> </p>
+      <br />
+      <h1 class="title">Open Errata for IMSC 1.1</h1>
+      <dl>
+        <dt>Latest errata update:</dt>
+        <dd><span id="date">Friday, March 27th 2026</span></dd>
+        <dt>Number of recorded errata:</dt>
+        <dd><span id="number">4</span></dd>
+        <dt>Link to all errata:</dt>
+        <dd><span id="errata_link">https://github.com/w3c/imsc/labels/Errata</span></dd>
+      </dl>
+
+      <section data-notoc>
+        <h1>How to Submit an Erratum?</h1>
+        <p>Errata are introduced and stored in the <a href="https://github.com/w3c/imsc/issues/">issue list of the group‘s GitHub repository</a>. The workflow to add a new erratum is as follows:</p>
+        <ul>
+           <li>An issue is raised for a possible erratum. The label of the issue SHOULD be set to “<code>ErratumRaised</code>”. It is o.k. for an erratum to have several labels. In some, exceptional, cases, i.e., when the erratum is very general, it is also acceptable not to have a reference to a document.</li>
+           <li>Issues labeled as “<code>Editorial</code>” are displayed separately, to make it easier to differentiate editorial errata from substantive ones.</li>
+          <li>The community discusses the issue. If it is accepted as a genuine erratum, the label “<code>Errata</code>” is added to the entry and the “<code>ErratumRaised</code>” label should be removed. Additionally, a new comment on the issue MAY be added, beginning with the word "Summary:" (if such a summary is useful based on the discussion).</li>
+          <li>If the community rejects the issue as an erratum, the issue should be closed.</li>
+          <li>Each errata may be labelled as “<code>Editorial</code>”; editorial errata are listed separately from the substantive ones.</li>
+          <li>ALL substantive errata are generally expected to have corresponding test(s) (such as a pull request in <a href='https://github.com/web-platform-tests/wpt'>web-platform-tests</a>), either in the form of new tests or modifications to existing tests, or must include the rationale for why test updates are not required for the erratum.</li>
+      </ul>
+
+        <p>This report contains a reference to all open issues with the label <code>Errata</code>, displayed in the sections below. Each section collects the issues for a specific document, with a separate section for the issues not assigned to any.</p>
+
+        <p>If you have problems following this process, but you want nevertheless to report an error, you can also contact the staff contact of the Working Group, <a href="mailto:atsushi@w3.org">Atsushi Shimono</a>.</p>
+
+        <p>Note: Following <a href="https://www.w3.org/TR/2026/REC-ttml-imsc1.3-20260521/">publication of IMSC 1.3 as Recommendation</a>, this errata page has been turned into manually edited but not dynamically updated using data from GitHub.</p>
+      </section>
+    </header>
+
+    <div class="toc" id="toc">
+      <h2 id="toctitle" class="tocvisible">Table of content</h2>
+      <ul class="toc toclevel2">
+        <li><span class="tocnumber tocvisible">1. </span><a href="#id_1">Open Errata on the “TTML Profiles for Internet Media Subtitles and Captions 1.1” Recommendation</a>
+          <ul class="toc toclevel2">
+            <li><span class="tocnumber">1.1. </span><a href="#id_1.1">Substantive Issues</a></li>
+            <li><span class="tocnumber">1.2. </span><a href="#id_1.2">Editorial Issues</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <main>
+      <!-- The data-erratalabel should include one label that filters the errata -->
+      <section data-errata-label='imsc1.1'>
+        <h1>Open Errata on the “TTML Profiles for Internet Media Subtitles and Captions 1.1” Recommendation</h1>
+        <dl>
+          <dt>Latest Published Version:</dt>
+          <dd><a href="https://www.w3.org/TR/ttml-imsc1.1/">https://www.w3.org/TR/ttml-imsc1.1/</a></dd>
+          <dt>Editor’s draft:</dt>
+          <dd><a href="https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html">https://w3c.github.io/imsc/imsc1/spec/ttml-ww-profiles.html</a></dd>
+          <dt>Latest Publication Date:</dt>
+          <dd>8 November 2018, edited in place 27 April 2020</dd>
+      </dl>
+        <section id="first">
+          <h2>Substantive Issues</h2>
+        </section>
+        <section id="last">
+          <h2>Editorial Issues</h2>
+          <div class="issue">
+            <h3>"Errata on non-prohibition of partially supported features"</h3>
+            <p><span class="what">Issue number:</span> <a href="https://github.com/w3c/imsc/issues/500">#500</a><br>
+              <span class="what">Raised by:</span><a href="https://api.github.com/users/palemieux">@palemieux</a><br>
+              <span class="what">Extra Labels:</span> imsc1.1<br></p><p><span class="what"><a href="https://github.com/w3c/imsc/issues/500">Initial description:</a></span> See https://github.com/w3c/imsc/issues/488</p>
+            <p><span class="what"><a href="https://github.com/w3c/imsc/issues/500#issuecomment-562895784">Erratum summary:</a></span>
+              The following paragraph is added to Section 4:
+              &gt; A Feature or  Extension designated as _partially supported_ is neither completely _prohibited_ nor
+              &gt; completely _permitted_. Instead, the disposition of each of its subset _Feature_ or _Extension_ is specified
+              &gt; individually.
+            </p>
+          </div>
+          <div class="issue">
+            <h3>"Errata to correct disposition of #bidi in IMSC 1.1"</h3>
+            <p><span class="what">Issue number:</span> <a href="https://github.com/w3c/imsc/issues/498">#498</a><br>
+              <span class="what">Raised by:</span><a href="https://api.github.com/users/palemieux">@palemieux</a><br>
+              <span class="what">Extra Labels:</span> imsc1.1<br></p><p><span class="what"><a href="https://github.com/w3c/imsc/issues/498">Initial description:</a></span> See https://github.com/w3c/imsc/issues/491</p>
+            <p><span class="what"><a href="https://github.com/w3c/imsc/issues/498#issuecomment-562895537">Erratum summary:</a></span>  The disposition of the `#bidi` feature in the _Image Profile_ is modified to:
+            _Partially supported via `#writingMode-horizontal`_</p>
+          </div>
+          <div class="issue">
+            <h3>"Incompatible SMPTE ST 2052-1:2013 extension namespace name"</h3>
+            <p><span class="what">Issue number:</span> <a href="https://github.com/w3c/imsc/issues/512">#512</a><br>
+              <span class="what">Raised by:</span><a href="https://api.github.com/users/palemieux">@palemieux</a><br>
+              <span class="what">Extra Labels:</span> imsc1.1<br></p>
+            <p><span class="what"><a href="https://github.com/w3c/imsc/issues/512">Initial description:</a></span> SMPTE ST 2052-1:2013 (SMPTE-TT) modified the extension namespace name originally defined in SMPTE ST 2052-1:2010, from `http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt` to `http://www.smpte-ra.org/schemas/2052-1/2013/smpte-tt`. [ed.: It is not clear why this change was made.]
+            IMSC 1.0.1 and IMSC 1.1 use `http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt` exclusively for the smpte:backgroundImage attribute.
+            IMSC 1.0.1 references undated SMPTE ST 2052-1.
+            IMSC 1.1 references SMPTE ST 2052-1:2013.</p><p><span class="what"><a href="https://github.com/w3c/imsc/issues/512#issuecomment-562895873">Erratum summary:</a></span> 
+            The normative reference:
+            &gt; SMPTE ST 2052-1:2013 "Timed Text Format (SMPTE-TT)". SMPTE. URL: https://doi.org/10.5594/SMPTE.ST2052-1.2013
+            is modified to read:
+            &gt; SMPTE ST 2052-1:2010 "Timed Text Format (SMPTE-TT)". SMPTE. URL: https://doi.org/10.5594/SMPTE.ST2052-1.2010</p>
+          </div>
+          <div class="issue">
+            <h3>"#extent-root implies support for #extent-auto"</h3>
+            <p><span class="what">Issue number:</span> <a href="https://github.com/w3c/imsc/issues/489">#489</a><br>
+              <span class="what">Raised by:</span><a href="https://api.github.com/users/skynavga">@skynavga</a><br>
+              <span class="what">Extra Labels:</span> imsc1.1<br></p>
+            <p><span class="what"><a href="https://github.com/w3c/imsc/issues/489">Initial description:</a></span> IMSC1.0 specifies that #extent-root is permitted, and #extent-root implies support for #extent-auto (see note in TTML2 §E.1.92); however, IMSC1.1 does not include #extent-auto in §6, which would mean that #extent-auto is prohibited in IMSC1.1. This makes IMSC1.1 incompatible with both IMSC1.0 and TTML2 regarding the semantics of #extent-root.</p>
+            <p><span class="what"><a href="https://github.com/w3c/imsc/issues/489#issuecomment-562895235">Erratum summary:</a></span>  
+            &gt; 8.4.2 #extent-region
+            &gt; The tts:extent attribute SHALL be present on all region elements, where it SHALL use px units, percentage values, or root container relative units.
+            is replaced with:
+            &gt; 8.4.2 #extent-region
+            &gt; For each region element defined in the Document Instance, the [specified value](https://www.w3.org/TR/ttml2/#semantics-style-resolved-value-category-specified) of the tts:extent style property SHALL consist of two length expressions
+            &gt; that use pixel (px), percentage (%), or root container relative units.
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <address><a href="mailto:pal@sandflow.com" class=''>Atsushi Shimono</a>, &lt;atsushi@w3.org&gt;, (W3C)</address>
+      <p class="copyright">
+        <a href="https://www.w3.org/policies/#copyright">Copyright</a>
+        ©
+        2026
+        <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+        <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
+        <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>,
+        <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C Document License">document use</a> rules apply.
+      </p>
+    </footer>
+  </body>
+</html>
